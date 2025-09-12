@@ -69,8 +69,64 @@ def get_account_total_value():
     
     return total_value, currency
 
-def update_universe_json(account_value):
-    """Add account total value to the top of universe.json file"""
+def calculate_stock_quantities(universe_data, account_value):
+    """Calculate EUR prices and quantities for all stocks based on account value and target allocations"""
+    print("Calculating stock quantities...")
+    
+    total_stocks_processed = 0
+    
+    # Process all stock categories
+    stock_categories = ["screens", "all_stocks"] if "all_stocks" in universe_data else ["screens"]
+    
+    for category in stock_categories:
+        if category == "screens":
+            # Process each screen
+            for screen_name, screen_data in universe_data["screens"].items():
+                if "stocks" in screen_data:
+                    for stock in screen_data["stocks"]:
+                        calculate_stock_fields(stock, account_value)
+                        total_stocks_processed += 1
+        
+        elif category == "all_stocks":
+            # Process all_stocks category
+            for stock in universe_data["all_stocks"]:
+                calculate_stock_fields(stock, account_value)
+                total_stocks_processed += 1
+    
+    print(f"Processed {total_stocks_processed} stocks with quantity calculations")
+    return total_stocks_processed
+
+def calculate_stock_fields(stock, account_value):
+    """Calculate EUR price, target value, and quantity for a single stock"""
+    try:
+        # Get stock price and exchange rate
+        price = float(stock.get("price", 0))
+        eur_exchange_rate = float(stock.get("eur_exchange_rate", 1))
+        final_target = float(stock.get("final_target", 0))
+        
+        # Calculate EUR equivalent price
+        eur_price = price / eur_exchange_rate
+        
+        # Calculate target value in EUR
+        target_value_eur = account_value * final_target
+        
+        # Calculate quantity (shares to buy)
+        quantity = target_value_eur / eur_price if eur_price > 0 else 0
+        
+        # Add new fields to the stock
+        stock["eur_price"] = round(eur_price, 6)
+        stock["target_value_eur"] = round(target_value_eur, 2)
+        stock["quantity"] = int(round(quantity))
+        
+    except (ValueError, TypeError, ZeroDivisionError) as e:
+        # Handle missing or invalid data
+        stock["eur_price"] = 0
+        stock["target_value_eur"] = 0
+        stock["quantity"] = 0
+        print(f"Warning: Error calculating for {stock.get('ticker', 'Unknown')}: {e}")
+
+def update_universe_json(account_value, currency):
+    """Add account total value and calculate stock quantities in universe.json"""
     universe_path = Path(__file__).parent.parent / "data" / "universe.json"
     
     if not universe_path.exists():
@@ -85,15 +141,19 @@ def update_universe_json(account_value):
         # Add account value at the top level
         universe_data["account_total_value"] = {
             "value": account_value,
-            "currency": "USD",
+            "currency": currency,
             "timestamp": time.strftime("%Y-%m-%d %H:%M:%S")
         }
+        
+        # Calculate stock quantities for all stocks
+        stocks_processed = calculate_stock_quantities(universe_data, account_value)
         
         # Write back to file
         with open(universe_path, 'w', encoding='utf-8') as f:
             json.dump(universe_data, f, indent=2, ensure_ascii=False)
         
         print(f"Updated universe.json with account value: ${account_value:,.2f}")
+        print(f"Added quantity calculations for {stocks_processed} stocks")
         return True
         
     except Exception as e:
@@ -105,14 +165,14 @@ def main():
     print("Starting quantity calculator...")
     
     # Get account total value from IBKR
-    account_value = get_account_total_value()
+    account_value, currency = get_account_total_value()
     
-    if account_value is None:
+    if account_value is None or currency is None:
         print("Failed to get account value from IBKR")
         return
     
     # Update universe.json with the account value
-    success = update_universe_json(account_value)
+    success = update_universe_json(account_value, currency)
     
     if success:
         print("Successfully updated universe.json with account total value")
