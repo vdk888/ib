@@ -82,16 +82,23 @@ def calculate_stock_quantities(universe_data, account_value):
         if category == "screens":
             # Process each screen
             for screen_name, screen_data in universe_data["screens"].items():
-                if "stocks" in screen_data:
+                print(f"Processing screen: {screen_name}")
+                if isinstance(screen_data, dict) and "stocks" in screen_data:
                     for stock in screen_data["stocks"]:
-                        calculate_stock_fields(stock, account_value)
-                        total_stocks_processed += 1
+                        if isinstance(stock, dict):  # Make sure it's a stock dictionary
+                            calculate_stock_fields(stock, account_value)
+                            total_stocks_processed += 1
+                        else:
+                            print(f"Warning: Non-dict stock found in {screen_name}: {stock}")
+                else:
+                    print(f"Warning: Screen {screen_name} has no stocks or is not a dict: {type(screen_data)}")
         
         elif category == "all_stocks":
             # Process all_stocks category
             for stock in universe_data["all_stocks"]:
-                calculate_stock_fields(stock, account_value)
-                total_stocks_processed += 1
+                if isinstance(stock, dict):  # Make sure it's a stock dictionary
+                    calculate_stock_fields(stock, account_value)
+                    total_stocks_processed += 1
     
     print(f"Processed {total_stocks_processed} stocks with quantity calculations")
     return total_stocks_processed
