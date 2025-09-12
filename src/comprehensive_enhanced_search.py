@@ -463,7 +463,9 @@ def process_all_universe_stocks():
         print(f"\n[{i}/{len(unique_stocks)}] Processing: {stock['name']} ({ticker})")
         
         # Search for the stock
-        match, score = comprehensive_stock_search(app, stock, verbose=False)
+        # Debug for L'Oréal specifically
+        debug = ticker == "OR.PA"
+        match, score = comprehensive_stock_search(app, stock, verbose=debug)
         
         if match and score > 0.5:
             # Determine search method

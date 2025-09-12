@@ -77,6 +77,13 @@ def calculate_stock_quantities(universe_data, account_value):
     minimal_allocation_count = 0
     meaningful_allocation_count = 0
     
+    # Get screen allocations from portfolio optimization
+    screen_allocations = {}
+    if ("metadata" in universe_data and 
+        "portfolio_optimization" in universe_data["metadata"] and 
+        "optimal_allocations" in universe_data["metadata"]["portfolio_optimization"]):
+        screen_allocations = universe_data["metadata"]["portfolio_optimization"]["optimal_allocations"]
+    
     # Process all stock categories
     stock_categories = ["screens", "all_stocks"] if "all_stocks" in universe_data else ["screens"]
     
@@ -86,9 +93,12 @@ def calculate_stock_quantities(universe_data, account_value):
             for screen_name, screen_data in universe_data["screens"].items():
                 print(f"Processing screen: {screen_name}")
                 if isinstance(screen_data, dict) and "stocks" in screen_data:
+                    # Get the correct screen allocation for this screen
+                    screen_allocation = screen_allocations.get(screen_name, 0)
+                    
                     for stock in screen_data["stocks"]:
                         if isinstance(stock, dict):  # Make sure it's a stock dictionary
-                            calculate_stock_fields(stock, account_value)
+                            calculate_stock_fields(stock, account_value, screen_allocation)
                             total_stocks_processed += 1
                             
                             # Count allocation types
@@ -107,7 +117,8 @@ def calculate_stock_quantities(universe_data, account_value):
             print(f"Processing all_stocks category")
             for ticker, stock in universe_data["all_stocks"].items():
                 if isinstance(stock, dict):  # Make sure it's a stock dictionary
-                    calculate_stock_fields(stock, account_value)
+                    # For all_stocks, use the stored final_target
+                    calculate_stock_fields(stock, account_value, None)
                     total_stocks_processed += 1
                 else:
                     print(f"Warning: Non-dict stock found in all_stocks: {ticker}: {stock}")
@@ -117,13 +128,26 @@ def calculate_stock_quantities(universe_data, account_value):
     print(f"  - {minimal_allocation_count} stocks with minimal allocations (<1e-10)")
     return total_stocks_processed
 
-def calculate_stock_fields(stock, account_value):
+def calculate_stock_fields(stock, account_value, screen_allocation=None):
     """Calculate EUR price, target value, and quantity for a single stock"""
     try:
         # Get stock price and exchange rate
         price = float(stock.get("price", 0))
         eur_exchange_rate = float(stock.get("eur_exchange_rate", 1))
-        final_target = float(stock.get("final_target", 0))
+        
+        # Calculate final_target based on context
+        if screen_allocation is not None:
+            # We're in a screen context - calculate final_target using this screen's allocation
+            allocation_target = float(stock.get("allocation_target", 0))
+            final_target = allocation_target * screen_allocation
+            # Update the screen_target field to reflect the current screen
+            stock["screen_target"] = screen_allocation
+        else:
+            # We're in all_stocks context - use the stored final_target
+            final_target = float(stock.get("final_target", 0))
+        
+        # Update the final_target in the stock
+        stock["final_target"] = final_target
         
         # Calculate EUR equivalent price
         eur_price = price / eur_exchange_rate
@@ -142,6 +166,9 @@ def calculate_stock_fields(stock, account_value):
         # Add a flag for very small allocations for transparency
         if final_target < 1e-10 and final_target > 0:
             stock["allocation_note"] = "minimal_allocation"
+        elif "allocation_note" in stock:
+            # Remove the note if allocation is no longer minimal
+            del stock["allocation_note"]
         
     except (ValueError, TypeError, ZeroDivisionError) as e:
         # Handle missing or invalid data
