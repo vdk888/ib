@@ -49,10 +49,10 @@ def get_current_stocks(user_id=None, query_name=None, max_results=200):
             # Save raw CSV response to file with screen name prefix
             # Replace spaces with underscores for filename
             safe_query_name = query_name.replace(' ', '_').replace('/', '_')
-            csv_filename = f"files_exports/{safe_query_name}_current_screen.csv"
+            csv_filename = f"data/files_exports/{safe_query_name}_current_screen.csv"
             
-            # Ensure the files_exports directory exists
-            os.makedirs("files_exports", exist_ok=True)
+            # Ensure the data/files_exports directory exists
+            os.makedirs("data/files_exports", exist_ok=True)
             
             try:
                 with open(csv_filename, 'w', encoding='utf-8') as f:
@@ -133,10 +133,10 @@ def get_screener_history(user_id=None, query_name=None):
             # Save raw CSV response to file with consistent naming
             # Replace spaces with underscores for filename
             safe_query_name = query_name.replace(' ', '_').replace('/', '_')
-            csv_filename = f"files_exports/{safe_query_name}_backtest_results.csv"
+            csv_filename = f"data/files_exports/{safe_query_name}_backtest_results.csv"
             
-            # Ensure the files_exports directory exists
-            os.makedirs("files_exports", exist_ok=True)
+            # Ensure the data/files_exports directory exists
+            os.makedirs("data/files_exports", exist_ok=True)
             
             try:
                 with open(csv_filename, 'w', encoding='utf-8') as f:

@@ -75,7 +75,7 @@ def create_universe():
     for screen_key, screen_name in UNCLE_STOCK_SCREENS.items():
         # Find the corresponding CSV file
         safe_name = screen_name.replace(' ', '_').replace('/', '_')
-        csv_path = f"files_exports/{safe_name}_current_screen.csv"
+        csv_path = f"data/files_exports/{safe_name}_current_screen.csv"
         
         if os.path.exists(csv_path):
             print(f"Parsing {screen_name} from {csv_path}...")
@@ -121,7 +121,7 @@ def create_universe():
     
     return universe
 
-def save_universe(universe, output_path='universe.json'):
+def save_universe(universe, output_path='data/universe.json'):
     """
     Save universe data to JSON file
     
@@ -158,9 +158,9 @@ def main():
     print("Parsing Uncle Stock screener CSV files")
     print("=" * 50)
     
-    # Check if files_exports directory exists
-    if not os.path.exists('files_exports'):
-        print("Error: files_exports directory not found")
+    # Check if data/files_exports directory exists
+    if not os.path.exists('data/files_exports'):
+        print("Error: data/files_exports directory not found")
         print("Please run screener.py first to fetch the CSV files")
         return
     

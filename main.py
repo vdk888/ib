@@ -4,9 +4,12 @@ Main entry point for Uncle Stock API screener
 """
 
 import sys
-from screener import get_all_screeners, get_all_screener_histories
-from parser import create_universe, save_universe
-from config import UNCLE_STOCK_SCREENS
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
+
+from src.screener import get_all_screeners, get_all_screener_histories
+from src.parser import create_universe, save_universe
+from src.config import UNCLE_STOCK_SCREENS
 
 def step1_fetch_data():
     """Step 1: Fetch current stocks and backtest history from all screeners"""
@@ -52,7 +55,7 @@ def step1_fetch_data():
             print(f"  ✗ History: Failed - {history_result.get('data', 'Unknown error')}")
     
     print(f"\nTotal stocks across all screeners: {total_stocks}")
-    print("Step 1 complete - CSV files saved to files_exports/")
+    print("Step 1 complete - CSV files saved to data/files_exports/")
     return True
 
 def step2_parse_data():
@@ -83,7 +86,7 @@ def run_all_steps():
             print("\n" + "=" * 60)
             print("ALL STEPS COMPLETE")
             print("Files created:")
-            print("  - CSV files in files_exports/")
+            print("  - CSV files in data/files_exports/")
             print("  - universe.json with parsed stock data")
         else:
             print("Step 1 failed - stopping pipeline")
