@@ -69,10 +69,10 @@ class IBOrderExecutor(EWrapper, EClient):
 class OrderExecutor:
     def __init__(self, orders_file: str = "orders.json"):
         import os
-        # If relative path, make it relative to data/files_exports directory
+        # If relative path, make it relative to data directory
         if not os.path.isabs(orders_file):
             project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            self.orders_file = os.path.join(project_root, "data", "files_exports", orders_file)
+            self.orders_file = os.path.join(project_root, "data", orders_file)
         else:
             self.orders_file = orders_file
         self.orders_data = None
@@ -306,9 +306,9 @@ def main():
     
     # Create and run executor
     import os
-    # Default to orders.json in data/files_exports
+    # Default to orders.json in data directory
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    orders_file = os.path.join(project_root, "data", "files_exports", "orders.json")
+    orders_file = os.path.join(project_root, "data", "orders.json")
     executor = OrderExecutor(orders_file)
     success = executor.run_execution(max_orders, delay)
     

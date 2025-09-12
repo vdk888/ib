@@ -314,10 +314,10 @@ class PortfolioRebalancer:
     def save_orders_json(self, output_file: str = "orders.json"):
         """Save orders to JSON file"""
         import os
-        # Save to data/files_exports directory
+        # Save to data directory
         if not os.path.isabs(output_file):
             project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            output_file = os.path.join(project_root, "data", "files_exports", output_file)
+            output_file = os.path.join(project_root, "data", output_file)
             
         # Ensure the directory exists
         os.makedirs(os.path.dirname(output_file), exist_ok=True)
@@ -368,7 +368,7 @@ class PortfolioRebalancer:
             
             print("\n" + "=" * 50)
             print("[SUCCESS] Rebalancing analysis complete!")
-            print(f"   Orders saved to 'data/files_exports/orders.json'")
+            print(f"   Orders saved to 'data/orders.json'")
             print("   Review the orders before executing them.")
             
         except Exception as e:

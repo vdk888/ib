@@ -321,7 +321,7 @@ def run_all_steps():
                                             print("  - CSV files in data/files_exports/")
                                             print("  - universe.json with complete stock data, portfolio optimization, allocations, and quantities")
                                             print("  - universe_with_ibkr.json with IBKR identification details")
-                                            print("  - data/files_exports/orders.json with rebalancing orders ready for execution")
+                                            print("  - data/orders.json with rebalancing orders ready for execution")
                                             print("\nPortfolio rebalancing complete!")
                                         else:
                                             print("Step 9 failed - stopping pipeline")
