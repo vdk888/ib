@@ -9,6 +9,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
 from src.screener import get_all_screeners, get_all_screener_histories
 from src.parser import create_universe, save_universe
+from src.history_parser import update_universe_with_history
 from src.config import UNCLE_STOCK_SCREENS
 
 def step1_fetch_data():
@@ -40,19 +41,19 @@ def step1_fetch_data():
         if stocks_result.get('success'):
             stock_count = len(stocks_result['data'])
             total_stocks += stock_count
-            print(f"  ✓ Stocks: {stock_count} found")
+            print(f"  + Stocks: {stock_count} found")
             print(f"    First 5: {stocks_result['data'][:5]}")
             if 'csv_file' in stocks_result:
                 print(f"    CSV: {stocks_result['csv_file']}")
         else:
-            print(f"  ✗ Stocks: Failed - {stocks_result.get('data', 'Unknown error')}")
+            print(f"  X Stocks: Failed - {stocks_result.get('data', 'Unknown error')}")
         
         if history_result.get('success'):
-            print(f"  ✓ History: Retrieved")
+            print(f"  + History: Retrieved")
             if 'csv_file' in history_result:
                 print(f"    CSV: {history_result['csv_file']}")
         else:
-            print(f"  ✗ History: Failed - {history_result.get('data', 'Unknown error')}")
+            print(f"  X History: Failed - {history_result.get('data', 'Unknown error')}")
     
     print(f"\nTotal stocks across all screeners: {total_stocks}")
     print("Step 1 complete - CSV files saved to data/files_exports/")
@@ -72,6 +73,21 @@ def step2_parse_data():
     print("Step 2 complete - universe.json created")
     return True
 
+def step3_parse_history():
+    """Step 3: Parse historical performance data and update universe.json"""
+    print("\nSTEP 3: Parsing historical performance data")
+    print("=" * 50)
+    
+    # Update universe.json with historical performance data
+    success = update_universe_with_history()
+    
+    if success:
+        print("Step 3 complete - universe.json updated with historical performance data")
+        return True
+    else:
+        print("Step 3 failed - could not update universe.json with historical data")
+        return False
+
 def run_all_steps():
     """Run all steps in sequence"""
     print("Uncle Stock Screener - Full Pipeline")
@@ -81,13 +97,17 @@ def run_all_steps():
         # Step 1: Fetch data
         if step1_fetch_data():
             # Step 2: Parse data
-            step2_parse_data()
-            
-            print("\n" + "=" * 60)
-            print("ALL STEPS COMPLETE")
-            print("Files created:")
-            print("  - CSV files in data/files_exports/")
-            print("  - universe.json with parsed stock data")
+            if step2_parse_data():
+                # Step 3: Parse historical data
+                step3_parse_history()
+                
+                print("\n" + "=" * 60)
+                print("ALL STEPS COMPLETE")
+                print("Files created:")
+                print("  - CSV files in data/files_exports/")
+                print("  - universe.json with parsed stock data and historical performance")
+            else:
+                print("Step 2 failed - stopping pipeline")
         else:
             print("Step 1 failed - stopping pipeline")
             
@@ -102,12 +122,15 @@ def show_help():
     print("\nAvailable steps:")
     print("  1, step1, fetch    - Fetch data from Uncle Stock API")
     print("  2, step2, parse    - Parse CSV files and create universe.json")
+    print("  3, step3, history  - Parse historical performance data")
     print("  all, full          - Run all steps (default)")
     print("  help, -h, --help   - Show this help")
     print("\nExamples:")
     print("  python main.py           # Run all steps")
     print("  python main.py 1         # Only fetch data")
     print("  python main.py parse     # Only parse existing CSV files")
+    print("  python main.py 3         # Only parse historical data")
+    print("  python main.py history   # Only parse historical data")
 
 def main():
     """Main function with command-line argument support"""
@@ -118,6 +141,8 @@ def main():
             step1_fetch_data()
         elif arg in ['2', 'step2', 'parse']:
             step2_parse_data()
+        elif arg in ['3', 'step3', 'history']:
+            step3_parse_history()
         elif arg in ['all', 'full']:
             run_all_steps()
         elif arg in ['help', '-h', '--help']:

@@ -193,9 +193,9 @@ def get_all_screeners():
         results[key] = result
         
         if result['success']:
-            print(f"✓ Found {len(result['data'])} stocks for {screen_name}")
+            print(f"+ Found {len(result['data'])} stocks for {screen_name}")
         else:
-            print(f"✗ Error fetching {screen_name}: {result['data']}")
+            print(f"X Error fetching {screen_name}: {result['data']}")
     
     return results
 
@@ -214,9 +214,9 @@ def get_all_screener_histories():
         results[key] = result
         
         if result['success']:
-            print(f"✓ Retrieved history for {screen_name}")
+            print(f"+ Retrieved history for {screen_name}")
         else:
-            print(f"✗ Error fetching history for {screen_name}: {result['data']}")
+            print(f"X Error fetching history for {screen_name}: {result['data']}")
     
     return results
 
