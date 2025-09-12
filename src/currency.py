@@ -99,7 +99,8 @@ def update_universe_with_exchange_rates(exchange_rates: Dict[str, float]) -> boo
         with open(universe_path, 'r', encoding='utf-8') as f:
             universe_data = json.load(f)
         
-        updated_stocks = 0
+        updated_stocks_screens = 0
+        updated_stocks_all = 0
         missing_rates = set()
         
         # Update each screen's stocks
@@ -110,15 +111,29 @@ def update_universe_with_exchange_rates(exchange_rates: Dict[str, float]) -> boo
                 if currency in exchange_rates:
                     # Add EUR exchange rate to stock
                     stock['eur_exchange_rate'] = exchange_rates[currency]
-                    updated_stocks += 1
+                    updated_stocks_screens += 1
                 else:
                     missing_rates.add(currency)
+        
+        # Update all_stocks
+        for ticker, stock in universe_data.get('all_stocks', {}).items():
+            currency = stock.get('currency')
+            
+            if currency in exchange_rates:
+                # Add EUR exchange rate to stock
+                stock['eur_exchange_rate'] = exchange_rates[currency]
+                updated_stocks_all += 1
+            else:
+                missing_rates.add(currency)
         
         # Save updated universe data
         with open(universe_path, 'w', encoding='utf-8') as f:
             json.dump(universe_data, f, indent=2, ensure_ascii=False)
         
-        print(f"+ Updated {updated_stocks} stocks with EUR exchange rates")
+        total_updated = updated_stocks_screens + updated_stocks_all
+        print(f"+ Updated {updated_stocks_screens} stocks in screens")
+        print(f"+ Updated {updated_stocks_all} stocks in all_stocks")
+        print(f"+ Total: {total_updated} stocks updated with EUR exchange rates")
         
         if missing_rates:
             print(f"X Warning: Missing exchange rates for currencies: {', '.join(sorted(missing_rates))}")
