@@ -20,6 +20,7 @@
           "currency": "AUD",
           "sector": "Basic Materials",
           "country": "Australia",
+          "price": 0.2,
           "screens": [
             "quality bloom"
           ]
@@ -31,6 +32,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 1047.0,
           "screens": [
             "quality bloom"
           ]
@@ -42,6 +44,7 @@
           "currency": "EUR",
           "sector": "Consumer Discretionary",
           "country": "France",
+          "price": 101.81,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -54,6 +57,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 468.36,
           "screens": [
             "quality bloom"
           ]
@@ -65,6 +69,7 @@
           "currency": "DKK",
           "sector": "Industrials",
           "country": "Denmark",
+          "price": 239.5,
           "screens": [
             "quality bloom"
           ]
@@ -76,6 +81,7 @@
           "currency": "AUD",
           "sector": "Consumer Discretionary",
           "country": "Australia",
+          "price": 0.51,
           "screens": [
             "quality bloom"
           ]
@@ -87,6 +93,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1586.0,
           "screens": [
             "quality bloom"
           ]
@@ -98,6 +105,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1789.0,
           "screens": [
             "quality bloom"
           ]
@@ -109,6 +117,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 699.03,
           "screens": [
             "quality bloom"
           ]
@@ -120,6 +129,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 4122.0,
           "screens": [
             "quality bloom"
           ]
@@ -131,6 +141,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 3720.0,
           "screens": [
             "quality bloom"
           ]
@@ -142,6 +153,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 15.55,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -154,6 +166,7 @@
           "currency": "JPY",
           "sector": "Basic Materials",
           "country": "Japan",
+          "price": 9888.0,
           "screens": [
             "quality bloom"
           ]
@@ -165,6 +178,7 @@
           "currency": "EUR",
           "sector": "Basic Materials",
           "country": "Germany",
+          "price": 30.87,
           "screens": [
             "quality bloom"
           ]
@@ -176,6 +190,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 3315.0,
           "screens": [
             "quality bloom"
           ]
@@ -187,6 +202,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1738.0,
           "screens": [
             "quality bloom"
           ]
@@ -198,6 +214,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 2347.0,
           "screens": [
             "quality bloom",
             "TOR Surplus",
@@ -211,6 +228,7 @@
           "currency": "GBP",
           "sector": "Consumer Staples",
           "country": "United Kingdom",
+          "price": 12.36,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -223,6 +241,7 @@
           "currency": "AUD",
           "sector": "Industrials",
           "country": "Australia",
+          "price": 12.16,
           "screens": [
             "quality bloom"
           ]
@@ -234,6 +253,7 @@
           "currency": "GBP",
           "sector": "Consumer Discretionary",
           "country": "United Kingdom",
+          "price": 3.33,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -246,6 +266,7 @@
           "currency": "JPY",
           "sector": "Basic Materials",
           "country": "Japan",
+          "price": 3810.0,
           "screens": [
             "quality bloom"
           ]
@@ -257,6 +278,7 @@
           "currency": "USD",
           "sector": "Consumer Discretionary",
           "country": "United States of America",
+          "price": 35.37,
           "screens": [
             "quality bloom"
           ]
@@ -268,6 +290,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1632.0,
           "screens": [
             "quality bloom"
           ]
@@ -279,6 +302,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 1115.0,
           "screens": [
             "quality bloom"
           ]
@@ -290,6 +314,7 @@
           "currency": "CAD",
           "sector": "Technology",
           "country": "Canada",
+          "price": 20.97,
           "screens": [
             "quality bloom"
           ]
@@ -301,6 +326,7 @@
           "currency": "GBP",
           "sector": "Technology",
           "country": "United Kingdom",
+          "price": 0.66,
           "screens": [
             "quality bloom"
           ]
@@ -312,6 +338,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1124.0,
           "screens": [
             "quality bloom"
           ]
@@ -323,6 +350,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 657.67,
           "screens": [
             "quality bloom"
           ]
@@ -334,6 +362,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 5466.0,
           "screens": [
             "quality bloom"
           ]
@@ -345,6 +374,7 @@
           "currency": "GBP",
           "sector": "Basic Materials",
           "country": "United Kingdom",
+          "price": 2.24,
           "screens": [
             "quality bloom"
           ]
@@ -356,6 +386,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 6208.0,
           "screens": [
             "quality bloom"
           ]
@@ -367,6 +398,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1570.0,
           "screens": [
             "quality bloom"
           ]
@@ -378,6 +410,7 @@
           "currency": "EUR",
           "sector": "Consumer Staples",
           "country": "Finland",
+          "price": 29.9,
           "screens": [
             "quality bloom",
             "Moat Companies"
@@ -390,6 +423,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 3011.0,
           "screens": [
             "quality bloom"
           ]
@@ -401,6 +435,7 @@
           "currency": "EUR",
           "sector": "Industrials",
           "country": "Germany",
+          "price": 67.5,
           "screens": [
             "quality bloom"
           ]
@@ -412,6 +447,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1525.0,
           "screens": [
             "quality bloom",
             "Moat Companies"
@@ -424,6 +460,7 @@
           "currency": "USD",
           "sector": "Consumer Discretionary",
           "country": "United States of America",
+          "price": 156.93,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -436,6 +473,7 @@
           "currency": "EUR",
           "sector": "Technology",
           "country": "Germany",
+          "price": 12.04,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -448,6 +486,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1098.0,
           "screens": [
             "quality bloom"
           ]
@@ -459,6 +498,7 @@
           "currency": "EUR",
           "sector": "Industrials",
           "country": "Finland",
+          "price": 9.93,
           "screens": [
             "quality bloom"
           ]
@@ -470,6 +510,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 2240.0,
           "screens": [
             "quality bloom"
           ]
@@ -481,6 +522,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 1883.0,
           "screens": [
             "quality bloom"
           ]
@@ -492,6 +534,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 3124.0,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -504,6 +547,7 @@
           "currency": "JPY",
           "sector": "Consumer Staples",
           "country": "Japan",
+          "price": 1194.0,
           "screens": [
             "quality bloom",
             "TOR Surplus",
@@ -517,6 +561,7 @@
           "currency": "SEK",
           "sector": "Consumer Discretionary",
           "country": "Sweden",
+          "price": 73.95,
           "screens": [
             "quality bloom"
           ]
@@ -528,6 +573,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1997.0,
           "screens": [
             "quality bloom"
           ]
@@ -539,6 +585,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1434.0,
           "screens": [
             "quality bloom"
           ]
@@ -550,6 +597,7 @@
           "currency": "SEK",
           "sector": "Consumer Discretionary",
           "country": "Sweden",
+          "price": 154.98,
           "screens": [
             "quality bloom"
           ]
@@ -561,6 +609,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 461.34,
           "screens": [
             "quality bloom"
           ]
@@ -572,6 +621,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 10.31,
           "screens": [
             "quality bloom"
           ]
@@ -583,6 +633,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1954.0,
           "screens": [
             "quality bloom"
           ]
@@ -594,6 +645,7 @@
           "currency": "USD",
           "sector": "Technology",
           "country": "United States of America",
+          "price": 83.28,
           "screens": [
             "quality bloom"
           ]
@@ -605,6 +657,7 @@
           "currency": "CHF",
           "sector": "Health Care",
           "country": "Switzerland",
+          "price": 57.23,
           "screens": [
             "quality bloom"
           ]
@@ -616,6 +669,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 3661.0,
           "screens": [
             "quality bloom"
           ]
@@ -627,6 +681,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 547.59,
           "screens": [
             "quality bloom"
           ]
@@ -638,6 +693,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 362.05,
           "screens": [
             "quality bloom"
           ]
@@ -649,6 +705,7 @@
           "currency": "USD",
           "sector": "Consumer Discretionary",
           "country": "United States of America",
+          "price": 6.38,
           "screens": [
             "quality bloom"
           ]
@@ -660,6 +717,7 @@
           "currency": "GBP",
           "sector": "Industrials",
           "country": "United Kingdom",
+          "price": 34.43,
           "screens": [
             "quality bloom"
           ]
@@ -671,6 +729,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 4052.0,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -683,6 +742,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 2012.0,
           "screens": [
             "quality bloom",
             "Moat Companies"
@@ -695,6 +755,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 11401.0,
           "screens": [
             "quality bloom"
           ]
@@ -706,6 +767,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 1859.0,
           "screens": [
             "quality bloom",
             "Moat Companies"
@@ -718,6 +780,7 @@
           "currency": "GBP",
           "sector": "Industrials",
           "country": "United Kingdom",
+          "price": 1.37,
           "screens": [
             "quality bloom"
           ]
@@ -729,6 +792,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 2438.0,
           "screens": [
             "quality bloom",
             "Moat Companies"
@@ -741,6 +805,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 4654.0,
           "screens": [
             "quality bloom"
           ]
@@ -752,6 +817,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 2608.0,
           "screens": [
             "quality bloom"
           ]
@@ -763,6 +829,7 @@
           "currency": "EUR",
           "sector": "Industrials",
           "country": "France",
+          "price": 75.29,
           "screens": [
             "quality bloom",
             "Moat Companies"
@@ -775,6 +842,7 @@
           "currency": "JPY",
           "sector": "Consumer Staples",
           "country": "Japan",
+          "price": 2122.0,
           "screens": [
             "quality bloom"
           ]
@@ -786,6 +854,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1479.0,
           "screens": [
             "quality bloom"
           ]
@@ -797,6 +866,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 2923.0,
           "screens": [
             "quality bloom"
           ]
@@ -808,6 +878,7 @@
           "currency": "AUD",
           "sector": "Industrials",
           "country": "Australia",
+          "price": 2.59,
           "screens": [
             "quality bloom"
           ]
@@ -819,6 +890,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 2124.0,
           "screens": [
             "quality bloom"
           ]
@@ -830,6 +902,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 3460.0,
           "screens": [
             "quality bloom"
           ]
@@ -841,6 +914,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1740.0,
           "screens": [
             "quality bloom",
             "Moat Companies"
@@ -853,6 +927,7 @@
           "currency": "EUR",
           "sector": "Telecommunications",
           "country": "Belgium",
+          "price": 33.2,
           "screens": [
             "quality bloom"
           ]
@@ -864,6 +939,7 @@
           "currency": "EUR",
           "sector": "Technology",
           "country": "France",
+          "price": 40.71,
           "screens": [
             "quality bloom"
           ]
@@ -875,6 +951,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1537.0,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -887,6 +964,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1419.0,
           "screens": [
             "quality bloom"
           ]
@@ -898,6 +976,7 @@
           "currency": "SEK",
           "sector": "Technology",
           "country": "Sweden",
+          "price": 36.58,
           "screens": [
             "quality bloom"
           ]
@@ -909,6 +988,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 1884.0,
           "screens": [
             "quality bloom"
           ]
@@ -920,6 +1000,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 2917.0,
           "screens": [
             "quality bloom"
           ]
@@ -931,6 +1012,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 5037.0,
           "screens": [
             "quality bloom"
           ]
@@ -942,6 +1024,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1279.0,
           "screens": [
             "quality bloom"
           ]
@@ -953,6 +1036,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 3450.0,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -965,6 +1049,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 2360.0,
           "screens": [
             "quality bloom"
           ]
@@ -976,6 +1061,7 @@
           "currency": "JPY",
           "sector": "Consumer Staples",
           "country": "Japan",
+          "price": 2540.0,
           "screens": [
             "quality bloom"
           ]
@@ -987,6 +1073,7 @@
           "currency": "EUR",
           "sector": "Industrials",
           "country": "Greece",
+          "price": 35.98,
           "screens": [
             "quality bloom"
           ]
@@ -998,6 +1085,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 6369.0,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -1010,6 +1098,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 4914.0,
           "screens": [
             "quality bloom",
             "Moat Companies"
@@ -1022,6 +1111,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 5576.0,
           "screens": [
             "quality bloom"
           ]
@@ -1033,6 +1123,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 2203.0,
           "screens": [
             "quality bloom"
           ]
@@ -1044,6 +1135,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 2050.0,
           "screens": [
             "quality bloom"
           ]
@@ -1055,6 +1147,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 3400.0,
           "screens": [
             "quality bloom"
           ]
@@ -1066,6 +1159,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1698.0,
           "screens": [
             "quality bloom",
             "Moat Companies"
@@ -1078,6 +1172,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 5148.0,
           "screens": [
             "quality bloom"
           ]
@@ -1089,6 +1184,7 @@
           "currency": "GBP",
           "sector": "Technology",
           "country": "United Kingdom",
+          "price": 1.56,
           "screens": [
             "quality bloom"
           ]
@@ -1100,6 +1196,7 @@
           "currency": "GBP",
           "sector": "Telecommunications",
           "country": "United Kingdom",
+          "price": 10.2,
           "screens": [
             "quality bloom",
             "Moat Companies"
@@ -1112,6 +1209,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 693.02,
           "screens": [
             "quality bloom"
           ]
@@ -1123,6 +1221,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 7211.0,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -1135,6 +1234,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 5117.0,
           "screens": [
             "quality bloom"
           ]
@@ -1146,6 +1246,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 4568.0,
           "screens": [
             "quality bloom",
             "Moat Companies"
@@ -1158,6 +1259,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 6093.0,
           "screens": [
             "quality bloom"
           ]
@@ -1169,6 +1271,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 8590.0,
           "screens": [
             "quality bloom"
           ]
@@ -1180,6 +1283,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 705.77,
           "screens": [
             "quality bloom"
           ]
@@ -1191,6 +1295,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1153.0,
           "screens": [
             "quality bloom"
           ]
@@ -1202,6 +1307,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1587.0,
           "screens": [
             "quality bloom"
           ]
@@ -1213,6 +1319,7 @@
           "currency": "JPY",
           "sector": "Basic Materials",
           "country": "Japan",
+          "price": 2135.0,
           "screens": [
             "quality bloom"
           ]
@@ -1224,6 +1331,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 3003.0,
           "screens": [
             "quality bloom"
           ]
@@ -1235,6 +1343,7 @@
           "currency": "JPY",
           "sector": "Basic Materials",
           "country": "Japan",
+          "price": 4799.0,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -1247,6 +1356,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 2353.0,
           "screens": [
             "quality bloom",
             "Moat Companies"
@@ -1259,6 +1369,7 @@
           "currency": "EUR",
           "sector": "Industrials",
           "country": "Italy",
+          "price": 58.61,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -1271,6 +1382,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1872.0,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -1283,6 +1395,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1100.0,
           "screens": [
             "quality bloom"
           ]
@@ -1294,6 +1407,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 3559.0,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -1306,6 +1420,7 @@
           "currency": "GBP",
           "sector": "Industrials",
           "country": "United Kingdom",
+          "price": 32.35,
           "screens": [
             "quality bloom"
           ]
@@ -1317,6 +1432,7 @@
           "currency": "CAD",
           "sector": "Industrials",
           "country": "Canada",
+          "price": 130.16,
           "screens": [
             "quality bloom"
           ]
@@ -1328,6 +1444,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 5030.0,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -1340,6 +1457,7 @@
           "currency": "AUD",
           "sector": "Consumer Discretionary",
           "country": "Australia",
+          "price": 11.4,
           "screens": [
             "quality bloom"
           ]
@@ -1351,6 +1469,7 @@
           "currency": "GBP",
           "sector": "Technology",
           "country": "United Kingdom",
+          "price": 3.07,
           "screens": [
             "quality bloom"
           ]
@@ -1362,6 +1481,7 @@
           "currency": "GBP",
           "sector": "Consumer Staples",
           "country": "United Kingdom",
+          "price": 2.17,
           "screens": [
             "quality bloom"
           ]
@@ -1373,6 +1493,7 @@
           "currency": "JPY",
           "sector": "Utilities",
           "country": "Japan",
+          "price": 2592.0,
           "screens": [
             "quality bloom"
           ]
@@ -1384,6 +1505,7 @@
           "currency": "JPY",
           "sector": "Basic Materials",
           "country": "Japan",
+          "price": 3214.0,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -1396,6 +1518,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 1659.0,
           "screens": [
             "quality bloom"
           ]
@@ -1407,6 +1530,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 998.76,
           "screens": [
             "quality bloom"
           ]
@@ -1418,6 +1542,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 19434.0,
           "screens": [
             "quality bloom"
           ]
@@ -1429,6 +1554,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 5791.0,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -1441,6 +1567,7 @@
           "currency": "SEK",
           "sector": "Consumer Discretionary",
           "country": "Sweden",
+          "price": 47.48,
           "screens": [
             "quality bloom"
           ]
@@ -1452,6 +1579,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1892.0,
           "screens": [
             "quality bloom"
           ]
@@ -1463,6 +1591,7 @@
           "currency": "USD",
           "sector": "Technology",
           "country": "United States of America",
+          "price": 26.99,
           "screens": [
             "quality bloom"
           ]
@@ -1474,6 +1603,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1975.0,
           "screens": [
             "quality bloom",
             "Moat Companies"
@@ -1486,6 +1616,7 @@
           "currency": "USD",
           "sector": "Consumer Discretionary",
           "country": "United States of America",
+          "price": 36.31,
           "screens": [
             "quality bloom"
           ]
@@ -1497,6 +1628,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 2096.0,
           "screens": [
             "quality bloom"
           ]
@@ -1508,6 +1640,7 @@
           "currency": "JPY",
           "sector": "Basic Materials",
           "country": "Japan",
+          "price": 2656.0,
           "screens": [
             "quality bloom"
           ]
@@ -1519,6 +1652,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 573.33,
           "screens": [
             "quality bloom"
           ]
@@ -1530,6 +1664,7 @@
           "currency": "GBP",
           "sector": "Consumer Staples",
           "country": "United Kingdom",
+          "price": 6.96,
           "screens": [
             "quality bloom"
           ]
@@ -1541,6 +1676,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 4351.0,
           "screens": [
             "quality bloom"
           ]
@@ -1552,6 +1688,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 795.31,
           "screens": [
             "quality bloom"
           ]
@@ -1563,6 +1700,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1701.0,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -1575,6 +1713,7 @@
           "currency": "GBP",
           "sector": "Technology",
           "country": "United Kingdom",
+          "price": 0.9,
           "screens": [
             "quality bloom"
           ]
@@ -1586,6 +1725,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1572.0,
           "screens": [
             "quality bloom",
             "TOR Surplus",
@@ -1599,6 +1739,7 @@
           "currency": "EUR",
           "sector": "Industrials",
           "country": "Germany",
+          "price": 156.27,
           "screens": [
             "quality bloom"
           ]
@@ -1610,6 +1751,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1214.0,
           "screens": [
             "quality bloom"
           ]
@@ -1621,6 +1763,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 7543.0,
           "screens": [
             "quality bloom",
             "Moat Companies"
@@ -1633,6 +1776,7 @@
           "currency": "GBP",
           "sector": "Industrials",
           "country": "United Kingdom",
+          "price": 5.8,
           "screens": [
             "quality bloom"
           ]
@@ -1644,6 +1788,7 @@
           "currency": "CAD",
           "sector": "Basic Materials",
           "country": "Canada",
+          "price": 29.81,
           "screens": [
             "quality bloom"
           ]
@@ -1655,6 +1800,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 109.24,
           "screens": [
             "quality bloom"
           ]
@@ -1666,6 +1812,7 @@
           "currency": "CAD",
           "sector": "Basic Materials",
           "country": "Canada",
+          "price": 7.01,
           "screens": [
             "quality bloom"
           ]
@@ -1677,6 +1824,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 7077.0,
           "screens": [
             "quality bloom"
           ]
@@ -1688,6 +1836,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 485.42,
           "screens": [
             "quality bloom"
           ]
@@ -1699,6 +1848,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 3117.0,
           "screens": [
             "quality bloom"
           ]
@@ -1710,6 +1860,7 @@
           "currency": "AUD",
           "sector": "Basic Materials",
           "country": "Australia",
+          "price": 5.35,
           "screens": [
             "quality bloom"
           ]
@@ -1721,6 +1872,7 @@
           "currency": "USD",
           "sector": "Consumer Discretionary",
           "country": "United States of America",
+          "price": 102.11,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -1733,6 +1885,7 @@
           "currency": "JPY",
           "sector": "Health Care",
           "country": "Japan",
+          "price": 1299.0,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -1745,6 +1898,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 19.04,
           "screens": [
             "quality bloom"
           ]
@@ -1756,6 +1910,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 5747.0,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -1768,6 +1923,7 @@
           "currency": "EUR",
           "sector": "Consumer Discretionary",
           "country": "Italy",
+          "price": 19.73,
           "screens": [
             "quality bloom"
           ]
@@ -1779,6 +1935,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 2823.0,
           "screens": [
             "quality bloom"
           ]
@@ -1790,6 +1947,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 611.27,
           "screens": [
             "quality bloom"
           ]
@@ -1801,6 +1959,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 4789.0,
           "screens": [
             "quality bloom"
           ]
@@ -1812,6 +1971,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 4342.0,
           "screens": [
             "quality bloom"
           ]
@@ -1823,6 +1983,7 @@
           "currency": "EUR",
           "sector": "Technology",
           "country": "Finland",
+          "price": 44.4,
           "screens": [
             "quality bloom"
           ]
@@ -1834,6 +1995,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 38007.0,
           "screens": [
             "quality bloom"
           ]
@@ -1845,6 +2007,7 @@
           "currency": "GBP",
           "sector": "Consumer Staples",
           "country": "United Kingdom",
+          "price": 7.72,
           "screens": [
             "quality bloom"
           ]
@@ -1856,6 +2019,7 @@
           "currency": "USD",
           "sector": "Technology",
           "country": "United States of America",
+          "price": 30.01,
           "screens": [
             "quality bloom"
           ]
@@ -1867,6 +2031,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1744.0,
           "screens": [
             "quality bloom"
           ]
@@ -1878,6 +2043,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 814.37,
           "screens": [
             "quality bloom",
             "Moat Companies"
@@ -1890,6 +2056,7 @@
           "currency": "GBP",
           "sector": "Technology",
           "country": "United Kingdom",
+          "price": 9.19,
           "screens": [
             "quality bloom",
             "Moat Companies"
@@ -1902,6 +2069,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 841.45,
           "screens": [
             "quality bloom"
           ]
@@ -1913,6 +2081,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 3318.0,
           "screens": [
             "quality bloom"
           ]
@@ -1924,6 +2093,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 72.13,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -1936,6 +2106,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 2729.0,
           "screens": [
             "quality bloom"
           ]
@@ -1947,6 +2118,7 @@
           "currency": "EUR",
           "sector": "Technology",
           "country": "Germany",
+          "price": 101.0,
           "screens": [
             "quality bloom"
           ]
@@ -1958,6 +2130,7 @@
           "currency": "USD",
           "sector": "Consumer Discretionary",
           "country": "United States of America",
+          "price": 109.36,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -1970,6 +2143,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 2767.0,
           "screens": [
             "quality bloom"
           ]
@@ -1981,6 +2155,7 @@
           "currency": "SEK",
           "sector": "Telecommunications",
           "country": "Sweden",
+          "price": 61.09,
           "screens": [
             "quality bloom"
           ]
@@ -1992,6 +2167,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 46.74,
           "screens": [
             "quality bloom"
           ]
@@ -2003,6 +2179,7 @@
           "currency": "SEK",
           "sector": "Industrials",
           "country": "Sweden",
+          "price": 129.81,
           "screens": [
             "quality bloom"
           ]
@@ -2014,6 +2191,7 @@
           "currency": "AUD",
           "sector": "Consumer Discretionary",
           "country": "Australia",
+          "price": 38.71,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -2026,6 +2204,7 @@
           "currency": "JPY",
           "sector": "Basic Materials",
           "country": "Japan",
+          "price": 4811.0,
           "screens": [
             "quality bloom"
           ]
@@ -2037,6 +2216,7 @@
           "currency": "CHF",
           "sector": "Industrials",
           "country": "Switzerland",
+          "price": 93.14,
           "screens": [
             "quality bloom"
           ]
@@ -2048,6 +2228,7 @@
           "currency": "GBP",
           "sector": "Industrials",
           "country": "United Kingdom",
+          "price": 7.21,
           "screens": [
             "quality bloom"
           ]
@@ -2059,6 +2240,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 2118.0,
           "screens": [
             "quality bloom"
           ]
@@ -2070,6 +2252,7 @@
           "currency": "USD",
           "sector": "Consumer Discretionary",
           "country": "United States of America",
+          "price": 35.76,
           "screens": [
             "quality bloom",
             "Moat Companies"
@@ -2082,6 +2265,7 @@
           "currency": "SEK",
           "sector": "Technology",
           "country": "Sweden",
+          "price": 210.49,
           "screens": [
             "quality bloom"
           ]
@@ -2093,6 +2277,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 14.58,
           "screens": [
             "quality bloom"
           ]
@@ -2104,6 +2289,7 @@
           "currency": "USD",
           "sector": "Consumer Staples",
           "country": "United States of America",
+          "price": 222.87,
           "screens": [
             "quality bloom"
           ]
@@ -2115,6 +2301,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 2836.0,
           "screens": [
             "quality bloom"
           ]
@@ -2126,6 +2313,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1130.0,
           "screens": [
             "quality bloom"
           ]
@@ -2137,6 +2325,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 1584.0,
           "screens": [
             "quality bloom"
           ]
@@ -2148,6 +2337,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 2918.0,
           "screens": [
             "quality bloom"
           ]
@@ -2159,6 +2349,7 @@
           "currency": "GBP",
           "sector": "Technology",
           "country": "United Kingdom",
+          "price": 3.97,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -2171,6 +2362,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 932.97,
           "screens": [
             "quality bloom",
             "Moat Companies"
@@ -2183,6 +2375,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 2492.0,
           "screens": [
             "quality bloom"
           ]
@@ -2194,6 +2387,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1259.0,
           "screens": [
             "quality bloom",
             "Moat Companies"
@@ -2206,6 +2400,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1125.0,
           "screens": [
             "quality bloom"
           ]
@@ -2217,6 +2412,7 @@
           "currency": "GBP",
           "sector": "Industrials",
           "country": "United Kingdom",
+          "price": 2.25,
           "screens": [
             "quality bloom"
           ]
@@ -2228,6 +2424,7 @@
           "currency": "GBP",
           "sector": "Consumer Discretionary",
           "country": "United Kingdom",
+          "price": 3.81,
           "screens": [
             "quality bloom"
           ]
@@ -2239,6 +2436,7 @@
           "currency": "EUR",
           "sector": "Technology",
           "country": "Finland",
+          "price": 46.6,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -2251,6 +2449,7 @@
           "currency": "EUR",
           "sector": "Consumer Staples",
           "country": "Greece",
+          "price": 19.21,
           "screens": [
             "quality bloom",
             "TOR Surplus"
@@ -2263,6 +2462,7 @@
           "currency": "EUR",
           "sector": "Technology",
           "country": "France",
+          "price": 18.09,
           "screens": [
             "quality bloom"
           ]
@@ -2274,6 +2474,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 7671.0,
           "screens": [
             "quality bloom"
           ]
@@ -2285,6 +2486,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 8555.0,
           "screens": [
             "quality bloom"
           ]
@@ -2296,6 +2498,7 @@
           "currency": "SEK",
           "sector": "Technology",
           "country": "Sweden",
+          "price": 43.97,
           "screens": [
             "quality bloom"
           ]
@@ -2307,6 +2510,7 @@
           "currency": "CHF",
           "sector": "Industrials",
           "country": "Switzerland",
+          "price": 679.34,
           "screens": [
             "quality bloom"
           ]
@@ -2318,6 +2522,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 420.0,
           "screens": [
             "quality bloom"
           ]
@@ -2329,6 +2534,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 3641.0,
           "screens": [
             "quality bloom"
           ]
@@ -2340,6 +2546,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 2805.0,
           "screens": [
             "quality bloom"
           ]
@@ -2351,6 +2558,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 3076.0,
           "screens": [
             "quality bloom"
           ]
@@ -2362,6 +2570,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 2672.0,
           "screens": [
             "quality bloom"
           ]
@@ -2379,6 +2588,7 @@
           "currency": "CAD",
           "sector": "Telecommunications",
           "country": "Canada",
+          "price": 0.19,
           "screens": [
             "TOR Surplus"
           ]
@@ -2390,6 +2600,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 12386.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -2400,7 +2611,8 @@
           "name": "Qt Group Oyj",
           "currency": "EUR",
           "sector": "Technology",
-          "country": "Finland"
+          "country": "Finland",
+          "price": 46.6
         },
         {
           "ticker": "6532.T",
@@ -2409,6 +2621,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 8452.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -2420,6 +2633,7 @@
           "currency": "EUR",
           "sector": "Industrials",
           "country": "Germany",
+          "price": 118.79,
           "screens": [
             "TOR Surplus",
             "Moat Companies"
@@ -2432,6 +2646,7 @@
           "currency": "AUD",
           "sector": "Technology",
           "country": "Australia",
+          "price": 91.77,
           "screens": [
             "TOR Surplus"
           ]
@@ -2443,6 +2658,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 3901.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -2454,6 +2670,7 @@
           "currency": "USD",
           "sector": "Technology",
           "country": "United States of America",
+          "price": 501.01,
           "screens": [
             "TOR Surplus"
           ]
@@ -2465,6 +2682,7 @@
           "currency": "EUR",
           "sector": "Consumer Discretionary",
           "country": "Italy",
+          "price": 405.97,
           "screens": [
             "TOR Surplus"
           ]
@@ -2476,6 +2694,7 @@
           "currency": "SEK",
           "sector": "Consumer Staples",
           "country": "Sweden",
+          "price": 39.77,
           "screens": [
             "TOR Surplus"
           ]
@@ -2487,6 +2706,7 @@
           "currency": "USD",
           "sector": "Consumer Discretionary",
           "country": "United States of America",
+          "price": 133.4,
           "screens": [
             "TOR Surplus"
           ]
@@ -2498,6 +2718,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1991.0,
           "screens": [
             "TOR Surplus",
             "Moat Companies"
@@ -2509,7 +2730,8 @@
           "name": "Maeda Kosen Co Ltd",
           "currency": "JPY",
           "sector": "Industrials",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 1872.0
         },
         {
           "ticker": "4980.T",
@@ -2518,6 +2740,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 2008.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -2529,6 +2752,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 1893.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -2540,6 +2764,7 @@
           "currency": "EUR",
           "sector": "Consumer Discretionary",
           "country": "Italy",
+          "price": 39.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -2551,6 +2776,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 8628.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -2562,6 +2788,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 307.41,
           "screens": [
             "TOR Surplus"
           ]
@@ -2573,6 +2800,7 @@
           "currency": "NOK",
           "sector": "Basic Materials",
           "country": "Norway",
+          "price": 202.66,
           "screens": [
             "TOR Surplus"
           ]
@@ -2584,6 +2812,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 170.88,
           "screens": [
             "TOR Surplus"
           ]
@@ -2595,6 +2824,7 @@
           "currency": "EUR",
           "sector": "Industrials",
           "country": "France",
+          "price": 278.42,
           "screens": [
             "TOR Surplus"
           ]
@@ -2606,6 +2836,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 168.61,
           "screens": [
             "TOR Surplus"
           ]
@@ -2617,6 +2848,7 @@
           "currency": "AUD",
           "sector": "Industrials",
           "country": "Australia",
+          "price": 2.15,
           "screens": [
             "TOR Surplus"
           ]
@@ -2628,6 +2860,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 4945.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -2639,6 +2872,7 @@
           "currency": "JPY",
           "sector": "Basic Materials",
           "country": "Japan",
+          "price": 2597.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -2649,7 +2883,8 @@
           "name": "Mbs Inc",
           "currency": "JPY",
           "sector": "Industrials",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 1537.0
         },
         {
           "ticker": "NEWA-B.ST",
@@ -2658,6 +2893,7 @@
           "currency": "SEK",
           "sector": "Consumer Discretionary",
           "country": "Sweden",
+          "price": 107.83,
           "screens": [
             "TOR Surplus"
           ]
@@ -2669,6 +2905,7 @@
           "currency": "AUD",
           "sector": "Consumer Discretionary",
           "country": "Australia",
+          "price": 7.32,
           "screens": [
             "TOR Surplus"
           ]
@@ -2680,6 +2917,7 @@
           "currency": "EUR",
           "sector": "Consumer Staples",
           "country": "Belgium",
+          "price": 8231.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -2691,6 +2929,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 16177.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -2702,6 +2941,7 @@
           "currency": "NOK",
           "sector": "Industrials",
           "country": "Norway",
+          "price": 294.22,
           "screens": [
             "TOR Surplus"
           ]
@@ -2713,6 +2953,7 @@
           "currency": "EUR",
           "sector": "Industrials",
           "country": "Germany",
+          "price": 366.21,
           "screens": [
             "TOR Surplus"
           ]
@@ -2724,6 +2965,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 1359.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -2734,7 +2976,8 @@
           "name": "Transaction Co Ltd",
           "currency": "JPY",
           "sector": "Consumer Staples",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 1194.0
         },
         {
           "ticker": "SIQ.AX",
@@ -2743,6 +2986,7 @@
           "currency": "AUD",
           "sector": "Industrials",
           "country": "Australia",
+          "price": 8.25,
           "screens": [
             "TOR Surplus"
           ]
@@ -2754,6 +2998,7 @@
           "currency": "AUD",
           "sector": "Consumer Discretionary",
           "country": "Australia",
+          "price": 15.86,
           "screens": [
             "TOR Surplus"
           ]
@@ -2765,6 +3010,7 @@
           "currency": "GBP",
           "sector": "Industrials",
           "country": "United Kingdom",
+          "price": 5.58,
           "screens": [
             "TOR Surplus"
           ]
@@ -2776,6 +3022,7 @@
           "currency": "CAD",
           "sector": "Technology",
           "country": "Canada",
+          "price": 130.3,
           "screens": [
             "TOR Surplus"
           ]
@@ -2787,6 +3034,7 @@
           "currency": "USD",
           "sector": "Technology",
           "country": "United States of America",
+          "price": 29.36,
           "screens": [
             "TOR Surplus"
           ]
@@ -2798,6 +3046,7 @@
           "currency": "GBP",
           "sector": "Technology",
           "country": "United Kingdom",
+          "price": 1.63,
           "screens": [
             "TOR Surplus"
           ]
@@ -2809,6 +3058,7 @@
           "currency": "CAD",
           "sector": "Industrials",
           "country": "Canada",
+          "price": 143.56,
           "screens": [
             "TOR Surplus"
           ]
@@ -2820,6 +3070,7 @@
           "currency": "SEK",
           "sector": "Consumer Discretionary",
           "country": "Sweden",
+          "price": 306.5,
           "screens": [
             "TOR Surplus"
           ]
@@ -2831,6 +3082,7 @@
           "currency": "SEK",
           "sector": "Industrials",
           "country": "Sweden",
+          "price": 423.73,
           "screens": [
             "TOR Surplus"
           ]
@@ -2842,6 +3094,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 141.49,
           "screens": [
             "TOR Surplus"
           ]
@@ -2853,6 +3106,7 @@
           "currency": "USD",
           "sector": "Consumer Discretionary",
           "country": "United States of America",
+          "price": 140.13,
           "screens": [
             "TOR Surplus"
           ]
@@ -2864,6 +3118,7 @@
           "currency": "USD",
           "sector": "Consumer Discretionary",
           "country": "United States of America",
+          "price": 176.69,
           "screens": [
             "TOR Surplus",
             "Moat Companies"
@@ -2876,6 +3131,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 482.83,
           "screens": [
             "TOR Surplus"
           ]
@@ -2887,6 +3143,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 4685.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -2898,6 +3155,7 @@
           "currency": "DKK",
           "sector": "Consumer Discretionary",
           "country": "Denmark",
+          "price": 525.86,
           "screens": [
             "TOR Surplus"
           ]
@@ -2909,6 +3167,7 @@
           "currency": "USD",
           "sector": "Consumer Discretionary",
           "country": "United States of America",
+          "price": 143.2,
           "screens": [
             "TOR Surplus"
           ]
@@ -2920,6 +3179,7 @@
           "currency": "USD",
           "sector": "Technology",
           "country": "United States of America",
+          "price": 112.35,
           "screens": [
             "TOR Surplus"
           ]
@@ -2931,6 +3191,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 362.18,
           "screens": [
             "TOR Surplus"
           ]
@@ -2941,7 +3202,8 @@
           "name": "M/I Homes Inc.",
           "currency": "USD",
           "sector": "Consumer Discretionary",
-          "country": "United States of America"
+          "country": "United States of America",
+          "price": 156.93
         },
         {
           "ticker": "IEX",
@@ -2950,6 +3212,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 161.32,
           "screens": [
             "TOR Surplus"
           ]
@@ -2961,6 +3224,7 @@
           "currency": "CAD",
           "sector": "Industrials",
           "country": "Canada",
+          "price": 77.35,
           "screens": [
             "TOR Surplus"
           ]
@@ -2972,6 +3236,7 @@
           "currency": "EUR",
           "sector": "Industrials",
           "country": "Spain",
+          "price": 10.1,
           "screens": [
             "TOR Surplus"
           ]
@@ -2983,6 +3248,7 @@
           "currency": "GBP",
           "sector": "Consumer Discretionary",
           "country": "United Kingdom",
+          "price": 5.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -2994,6 +3260,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 182.71,
           "screens": [
             "TOR Surplus"
           ]
@@ -3005,6 +3272,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 184.8,
           "screens": [
             "TOR Surplus"
           ]
@@ -3016,6 +3284,7 @@
           "currency": "EUR",
           "sector": "Technology",
           "country": "Germany",
+          "price": 70.28,
           "screens": [
             "TOR Surplus"
           ]
@@ -3027,6 +3296,7 @@
           "currency": "EUR",
           "sector": "Consumer Discretionary",
           "country": "Greece",
+          "price": 31.69,
           "screens": [
             "TOR Surplus"
           ]
@@ -3037,7 +3307,8 @@
           "name": "Japan Material Co Ltd",
           "currency": "JPY",
           "sector": "Technology",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 1572.0
         },
         {
           "ticker": "ALPM.PA",
@@ -3046,6 +3317,7 @@
           "currency": "EUR",
           "sector": "Industrials",
           "country": "France",
+          "price": 27.1,
           "screens": [
             "TOR Surplus"
           ]
@@ -3056,7 +3328,8 @@
           "name": "KeePer Technical Laboratory Co Ltd",
           "currency": "JPY",
           "sector": "Industrials",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 3450.0
         },
         {
           "ticker": "DIOD",
@@ -3065,6 +3338,7 @@
           "currency": "USD",
           "sector": "Technology",
           "country": "United States of America",
+          "price": 53.25,
           "screens": [
             "TOR Surplus"
           ]
@@ -3076,6 +3350,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 1697.0,
           "screens": [
             "TOR Surplus",
             "Moat Companies"
@@ -3087,7 +3362,8 @@
           "name": "Universal Engeisha Co Ltd",
           "currency": "JPY",
           "sector": "Consumer Discretionary",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 5791.0
         },
         {
           "ticker": "4828.T",
@@ -3096,6 +3372,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 6205.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3107,6 +3384,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 160.47,
           "screens": [
             "TOR Surplus"
           ]
@@ -3118,6 +3396,7 @@
           "currency": "EUR",
           "sector": "Industrials",
           "country": "Italy",
+          "price": 40.62,
           "screens": [
             "TOR Surplus"
           ]
@@ -3128,7 +3407,8 @@
           "name": "Monarch Casino & Resort Inc.",
           "currency": "USD",
           "sector": "Consumer Discretionary",
-          "country": "United States of America"
+          "country": "United States of America",
+          "price": 102.11
         },
         {
           "ticker": "ATR",
@@ -3137,6 +3417,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 135.22,
           "screens": [
             "TOR Surplus"
           ]
@@ -3148,6 +3429,7 @@
           "currency": "CHF",
           "sector": "Technology",
           "country": "Switzerland",
+          "price": 166.98,
           "screens": [
             "TOR Surplus"
           ]
@@ -3159,6 +3441,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 177.82,
           "screens": [
             "TOR Surplus"
           ]
@@ -3170,6 +3453,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 81.15,
           "screens": [
             "TOR Surplus"
           ]
@@ -3181,6 +3465,7 @@
           "currency": "USD",
           "sector": "Consumer Discretionary",
           "country": "United States of America",
+          "price": 82.93,
           "screens": [
             "TOR Surplus"
           ]
@@ -3191,7 +3476,8 @@
           "name": "Inter Parfums Inc",
           "currency": "USD",
           "sector": "Consumer Discretionary",
-          "country": "United States of America"
+          "country": "United States of America",
+          "price": 109.36
         },
         {
           "ticker": "SDI.L",
@@ -3200,6 +3486,7 @@
           "currency": "GBP",
           "sector": "Industrials",
           "country": "United Kingdom",
+          "price": 1.01,
           "screens": [
             "TOR Surplus"
           ]
@@ -3211,6 +3498,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 18092.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3222,6 +3510,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 124.93,
           "screens": [
             "TOR Surplus"
           ]
@@ -3233,6 +3522,7 @@
           "currency": "AUD",
           "sector": "Industrials",
           "country": "Australia",
+          "price": 1.2,
           "screens": [
             "TOR Surplus"
           ]
@@ -3243,7 +3533,8 @@
           "name": "RS Technologies Co. Ltd.",
           "currency": "JPY",
           "sector": "Technology",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 3559.0
         },
         {
           "ticker": "6626.T",
@@ -3251,7 +3542,8 @@
           "name": "SEMITEC Corp",
           "currency": "JPY",
           "sector": "Technology",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 2347.0
         },
         {
           "ticker": "RMD",
@@ -3260,6 +3552,7 @@
           "currency": "USD",
           "sector": "Health Care",
           "country": "United States of America",
+          "price": 273.81,
           "screens": [
             "TOR Surplus"
           ]
@@ -3271,6 +3564,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 105.07,
           "screens": [
             "TOR Surplus",
             "Moat Companies"
@@ -3283,6 +3577,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 278.38,
           "screens": [
             "TOR Surplus"
           ]
@@ -3293,7 +3588,8 @@
           "name": "Kri-Kri Milk Industry S.A.",
           "currency": "EUR",
           "sector": "Consumer Staples",
-          "country": "Greece"
+          "country": "Greece",
+          "price": 19.21
         },
         {
           "ticker": "3091.T",
@@ -3302,6 +3598,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 3927.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3312,7 +3609,8 @@
           "name": "Nissei ASB Machine Co Ltd",
           "currency": "JPY",
           "sector": "Industrials",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 7211.0
         },
         {
           "ticker": "RBT.PA",
@@ -3321,6 +3619,7 @@
           "currency": "EUR",
           "sector": "Basic Materials",
           "country": "France",
+          "price": 854.1,
           "screens": [
             "TOR Surplus"
           ]
@@ -3332,6 +3631,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 217.03,
           "screens": [
             "TOR Surplus"
           ]
@@ -3343,6 +3643,7 @@
           "currency": "CHF",
           "sector": "Consumer Staples",
           "country": "Switzerland",
+          "price": 120000.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3354,6 +3655,7 @@
           "currency": "EUR",
           "sector": "Consumer Staples",
           "country": "Greece",
+          "price": 14.48,
           "screens": [
             "TOR Surplus"
           ]
@@ -3365,6 +3667,7 @@
           "currency": "EUR",
           "sector": "Consumer Discretionary",
           "country": "France",
+          "price": 53.29,
           "screens": [
             "TOR Surplus"
           ]
@@ -3376,6 +3679,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 330.68,
           "screens": [
             "TOR Surplus"
           ]
@@ -3387,6 +3691,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 195.9,
           "screens": [
             "TOR Surplus"
           ]
@@ -3398,6 +3703,7 @@
           "currency": "USD",
           "sector": "Consumer Discretionary",
           "country": "United States of America",
+          "price": 67.82,
           "screens": [
             "TOR Surplus"
           ]
@@ -3409,6 +3715,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1153.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3420,6 +3727,7 @@
           "currency": "JPY",
           "sector": "Basic Materials",
           "country": "Japan",
+          "price": 3049.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3431,6 +3739,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1817.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3442,6 +3751,7 @@
           "currency": "EUR",
           "sector": "Consumer Discretionary",
           "country": "France",
+          "price": 144.93,
           "screens": [
             "TOR Surplus"
           ]
@@ -3453,6 +3763,7 @@
           "currency": "EUR",
           "sector": "Technology",
           "country": "Italy",
+          "price": 114.61,
           "screens": [
             "TOR Surplus",
             "Moat Companies"
@@ -3465,6 +3776,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 150.71,
           "screens": [
             "TOR Surplus"
           ]
@@ -3475,7 +3787,8 @@
           "name": "Anglo-Eastern Plantations Plc",
           "currency": "GBP",
           "sector": "Consumer Staples",
-          "country": "United Kingdom"
+          "country": "United Kingdom",
+          "price": 12.36
         },
         {
           "ticker": "GD",
@@ -3484,6 +3797,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 323.05,
           "screens": [
             "TOR Surplus"
           ]
@@ -3495,6 +3809,7 @@
           "currency": "AUD",
           "sector": "Consumer Discretionary",
           "country": "Australia",
+          "price": 20.67,
           "screens": [
             "TOR Surplus"
           ]
@@ -3506,6 +3821,7 @@
           "currency": "USD",
           "sector": "Technology",
           "country": "United States of America",
+          "price": 140.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3516,7 +3832,8 @@
           "name": "Fuso Chemical Co Ltd",
           "currency": "JPY",
           "sector": "Basic Materials",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 4799.0
         },
         {
           "ticker": "ALG",
@@ -3525,6 +3842,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 209.16,
           "screens": [
             "TOR Surplus"
           ]
@@ -3536,6 +3854,7 @@
           "currency": "DKK",
           "sector": "Industrials",
           "country": "Denmark",
+          "price": 236.88,
           "screens": [
             "TOR Surplus"
           ]
@@ -3547,6 +3866,7 @@
           "currency": "GBP",
           "sector": "Industrials",
           "country": "United Kingdom",
+          "price": 32.41,
           "screens": [
             "TOR Surplus"
           ]
@@ -3558,6 +3878,7 @@
           "currency": "EUR",
           "sector": "Technology",
           "country": "France",
+          "price": 27.71,
           "screens": [
             "TOR Surplus"
           ]
@@ -3569,6 +3890,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 94.21,
           "screens": [
             "TOR Surplus"
           ]
@@ -3580,6 +3902,7 @@
           "currency": "AUD",
           "sector": "Industrials",
           "country": "Australia",
+          "price": 10.02,
           "screens": [
             "TOR Surplus"
           ]
@@ -3591,6 +3914,7 @@
           "currency": "USD",
           "sector": "Technology",
           "country": "United States of America",
+          "price": 22.64,
           "screens": [
             "TOR Surplus"
           ]
@@ -3602,6 +3926,7 @@
           "currency": "DKK",
           "sector": "Technology",
           "country": "Denmark",
+          "price": 190.89,
           "screens": [
             "TOR Surplus"
           ]
@@ -3613,6 +3938,7 @@
           "currency": "SEK",
           "sector": "Consumer Discretionary",
           "country": "Sweden",
+          "price": 60.67,
           "screens": [
             "TOR Surplus"
           ]
@@ -3624,6 +3950,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 3611.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3635,6 +3962,7 @@
           "currency": "USD",
           "sector": "Basic Materials",
           "country": "United States of America",
+          "price": 86.01,
           "screens": [
             "TOR Surplus"
           ]
@@ -3646,6 +3974,7 @@
           "currency": "EUR",
           "sector": "Technology",
           "country": "Greece",
+          "price": 6.84,
           "screens": [
             "TOR Surplus"
           ]
@@ -3657,6 +3986,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 40.46,
           "screens": [
             "TOR Surplus"
           ]
@@ -3668,6 +3998,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 3991.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3679,6 +4010,7 @@
           "currency": "USD",
           "sector": "Consumer Staples",
           "country": "United States of America",
+          "price": 113.83,
           "screens": [
             "TOR Surplus"
           ]
@@ -3690,6 +4022,7 @@
           "currency": "SEK",
           "sector": "Industrials",
           "country": "Sweden",
+          "price": 54.85,
           "screens": [
             "TOR Surplus",
             "Moat Companies"
@@ -3702,6 +4035,7 @@
           "currency": "USD",
           "sector": "Consumer Staples",
           "country": "United States of America",
+          "price": 109.32,
           "screens": [
             "TOR Surplus"
           ]
@@ -3713,6 +4047,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1773.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3724,6 +4059,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 408.98,
           "screens": [
             "TOR Surplus"
           ]
@@ -3735,6 +4071,7 @@
           "currency": "JPY",
           "sector": "Consumer Staples",
           "country": "Japan",
+          "price": 1326.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3746,6 +4083,7 @@
           "currency": "EUR",
           "sector": "Industrials",
           "country": "Greece",
+          "price": 8.02,
           "screens": [
             "TOR Surplus"
           ]
@@ -3757,6 +4095,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1364.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3768,6 +4107,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 11824.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3779,6 +4119,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 4839.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3789,7 +4130,8 @@
           "name": "Sho Bond Holdings",
           "currency": "JPY",
           "sector": "Industrials",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 5030.0
         },
         {
           "ticker": "6266.T",
@@ -3798,6 +4140,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 2058.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3809,6 +4152,7 @@
           "currency": "EUR",
           "sector": "Consumer Discretionary",
           "country": "France",
+          "price": 395.48,
           "screens": [
             "TOR Surplus"
           ]
@@ -3820,6 +4164,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 3150.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3831,6 +4176,7 @@
           "currency": "GBP",
           "sector": "Technology",
           "country": "United Kingdom",
+          "price": 7.89,
           "screens": [
             "TOR Surplus"
           ]
@@ -3842,6 +4188,7 @@
           "currency": "USD",
           "sector": "Consumer Staples",
           "country": "United States of America",
+          "price": 128.41,
           "screens": [
             "TOR Surplus"
           ]
@@ -3853,6 +4200,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 2447.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3864,6 +4212,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 62.07,
           "screens": [
             "TOR Surplus"
           ]
@@ -3874,7 +4223,8 @@
           "name": "ARB CORP FPO",
           "currency": "AUD",
           "sector": "Consumer Discretionary",
-          "country": "Australia"
+          "country": "Australia",
+          "price": 38.71
         },
         {
           "ticker": "AIN",
@@ -3883,6 +4233,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 62.32,
           "screens": [
             "TOR Surplus"
           ]
@@ -3894,6 +4245,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 3483.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3905,6 +4257,7 @@
           "currency": "JPY",
           "sector": "Consumer Staples",
           "country": "Japan",
+          "price": 2741.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3916,6 +4269,7 @@
           "currency": "JPY",
           "sector": "Consumer Staples",
           "country": "Japan",
+          "price": 1402.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3926,7 +4280,8 @@
           "name": "Cembre S.p.A.",
           "currency": "EUR",
           "sector": "Industrials",
-          "country": "Italy"
+          "country": "Italy",
+          "price": 58.61
         },
         {
           "ticker": "AZK.MC",
@@ -3935,6 +4290,7 @@
           "currency": "EUR",
           "sector": "Industrials",
           "country": "Spain",
+          "price": 8.35,
           "screens": [
             "TOR Surplus"
           ]
@@ -3946,6 +4302,7 @@
           "currency": "EUR",
           "sector": "Industrials",
           "country": "France",
+          "price": 179.78,
           "screens": [
             "TOR Surplus"
           ]
@@ -3957,6 +4314,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 3675.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -3967,7 +4325,8 @@
           "name": "Mani Inc",
           "currency": "JPY",
           "sector": "Health Care",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 1299.0
         },
         {
           "ticker": "AIXA.DE",
@@ -3975,7 +4334,8 @@
           "name": "Aixtron SE",
           "currency": "EUR",
           "sector": "Technology",
-          "country": "Germany"
+          "country": "Germany",
+          "price": 12.04
         },
         {
           "ticker": "PLPC",
@@ -3984,6 +4344,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 193.57,
           "screens": [
             "TOR Surplus"
           ]
@@ -3995,6 +4356,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 140.48,
           "screens": [
             "TOR Surplus"
           ]
@@ -4005,7 +4367,8 @@
           "name": "Rorze Corp",
           "currency": "JPY",
           "sector": "Technology",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 1701.0
         },
         {
           "ticker": "EVD.DE",
@@ -4014,6 +4377,7 @@
           "currency": "EUR",
           "sector": "Consumer Discretionary",
           "country": "Germany",
+          "price": 87.73,
           "screens": [
             "TOR Surplus"
           ]
@@ -4025,6 +4389,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 316.83,
           "screens": [
             "TOR Surplus"
           ]
@@ -4035,7 +4400,8 @@
           "name": "Tecnoglass Inc.",
           "currency": "USD",
           "sector": "Industrials",
-          "country": "United States of America"
+          "country": "United States of America",
+          "price": 72.13
         },
         {
           "ticker": "ALPDX.PA",
@@ -4044,6 +4410,7 @@
           "currency": "EUR",
           "sector": "Consumer Discretionary",
           "country": "France",
+          "price": 12.72,
           "screens": [
             "TOR Surplus"
           ]
@@ -4055,6 +4422,7 @@
           "currency": "EUR",
           "sector": "Technology",
           "country": "Spain",
+          "price": 6.43,
           "screens": [
             "TOR Surplus"
           ]
@@ -4066,6 +4434,7 @@
           "currency": "CAD",
           "sector": "Industrials",
           "country": "Canada",
+          "price": 36.41,
           "screens": [
             "TOR Surplus"
           ]
@@ -4077,6 +4446,7 @@
           "currency": "USD",
           "sector": "Consumer Staples",
           "country": "United States of America",
+          "price": 24.97,
           "screens": [
             "TOR Surplus"
           ]
@@ -4087,7 +4457,8 @@
           "name": "Max Co Ltd",
           "currency": "JPY",
           "sector": "Industrials",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 5747.0
         },
         {
           "ticker": "6327.T",
@@ -4096,6 +4467,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 837.44,
           "screens": [
             "TOR Surplus"
           ]
@@ -4106,7 +4478,8 @@
           "name": "Nippon Pillar Packing Co Ltd",
           "currency": "JPY",
           "sector": "Industrials",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 4052.0
         },
         {
           "ticker": "6402.T",
@@ -4115,6 +4488,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1534.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -4126,6 +4500,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 2019.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -4136,7 +4511,8 @@
           "name": "Fountaine Pajo",
           "currency": "EUR",
           "sector": "Consumer Discretionary",
-          "country": "France"
+          "country": "France",
+          "price": 101.81
         },
         {
           "ticker": "WRT1V.HE",
@@ -4145,6 +4521,7 @@
           "currency": "EUR",
           "sector": "Industrials",
           "country": "Finland",
+          "price": 25.94,
           "screens": [
             "TOR Surplus"
           ]
@@ -4156,6 +4533,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 2412.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -4167,6 +4545,7 @@
           "currency": "CHF",
           "sector": "Telecommunications",
           "country": "Switzerland",
+          "price": 136.07,
           "screens": [
             "TOR Surplus"
           ]
@@ -4178,6 +4557,7 @@
           "currency": "CHF",
           "sector": "Health Care",
           "country": "Switzerland",
+          "price": 93.86,
           "screens": [
             "TOR Surplus"
           ]
@@ -4188,7 +4568,8 @@
           "name": "MJ Gleeson",
           "currency": "GBP",
           "sector": "Consumer Discretionary",
-          "country": "United Kingdom"
+          "country": "United Kingdom",
+          "price": 3.33
         },
         {
           "ticker": "VCM.TO",
@@ -4197,6 +4578,7 @@
           "currency": "CAD",
           "sector": "Telecommunications",
           "country": "Canada",
+          "price": 9.51,
           "screens": [
             "TOR Surplus"
           ]
@@ -4208,6 +4590,7 @@
           "currency": "JPY",
           "sector": "Consumer Staples",
           "country": "Japan",
+          "price": 4691.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -4219,6 +4602,7 @@
           "currency": "JPY",
           "sector": "Consumer Staples",
           "country": "Japan",
+          "price": 10516.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -4230,6 +4614,7 @@
           "currency": "AUD",
           "sector": "Consumer Discretionary",
           "country": "Australia",
+          "price": 68.98,
           "screens": [
             "TOR Surplus"
           ]
@@ -4241,6 +4626,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 3005.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -4252,6 +4638,7 @@
           "currency": "CHF",
           "sector": "Industrials",
           "country": "Switzerland",
+          "price": 107.47,
           "screens": [
             "TOR Surplus"
           ]
@@ -4263,6 +4650,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 254.51,
           "screens": [
             "TOR Surplus"
           ]
@@ -4274,6 +4662,7 @@
           "currency": "EUR",
           "sector": "Technology",
           "country": "Netherlands",
+          "price": 422.77,
           "screens": [
             "TOR Surplus"
           ]
@@ -4285,6 +4674,7 @@
           "currency": "USD",
           "sector": "Consumer Discretionary",
           "country": "United States of America",
+          "price": 159.16,
           "screens": [
             "TOR Surplus"
           ]
@@ -4296,6 +4686,7 @@
           "currency": "CAD",
           "sector": "Consumer Discretionary",
           "country": "Canada",
+          "price": 77.15,
           "screens": [
             "TOR Surplus"
           ]
@@ -4307,6 +4698,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 6984.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -4318,6 +4710,7 @@
           "currency": "EUR",
           "sector": "Technology",
           "country": "France",
+          "price": 46.77,
           "screens": [
             "TOR Surplus",
             "Moat Companies"
@@ -4330,6 +4723,7 @@
           "currency": "EUR",
           "sector": "Technology",
           "country": "Greece",
+          "price": 3.27,
           "screens": [
             "TOR Surplus"
           ]
@@ -4341,6 +4735,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1735.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -4352,6 +4747,7 @@
           "currency": "SEK",
           "sector": "Industrials",
           "country": "Sweden",
+          "price": 185.97,
           "screens": [
             "TOR Surplus",
             "Moat Companies"
@@ -4364,6 +4760,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 4372.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -4374,7 +4771,8 @@
           "name": "Gencor Industries Inc.",
           "currency": "USD",
           "sector": "Industrials",
-          "country": "United States of America"
+          "country": "United States of America",
+          "price": 15.55
         },
         {
           "ticker": "1959.T",
@@ -4383,6 +4781,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 7387.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -4393,7 +4792,8 @@
           "name": "Riken Keiki Co Ltd",
           "currency": "JPY",
           "sector": "Industrials",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 3124.0
         },
         {
           "ticker": "NSSC",
@@ -4402,6 +4802,7 @@
           "currency": "USD",
           "sector": "Industrials",
           "country": "United States of America",
+          "price": 39.03,
           "screens": [
             "TOR Surplus"
           ]
@@ -4413,6 +4814,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 2948.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -4424,6 +4826,7 @@
           "currency": "JPY",
           "sector": "Basic Materials",
           "country": "Japan",
+          "price": 2355.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -4435,6 +4838,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1819.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -4446,6 +4850,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 10079.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -4456,7 +4861,8 @@
           "name": "MEC Co Ltd",
           "currency": "JPY",
           "sector": "Basic Materials",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 3214.0
         },
         {
           "ticker": "AMKR",
@@ -4465,6 +4871,7 @@
           "currency": "USD",
           "sector": "Technology",
           "country": "United States of America",
+          "price": 24.87,
           "screens": [
             "TOR Surplus"
           ]
@@ -4476,6 +4883,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 1381.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -4487,6 +4895,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 5005.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -4498,6 +4907,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 2935.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -4509,6 +4919,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 2036.0,
           "screens": [
             "TOR Surplus"
           ]
@@ -4519,7 +4930,8 @@
           "name": "Tracsis plc",
           "currency": "GBP",
           "sector": "Technology",
-          "country": "United Kingdom"
+          "country": "United Kingdom",
+          "price": 3.97
         },
         {
           "ticker": "6728.T",
@@ -4527,7 +4939,8 @@
           "name": "Ulvac Inc",
           "currency": "JPY",
           "sector": "Technology",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 6369.0
         },
         {
           "ticker": "MSLH.L",
@@ -4536,6 +4949,7 @@
           "currency": "GBP",
           "sector": "Industrials",
           "country": "United Kingdom",
+          "price": 1.75,
           "screens": [
             "TOR Surplus"
           ]
@@ -4547,6 +4961,7 @@
           "currency": "SEK",
           "sector": "Health Care",
           "country": "Sweden",
+          "price": 226.91,
           "screens": [
             "TOR Surplus"
           ]
@@ -4564,6 +4979,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1826.0,
           "screens": [
             "Moat Companies"
           ]
@@ -4575,6 +4991,7 @@
           "currency": "SEK",
           "sector": "Telecommunications",
           "country": "Sweden",
+          "price": 21.13,
           "screens": [
             "Moat Companies"
           ]
@@ -4586,6 +5003,7 @@
           "currency": "SEK",
           "sector": "Consumer Discretionary",
           "country": "Sweden",
+          "price": 799.71,
           "screens": [
             "Moat Companies"
           ]
@@ -4597,6 +5015,7 @@
           "currency": "CAD",
           "sector": "Industrials",
           "country": "Canada",
+          "price": 1.15,
           "screens": [
             "Moat Companies"
           ]
@@ -4607,7 +5026,8 @@
           "name": "Strike Company Ltd",
           "currency": "JPY",
           "sector": "Industrials",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 4568.0
         },
         {
           "ticker": "MGPI",
@@ -4616,6 +5036,7 @@
           "currency": "USD",
           "sector": "Consumer Staples",
           "country": "United States of America",
+          "price": 29.19,
           "screens": [
             "Moat Companies"
           ]
@@ -4626,7 +5047,8 @@
           "name": "Sigmaxyz Inc",
           "currency": "JPY",
           "sector": "Industrials",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 932.97
         },
         {
           "ticker": "3371.T",
@@ -4634,7 +5056,8 @@
           "name": "Softcreate Holdings Corp.",
           "currency": "JPY",
           "sector": "Technology",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 2353.0
         },
         {
           "ticker": "7595.T",
@@ -4642,7 +5065,8 @@
           "name": "ARGO GRAPHICS Inc.",
           "currency": "JPY",
           "sector": "Technology",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 4914.0
         },
         {
           "ticker": "WATR.L",
@@ -4651,6 +5075,7 @@
           "currency": "GBP",
           "sector": "Industrials",
           "country": "United Kingdom",
+          "price": 3.16,
           "screens": [
             "Moat Companies"
           ]
@@ -4662,6 +5087,7 @@
           "currency": "SEK",
           "sector": "Consumer Staples",
           "country": "Sweden",
+          "price": 173.41,
           "screens": [
             "Moat Companies"
           ]
@@ -4673,6 +5099,7 @@
           "currency": "USD",
           "sector": "Consumer Discretionary",
           "country": "United States of America",
+          "price": 120.4,
           "screens": [
             "Moat Companies"
           ]
@@ -4684,6 +5111,7 @@
           "currency": "USD",
           "sector": "Technology",
           "country": "United States of America",
+          "price": 244.01,
           "screens": [
             "Moat Companies"
           ]
@@ -4695,6 +5123,7 @@
           "currency": "EUR",
           "sector": "Industrials",
           "country": "Italy",
+          "price": 7.05,
           "screens": [
             "Moat Companies"
           ]
@@ -4706,6 +5135,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 4730.0,
           "screens": [
             "Moat Companies"
           ]
@@ -4716,7 +5146,8 @@
           "name": "Transaction Co Ltd",
           "currency": "JPY",
           "sector": "Consumer Staples",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 1194.0
         },
         {
           "ticker": "3661.T",
@@ -4725,6 +5156,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 2218.0,
           "screens": [
             "Moat Companies"
           ]
@@ -4735,7 +5167,8 @@
           "name": "D.R. Horton Inc.",
           "currency": "USD",
           "sector": "Consumer Discretionary",
-          "country": "United States of America"
+          "country": "United States of America",
+          "price": 176.69
         },
         {
           "ticker": "6086.T",
@@ -4744,6 +5177,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1154.0,
           "screens": [
             "Moat Companies"
           ]
@@ -4754,7 +5188,8 @@
           "name": "Goldwin Inc",
           "currency": "JPY",
           "sector": "Consumer Discretionary",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 7543.0
         },
         {
           "ticker": "GAMA.L",
@@ -4762,7 +5197,8 @@
           "name": "Gamma Communications PLC ORD 0.",
           "currency": "GBP",
           "sector": "Telecommunications",
-          "country": "United Kingdom"
+          "country": "United Kingdom",
+          "price": 10.2
         },
         {
           "ticker": "7187.T",
@@ -4770,7 +5206,8 @@
           "name": "J-Lease Co Ltd",
           "currency": "JPY",
           "sector": "Consumer Discretionary",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 1697.0
         },
         {
           "ticker": "FRAN.L",
@@ -4779,6 +5216,7 @@
           "currency": "GBP",
           "sector": "Industrials",
           "country": "United Kingdom",
+          "price": 1.39,
           "screens": [
             "Moat Companies"
           ]
@@ -4790,6 +5228,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 2091.0,
           "screens": [
             "Moat Companies"
           ]
@@ -4801,6 +5240,7 @@
           "currency": "EUR",
           "sector": "Industrials",
           "country": "Belgium",
+          "price": 568.6,
           "screens": [
             "Moat Companies"
           ]
@@ -4812,6 +5252,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 962.87,
           "screens": [
             "Moat Companies"
           ]
@@ -4822,7 +5263,8 @@
           "name": "TechMatrix Corp",
           "currency": "JPY",
           "sector": "Technology",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 1991.0
         },
         {
           "ticker": "XPEL",
@@ -4830,7 +5272,8 @@
           "name": "XPEL Inc.",
           "currency": "USD",
           "sector": "Consumer Discretionary",
-          "country": "United States of America"
+          "country": "United States of America",
+          "price": 35.76
         },
         {
           "ticker": "MONC.MI",
@@ -4839,6 +5282,7 @@
           "currency": "EUR",
           "sector": "Consumer Discretionary",
           "country": "Italy",
+          "price": 46.77,
           "screens": [
             "Moat Companies"
           ]
@@ -4850,6 +5294,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 2180.0,
           "screens": [
             "Moat Companies"
           ]
@@ -4860,7 +5305,8 @@
           "name": "Thermador Groupe SA",
           "currency": "EUR",
           "sector": "Industrials",
-          "country": "France"
+          "country": "France",
+          "price": 75.29
         },
         {
           "ticker": "4318.T",
@@ -4868,7 +5314,8 @@
           "name": "Quick Co Ltd",
           "currency": "JPY",
           "sector": "Industrials",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 2438.0
         },
         {
           "ticker": "9790.T",
@@ -4877,6 +5324,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 3360.0,
           "screens": [
             "Moat Companies"
           ]
@@ -4888,6 +5336,7 @@
           "currency": "SEK",
           "sector": "Industrials",
           "country": "Sweden",
+          "price": 108.03,
           "screens": [
             "Moat Companies"
           ]
@@ -4899,6 +5348,7 @@
           "currency": "EUR",
           "sector": "Technology",
           "country": "France",
+          "price": 79.92,
           "screens": [
             "Moat Companies"
           ]
@@ -4909,7 +5359,8 @@
           "name": "Comture Corp",
           "currency": "JPY",
           "sector": "Technology",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 1698.0
         },
         {
           "ticker": "PREV-B.ST",
@@ -4918,6 +5369,7 @@
           "currency": "SEK",
           "sector": "Technology",
           "country": "Sweden",
+          "price": 68.86,
           "screens": [
             "Moat Companies"
           ]
@@ -4929,6 +5381,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1511.0,
           "screens": [
             "Moat Companies"
           ]
@@ -4940,6 +5393,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 1932.0,
           "screens": [
             "Moat Companies"
           ]
@@ -4951,6 +5405,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 2378.0,
           "screens": [
             "Moat Companies"
           ]
@@ -4961,7 +5416,8 @@
           "name": "Double Standard Inc.",
           "currency": "JPY",
           "sector": "Technology",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 1740.0
         },
         {
           "ticker": "ABDP.L",
@@ -4970,6 +5426,7 @@
           "currency": "GBP",
           "sector": "Consumer Discretionary",
           "country": "United Kingdom",
+          "price": 14.4,
           "screens": [
             "Moat Companies"
           ]
@@ -4980,7 +5437,8 @@
           "name": "Wavestone SA",
           "currency": "EUR",
           "sector": "Technology",
-          "country": "France"
+          "country": "France",
+          "price": 46.77
         },
         {
           "ticker": "3969.T",
@@ -4989,6 +5447,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1546.0,
           "screens": [
             "Moat Companies"
           ]
@@ -5000,6 +5459,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1719.0,
           "screens": [
             "Moat Companies"
           ]
@@ -5010,7 +5470,8 @@
           "name": "Artner Co Ltd",
           "currency": "JPY",
           "sector": "Industrials",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 1975.0
         },
         {
           "ticker": "LOGN.SW",
@@ -5019,6 +5480,7 @@
           "currency": "CHF",
           "sector": "Technology",
           "country": "Switzerland",
+          "price": 83.79,
           "screens": [
             "Moat Companies"
           ]
@@ -5030,6 +5492,7 @@
           "currency": "USD",
           "sector": "Technology",
           "country": "United States of America",
+          "price": 106.0,
           "screens": [
             "Moat Companies"
           ]
@@ -5040,7 +5503,8 @@
           "name": "SEMITEC Corp",
           "currency": "JPY",
           "sector": "Technology",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 2347.0
         },
         {
           "ticker": "4763.T",
@@ -5049,6 +5513,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 1521.0,
           "screens": [
             "Moat Companies"
           ]
@@ -5059,7 +5524,8 @@
           "name": "Shoei Co Ltd",
           "currency": "JPY",
           "sector": "Consumer Discretionary",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 1859.0
         },
         {
           "ticker": "REY.MI",
@@ -5067,7 +5533,8 @@
           "name": "Reply S.p.A.",
           "currency": "EUR",
           "sector": "Technology",
-          "country": "Italy"
+          "country": "Italy",
+          "price": 114.61
         },
         {
           "ticker": "3835.T",
@@ -5076,6 +5543,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 506.47,
           "screens": [
             "Moat Companies"
           ]
@@ -5087,6 +5555,7 @@
           "currency": "SEK",
           "sector": "Telecommunications",
           "country": "Sweden",
+          "price": 3.25,
           "screens": [
             "Moat Companies"
           ]
@@ -5098,6 +5567,7 @@
           "currency": "SEK",
           "sector": "Technology",
           "country": "Sweden",
+          "price": 85.31,
           "screens": [
             "Moat Companies"
           ]
@@ -5109,6 +5579,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 2361.0,
           "screens": [
             "Moat Companies"
           ]
@@ -5119,7 +5590,8 @@
           "name": "Matson Inc.",
           "currency": "USD",
           "sector": "Industrials",
-          "country": "United States of America"
+          "country": "United States of America",
+          "price": 105.07
         },
         {
           "ticker": "2371.T",
@@ -5128,6 +5600,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 2698.0,
           "screens": [
             "Moat Companies"
           ]
@@ -5138,7 +5611,8 @@
           "name": "Kainos Group plc",
           "currency": "GBP",
           "sector": "Technology",
-          "country": "United Kingdom"
+          "country": "United Kingdom",
+          "price": 9.19
         },
         {
           "ticker": "OGUN-B.ST",
@@ -5147,6 +5621,7 @@
           "currency": "SEK",
           "sector": "Industrials",
           "country": "Sweden",
+          "price": 25.5,
           "screens": [
             "Moat Companies"
           ]
@@ -5158,6 +5633,7 @@
           "currency": "EUR",
           "sector": "Technology",
           "country": "France",
+          "price": 43.61,
           "screens": [
             "Moat Companies"
           ]
@@ -5168,7 +5644,8 @@
           "name": "FM Mattsson Mora Group AB (publ)",
           "currency": "SEK",
           "sector": "Industrials",
-          "country": "Sweden"
+          "country": "Sweden",
+          "price": 54.85
         },
         {
           "ticker": "3655.T",
@@ -5176,7 +5653,8 @@
           "name": "BrainPad Inc.",
           "currency": "JPY",
           "sector": "Technology",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 1259.0
         },
         {
           "ticker": "CLFD",
@@ -5185,6 +5663,7 @@
           "currency": "USD",
           "sector": "Telecommunications",
           "country": "United States of America",
+          "price": 33.05,
           "screens": [
             "Moat Companies"
           ]
@@ -5196,6 +5675,7 @@
           "currency": "SEK",
           "sector": "Industrials",
           "country": "Sweden",
+          "price": 23.52,
           "screens": [
             "Moat Companies"
           ]
@@ -5206,7 +5686,8 @@
           "name": "Olvi Oyj",
           "currency": "EUR",
           "sector": "Consumer Staples",
-          "country": "Finland"
+          "country": "Finland",
+          "price": 29.9
         },
         {
           "ticker": "HLAG.DE",
@@ -5214,7 +5695,8 @@
           "name": "Hapag-Lloyd Aktiengesellschaft",
           "currency": "EUR",
           "sector": "Industrials",
-          "country": "Germany"
+          "country": "Germany",
+          "price": 118.79
         },
         {
           "ticker": "6089.T",
@@ -5223,6 +5705,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 948.92,
           "screens": [
             "Moat Companies"
           ]
@@ -5233,7 +5716,8 @@
           "name": "E-Guardian Inc.",
           "currency": "JPY",
           "sector": "Industrials",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 2012.0
         },
         {
           "ticker": "2491.T",
@@ -5242,6 +5726,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 824.4,
           "screens": [
             "Moat Companies"
           ]
@@ -5253,6 +5738,7 @@
           "currency": "JPY",
           "sector": "Industrials",
           "country": "Japan",
+          "price": 2774.0,
           "screens": [
             "Moat Companies"
           ]
@@ -5264,6 +5750,7 @@
           "currency": "CAD",
           "sector": "Consumer Discretionary",
           "country": "Canada",
+          "price": 51.27,
           "screens": [
             "Moat Companies"
           ]
@@ -5275,6 +5762,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 1847.0,
           "screens": [
             "Moat Companies"
           ]
@@ -5286,6 +5774,7 @@
           "currency": "JPY",
           "sector": "Consumer Staples",
           "country": "Japan",
+          "price": 3254.0,
           "screens": [
             "Moat Companies"
           ]
@@ -5296,7 +5785,8 @@
           "name": "Japan Material Co Ltd",
           "currency": "JPY",
           "sector": "Technology",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 1572.0
         },
         {
           "ticker": "VCI.V",
@@ -5305,6 +5795,7 @@
           "currency": "CAD",
           "sector": "Utilities",
           "country": "Canada",
+          "price": 6.01,
           "screens": [
             "Moat Companies"
           ]
@@ -5316,6 +5807,7 @@
           "currency": "GBP",
           "sector": "Industrials",
           "country": "United Kingdom",
+          "price": 8.11,
           "screens": [
             "Moat Companies"
           ]
@@ -5327,6 +5819,7 @@
           "currency": "JPY",
           "sector": "Consumer Discretionary",
           "country": "Japan",
+          "price": 3605.0,
           "screens": [
             "Moat Companies"
           ]
@@ -5337,7 +5830,8 @@
           "name": "Atrae Inc.",
           "currency": "JPY",
           "sector": "Technology",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 814.37
         },
         {
           "ticker": "4686.T",
@@ -5346,6 +5840,7 @@
           "currency": "JPY",
           "sector": "Technology",
           "country": "Japan",
+          "price": 4764.0,
           "screens": [
             "Moat Companies"
           ]
@@ -5357,6 +5852,7 @@
           "currency": "JPY",
           "sector": "Consumer Staples",
           "country": "Japan",
+          "price": 1346.0,
           "screens": [
             "Moat Companies"
           ]
@@ -5368,6 +5864,7 @@
           "currency": "SEK",
           "sector": "Technology",
           "country": "Sweden",
+          "price": 107.04,
           "screens": [
             "Moat Companies"
           ]
@@ -5379,6 +5876,7 @@
           "currency": "JPY",
           "sector": "Consumer Staples",
           "country": "Japan",
+          "price": 4640.0,
           "screens": [
             "Moat Companies"
           ]
@@ -5389,7 +5887,8 @@
           "name": "BTS Group AB (publ)",
           "currency": "SEK",
           "sector": "Industrials",
-          "country": "Sweden"
+          "country": "Sweden",
+          "price": 185.97
         },
         {
           "ticker": "AJ91.DE",
@@ -5398,6 +5897,7 @@
           "currency": "EUR",
           "sector": "Technology",
           "country": "Germany",
+          "price": 13.02,
           "screens": [
             "Moat Companies"
           ]
@@ -5408,7 +5908,8 @@
           "name": "Avant Corp",
           "currency": "JPY",
           "sector": "Technology",
-          "country": "Japan"
+          "country": "Japan",
+          "price": 1525.0
         }
       ]
     }
@@ -5421,6 +5922,7 @@
       "currency": "AUD",
       "sector": "Basic Materials",
       "country": "Australia",
+      "price": 0.2,
       "screens": [
         "quality bloom"
       ]
@@ -5432,6 +5934,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 1047.0,
       "screens": [
         "quality bloom"
       ]
@@ -5443,6 +5946,7 @@
       "currency": "EUR",
       "sector": "Consumer Discretionary",
       "country": "France",
+      "price": 101.81,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -5455,6 +5959,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 468.36,
       "screens": [
         "quality bloom"
       ]
@@ -5466,6 +5971,7 @@
       "currency": "DKK",
       "sector": "Industrials",
       "country": "Denmark",
+      "price": 239.5,
       "screens": [
         "quality bloom"
       ]
@@ -5477,6 +5983,7 @@
       "currency": "AUD",
       "sector": "Consumer Discretionary",
       "country": "Australia",
+      "price": 0.51,
       "screens": [
         "quality bloom"
       ]
@@ -5488,6 +5995,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1586.0,
       "screens": [
         "quality bloom"
       ]
@@ -5499,6 +6007,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1789.0,
       "screens": [
         "quality bloom"
       ]
@@ -5510,6 +6019,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 699.03,
       "screens": [
         "quality bloom"
       ]
@@ -5521,6 +6031,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 4122.0,
       "screens": [
         "quality bloom"
       ]
@@ -5532,6 +6043,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 3720.0,
       "screens": [
         "quality bloom"
       ]
@@ -5543,6 +6055,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 15.55,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -5555,6 +6068,7 @@
       "currency": "JPY",
       "sector": "Basic Materials",
       "country": "Japan",
+      "price": 9888.0,
       "screens": [
         "quality bloom"
       ]
@@ -5566,6 +6080,7 @@
       "currency": "EUR",
       "sector": "Basic Materials",
       "country": "Germany",
+      "price": 30.87,
       "screens": [
         "quality bloom"
       ]
@@ -5577,6 +6092,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 3315.0,
       "screens": [
         "quality bloom"
       ]
@@ -5588,6 +6104,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1738.0,
       "screens": [
         "quality bloom"
       ]
@@ -5599,6 +6116,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 2347.0,
       "screens": [
         "quality bloom",
         "TOR Surplus",
@@ -5612,6 +6130,7 @@
       "currency": "GBP",
       "sector": "Consumer Staples",
       "country": "United Kingdom",
+      "price": 12.36,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -5624,6 +6143,7 @@
       "currency": "AUD",
       "sector": "Industrials",
       "country": "Australia",
+      "price": 12.16,
       "screens": [
         "quality bloom"
       ]
@@ -5635,6 +6155,7 @@
       "currency": "GBP",
       "sector": "Consumer Discretionary",
       "country": "United Kingdom",
+      "price": 3.33,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -5647,6 +6168,7 @@
       "currency": "JPY",
       "sector": "Basic Materials",
       "country": "Japan",
+      "price": 3810.0,
       "screens": [
         "quality bloom"
       ]
@@ -5658,6 +6180,7 @@
       "currency": "USD",
       "sector": "Consumer Discretionary",
       "country": "United States of America",
+      "price": 35.37,
       "screens": [
         "quality bloom"
       ]
@@ -5669,6 +6192,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1632.0,
       "screens": [
         "quality bloom"
       ]
@@ -5680,6 +6204,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 1115.0,
       "screens": [
         "quality bloom"
       ]
@@ -5691,6 +6216,7 @@
       "currency": "CAD",
       "sector": "Technology",
       "country": "Canada",
+      "price": 20.97,
       "screens": [
         "quality bloom"
       ]
@@ -5702,6 +6228,7 @@
       "currency": "GBP",
       "sector": "Technology",
       "country": "United Kingdom",
+      "price": 0.66,
       "screens": [
         "quality bloom"
       ]
@@ -5713,6 +6240,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1124.0,
       "screens": [
         "quality bloom"
       ]
@@ -5724,6 +6252,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 657.67,
       "screens": [
         "quality bloom"
       ]
@@ -5735,6 +6264,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 5466.0,
       "screens": [
         "quality bloom"
       ]
@@ -5746,6 +6276,7 @@
       "currency": "GBP",
       "sector": "Basic Materials",
       "country": "United Kingdom",
+      "price": 2.24,
       "screens": [
         "quality bloom"
       ]
@@ -5757,6 +6288,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 6208.0,
       "screens": [
         "quality bloom"
       ]
@@ -5768,6 +6300,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1570.0,
       "screens": [
         "quality bloom"
       ]
@@ -5779,6 +6312,7 @@
       "currency": "EUR",
       "sector": "Consumer Staples",
       "country": "Finland",
+      "price": 29.9,
       "screens": [
         "quality bloom",
         "Moat Companies"
@@ -5791,6 +6325,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 3011.0,
       "screens": [
         "quality bloom"
       ]
@@ -5802,6 +6337,7 @@
       "currency": "EUR",
       "sector": "Industrials",
       "country": "Germany",
+      "price": 67.5,
       "screens": [
         "quality bloom"
       ]
@@ -5813,6 +6349,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1525.0,
       "screens": [
         "quality bloom",
         "Moat Companies"
@@ -5825,6 +6362,7 @@
       "currency": "USD",
       "sector": "Consumer Discretionary",
       "country": "United States of America",
+      "price": 156.93,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -5837,6 +6375,7 @@
       "currency": "EUR",
       "sector": "Technology",
       "country": "Germany",
+      "price": 12.04,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -5849,6 +6388,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1098.0,
       "screens": [
         "quality bloom"
       ]
@@ -5860,6 +6400,7 @@
       "currency": "EUR",
       "sector": "Industrials",
       "country": "Finland",
+      "price": 9.93,
       "screens": [
         "quality bloom"
       ]
@@ -5871,6 +6412,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 2240.0,
       "screens": [
         "quality bloom"
       ]
@@ -5882,6 +6424,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 1883.0,
       "screens": [
         "quality bloom"
       ]
@@ -5893,6 +6436,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 3124.0,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -5905,6 +6449,7 @@
       "currency": "JPY",
       "sector": "Consumer Staples",
       "country": "Japan",
+      "price": 1194.0,
       "screens": [
         "quality bloom",
         "TOR Surplus",
@@ -5918,6 +6463,7 @@
       "currency": "SEK",
       "sector": "Consumer Discretionary",
       "country": "Sweden",
+      "price": 73.95,
       "screens": [
         "quality bloom"
       ]
@@ -5929,6 +6475,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1997.0,
       "screens": [
         "quality bloom"
       ]
@@ -5940,6 +6487,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1434.0,
       "screens": [
         "quality bloom"
       ]
@@ -5951,6 +6499,7 @@
       "currency": "SEK",
       "sector": "Consumer Discretionary",
       "country": "Sweden",
+      "price": 154.98,
       "screens": [
         "quality bloom"
       ]
@@ -5962,6 +6511,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 461.34,
       "screens": [
         "quality bloom"
       ]
@@ -5973,6 +6523,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 10.31,
       "screens": [
         "quality bloom"
       ]
@@ -5984,6 +6535,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1954.0,
       "screens": [
         "quality bloom"
       ]
@@ -5995,6 +6547,7 @@
       "currency": "USD",
       "sector": "Technology",
       "country": "United States of America",
+      "price": 83.28,
       "screens": [
         "quality bloom"
       ]
@@ -6006,6 +6559,7 @@
       "currency": "CHF",
       "sector": "Health Care",
       "country": "Switzerland",
+      "price": 57.23,
       "screens": [
         "quality bloom"
       ]
@@ -6017,6 +6571,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 3661.0,
       "screens": [
         "quality bloom"
       ]
@@ -6028,6 +6583,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 547.59,
       "screens": [
         "quality bloom"
       ]
@@ -6039,6 +6595,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 362.05,
       "screens": [
         "quality bloom"
       ]
@@ -6050,6 +6607,7 @@
       "currency": "USD",
       "sector": "Consumer Discretionary",
       "country": "United States of America",
+      "price": 6.38,
       "screens": [
         "quality bloom"
       ]
@@ -6061,6 +6619,7 @@
       "currency": "GBP",
       "sector": "Industrials",
       "country": "United Kingdom",
+      "price": 34.43,
       "screens": [
         "quality bloom"
       ]
@@ -6072,6 +6631,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 4052.0,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -6084,6 +6644,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 2012.0,
       "screens": [
         "quality bloom",
         "Moat Companies"
@@ -6096,6 +6657,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 11401.0,
       "screens": [
         "quality bloom"
       ]
@@ -6107,6 +6669,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 1859.0,
       "screens": [
         "quality bloom",
         "Moat Companies"
@@ -6119,6 +6682,7 @@
       "currency": "GBP",
       "sector": "Industrials",
       "country": "United Kingdom",
+      "price": 1.37,
       "screens": [
         "quality bloom"
       ]
@@ -6130,6 +6694,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 2438.0,
       "screens": [
         "quality bloom",
         "Moat Companies"
@@ -6142,6 +6707,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 4654.0,
       "screens": [
         "quality bloom"
       ]
@@ -6153,6 +6719,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 2608.0,
       "screens": [
         "quality bloom"
       ]
@@ -6164,6 +6731,7 @@
       "currency": "EUR",
       "sector": "Industrials",
       "country": "France",
+      "price": 75.29,
       "screens": [
         "quality bloom",
         "Moat Companies"
@@ -6176,6 +6744,7 @@
       "currency": "JPY",
       "sector": "Consumer Staples",
       "country": "Japan",
+      "price": 2122.0,
       "screens": [
         "quality bloom"
       ]
@@ -6187,6 +6756,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1479.0,
       "screens": [
         "quality bloom"
       ]
@@ -6198,6 +6768,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 2923.0,
       "screens": [
         "quality bloom"
       ]
@@ -6209,6 +6780,7 @@
       "currency": "AUD",
       "sector": "Industrials",
       "country": "Australia",
+      "price": 2.59,
       "screens": [
         "quality bloom"
       ]
@@ -6220,6 +6792,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 2124.0,
       "screens": [
         "quality bloom"
       ]
@@ -6231,6 +6804,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 3460.0,
       "screens": [
         "quality bloom"
       ]
@@ -6242,6 +6816,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1740.0,
       "screens": [
         "quality bloom",
         "Moat Companies"
@@ -6254,6 +6829,7 @@
       "currency": "EUR",
       "sector": "Telecommunications",
       "country": "Belgium",
+      "price": 33.2,
       "screens": [
         "quality bloom"
       ]
@@ -6265,6 +6841,7 @@
       "currency": "EUR",
       "sector": "Technology",
       "country": "France",
+      "price": 40.71,
       "screens": [
         "quality bloom"
       ]
@@ -6276,6 +6853,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1537.0,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -6288,6 +6866,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1419.0,
       "screens": [
         "quality bloom"
       ]
@@ -6299,6 +6878,7 @@
       "currency": "SEK",
       "sector": "Technology",
       "country": "Sweden",
+      "price": 36.58,
       "screens": [
         "quality bloom"
       ]
@@ -6310,6 +6890,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 1884.0,
       "screens": [
         "quality bloom"
       ]
@@ -6321,6 +6902,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 2917.0,
       "screens": [
         "quality bloom"
       ]
@@ -6332,6 +6914,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 5037.0,
       "screens": [
         "quality bloom"
       ]
@@ -6343,6 +6926,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1279.0,
       "screens": [
         "quality bloom"
       ]
@@ -6354,6 +6938,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 3450.0,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -6366,6 +6951,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 2360.0,
       "screens": [
         "quality bloom"
       ]
@@ -6377,6 +6963,7 @@
       "currency": "JPY",
       "sector": "Consumer Staples",
       "country": "Japan",
+      "price": 2540.0,
       "screens": [
         "quality bloom"
       ]
@@ -6388,6 +6975,7 @@
       "currency": "EUR",
       "sector": "Industrials",
       "country": "Greece",
+      "price": 35.98,
       "screens": [
         "quality bloom"
       ]
@@ -6399,6 +6987,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 6369.0,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -6411,6 +7000,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 4914.0,
       "screens": [
         "quality bloom",
         "Moat Companies"
@@ -6423,6 +7013,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 5576.0,
       "screens": [
         "quality bloom"
       ]
@@ -6434,6 +7025,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 2203.0,
       "screens": [
         "quality bloom"
       ]
@@ -6445,6 +7037,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 2050.0,
       "screens": [
         "quality bloom"
       ]
@@ -6456,6 +7049,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 3400.0,
       "screens": [
         "quality bloom"
       ]
@@ -6467,6 +7061,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1698.0,
       "screens": [
         "quality bloom",
         "Moat Companies"
@@ -6479,6 +7074,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 5148.0,
       "screens": [
         "quality bloom"
       ]
@@ -6490,6 +7086,7 @@
       "currency": "GBP",
       "sector": "Technology",
       "country": "United Kingdom",
+      "price": 1.56,
       "screens": [
         "quality bloom"
       ]
@@ -6501,6 +7098,7 @@
       "currency": "GBP",
       "sector": "Telecommunications",
       "country": "United Kingdom",
+      "price": 10.2,
       "screens": [
         "quality bloom",
         "Moat Companies"
@@ -6513,6 +7111,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 693.02,
       "screens": [
         "quality bloom"
       ]
@@ -6524,6 +7123,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 7211.0,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -6536,6 +7136,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 5117.0,
       "screens": [
         "quality bloom"
       ]
@@ -6547,6 +7148,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 4568.0,
       "screens": [
         "quality bloom",
         "Moat Companies"
@@ -6559,6 +7161,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 6093.0,
       "screens": [
         "quality bloom"
       ]
@@ -6570,6 +7173,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 8590.0,
       "screens": [
         "quality bloom"
       ]
@@ -6581,6 +7185,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 705.77,
       "screens": [
         "quality bloom"
       ]
@@ -6592,6 +7197,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1153.0,
       "screens": [
         "quality bloom"
       ]
@@ -6603,6 +7209,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1587.0,
       "screens": [
         "quality bloom"
       ]
@@ -6614,6 +7221,7 @@
       "currency": "JPY",
       "sector": "Basic Materials",
       "country": "Japan",
+      "price": 2135.0,
       "screens": [
         "quality bloom"
       ]
@@ -6625,6 +7233,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 3003.0,
       "screens": [
         "quality bloom"
       ]
@@ -6636,6 +7245,7 @@
       "currency": "JPY",
       "sector": "Basic Materials",
       "country": "Japan",
+      "price": 4799.0,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -6648,6 +7258,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 2353.0,
       "screens": [
         "quality bloom",
         "Moat Companies"
@@ -6660,6 +7271,7 @@
       "currency": "EUR",
       "sector": "Industrials",
       "country": "Italy",
+      "price": 58.61,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -6672,6 +7284,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1872.0,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -6684,6 +7297,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1100.0,
       "screens": [
         "quality bloom"
       ]
@@ -6695,6 +7309,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 3559.0,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -6707,6 +7322,7 @@
       "currency": "GBP",
       "sector": "Industrials",
       "country": "United Kingdom",
+      "price": 32.35,
       "screens": [
         "quality bloom"
       ]
@@ -6718,6 +7334,7 @@
       "currency": "CAD",
       "sector": "Industrials",
       "country": "Canada",
+      "price": 130.16,
       "screens": [
         "quality bloom"
       ]
@@ -6729,6 +7346,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 5030.0,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -6741,6 +7359,7 @@
       "currency": "AUD",
       "sector": "Consumer Discretionary",
       "country": "Australia",
+      "price": 11.4,
       "screens": [
         "quality bloom"
       ]
@@ -6752,6 +7371,7 @@
       "currency": "GBP",
       "sector": "Technology",
       "country": "United Kingdom",
+      "price": 3.07,
       "screens": [
         "quality bloom"
       ]
@@ -6763,6 +7383,7 @@
       "currency": "GBP",
       "sector": "Consumer Staples",
       "country": "United Kingdom",
+      "price": 2.17,
       "screens": [
         "quality bloom"
       ]
@@ -6774,6 +7395,7 @@
       "currency": "JPY",
       "sector": "Utilities",
       "country": "Japan",
+      "price": 2592.0,
       "screens": [
         "quality bloom"
       ]
@@ -6785,6 +7407,7 @@
       "currency": "JPY",
       "sector": "Basic Materials",
       "country": "Japan",
+      "price": 3214.0,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -6797,6 +7420,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 1659.0,
       "screens": [
         "quality bloom"
       ]
@@ -6808,6 +7432,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 998.76,
       "screens": [
         "quality bloom"
       ]
@@ -6819,6 +7444,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 19434.0,
       "screens": [
         "quality bloom"
       ]
@@ -6830,6 +7456,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 5791.0,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -6842,6 +7469,7 @@
       "currency": "SEK",
       "sector": "Consumer Discretionary",
       "country": "Sweden",
+      "price": 47.48,
       "screens": [
         "quality bloom"
       ]
@@ -6853,6 +7481,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1892.0,
       "screens": [
         "quality bloom"
       ]
@@ -6864,6 +7493,7 @@
       "currency": "USD",
       "sector": "Technology",
       "country": "United States of America",
+      "price": 26.99,
       "screens": [
         "quality bloom"
       ]
@@ -6875,6 +7505,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1975.0,
       "screens": [
         "quality bloom",
         "Moat Companies"
@@ -6887,6 +7518,7 @@
       "currency": "USD",
       "sector": "Consumer Discretionary",
       "country": "United States of America",
+      "price": 36.31,
       "screens": [
         "quality bloom"
       ]
@@ -6898,6 +7530,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 2096.0,
       "screens": [
         "quality bloom"
       ]
@@ -6909,6 +7542,7 @@
       "currency": "JPY",
       "sector": "Basic Materials",
       "country": "Japan",
+      "price": 2656.0,
       "screens": [
         "quality bloom"
       ]
@@ -6920,6 +7554,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 573.33,
       "screens": [
         "quality bloom"
       ]
@@ -6931,6 +7566,7 @@
       "currency": "GBP",
       "sector": "Consumer Staples",
       "country": "United Kingdom",
+      "price": 6.96,
       "screens": [
         "quality bloom"
       ]
@@ -6942,6 +7578,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 4351.0,
       "screens": [
         "quality bloom"
       ]
@@ -6953,6 +7590,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 795.31,
       "screens": [
         "quality bloom"
       ]
@@ -6964,6 +7602,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1701.0,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -6976,6 +7615,7 @@
       "currency": "GBP",
       "sector": "Technology",
       "country": "United Kingdom",
+      "price": 0.9,
       "screens": [
         "quality bloom"
       ]
@@ -6987,6 +7627,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1572.0,
       "screens": [
         "quality bloom",
         "TOR Surplus",
@@ -7000,6 +7641,7 @@
       "currency": "EUR",
       "sector": "Industrials",
       "country": "Germany",
+      "price": 156.27,
       "screens": [
         "quality bloom"
       ]
@@ -7011,6 +7653,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1214.0,
       "screens": [
         "quality bloom"
       ]
@@ -7022,6 +7665,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 7543.0,
       "screens": [
         "quality bloom",
         "Moat Companies"
@@ -7034,6 +7678,7 @@
       "currency": "GBP",
       "sector": "Industrials",
       "country": "United Kingdom",
+      "price": 5.8,
       "screens": [
         "quality bloom"
       ]
@@ -7045,6 +7690,7 @@
       "currency": "CAD",
       "sector": "Basic Materials",
       "country": "Canada",
+      "price": 29.81,
       "screens": [
         "quality bloom"
       ]
@@ -7056,6 +7702,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 109.24,
       "screens": [
         "quality bloom"
       ]
@@ -7067,6 +7714,7 @@
       "currency": "CAD",
       "sector": "Basic Materials",
       "country": "Canada",
+      "price": 7.01,
       "screens": [
         "quality bloom"
       ]
@@ -7078,6 +7726,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 7077.0,
       "screens": [
         "quality bloom"
       ]
@@ -7089,6 +7738,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 485.42,
       "screens": [
         "quality bloom"
       ]
@@ -7100,6 +7750,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 3117.0,
       "screens": [
         "quality bloom"
       ]
@@ -7111,6 +7762,7 @@
       "currency": "AUD",
       "sector": "Basic Materials",
       "country": "Australia",
+      "price": 5.35,
       "screens": [
         "quality bloom"
       ]
@@ -7122,6 +7774,7 @@
       "currency": "USD",
       "sector": "Consumer Discretionary",
       "country": "United States of America",
+      "price": 102.11,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -7134,6 +7787,7 @@
       "currency": "JPY",
       "sector": "Health Care",
       "country": "Japan",
+      "price": 1299.0,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -7146,6 +7800,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 19.04,
       "screens": [
         "quality bloom"
       ]
@@ -7157,6 +7812,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 5747.0,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -7169,6 +7825,7 @@
       "currency": "EUR",
       "sector": "Consumer Discretionary",
       "country": "Italy",
+      "price": 19.73,
       "screens": [
         "quality bloom"
       ]
@@ -7180,6 +7837,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 2823.0,
       "screens": [
         "quality bloom"
       ]
@@ -7191,6 +7849,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 611.27,
       "screens": [
         "quality bloom"
       ]
@@ -7202,6 +7861,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 4789.0,
       "screens": [
         "quality bloom"
       ]
@@ -7213,6 +7873,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 4342.0,
       "screens": [
         "quality bloom"
       ]
@@ -7224,6 +7885,7 @@
       "currency": "EUR",
       "sector": "Technology",
       "country": "Finland",
+      "price": 44.4,
       "screens": [
         "quality bloom"
       ]
@@ -7235,6 +7897,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 38007.0,
       "screens": [
         "quality bloom"
       ]
@@ -7246,6 +7909,7 @@
       "currency": "GBP",
       "sector": "Consumer Staples",
       "country": "United Kingdom",
+      "price": 7.72,
       "screens": [
         "quality bloom"
       ]
@@ -7257,6 +7921,7 @@
       "currency": "USD",
       "sector": "Technology",
       "country": "United States of America",
+      "price": 30.01,
       "screens": [
         "quality bloom"
       ]
@@ -7268,6 +7933,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1744.0,
       "screens": [
         "quality bloom"
       ]
@@ -7279,6 +7945,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 814.37,
       "screens": [
         "quality bloom",
         "Moat Companies"
@@ -7291,6 +7958,7 @@
       "currency": "GBP",
       "sector": "Technology",
       "country": "United Kingdom",
+      "price": 9.19,
       "screens": [
         "quality bloom",
         "Moat Companies"
@@ -7303,6 +7971,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 841.45,
       "screens": [
         "quality bloom"
       ]
@@ -7314,6 +7983,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 3318.0,
       "screens": [
         "quality bloom"
       ]
@@ -7325,6 +7995,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 72.13,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -7337,6 +8008,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 2729.0,
       "screens": [
         "quality bloom"
       ]
@@ -7348,6 +8020,7 @@
       "currency": "EUR",
       "sector": "Technology",
       "country": "Germany",
+      "price": 101.0,
       "screens": [
         "quality bloom"
       ]
@@ -7359,6 +8032,7 @@
       "currency": "USD",
       "sector": "Consumer Discretionary",
       "country": "United States of America",
+      "price": 109.36,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -7371,6 +8045,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 2767.0,
       "screens": [
         "quality bloom"
       ]
@@ -7382,6 +8057,7 @@
       "currency": "SEK",
       "sector": "Telecommunications",
       "country": "Sweden",
+      "price": 61.09,
       "screens": [
         "quality bloom"
       ]
@@ -7393,6 +8069,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 46.74,
       "screens": [
         "quality bloom"
       ]
@@ -7404,6 +8081,7 @@
       "currency": "SEK",
       "sector": "Industrials",
       "country": "Sweden",
+      "price": 129.81,
       "screens": [
         "quality bloom"
       ]
@@ -7415,6 +8093,7 @@
       "currency": "AUD",
       "sector": "Consumer Discretionary",
       "country": "Australia",
+      "price": 38.71,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -7427,6 +8106,7 @@
       "currency": "JPY",
       "sector": "Basic Materials",
       "country": "Japan",
+      "price": 4811.0,
       "screens": [
         "quality bloom"
       ]
@@ -7438,6 +8118,7 @@
       "currency": "CHF",
       "sector": "Industrials",
       "country": "Switzerland",
+      "price": 93.14,
       "screens": [
         "quality bloom"
       ]
@@ -7449,6 +8130,7 @@
       "currency": "GBP",
       "sector": "Industrials",
       "country": "United Kingdom",
+      "price": 7.21,
       "screens": [
         "quality bloom"
       ]
@@ -7460,6 +8142,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 2118.0,
       "screens": [
         "quality bloom"
       ]
@@ -7471,6 +8154,7 @@
       "currency": "USD",
       "sector": "Consumer Discretionary",
       "country": "United States of America",
+      "price": 35.76,
       "screens": [
         "quality bloom",
         "Moat Companies"
@@ -7483,6 +8167,7 @@
       "currency": "SEK",
       "sector": "Technology",
       "country": "Sweden",
+      "price": 210.49,
       "screens": [
         "quality bloom"
       ]
@@ -7494,6 +8179,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 14.58,
       "screens": [
         "quality bloom"
       ]
@@ -7505,6 +8191,7 @@
       "currency": "USD",
       "sector": "Consumer Staples",
       "country": "United States of America",
+      "price": 222.87,
       "screens": [
         "quality bloom"
       ]
@@ -7516,6 +8203,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 2836.0,
       "screens": [
         "quality bloom"
       ]
@@ -7527,6 +8215,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1130.0,
       "screens": [
         "quality bloom"
       ]
@@ -7538,6 +8227,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 1584.0,
       "screens": [
         "quality bloom"
       ]
@@ -7549,6 +8239,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 2918.0,
       "screens": [
         "quality bloom"
       ]
@@ -7560,6 +8251,7 @@
       "currency": "GBP",
       "sector": "Technology",
       "country": "United Kingdom",
+      "price": 3.97,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -7572,6 +8264,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 932.97,
       "screens": [
         "quality bloom",
         "Moat Companies"
@@ -7584,6 +8277,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 2492.0,
       "screens": [
         "quality bloom"
       ]
@@ -7595,6 +8289,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1259.0,
       "screens": [
         "quality bloom",
         "Moat Companies"
@@ -7607,6 +8302,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1125.0,
       "screens": [
         "quality bloom"
       ]
@@ -7618,6 +8314,7 @@
       "currency": "GBP",
       "sector": "Industrials",
       "country": "United Kingdom",
+      "price": 2.25,
       "screens": [
         "quality bloom"
       ]
@@ -7629,6 +8326,7 @@
       "currency": "GBP",
       "sector": "Consumer Discretionary",
       "country": "United Kingdom",
+      "price": 3.81,
       "screens": [
         "quality bloom"
       ]
@@ -7640,6 +8338,7 @@
       "currency": "EUR",
       "sector": "Technology",
       "country": "Finland",
+      "price": 46.6,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -7652,6 +8351,7 @@
       "currency": "EUR",
       "sector": "Consumer Staples",
       "country": "Greece",
+      "price": 19.21,
       "screens": [
         "quality bloom",
         "TOR Surplus"
@@ -7664,6 +8364,7 @@
       "currency": "EUR",
       "sector": "Technology",
       "country": "France",
+      "price": 18.09,
       "screens": [
         "quality bloom"
       ]
@@ -7675,6 +8376,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 7671.0,
       "screens": [
         "quality bloom"
       ]
@@ -7686,6 +8388,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 8555.0,
       "screens": [
         "quality bloom"
       ]
@@ -7697,6 +8400,7 @@
       "currency": "SEK",
       "sector": "Technology",
       "country": "Sweden",
+      "price": 43.97,
       "screens": [
         "quality bloom"
       ]
@@ -7708,6 +8412,7 @@
       "currency": "CHF",
       "sector": "Industrials",
       "country": "Switzerland",
+      "price": 679.34,
       "screens": [
         "quality bloom"
       ]
@@ -7719,6 +8424,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 420.0,
       "screens": [
         "quality bloom"
       ]
@@ -7730,6 +8436,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 3641.0,
       "screens": [
         "quality bloom"
       ]
@@ -7741,6 +8448,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 2805.0,
       "screens": [
         "quality bloom"
       ]
@@ -7752,6 +8460,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 3076.0,
       "screens": [
         "quality bloom"
       ]
@@ -7763,6 +8472,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 2672.0,
       "screens": [
         "quality bloom"
       ]
@@ -7774,6 +8484,7 @@
       "currency": "CAD",
       "sector": "Telecommunications",
       "country": "Canada",
+      "price": 0.19,
       "screens": [
         "TOR Surplus"
       ]
@@ -7785,6 +8496,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 12386.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -7796,6 +8508,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 8452.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -7807,6 +8520,7 @@
       "currency": "EUR",
       "sector": "Industrials",
       "country": "Germany",
+      "price": 118.79,
       "screens": [
         "TOR Surplus",
         "Moat Companies"
@@ -7819,6 +8533,7 @@
       "currency": "AUD",
       "sector": "Technology",
       "country": "Australia",
+      "price": 91.77,
       "screens": [
         "TOR Surplus"
       ]
@@ -7830,6 +8545,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 3901.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -7841,6 +8557,7 @@
       "currency": "USD",
       "sector": "Technology",
       "country": "United States of America",
+      "price": 501.01,
       "screens": [
         "TOR Surplus"
       ]
@@ -7852,6 +8569,7 @@
       "currency": "EUR",
       "sector": "Consumer Discretionary",
       "country": "Italy",
+      "price": 405.97,
       "screens": [
         "TOR Surplus"
       ]
@@ -7863,6 +8581,7 @@
       "currency": "SEK",
       "sector": "Consumer Staples",
       "country": "Sweden",
+      "price": 39.77,
       "screens": [
         "TOR Surplus"
       ]
@@ -7874,6 +8593,7 @@
       "currency": "USD",
       "sector": "Consumer Discretionary",
       "country": "United States of America",
+      "price": 133.4,
       "screens": [
         "TOR Surplus"
       ]
@@ -7885,6 +8605,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1991.0,
       "screens": [
         "TOR Surplus",
         "Moat Companies"
@@ -7897,6 +8618,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 2008.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -7908,6 +8630,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 1893.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -7919,6 +8642,7 @@
       "currency": "EUR",
       "sector": "Consumer Discretionary",
       "country": "Italy",
+      "price": 39.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -7930,6 +8654,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 8628.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -7941,6 +8666,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 307.41,
       "screens": [
         "TOR Surplus"
       ]
@@ -7952,6 +8678,7 @@
       "currency": "NOK",
       "sector": "Basic Materials",
       "country": "Norway",
+      "price": 202.66,
       "screens": [
         "TOR Surplus"
       ]
@@ -7963,6 +8690,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 170.88,
       "screens": [
         "TOR Surplus"
       ]
@@ -7974,6 +8702,7 @@
       "currency": "EUR",
       "sector": "Industrials",
       "country": "France",
+      "price": 278.42,
       "screens": [
         "TOR Surplus"
       ]
@@ -7985,6 +8714,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 168.61,
       "screens": [
         "TOR Surplus"
       ]
@@ -7996,6 +8726,7 @@
       "currency": "AUD",
       "sector": "Industrials",
       "country": "Australia",
+      "price": 2.15,
       "screens": [
         "TOR Surplus"
       ]
@@ -8007,6 +8738,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 4945.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -8018,6 +8750,7 @@
       "currency": "JPY",
       "sector": "Basic Materials",
       "country": "Japan",
+      "price": 2597.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -8029,6 +8762,7 @@
       "currency": "SEK",
       "sector": "Consumer Discretionary",
       "country": "Sweden",
+      "price": 107.83,
       "screens": [
         "TOR Surplus"
       ]
@@ -8040,6 +8774,7 @@
       "currency": "AUD",
       "sector": "Consumer Discretionary",
       "country": "Australia",
+      "price": 7.32,
       "screens": [
         "TOR Surplus"
       ]
@@ -8051,6 +8786,7 @@
       "currency": "EUR",
       "sector": "Consumer Staples",
       "country": "Belgium",
+      "price": 8231.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -8062,6 +8798,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 16177.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -8073,6 +8810,7 @@
       "currency": "NOK",
       "sector": "Industrials",
       "country": "Norway",
+      "price": 294.22,
       "screens": [
         "TOR Surplus"
       ]
@@ -8084,6 +8822,7 @@
       "currency": "EUR",
       "sector": "Industrials",
       "country": "Germany",
+      "price": 366.21,
       "screens": [
         "TOR Surplus"
       ]
@@ -8095,6 +8834,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 1359.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -8106,6 +8846,7 @@
       "currency": "AUD",
       "sector": "Industrials",
       "country": "Australia",
+      "price": 8.25,
       "screens": [
         "TOR Surplus"
       ]
@@ -8117,6 +8858,7 @@
       "currency": "AUD",
       "sector": "Consumer Discretionary",
       "country": "Australia",
+      "price": 15.86,
       "screens": [
         "TOR Surplus"
       ]
@@ -8128,6 +8870,7 @@
       "currency": "GBP",
       "sector": "Industrials",
       "country": "United Kingdom",
+      "price": 5.58,
       "screens": [
         "TOR Surplus"
       ]
@@ -8139,6 +8882,7 @@
       "currency": "CAD",
       "sector": "Technology",
       "country": "Canada",
+      "price": 130.3,
       "screens": [
         "TOR Surplus"
       ]
@@ -8150,6 +8894,7 @@
       "currency": "USD",
       "sector": "Technology",
       "country": "United States of America",
+      "price": 29.36,
       "screens": [
         "TOR Surplus"
       ]
@@ -8161,6 +8906,7 @@
       "currency": "GBP",
       "sector": "Technology",
       "country": "United Kingdom",
+      "price": 1.63,
       "screens": [
         "TOR Surplus"
       ]
@@ -8172,6 +8918,7 @@
       "currency": "CAD",
       "sector": "Industrials",
       "country": "Canada",
+      "price": 143.56,
       "screens": [
         "TOR Surplus"
       ]
@@ -8183,6 +8930,7 @@
       "currency": "SEK",
       "sector": "Consumer Discretionary",
       "country": "Sweden",
+      "price": 306.5,
       "screens": [
         "TOR Surplus"
       ]
@@ -8194,6 +8942,7 @@
       "currency": "SEK",
       "sector": "Industrials",
       "country": "Sweden",
+      "price": 423.73,
       "screens": [
         "TOR Surplus"
       ]
@@ -8205,6 +8954,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 141.49,
       "screens": [
         "TOR Surplus"
       ]
@@ -8216,6 +8966,7 @@
       "currency": "USD",
       "sector": "Consumer Discretionary",
       "country": "United States of America",
+      "price": 140.13,
       "screens": [
         "TOR Surplus"
       ]
@@ -8227,6 +8978,7 @@
       "currency": "USD",
       "sector": "Consumer Discretionary",
       "country": "United States of America",
+      "price": 176.69,
       "screens": [
         "TOR Surplus",
         "Moat Companies"
@@ -8239,6 +8991,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 482.83,
       "screens": [
         "TOR Surplus"
       ]
@@ -8250,6 +9003,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 4685.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -8261,6 +9015,7 @@
       "currency": "DKK",
       "sector": "Consumer Discretionary",
       "country": "Denmark",
+      "price": 525.86,
       "screens": [
         "TOR Surplus"
       ]
@@ -8272,6 +9027,7 @@
       "currency": "USD",
       "sector": "Consumer Discretionary",
       "country": "United States of America",
+      "price": 143.2,
       "screens": [
         "TOR Surplus"
       ]
@@ -8283,6 +9039,7 @@
       "currency": "USD",
       "sector": "Technology",
       "country": "United States of America",
+      "price": 112.35,
       "screens": [
         "TOR Surplus"
       ]
@@ -8294,6 +9051,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 362.18,
       "screens": [
         "TOR Surplus"
       ]
@@ -8305,6 +9063,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 161.32,
       "screens": [
         "TOR Surplus"
       ]
@@ -8316,6 +9075,7 @@
       "currency": "CAD",
       "sector": "Industrials",
       "country": "Canada",
+      "price": 77.35,
       "screens": [
         "TOR Surplus"
       ]
@@ -8327,6 +9087,7 @@
       "currency": "EUR",
       "sector": "Industrials",
       "country": "Spain",
+      "price": 10.1,
       "screens": [
         "TOR Surplus"
       ]
@@ -8338,6 +9099,7 @@
       "currency": "GBP",
       "sector": "Consumer Discretionary",
       "country": "United Kingdom",
+      "price": 5.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -8349,6 +9111,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 182.71,
       "screens": [
         "TOR Surplus"
       ]
@@ -8360,6 +9123,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 184.8,
       "screens": [
         "TOR Surplus"
       ]
@@ -8371,6 +9135,7 @@
       "currency": "EUR",
       "sector": "Technology",
       "country": "Germany",
+      "price": 70.28,
       "screens": [
         "TOR Surplus"
       ]
@@ -8382,6 +9147,7 @@
       "currency": "EUR",
       "sector": "Consumer Discretionary",
       "country": "Greece",
+      "price": 31.69,
       "screens": [
         "TOR Surplus"
       ]
@@ -8393,6 +9159,7 @@
       "currency": "EUR",
       "sector": "Industrials",
       "country": "France",
+      "price": 27.1,
       "screens": [
         "TOR Surplus"
       ]
@@ -8404,6 +9171,7 @@
       "currency": "USD",
       "sector": "Technology",
       "country": "United States of America",
+      "price": 53.25,
       "screens": [
         "TOR Surplus"
       ]
@@ -8415,6 +9183,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 1697.0,
       "screens": [
         "TOR Surplus",
         "Moat Companies"
@@ -8427,6 +9196,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 6205.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -8438,6 +9208,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 160.47,
       "screens": [
         "TOR Surplus"
       ]
@@ -8449,6 +9220,7 @@
       "currency": "EUR",
       "sector": "Industrials",
       "country": "Italy",
+      "price": 40.62,
       "screens": [
         "TOR Surplus"
       ]
@@ -8460,6 +9232,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 135.22,
       "screens": [
         "TOR Surplus"
       ]
@@ -8471,6 +9244,7 @@
       "currency": "CHF",
       "sector": "Technology",
       "country": "Switzerland",
+      "price": 166.98,
       "screens": [
         "TOR Surplus"
       ]
@@ -8482,6 +9256,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 177.82,
       "screens": [
         "TOR Surplus"
       ]
@@ -8493,6 +9268,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 81.15,
       "screens": [
         "TOR Surplus"
       ]
@@ -8504,6 +9280,7 @@
       "currency": "USD",
       "sector": "Consumer Discretionary",
       "country": "United States of America",
+      "price": 82.93,
       "screens": [
         "TOR Surplus"
       ]
@@ -8515,6 +9292,7 @@
       "currency": "GBP",
       "sector": "Industrials",
       "country": "United Kingdom",
+      "price": 1.01,
       "screens": [
         "TOR Surplus"
       ]
@@ -8526,6 +9304,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 18092.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -8537,6 +9316,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 124.93,
       "screens": [
         "TOR Surplus"
       ]
@@ -8548,6 +9328,7 @@
       "currency": "AUD",
       "sector": "Industrials",
       "country": "Australia",
+      "price": 1.2,
       "screens": [
         "TOR Surplus"
       ]
@@ -8559,6 +9340,7 @@
       "currency": "USD",
       "sector": "Health Care",
       "country": "United States of America",
+      "price": 273.81,
       "screens": [
         "TOR Surplus"
       ]
@@ -8570,6 +9352,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 105.07,
       "screens": [
         "TOR Surplus",
         "Moat Companies"
@@ -8582,6 +9365,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 278.38,
       "screens": [
         "TOR Surplus"
       ]
@@ -8593,6 +9377,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 3927.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -8604,6 +9389,7 @@
       "currency": "EUR",
       "sector": "Basic Materials",
       "country": "France",
+      "price": 854.1,
       "screens": [
         "TOR Surplus"
       ]
@@ -8615,6 +9401,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 217.03,
       "screens": [
         "TOR Surplus"
       ]
@@ -8626,6 +9413,7 @@
       "currency": "CHF",
       "sector": "Consumer Staples",
       "country": "Switzerland",
+      "price": 120000.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -8637,6 +9425,7 @@
       "currency": "EUR",
       "sector": "Consumer Staples",
       "country": "Greece",
+      "price": 14.48,
       "screens": [
         "TOR Surplus"
       ]
@@ -8648,6 +9437,7 @@
       "currency": "EUR",
       "sector": "Consumer Discretionary",
       "country": "France",
+      "price": 53.29,
       "screens": [
         "TOR Surplus"
       ]
@@ -8659,6 +9449,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 330.68,
       "screens": [
         "TOR Surplus"
       ]
@@ -8670,6 +9461,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 195.9,
       "screens": [
         "TOR Surplus"
       ]
@@ -8681,6 +9473,7 @@
       "currency": "USD",
       "sector": "Consumer Discretionary",
       "country": "United States of America",
+      "price": 67.82,
       "screens": [
         "TOR Surplus"
       ]
@@ -8692,6 +9485,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1153.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -8703,6 +9497,7 @@
       "currency": "JPY",
       "sector": "Basic Materials",
       "country": "Japan",
+      "price": 3049.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -8714,6 +9509,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1817.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -8725,6 +9521,7 @@
       "currency": "EUR",
       "sector": "Consumer Discretionary",
       "country": "France",
+      "price": 144.93,
       "screens": [
         "TOR Surplus"
       ]
@@ -8736,6 +9533,7 @@
       "currency": "EUR",
       "sector": "Technology",
       "country": "Italy",
+      "price": 114.61,
       "screens": [
         "TOR Surplus",
         "Moat Companies"
@@ -8748,6 +9546,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 150.71,
       "screens": [
         "TOR Surplus"
       ]
@@ -8759,6 +9558,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 323.05,
       "screens": [
         "TOR Surplus"
       ]
@@ -8770,6 +9570,7 @@
       "currency": "AUD",
       "sector": "Consumer Discretionary",
       "country": "Australia",
+      "price": 20.67,
       "screens": [
         "TOR Surplus"
       ]
@@ -8781,6 +9582,7 @@
       "currency": "USD",
       "sector": "Technology",
       "country": "United States of America",
+      "price": 140.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -8792,6 +9594,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 209.16,
       "screens": [
         "TOR Surplus"
       ]
@@ -8803,6 +9606,7 @@
       "currency": "DKK",
       "sector": "Industrials",
       "country": "Denmark",
+      "price": 236.88,
       "screens": [
         "TOR Surplus"
       ]
@@ -8814,6 +9618,7 @@
       "currency": "GBP",
       "sector": "Industrials",
       "country": "United Kingdom",
+      "price": 32.41,
       "screens": [
         "TOR Surplus"
       ]
@@ -8825,6 +9630,7 @@
       "currency": "EUR",
       "sector": "Technology",
       "country": "France",
+      "price": 27.71,
       "screens": [
         "TOR Surplus"
       ]
@@ -8836,6 +9642,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 94.21,
       "screens": [
         "TOR Surplus"
       ]
@@ -8847,6 +9654,7 @@
       "currency": "AUD",
       "sector": "Industrials",
       "country": "Australia",
+      "price": 10.02,
       "screens": [
         "TOR Surplus"
       ]
@@ -8858,6 +9666,7 @@
       "currency": "USD",
       "sector": "Technology",
       "country": "United States of America",
+      "price": 22.64,
       "screens": [
         "TOR Surplus"
       ]
@@ -8869,6 +9678,7 @@
       "currency": "DKK",
       "sector": "Technology",
       "country": "Denmark",
+      "price": 190.89,
       "screens": [
         "TOR Surplus"
       ]
@@ -8880,6 +9690,7 @@
       "currency": "SEK",
       "sector": "Consumer Discretionary",
       "country": "Sweden",
+      "price": 60.67,
       "screens": [
         "TOR Surplus"
       ]
@@ -8891,6 +9702,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 3611.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -8902,6 +9714,7 @@
       "currency": "USD",
       "sector": "Basic Materials",
       "country": "United States of America",
+      "price": 86.01,
       "screens": [
         "TOR Surplus"
       ]
@@ -8913,6 +9726,7 @@
       "currency": "EUR",
       "sector": "Technology",
       "country": "Greece",
+      "price": 6.84,
       "screens": [
         "TOR Surplus"
       ]
@@ -8924,6 +9738,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 40.46,
       "screens": [
         "TOR Surplus"
       ]
@@ -8935,6 +9750,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 3991.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -8946,6 +9762,7 @@
       "currency": "USD",
       "sector": "Consumer Staples",
       "country": "United States of America",
+      "price": 113.83,
       "screens": [
         "TOR Surplus"
       ]
@@ -8957,6 +9774,7 @@
       "currency": "SEK",
       "sector": "Industrials",
       "country": "Sweden",
+      "price": 54.85,
       "screens": [
         "TOR Surplus",
         "Moat Companies"
@@ -8969,6 +9787,7 @@
       "currency": "USD",
       "sector": "Consumer Staples",
       "country": "United States of America",
+      "price": 109.32,
       "screens": [
         "TOR Surplus"
       ]
@@ -8980,6 +9799,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1773.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -8991,6 +9811,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 408.98,
       "screens": [
         "TOR Surplus"
       ]
@@ -9002,6 +9823,7 @@
       "currency": "JPY",
       "sector": "Consumer Staples",
       "country": "Japan",
+      "price": 1326.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9013,6 +9835,7 @@
       "currency": "EUR",
       "sector": "Industrials",
       "country": "Greece",
+      "price": 8.02,
       "screens": [
         "TOR Surplus"
       ]
@@ -9024,6 +9847,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1364.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9035,6 +9859,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 11824.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9046,6 +9871,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 4839.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9057,6 +9883,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 2058.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9068,6 +9895,7 @@
       "currency": "EUR",
       "sector": "Consumer Discretionary",
       "country": "France",
+      "price": 395.48,
       "screens": [
         "TOR Surplus"
       ]
@@ -9079,6 +9907,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 3150.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9090,6 +9919,7 @@
       "currency": "GBP",
       "sector": "Technology",
       "country": "United Kingdom",
+      "price": 7.89,
       "screens": [
         "TOR Surplus"
       ]
@@ -9101,6 +9931,7 @@
       "currency": "USD",
       "sector": "Consumer Staples",
       "country": "United States of America",
+      "price": 128.41,
       "screens": [
         "TOR Surplus"
       ]
@@ -9112,6 +9943,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 2447.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9123,6 +9955,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 62.07,
       "screens": [
         "TOR Surplus"
       ]
@@ -9134,6 +9967,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 62.32,
       "screens": [
         "TOR Surplus"
       ]
@@ -9145,6 +9979,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 3483.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9156,6 +9991,7 @@
       "currency": "JPY",
       "sector": "Consumer Staples",
       "country": "Japan",
+      "price": 2741.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9167,6 +10003,7 @@
       "currency": "JPY",
       "sector": "Consumer Staples",
       "country": "Japan",
+      "price": 1402.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9178,6 +10015,7 @@
       "currency": "EUR",
       "sector": "Industrials",
       "country": "Spain",
+      "price": 8.35,
       "screens": [
         "TOR Surplus"
       ]
@@ -9189,6 +10027,7 @@
       "currency": "EUR",
       "sector": "Industrials",
       "country": "France",
+      "price": 179.78,
       "screens": [
         "TOR Surplus"
       ]
@@ -9200,6 +10039,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 3675.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9211,6 +10051,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 193.57,
       "screens": [
         "TOR Surplus"
       ]
@@ -9222,6 +10063,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 140.48,
       "screens": [
         "TOR Surplus"
       ]
@@ -9233,6 +10075,7 @@
       "currency": "EUR",
       "sector": "Consumer Discretionary",
       "country": "Germany",
+      "price": 87.73,
       "screens": [
         "TOR Surplus"
       ]
@@ -9244,6 +10087,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 316.83,
       "screens": [
         "TOR Surplus"
       ]
@@ -9255,6 +10099,7 @@
       "currency": "EUR",
       "sector": "Consumer Discretionary",
       "country": "France",
+      "price": 12.72,
       "screens": [
         "TOR Surplus"
       ]
@@ -9266,6 +10111,7 @@
       "currency": "EUR",
       "sector": "Technology",
       "country": "Spain",
+      "price": 6.43,
       "screens": [
         "TOR Surplus"
       ]
@@ -9277,6 +10123,7 @@
       "currency": "CAD",
       "sector": "Industrials",
       "country": "Canada",
+      "price": 36.41,
       "screens": [
         "TOR Surplus"
       ]
@@ -9288,6 +10135,7 @@
       "currency": "USD",
       "sector": "Consumer Staples",
       "country": "United States of America",
+      "price": 24.97,
       "screens": [
         "TOR Surplus"
       ]
@@ -9299,6 +10147,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 837.44,
       "screens": [
         "TOR Surplus"
       ]
@@ -9310,6 +10159,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1534.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9321,6 +10171,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 2019.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9332,6 +10183,7 @@
       "currency": "EUR",
       "sector": "Industrials",
       "country": "Finland",
+      "price": 25.94,
       "screens": [
         "TOR Surplus"
       ]
@@ -9343,6 +10195,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 2412.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9354,6 +10207,7 @@
       "currency": "CHF",
       "sector": "Telecommunications",
       "country": "Switzerland",
+      "price": 136.07,
       "screens": [
         "TOR Surplus"
       ]
@@ -9365,6 +10219,7 @@
       "currency": "CHF",
       "sector": "Health Care",
       "country": "Switzerland",
+      "price": 93.86,
       "screens": [
         "TOR Surplus"
       ]
@@ -9376,6 +10231,7 @@
       "currency": "CAD",
       "sector": "Telecommunications",
       "country": "Canada",
+      "price": 9.51,
       "screens": [
         "TOR Surplus"
       ]
@@ -9387,6 +10243,7 @@
       "currency": "JPY",
       "sector": "Consumer Staples",
       "country": "Japan",
+      "price": 4691.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9398,6 +10255,7 @@
       "currency": "JPY",
       "sector": "Consumer Staples",
       "country": "Japan",
+      "price": 10516.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9409,6 +10267,7 @@
       "currency": "AUD",
       "sector": "Consumer Discretionary",
       "country": "Australia",
+      "price": 68.98,
       "screens": [
         "TOR Surplus"
       ]
@@ -9420,6 +10279,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 3005.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9431,6 +10291,7 @@
       "currency": "CHF",
       "sector": "Industrials",
       "country": "Switzerland",
+      "price": 107.47,
       "screens": [
         "TOR Surplus"
       ]
@@ -9442,6 +10303,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 254.51,
       "screens": [
         "TOR Surplus"
       ]
@@ -9453,6 +10315,7 @@
       "currency": "EUR",
       "sector": "Technology",
       "country": "Netherlands",
+      "price": 422.77,
       "screens": [
         "TOR Surplus"
       ]
@@ -9464,6 +10327,7 @@
       "currency": "USD",
       "sector": "Consumer Discretionary",
       "country": "United States of America",
+      "price": 159.16,
       "screens": [
         "TOR Surplus"
       ]
@@ -9475,6 +10339,7 @@
       "currency": "CAD",
       "sector": "Consumer Discretionary",
       "country": "Canada",
+      "price": 77.15,
       "screens": [
         "TOR Surplus"
       ]
@@ -9486,6 +10351,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 6984.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9497,6 +10363,7 @@
       "currency": "EUR",
       "sector": "Technology",
       "country": "France",
+      "price": 46.77,
       "screens": [
         "TOR Surplus",
         "Moat Companies"
@@ -9509,6 +10376,7 @@
       "currency": "EUR",
       "sector": "Technology",
       "country": "Greece",
+      "price": 3.27,
       "screens": [
         "TOR Surplus"
       ]
@@ -9520,6 +10388,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1735.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9531,6 +10400,7 @@
       "currency": "SEK",
       "sector": "Industrials",
       "country": "Sweden",
+      "price": 185.97,
       "screens": [
         "TOR Surplus",
         "Moat Companies"
@@ -9543,6 +10413,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 4372.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9554,6 +10425,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 7387.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9565,6 +10437,7 @@
       "currency": "USD",
       "sector": "Industrials",
       "country": "United States of America",
+      "price": 39.03,
       "screens": [
         "TOR Surplus"
       ]
@@ -9576,6 +10449,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 2948.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9587,6 +10461,7 @@
       "currency": "JPY",
       "sector": "Basic Materials",
       "country": "Japan",
+      "price": 2355.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9598,6 +10473,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1819.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9609,6 +10485,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 10079.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9620,6 +10497,7 @@
       "currency": "USD",
       "sector": "Technology",
       "country": "United States of America",
+      "price": 24.87,
       "screens": [
         "TOR Surplus"
       ]
@@ -9631,6 +10509,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 1381.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9642,6 +10521,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 5005.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9653,6 +10533,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 2935.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9664,6 +10545,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 2036.0,
       "screens": [
         "TOR Surplus"
       ]
@@ -9675,6 +10557,7 @@
       "currency": "GBP",
       "sector": "Industrials",
       "country": "United Kingdom",
+      "price": 1.75,
       "screens": [
         "TOR Surplus"
       ]
@@ -9686,6 +10569,7 @@
       "currency": "SEK",
       "sector": "Health Care",
       "country": "Sweden",
+      "price": 226.91,
       "screens": [
         "TOR Surplus"
       ]
@@ -9697,6 +10581,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1826.0,
       "screens": [
         "Moat Companies"
       ]
@@ -9708,6 +10593,7 @@
       "currency": "SEK",
       "sector": "Telecommunications",
       "country": "Sweden",
+      "price": 21.13,
       "screens": [
         "Moat Companies"
       ]
@@ -9719,6 +10605,7 @@
       "currency": "SEK",
       "sector": "Consumer Discretionary",
       "country": "Sweden",
+      "price": 799.71,
       "screens": [
         "Moat Companies"
       ]
@@ -9730,6 +10617,7 @@
       "currency": "CAD",
       "sector": "Industrials",
       "country": "Canada",
+      "price": 1.15,
       "screens": [
         "Moat Companies"
       ]
@@ -9741,6 +10629,7 @@
       "currency": "USD",
       "sector": "Consumer Staples",
       "country": "United States of America",
+      "price": 29.19,
       "screens": [
         "Moat Companies"
       ]
@@ -9752,6 +10641,7 @@
       "currency": "GBP",
       "sector": "Industrials",
       "country": "United Kingdom",
+      "price": 3.16,
       "screens": [
         "Moat Companies"
       ]
@@ -9763,6 +10653,7 @@
       "currency": "SEK",
       "sector": "Consumer Staples",
       "country": "Sweden",
+      "price": 173.41,
       "screens": [
         "Moat Companies"
       ]
@@ -9774,6 +10665,7 @@
       "currency": "USD",
       "sector": "Consumer Discretionary",
       "country": "United States of America",
+      "price": 120.4,
       "screens": [
         "Moat Companies"
       ]
@@ -9785,6 +10677,7 @@
       "currency": "USD",
       "sector": "Technology",
       "country": "United States of America",
+      "price": 244.01,
       "screens": [
         "Moat Companies"
       ]
@@ -9796,6 +10689,7 @@
       "currency": "EUR",
       "sector": "Industrials",
       "country": "Italy",
+      "price": 7.05,
       "screens": [
         "Moat Companies"
       ]
@@ -9807,6 +10701,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 4730.0,
       "screens": [
         "Moat Companies"
       ]
@@ -9818,6 +10713,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 2218.0,
       "screens": [
         "Moat Companies"
       ]
@@ -9829,6 +10725,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1154.0,
       "screens": [
         "Moat Companies"
       ]
@@ -9840,6 +10737,7 @@
       "currency": "GBP",
       "sector": "Industrials",
       "country": "United Kingdom",
+      "price": 1.39,
       "screens": [
         "Moat Companies"
       ]
@@ -9851,6 +10749,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 2091.0,
       "screens": [
         "Moat Companies"
       ]
@@ -9862,6 +10761,7 @@
       "currency": "EUR",
       "sector": "Industrials",
       "country": "Belgium",
+      "price": 568.6,
       "screens": [
         "Moat Companies"
       ]
@@ -9873,6 +10773,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 962.87,
       "screens": [
         "Moat Companies"
       ]
@@ -9884,6 +10785,7 @@
       "currency": "EUR",
       "sector": "Consumer Discretionary",
       "country": "Italy",
+      "price": 46.77,
       "screens": [
         "Moat Companies"
       ]
@@ -9895,6 +10797,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 2180.0,
       "screens": [
         "Moat Companies"
       ]
@@ -9906,6 +10809,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 3360.0,
       "screens": [
         "Moat Companies"
       ]
@@ -9917,6 +10821,7 @@
       "currency": "SEK",
       "sector": "Industrials",
       "country": "Sweden",
+      "price": 108.03,
       "screens": [
         "Moat Companies"
       ]
@@ -9928,6 +10833,7 @@
       "currency": "EUR",
       "sector": "Technology",
       "country": "France",
+      "price": 79.92,
       "screens": [
         "Moat Companies"
       ]
@@ -9939,6 +10845,7 @@
       "currency": "SEK",
       "sector": "Technology",
       "country": "Sweden",
+      "price": 68.86,
       "screens": [
         "Moat Companies"
       ]
@@ -9950,6 +10857,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1511.0,
       "screens": [
         "Moat Companies"
       ]
@@ -9961,6 +10869,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 1932.0,
       "screens": [
         "Moat Companies"
       ]
@@ -9972,6 +10881,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 2378.0,
       "screens": [
         "Moat Companies"
       ]
@@ -9983,6 +10893,7 @@
       "currency": "GBP",
       "sector": "Consumer Discretionary",
       "country": "United Kingdom",
+      "price": 14.4,
       "screens": [
         "Moat Companies"
       ]
@@ -9994,6 +10905,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1546.0,
       "screens": [
         "Moat Companies"
       ]
@@ -10005,6 +10917,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1719.0,
       "screens": [
         "Moat Companies"
       ]
@@ -10016,6 +10929,7 @@
       "currency": "CHF",
       "sector": "Technology",
       "country": "Switzerland",
+      "price": 83.79,
       "screens": [
         "Moat Companies"
       ]
@@ -10027,6 +10941,7 @@
       "currency": "USD",
       "sector": "Technology",
       "country": "United States of America",
+      "price": 106.0,
       "screens": [
         "Moat Companies"
       ]
@@ -10038,6 +10953,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 1521.0,
       "screens": [
         "Moat Companies"
       ]
@@ -10049,6 +10965,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 506.47,
       "screens": [
         "Moat Companies"
       ]
@@ -10060,6 +10977,7 @@
       "currency": "SEK",
       "sector": "Telecommunications",
       "country": "Sweden",
+      "price": 3.25,
       "screens": [
         "Moat Companies"
       ]
@@ -10071,6 +10989,7 @@
       "currency": "SEK",
       "sector": "Technology",
       "country": "Sweden",
+      "price": 85.31,
       "screens": [
         "Moat Companies"
       ]
@@ -10082,6 +11001,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 2361.0,
       "screens": [
         "Moat Companies"
       ]
@@ -10093,6 +11013,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 2698.0,
       "screens": [
         "Moat Companies"
       ]
@@ -10104,6 +11025,7 @@
       "currency": "SEK",
       "sector": "Industrials",
       "country": "Sweden",
+      "price": 25.5,
       "screens": [
         "Moat Companies"
       ]
@@ -10115,6 +11037,7 @@
       "currency": "EUR",
       "sector": "Technology",
       "country": "France",
+      "price": 43.61,
       "screens": [
         "Moat Companies"
       ]
@@ -10126,6 +11049,7 @@
       "currency": "USD",
       "sector": "Telecommunications",
       "country": "United States of America",
+      "price": 33.05,
       "screens": [
         "Moat Companies"
       ]
@@ -10137,6 +11061,7 @@
       "currency": "SEK",
       "sector": "Industrials",
       "country": "Sweden",
+      "price": 23.52,
       "screens": [
         "Moat Companies"
       ]
@@ -10148,6 +11073,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 948.92,
       "screens": [
         "Moat Companies"
       ]
@@ -10159,6 +11085,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 824.4,
       "screens": [
         "Moat Companies"
       ]
@@ -10170,6 +11097,7 @@
       "currency": "JPY",
       "sector": "Industrials",
       "country": "Japan",
+      "price": 2774.0,
       "screens": [
         "Moat Companies"
       ]
@@ -10181,6 +11109,7 @@
       "currency": "CAD",
       "sector": "Consumer Discretionary",
       "country": "Canada",
+      "price": 51.27,
       "screens": [
         "Moat Companies"
       ]
@@ -10192,6 +11121,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 1847.0,
       "screens": [
         "Moat Companies"
       ]
@@ -10203,6 +11133,7 @@
       "currency": "JPY",
       "sector": "Consumer Staples",
       "country": "Japan",
+      "price": 3254.0,
       "screens": [
         "Moat Companies"
       ]
@@ -10214,6 +11145,7 @@
       "currency": "CAD",
       "sector": "Utilities",
       "country": "Canada",
+      "price": 6.01,
       "screens": [
         "Moat Companies"
       ]
@@ -10225,6 +11157,7 @@
       "currency": "GBP",
       "sector": "Industrials",
       "country": "United Kingdom",
+      "price": 8.11,
       "screens": [
         "Moat Companies"
       ]
@@ -10236,6 +11169,7 @@
       "currency": "JPY",
       "sector": "Consumer Discretionary",
       "country": "Japan",
+      "price": 3605.0,
       "screens": [
         "Moat Companies"
       ]
@@ -10247,6 +11181,7 @@
       "currency": "JPY",
       "sector": "Technology",
       "country": "Japan",
+      "price": 4764.0,
       "screens": [
         "Moat Companies"
       ]
@@ -10258,6 +11193,7 @@
       "currency": "JPY",
       "sector": "Consumer Staples",
       "country": "Japan",
+      "price": 1346.0,
       "screens": [
         "Moat Companies"
       ]
@@ -10269,6 +11205,7 @@
       "currency": "SEK",
       "sector": "Technology",
       "country": "Sweden",
+      "price": 107.04,
       "screens": [
         "Moat Companies"
       ]
@@ -10280,6 +11217,7 @@
       "currency": "JPY",
       "sector": "Consumer Staples",
       "country": "Japan",
+      "price": 4640.0,
       "screens": [
         "Moat Companies"
       ]
@@ -10291,6 +11229,7 @@
       "currency": "EUR",
       "sector": "Technology",
       "country": "Germany",
+      "price": 13.02,
       "screens": [
         "Moat Companies"
       ]
