@@ -1729,7 +1729,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.05765114295989539,
           "eur_price": 10.354807,
-          "target_value_eur": 57835.51,
+          "target_value_eur": 57835.52,
           "quantity": 5585
         },
         {
@@ -1878,7 +1878,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.04316348560568791,
           "eur_price": 19.187359,
-          "target_value_eur": 43301.52,
+          "target_value_eur": 43301.53,
           "quantity": 2257
         },
         {
@@ -1966,7 +1966,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.057988065223946735,
           "eur_price": 6.909091,
-          "target_value_eur": 58173.51,
+          "target_value_eur": 58173.52,
           "quantity": 8420
         },
         {
@@ -2524,7 +2524,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07180187805005153,
           "eur_price": 6.765782,
-          "target_value_eur": 72031.5,
+          "target_value_eur": 72031.51,
           "quantity": 10646
         },
         {
@@ -3310,7 +3310,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.056977298431792715,
           "eur_price": 29.154367,
-          "target_value_eur": 57159.51,
+          "target_value_eur": 57159.52,
           "quantity": 1961
         },
         {
@@ -3375,7 +3375,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.028675828251480434,
           "eur_price": 13.659779,
-          "target_value_eur": 28767.53,
+          "target_value_eur": 28767.54,
           "quantity": 2106
         },
         {
@@ -3417,7 +3417,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07213880031410287,
           "eur_price": 35.98,
-          "target_value_eur": 72369.5,
+          "target_value_eur": 72369.51,
           "quantity": 2011
         },
         {
@@ -3653,7 +3653,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.014862015425375628,
           "eur_price": 4.011229,
-          "target_value_eur": 14909.54,
+          "target_value_eur": 14909.55,
           "quantity": 3717
         },
         {
@@ -4407,7 +4407,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.05731422069584405,
           "eur_price": 15.373039,
-          "target_value_eur": 57497.51,
+          "target_value_eur": 57497.52,
           "quantity": 3740
         },
         {
@@ -4428,7 +4428,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.05664037616774139,
           "eur_price": 3.318458,
-          "target_value_eur": 56821.51,
+          "target_value_eur": 56821.52,
           "quantity": 17123
         },
         {
@@ -4491,7 +4491,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07112803352194887,
           "eur_price": 4.603288,
-          "target_value_eur": 71355.5,
+          "target_value_eur": 71355.51,
           "quantity": 15501
         },
         {
@@ -5561,7 +5561,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07079111125789753,
           "eur_price": 16.414887,
-          "target_value_eur": 71017.5,
+          "target_value_eur": 71017.51,
           "quantity": 4326
         },
         {
@@ -10758,7 +10758,7 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.010415774680952661,
           "eur_price": 7.05,
-          "target_value_eur": 10449.08,
+          "target_value_eur": 10449.09,
           "quantity": 1482
         },
         {
@@ -11373,7 +11373,7 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.01838384231188145,
           "eur_price": 9.949644,
-          "target_value_eur": 18442.63,
+          "target_value_eur": 18442.64,
           "quantity": 1854
         },
         {
@@ -12363,7 +12363,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.05765114295989539,
       "eur_price": 10.354807,
-      "target_value_eur": 57835.51,
+      "target_value_eur": 57835.52,
       "quantity": 5585
     },
     "6095.T": {
@@ -12512,7 +12512,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.04316348560568791,
       "eur_price": 19.187359,
-      "target_value_eur": 43301.52,
+      "target_value_eur": 43301.53,
       "quantity": 2257
     },
     "2301.T": {
@@ -12600,7 +12600,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.057988065223946735,
       "eur_price": 6.909091,
-      "target_value_eur": 58173.51,
+      "target_value_eur": 58173.52,
       "quantity": 8420
     },
     "GLE.L": {
@@ -13158,7 +13158,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07180187805005153,
       "eur_price": 6.765782,
-      "target_value_eur": 72031.5,
+      "target_value_eur": 72031.51,
       "quantity": 10646
     },
     "6246.T": {
@@ -13944,7 +13944,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.056977298431792715,
       "eur_price": 29.154367,
-      "target_value_eur": 57159.51,
+      "target_value_eur": 57159.52,
       "quantity": 1961
     },
     "6458.T": {
@@ -14009,7 +14009,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.028675828251480434,
       "eur_price": 13.659779,
-      "target_value_eur": 28767.53,
+      "target_value_eur": 28767.54,
       "quantity": 2106
     },
     "4919.T": {
@@ -14051,7 +14051,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07213880031410287,
       "eur_price": 35.98,
-      "target_value_eur": 72369.5,
+      "target_value_eur": 72369.51,
       "quantity": 2011
     },
     "6728.T": {
@@ -14287,7 +14287,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.014862015425375628,
       "eur_price": 4.011229,
-      "target_value_eur": 14909.54,
+      "target_value_eur": 14909.55,
       "quantity": 3717
     },
     "6284.T": {
@@ -15041,7 +15041,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.05731422069584405,
       "eur_price": 15.373039,
-      "target_value_eur": 57497.51,
+      "target_value_eur": 57497.52,
       "quantity": 3740
     },
     "7068.T": {
@@ -15062,7 +15062,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.05664037616774139,
       "eur_price": 3.318458,
-      "target_value_eur": 56821.51,
+      "target_value_eur": 56821.52,
       "quantity": 17123
     },
     "BAG.L": {
@@ -15125,7 +15125,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07112803352194887,
       "eur_price": 4.603288,
-      "target_value_eur": 71355.5,
+      "target_value_eur": 71355.51,
       "quantity": 15501
     },
     "6323.T": {
@@ -16195,7 +16195,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07079111125789753,
       "eur_price": 16.414887,
-      "target_value_eur": 71017.5,
+      "target_value_eur": 71017.51,
       "quantity": 4326
     },
     "2150.T": {
@@ -20703,7 +20703,7 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.010415774680952661,
       "eur_price": 7.05,
-      "target_value_eur": 10449.08,
+      "target_value_eur": 10449.09,
       "quantity": 1482
     },
     "5929.T": {
@@ -21102,7 +21102,7 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.01838384231188145,
       "eur_price": 9.949644,
-      "target_value_eur": 18442.63,
+      "target_value_eur": 18442.64,
       "quantity": 1854
     },
     "LOGN.SW": {
@@ -21653,8 +21653,8 @@
     }
   },
   "account_total_value": {
-    "value": 1003198.05,
+    "value": 1003198.07,
     "currency": "EUR",
-    "timestamp": "2025-09-12 19:39:31"
+    "timestamp": "2025-09-12 19:42:26"
   }
 }

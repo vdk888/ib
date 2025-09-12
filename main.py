@@ -164,6 +164,37 @@ def step6_calculate_targets():
         print(f"Step 6 failed - {e}")
         return False
 
+def step7_calculate_quantities():
+    """Step 7: Get account value from IBKR and calculate stock quantities"""
+    print("\nSTEP 7: Calculating stock quantities based on account value")
+    print("=" * 50)
+    
+    try:
+        # Import and run quantity calculator
+        import subprocess
+        
+        # Run qty.py using the virtual environment
+        result = subprocess.run(
+            ["./portfolio_env/Scripts/python", "src/qty.py"],
+            capture_output=True,
+            text=True
+        )
+        
+        if result.returncode == 0:
+            print("Step 7 complete - stock quantities calculated")
+            # Display key results
+            print("\nQuantity calculation output:")
+            print(result.stdout)
+            return True
+        else:
+            print("Step 7 failed - quantity calculation error")
+            print(f"Error: {result.stderr}")
+            return False
+            
+    except Exception as e:
+        print(f"Step 7 failed - {e}")
+        return False
+
 def run_all_steps():
     """Run all steps in sequence"""
     print("Uncle Stock Screener - Full Pipeline")
@@ -181,13 +212,17 @@ def run_all_steps():
                         # Step 5: Update currency exchange rates
                         if step5_update_currency():
                             # Step 6: Calculate final stock allocations
-                            step6_calculate_targets()
-                            
-                            print("\n" + "=" * 60)
-                            print("ALL STEPS COMPLETE")
-                            print("Files created:")
-                            print("  - CSV files in data/files_exports/")
-                            print("  - universe.json with complete stock data, portfolio optimization, and final allocations")
+                            if step6_calculate_targets():
+                                # Step 7: Calculate stock quantities from IBKR account value
+                                step7_calculate_quantities()
+                                
+                                print("\n" + "=" * 60)
+                                print("ALL STEPS COMPLETE")
+                                print("Files created:")
+                                print("  - CSV files in data/files_exports/")
+                                print("  - universe.json with complete stock data, portfolio optimization, allocations, and quantities")
+                            else:
+                                print("Step 6 failed - stopping pipeline")
                         else:
                             print("Step 5 failed - stopping pipeline")
                     else:
@@ -214,6 +249,7 @@ def show_help():
     print("  4, step4, portfolio - Optimize portfolio allocations")
     print("  5, step5, currency  - Update EUR exchange rates")
     print("  6, step6, target    - Calculate final stock allocations")
+    print("  7, step7, qty       - Get account value from IBKR and calculate stock quantities")
     print("  all, full           - Run all steps (default)")
     print("  help, -h, --help    - Show this help")
     print("\nExamples:")
@@ -224,6 +260,7 @@ def show_help():
     print("  python main.py portfolio  # Only optimize portfolio")
     print("  python main.py 5          # Only update exchange rates")
     print("  python main.py target     # Only calculate stock allocations")
+    print("  python main.py qty        # Only calculate stock quantities from IBKR")
 
 def main():
     """Main function with command-line argument support"""
@@ -242,6 +279,8 @@ def main():
             step5_update_currency()
         elif arg in ['6', 'step6', 'target']:
             step6_calculate_targets()
+        elif arg in ['7', 'step7', 'qty']:
+            step7_calculate_quantities()
         elif arg in ['all', 'full']:
             run_all_steps()
         elif arg in ['help', '-h', '--help']:
