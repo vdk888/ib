@@ -149,9 +149,12 @@ def is_valid_match(universe_stock, ibkr_contract):
     universe_name = universe_stock['name'].lower()
     ibkr_name = ibkr_contract['longName'].lower()
     
-    # Extract key company identifiers
-    universe_words = set(re.findall(r'\b[a-zA-Z]{3,}\b', universe_name))
-    ibkr_words = set(re.findall(r'\b[a-zA-Z]{3,}\b', ibkr_name))
+    # Extract key company identifiers - clean punctuation first
+    universe_clean = re.sub(r"[''`\-\.\,\(\)\[\]]", " ", universe_name)
+    ibkr_clean = re.sub(r"[''`\-\.\,\(\)\[\]]", " ", ibkr_name)
+    
+    universe_words = set(re.findall(r'\b[a-zA-Z]{3,}\b', universe_clean))
+    ibkr_words = set(re.findall(r'\b[a-zA-Z]{3,}\b', ibkr_clean))
     
     # Remove common corporate suffixes that don't help with matching
     ignore_words = {
@@ -499,7 +502,7 @@ def process_all_universe_stocks():
             # Update universe data
             update_universe_with_ibkr_details(universe_data, ticker, match)
             
-            print(f"  ✓ FOUND: {match['symbol']} on {match['exchange']} (method: {search_method}, score: {score:.1%})")
+            print(f"  FOUND: {match['symbol']} on {match['exchange']} (method: {search_method}, score: {score:.1%})")
         else:
             # Mark as not found
             mark_stock_not_found(universe_data, ticker)
@@ -510,7 +513,7 @@ def process_all_universe_stocks():
                 'currency': stock['currency'],
                 'country': stock.get('country', 'Unknown')
             })
-            print(f"  ✗ NOT FOUND")
+            print(f"  NOT FOUND")
         
         # Small delay between searches
         time.sleep(0.5)
