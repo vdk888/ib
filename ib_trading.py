@@ -227,11 +227,11 @@ def test_sell_order():
             break
     
     if not has_aapl:
-        print("\n❌ No AAPL position found to sell!")
+        print("\n[X] No AAPL position found to sell!")
         app.disconnect()
         return
     
-    print(f"\n✅ Found AAPL position: {aapl_position} shares")
+    print(f"\n[OK] Found AAPL position: {aapl_position} shares")
     
     # Test sell order - Sell 1 share of AAPL
     print(f"\n{'='*50}")
@@ -257,22 +257,22 @@ def test_sell_order():
         remaining = app.orders[sell_order_id]['remaining']
         avg_price = app.orders[sell_order_id]['avgFillPrice']
         
-        print(f"\n📊 Order Status: {order_status}")
-        print(f"📊 Filled: {filled} shares")
-        print(f"📊 Remaining: {remaining} shares")
+        print(f"\n[STATUS] Order Status: {order_status}")
+        print(f"[STATUS] Filled: {filled} shares")
+        print(f"[STATUS] Remaining: {remaining} shares")
         if avg_price > 0:
-            print(f"📊 Average Fill Price: ${avg_price:.2f}")
+            print(f"[STATUS] Average Fill Price: ${avg_price:.2f}")
         
         if order_status == 'Filled':
-            print("\n✅ SELL order filled successfully!")
+            print("\n[SUCCESS] SELL order filled successfully!")
         elif order_status == 'PreSubmitted':
-            print("\n⏳ Order is pre-submitted (market closed)")
+            print("\n[PENDING] Order is pre-submitted (market closed)")
         elif order_status == 'Submitted':
-            print("\n⏳ Order is submitted and pending")
+            print("\n[PENDING] Order is submitted and pending")
         else:
-            print(f"\n⚠️ Order status: {order_status}")
+            print(f"\n[WARNING] Order status: {order_status}")
     else:
-        print("\n❌ No order status received")
+        print("\n[ERROR] No order status received")
     
     # Cancel subscriptions
     app.cancelAccountSummary(9001)
