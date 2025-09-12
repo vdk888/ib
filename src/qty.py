@@ -74,6 +74,8 @@ def calculate_stock_quantities(universe_data, account_value):
     print("Calculating stock quantities...")
     
     total_stocks_processed = 0
+    minimal_allocation_count = 0
+    meaningful_allocation_count = 0
     
     # Process all stock categories
     stock_categories = ["screens", "all_stocks"] if "all_stocks" in universe_data else ["screens"]
@@ -88,6 +90,13 @@ def calculate_stock_quantities(universe_data, account_value):
                         if isinstance(stock, dict):  # Make sure it's a stock dictionary
                             calculate_stock_fields(stock, account_value)
                             total_stocks_processed += 1
+                            
+                            # Count allocation types
+                            final_target = float(stock.get("final_target", 0))
+                            if final_target < 1e-10 and final_target > 0:
+                                minimal_allocation_count += 1
+                            elif final_target > 0:
+                                meaningful_allocation_count += 1
                         else:
                             print(f"Warning: Non-dict stock found in {screen_name}: {stock}")
                 else:
@@ -104,6 +113,8 @@ def calculate_stock_quantities(universe_data, account_value):
                     print(f"Warning: Non-dict stock found in all_stocks: {ticker}: {stock}")
     
     print(f"Processed {total_stocks_processed} stocks with quantity calculations")
+    print(f"  - {meaningful_allocation_count} stocks with meaningful allocations (>1e-10)")
+    print(f"  - {minimal_allocation_count} stocks with minimal allocations (<1e-10)")
     return total_stocks_processed
 
 def calculate_stock_fields(stock, account_value):
@@ -127,6 +138,10 @@ def calculate_stock_fields(stock, account_value):
         stock["eur_price"] = round(eur_price, 6)
         stock["target_value_eur"] = round(target_value_eur, 2)
         stock["quantity"] = int(round(quantity))
+        
+        # Add a flag for very small allocations for transparency
+        if final_target < 1e-10 and final_target > 0:
+            stock["allocation_note"] = "minimal_allocation"
         
     except (ValueError, TypeError, ZeroDivisionError) as e:
         # Handle missing or invalid data

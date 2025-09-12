@@ -1601,7 +1601,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.026991216931223746,
           "eur_price": 6.06008,
-          "target_value_eur": 27077.53,
+          "target_value_eur": 27077.54,
           "quantity": 4468
         },
         {
@@ -1624,7 +1624,8 @@
           "final_target": 1.3171205318819025e-19,
           "eur_price": 101.81,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "4936.T",
@@ -1665,7 +1666,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.02598045013906974,
           "eur_price": 32.104558,
-          "target_value_eur": 26063.53,
+          "target_value_eur": 26063.54,
           "quantity": 812
         },
         {
@@ -1749,7 +1750,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.0687695776735895,
           "eur_price": 4.046015,
-          "target_value_eur": 68989.5,
+          "target_value_eur": 68989.51,
           "quantity": 17051
         },
         {
@@ -1770,7 +1771,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.0677588108814355,
           "eur_price": 23.858309,
-          "target_value_eur": 67975.5,
+          "target_value_eur": 67975.51,
           "quantity": 2849
         },
         {
@@ -1791,7 +1792,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.04922808635861197,
           "eur_price": 21.531516,
-          "target_value_eur": 49385.51,
+          "target_value_eur": 49385.52,
           "quantity": 2294
         },
         {
@@ -1814,7 +1815,8 @@
           "final_target": 7.621147953910301e-20,
           "eur_price": 13.290598,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "4966.T",
@@ -1834,7 +1836,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.025306605610967068,
           "eur_price": 57.232158,
-          "target_value_eur": 25387.53,
+          "target_value_eur": 25387.54,
           "quantity": 444
         },
         {
@@ -1943,7 +1945,8 @@
           "final_target": 2.353829360421457e-19,
           "eur_price": 14.289017,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "LYL.AX",
@@ -1986,7 +1989,8 @@
           "final_target": 3.118271223890016e-20,
           "eur_price": 3.849711,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "4206.T",
@@ -2006,7 +2010,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.05360807579127935,
           "eur_price": 22.05244,
-          "target_value_eur": 53779.51,
+          "target_value_eur": 53779.52,
           "quantity": 2439
         },
         {
@@ -2090,7 +2094,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.014525093161324287,
           "eur_price": 12.944444,
-          "target_value_eur": 14571.54,
+          "target_value_eur": 14571.55,
           "quantity": 1126
         },
         {
@@ -2111,7 +2115,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.013514326369170283,
           "eur_price": 0.763006,
-          "target_value_eur": 13557.54,
+          "target_value_eur": 13557.55,
           "quantity": 17769
         },
         {
@@ -2153,7 +2157,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06270497692066544,
           "eur_price": 3.806622,
-          "target_value_eur": 62905.5,
+          "target_value_eur": 62905.51,
           "quantity": 16525
         },
         {
@@ -2216,7 +2220,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07348648937030822,
           "eur_price": 35.932164,
-          "target_value_eur": 73721.49,
+          "target_value_eur": 73721.5,
           "quantity": 2052
         },
         {
@@ -2259,7 +2263,7 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.012056259193202705,
           "eur_price": 29.9,
-          "target_value_eur": 12094.81,
+          "target_value_eur": 12094.82,
           "quantity": 405
         },
         {
@@ -2280,7 +2284,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06607419956117881,
           "eur_price": 17.427794,
-          "target_value_eur": 66285.5,
+          "target_value_eur": 66285.51,
           "quantity": 3803
         },
         {
@@ -2301,7 +2305,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07786647880297559,
           "eur_price": 67.5,
-          "target_value_eur": 78115.49,
+          "target_value_eur": 78115.5,
           "quantity": 1157
         },
         {
@@ -2346,7 +2350,8 @@
           "final_target": 1.3066487255330181e-19,
           "eur_price": 134.128205,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "AIXA.DE",
@@ -2368,7 +2373,8 @@
           "final_target": 6.469249255533018e-20,
           "eur_price": 12.04,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "2124.T",
@@ -2388,7 +2394,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06978034446574352,
           "eur_price": 6.35527,
-          "target_value_eur": 70003.5,
+          "target_value_eur": 70003.51,
           "quantity": 11015
         },
         {
@@ -2409,7 +2415,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.026317372403121073,
           "eur_price": 9.93,
-          "target_value_eur": 26401.53,
+          "target_value_eur": 26401.54,
           "quantity": 2659
         },
         {
@@ -2430,7 +2436,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07011726672979485,
           "eur_price": 12.965214,
-          "target_value_eur": 70341.5,
+          "target_value_eur": 70341.51,
           "quantity": 5425
         },
         {
@@ -2451,7 +2457,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06304189918471678,
           "eur_price": 10.898883,
-          "target_value_eur": 63243.5,
+          "target_value_eur": 63243.51,
           "quantity": 5803
         },
         {
@@ -2474,7 +2480,8 @@
           "final_target": 6.25981312855533e-20,
           "eur_price": 18.081843,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "7818.T",
@@ -2622,7 +2629,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.0751711006905649,
           "eur_price": 8.811966,
-          "target_value_eur": 75411.49,
+          "target_value_eur": 75411.5,
           "quantity": 8558
         },
         {
@@ -2664,7 +2671,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.054281920319382025,
           "eur_price": 71.179487,
-          "target_value_eur": 54455.51,
+          "target_value_eur": 54455.52,
           "quantity": 765
         },
         {
@@ -2706,7 +2713,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06540035503307613,
           "eur_price": 21.190021,
-          "target_value_eur": 65609.5,
+          "target_value_eur": 65609.51,
           "quantity": 3096
         },
         {
@@ -2727,7 +2734,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07045418899384619,
           "eur_price": 3.169474,
-          "target_value_eur": 70679.5,
+          "target_value_eur": 70679.51,
           "quantity": 22300
         },
         {
@@ -2769,7 +2776,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.04046810749327722,
           "eur_price": 5.452991,
-          "target_value_eur": 40597.52,
+          "target_value_eur": 40597.53,
           "quantity": 7445
         },
         {
@@ -2813,7 +2820,8 @@
           "final_target": 1.1286280176019837e-19,
           "eur_price": 23.453146,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6050.T",
@@ -3026,7 +3034,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.0384465739089692,
           "eur_price": 8.560514,
-          "target_value_eur": 38569.52,
+          "target_value_eur": 38569.53,
           "quantity": 4506
         },
         {
@@ -3089,7 +3097,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.0485542418305093,
           "eur_price": 12.293801,
-          "target_value_eur": 48709.51,
+          "target_value_eur": 48709.52,
           "quantity": 3962
         },
         {
@@ -3110,7 +3118,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06438958824092213,
           "eur_price": 20.026625,
-          "target_value_eur": 64595.5,
+          "target_value_eur": 64595.51,
           "quantity": 3225
         },
         {
@@ -3174,7 +3182,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.026654294667172413,
           "eur_price": 40.71,
-          "target_value_eur": 26739.53,
+          "target_value_eur": 26739.54,
           "quantity": 657
         },
         {
@@ -3197,7 +3205,8 @@
           "final_target": 2.3747729731192256e-19,
           "eur_price": 8.89622,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "9467.T",
@@ -3238,7 +3247,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.05192346447102266,
           "eur_price": 3.346752,
-          "target_value_eur": 52089.51,
+          "target_value_eur": 52089.52,
           "quantity": 15564
         },
         {
@@ -3259,7 +3268,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06506343276902479,
           "eur_price": 10.904671,
-          "target_value_eur": 65271.5,
+          "target_value_eur": 65271.51,
           "quantity": 5986
         },
         {
@@ -3345,7 +3354,8 @@
           "final_target": 3.956015731800764e-20,
           "eur_price": 19.968745,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "9962.T",
@@ -3430,7 +3440,8 @@
           "final_target": 1.2961769191841337e-19,
           "eur_price": 36.864039,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "7595.T",
@@ -3493,7 +3504,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.05226038673507401,
           "eur_price": 12.751056,
-          "target_value_eur": 52427.51,
+          "target_value_eur": 52427.52,
           "quantity": 4112
         },
         {
@@ -3514,7 +3525,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.02766506145932642,
           "eur_price": 11.865486,
-          "target_value_eur": 27753.53,
+          "target_value_eur": 27753.54,
           "quantity": 2339
         },
         {
@@ -3535,7 +3546,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06809573314548684,
           "eur_price": 19.679342,
-          "target_value_eur": 68313.5,
+          "target_value_eur": 68313.51,
           "quantity": 3471
         },
         {
@@ -3578,7 +3589,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.0559665316396387,
           "eur_price": 29.79684,
-          "target_value_eur": 56145.51,
+          "target_value_eur": 56145.52,
           "quantity": 1884
         },
         {
@@ -3665,7 +3676,8 @@
           "final_target": 2.175808652490422e-19,
           "eur_price": 41.73757,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "1723.T",
@@ -3685,7 +3697,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06910649993764084,
           "eur_price": 29.61741,
-          "target_value_eur": 69327.5,
+          "target_value_eur": 69327.51,
           "quantity": 2341
         },
         {
@@ -3749,7 +3761,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.05327115352722801,
           "eur_price": 49.71928,
-          "target_value_eur": 53441.51,
+          "target_value_eur": 53441.52,
           "quantity": 1075
         },
         {
@@ -3770,7 +3782,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.0394573407011232,
           "eur_price": 4.085026,
-          "target_value_eur": 39583.52,
+          "target_value_eur": 39583.53,
           "quantity": 9690
         },
         {
@@ -3854,7 +3866,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.02732813919527509,
           "eur_price": 17.38149,
-          "target_value_eur": 27415.53,
+          "target_value_eur": 27415.54,
           "quantity": 1577
         },
         {
@@ -3877,7 +3889,8 @@
           "final_target": 2.1025060080482316e-19,
           "eur_price": 27.776813,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "3371.T",
@@ -3921,7 +3934,8 @@
           "final_target": 2.1862804588393065e-19,
           "eur_price": 58.61,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "7821.T",
@@ -3943,7 +3957,8 @@
           "final_target": 1.0343817604620241e-19,
           "eur_price": 10.835214,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "1717.T",
@@ -3963,7 +3978,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.05529268711153604,
           "eur_price": 6.366846,
-          "target_value_eur": 55469.51,
+          "target_value_eur": 55469.52,
           "quantity": 8712
         },
         {
@@ -3986,7 +4001,8 @@
           "final_target": 1.3694795636263245e-19,
           "eur_price": 20.599641,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "RSW.L",
@@ -4050,7 +4066,8 @@
           "final_target": 1.0553253731597929e-19,
           "eur_price": 29.113851,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "JIN.AX",
@@ -4156,7 +4173,8 @@
           "final_target": 9.924945350664866e-20,
           "eur_price": 18.602767,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "2148.T",
@@ -4176,7 +4194,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.04114195202137989,
           "eur_price": 9.602362,
-          "target_value_eur": 41273.52,
+          "target_value_eur": 41273.53,
           "quantity": 4298
         },
         {
@@ -4197,7 +4215,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.024969683346915725,
           "eur_price": 5.780865,
-          "target_value_eur": 25049.53,
+          "target_value_eur": 25049.54,
           "quantity": 4333
         },
         {
@@ -4218,7 +4236,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.03743580711681519,
           "eur_price": 112.484806,
-          "target_value_eur": 37555.52,
+          "target_value_eur": 37555.53,
           "quantity": 334
         },
         {
@@ -4241,7 +4259,8 @@
           "final_target": 2.311942135025919e-19,
           "eur_price": 33.518551,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "RVRC.ST",
@@ -4261,7 +4280,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.050575775414817316,
           "eur_price": 4.344007,
-          "target_value_eur": 50737.51,
+          "target_value_eur": 50737.52,
           "quantity": 11680
         },
         {
@@ -4282,7 +4301,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06708496635333283,
           "eur_price": 10.950975,
-          "target_value_eur": 67299.5,
+          "target_value_eur": 67299.51,
           "quantity": 6146
         },
         {
@@ -4303,7 +4322,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.05562960937558737,
           "eur_price": 23.068376,
-          "target_value_eur": 55807.51,
+          "target_value_eur": 55807.52,
           "quantity": 2419
         },
         {
@@ -4367,7 +4386,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.05091269767886865,
           "eur_price": 12.131736,
-          "target_value_eur": 51075.51,
+          "target_value_eur": 51075.52,
           "quantity": 4210
         },
         {
@@ -4430,7 +4449,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.05293423126317668,
           "eur_price": 8.046243,
-          "target_value_eur": 53103.51,
+          "target_value_eur": 53103.52,
           "quantity": 6600
         },
         {
@@ -4495,7 +4514,8 @@
           "final_target": 1.6208029159995497e-19,
           "eur_price": 9.845459,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "BIG.L",
@@ -4559,7 +4579,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.03878349617302053,
           "eur_price": 156.27,
-          "target_value_eur": 38907.52,
+          "target_value_eur": 38907.53,
           "quantity": 249
         },
         {
@@ -4580,7 +4600,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06742188861738416,
           "eur_price": 7.026683,
-          "target_value_eur": 67637.5,
+          "target_value_eur": 67637.51,
           "quantity": 9626
         },
         {
@@ -4644,7 +4664,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07752955653892425,
           "eur_price": 18.401235,
-          "target_value_eur": 77777.49,
+          "target_value_eur": 77777.5,
           "quantity": 4227
         },
         {
@@ -4665,7 +4685,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.05394499805533069,
           "eur_price": 93.367521,
-          "target_value_eur": 54117.51,
+          "target_value_eur": 54117.52,
           "quantity": 580
         },
         {
@@ -4686,7 +4706,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06843265540953818,
           "eur_price": 4.32716,
-          "target_value_eur": 68651.5,
+          "target_value_eur": 68651.51,
           "quantity": 15865
         },
         {
@@ -4707,7 +4727,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07719263427487293,
           "eur_price": 40.961973,
-          "target_value_eur": 77439.49,
+          "target_value_eur": 77439.5,
           "quantity": 1891
         },
         {
@@ -4728,7 +4748,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06371574371281945,
           "eur_price": 2.809631,
-          "target_value_eur": 63919.5,
+          "target_value_eur": 63919.51,
           "quantity": 22750
         },
         {
@@ -4749,7 +4769,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07550802295461624,
           "eur_price": 18.041327,
-          "target_value_eur": 75749.49,
+          "target_value_eur": 75749.5,
           "quantity": 4199
         },
         {
@@ -4770,7 +4790,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07651878974677025,
           "eur_price": 3.039773,
-          "target_value_eur": 76763.49,
+          "target_value_eur": 76763.5,
           "quantity": 25253
         },
         {
@@ -4793,7 +4813,8 @@
           "final_target": 1.819767236628353e-19,
           "eur_price": 87.273504,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "7730.T",
@@ -4815,7 +4836,8 @@
           "final_target": 3.6418615413342355e-20,
           "eur_price": 7.518666,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "CMPO",
@@ -4835,7 +4857,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06573727729712749,
           "eur_price": 16.273504,
-          "target_value_eur": 65947.5,
+          "target_value_eur": 65947.51,
           "quantity": 4052
         },
         {
@@ -4858,7 +4880,8 @@
           "final_target": 2.3224139413748036e-19,
           "eur_price": 33.263877,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "PWS.MI",
@@ -4878,7 +4901,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06944342220169218,
           "eur_price": 19.73,
-          "target_value_eur": 69665.5,
+          "target_value_eur": 69665.51,
           "quantity": 3531
         },
         {
@@ -4920,7 +4943,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.05023885315076598,
           "eur_price": 3.538056,
-          "target_value_eur": 50399.51,
+          "target_value_eur": 50399.52,
           "quantity": 14245
         },
         {
@@ -5025,7 +5048,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.051586542206971335,
           "eur_price": 8.924855,
-          "target_value_eur": 51751.51,
+          "target_value_eur": 51751.52,
           "quantity": 5799
         },
         {
@@ -5046,7 +5069,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07584494521866758,
           "eur_price": 25.649573,
-          "target_value_eur": 76087.49,
+          "target_value_eur": 76087.5,
           "quantity": 2966
         },
         {
@@ -5067,7 +5090,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.0549557648474847,
           "eur_price": 10.094345,
-          "target_value_eur": 55131.51,
+          "target_value_eur": 55131.52,
           "quantity": 5462
         },
         {
@@ -5176,7 +5199,8 @@
           "final_target": 7.411711826932614e-20,
           "eur_price": 61.649573,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "4498.T",
@@ -5196,7 +5220,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06337882144876812,
           "eur_price": 15.795566,
-          "target_value_eur": 63581.5,
+          "target_value_eur": 63581.51,
           "quantity": 4025
         },
         {
@@ -5217,7 +5241,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.0256435278750184,
           "eur_price": 101.0,
-          "target_value_eur": 25725.53,
+          "target_value_eur": 25725.54,
           "quantity": 255
         },
         {
@@ -5240,7 +5264,8 @@
           "final_target": 7.097557636466082e-20,
           "eur_price": 93.470085,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "4771.T",
@@ -5260,7 +5285,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07449725616246224,
           "eur_price": 16.015512,
-          "target_value_eur": 74735.49,
+          "target_value_eur": 74735.5,
           "quantity": 4666
         },
         {
@@ -5281,7 +5306,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.05461884258343336,
           "eur_price": 5.589204,
-          "target_value_eur": 54793.51,
+          "target_value_eur": 54793.52,
           "quantity": 9803
         },
         {
@@ -5323,7 +5348,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.05259730899912535,
           "eur_price": 11.876487,
-          "target_value_eur": 52765.51,
+          "target_value_eur": 52765.52,
           "quantity": 4443
         },
         {
@@ -5346,7 +5371,8 @@
           "final_target": 1.2124024683930586e-19,
           "eur_price": 21.994318,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "4186.T",
@@ -5366,7 +5392,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06472651050497347,
           "eur_price": 27.84627,
-          "target_value_eur": 64933.5,
+          "target_value_eur": 64933.51,
           "quantity": 2332
         },
         {
@@ -5408,7 +5434,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.041478874285431226,
           "eur_price": 8.33526,
-          "target_value_eur": 41611.52,
+          "target_value_eur": 41611.53,
           "quantity": 4992
         },
         {
@@ -5429,7 +5455,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06169421012851143,
           "eur_price": 12.259073,
-          "target_value_eur": 61891.5,
+          "target_value_eur": 61891.51,
           "quantity": 5049
         },
         {
@@ -5556,7 +5582,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.0761818674827189,
           "eur_price": 6.540487,
-          "target_value_eur": 76425.49,
+          "target_value_eur": 76425.5,
           "quantity": 11685
         },
         {
@@ -5577,7 +5603,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.03912041843707187,
           "eur_price": 9.168258,
-          "target_value_eur": 39245.52,
+          "target_value_eur": 39245.53,
           "quantity": 4281
         },
         {
@@ -5621,7 +5647,8 @@
           "final_target": 4.584324112733828e-20,
           "eur_price": 4.589595,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6088.T",
@@ -5663,7 +5690,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07382341163435956,
           "eur_price": 14.4238,
-          "target_value_eur": 74059.49,
+          "target_value_eur": 74059.5,
           "quantity": 5135
         },
         {
@@ -5685,7 +5712,7 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.01416545356609562,
           "eur_price": 7.287145,
-          "target_value_eur": 14210.75,
+          "target_value_eur": 14210.76,
           "quantity": 1950
         },
         {
@@ -5706,7 +5733,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07314956710625688,
           "eur_price": 6.511547,
-          "target_value_eur": 73383.49,
+          "target_value_eur": 73383.5,
           "quantity": 11270
         },
         {
@@ -5748,7 +5775,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07281264484220554,
           "eur_price": 4.404624,
-          "target_value_eur": 73045.49,
+          "target_value_eur": 73045.5,
           "quantity": 16584
         },
         {
@@ -5771,7 +5798,8 @@
           "final_target": 3.3277073508677037e-20,
           "eur_price": 46.6,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "KRI.AT",
@@ -5793,7 +5821,8 @@
           "final_target": 1.903541687419428e-19,
           "eur_price": 19.21,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "PLNW.PA",
@@ -5834,7 +5863,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06203113239256277,
           "eur_price": 44.400069,
-          "target_value_eur": 62229.5,
+          "target_value_eur": 62229.51,
           "quantity": 1402
         },
         {
@@ -5855,7 +5884,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.04990193088671464,
           "eur_price": 49.516699,
-          "target_value_eur": 50061.51,
+          "target_value_eur": 50061.52,
           "quantity": 1011
         },
         {
@@ -5897,7 +5926,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.03709888485276385,
           "eur_price": 727.344754,
-          "target_value_eur": 37217.52,
+          "target_value_eur": 37217.53,
           "quantity": 51
         },
         {
@@ -5918,7 +5947,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.042152718813533906,
           "eur_price": 2.430978,
-          "target_value_eur": 42287.52,
+          "target_value_eur": 42287.53,
           "quantity": 17395
         },
         {
@@ -5939,7 +5968,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.060683443336357425,
           "eur_price": 21.074261,
-          "target_value_eur": 60877.5,
+          "target_value_eur": 60877.51,
           "quantity": 2889
         },
         {
@@ -5960,7 +5989,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07416033389841088,
           "eur_price": 16.235458,
-          "target_value_eur": 74397.49,
+          "target_value_eur": 74397.5,
           "quantity": 4582
         },
         {
@@ -6002,7 +6031,7 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.0623680546566141,
           "eur_price": 15.465648,
-          "target_value_eur": 62567.5,
+          "target_value_eur": 62567.51,
           "quantity": 4046
         }
       ]
@@ -6030,7 +6059,8 @@
           "final_target": 7.830584080887989e-20,
           "eur_price": 0.117284,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "7735.T",
@@ -6051,7 +6081,8 @@
           "final_target": 1.9768443318616188e-19,
           "eur_price": 71.690687,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "QTCOM.HE",
@@ -6069,7 +6100,8 @@
           "final_target": 3.3277073508677037e-20,
           "eur_price": 46.6,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6532.T",
@@ -6090,7 +6122,8 @@
           "final_target": 2.280526715979266e-19,
           "eur_price": 48.92053,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "HLAG.DE",
@@ -6133,7 +6166,8 @@
           "final_target": 5.526786684133423e-20,
           "eur_price": 52.142045,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6544.T",
@@ -6154,7 +6188,8 @@
           "final_target": 2.0710905890015784e-19,
           "eur_price": 22.579151,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "MSFT",
@@ -6175,7 +6210,8 @@
           "final_target": 1.6626901413950873e-19,
           "eur_price": 428.213675,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "RACE.MI",
@@ -6196,7 +6232,8 @@
           "final_target": 1.139099823950868e-19,
           "eur_price": 405.97,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "SECARE.ST",
@@ -6217,7 +6254,8 @@
           "final_target": 5.945658938088798e-20,
           "eur_price": 3.638609,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "OLLI",
@@ -6238,7 +6276,8 @@
           "final_target": 1.7778800112328156e-19,
           "eur_price": 114.017094,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "3762.T",
@@ -6278,7 +6317,8 @@
           "final_target": 1.0343817604620241e-19,
           "eur_price": 10.835214,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "4980.T",
@@ -6299,7 +6339,8 @@
           "final_target": 6.364531192044174e-20,
           "eur_price": 11.622388,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "3635.T",
@@ -6320,7 +6361,8 @@
           "final_target": 1.275233306486365e-19,
           "eur_price": 10.956763,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "FPE.MI",
@@ -6341,7 +6383,8 @@
           "final_target": 2.2909985223281504e-19,
           "eur_price": 39.0,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6098.T",
@@ -6362,7 +6405,8 @@
           "final_target": 5.422068620644579e-20,
           "eur_price": 49.939226,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "SAIA",
@@ -6383,7 +6427,8 @@
           "final_target": 2.804117033423484e-20,
           "eur_price": 262.74359,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "BRG.OL",
@@ -6404,7 +6449,8 @@
           "final_target": 1.7150491731395092e-19,
           "eur_price": 17.500864,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "ITT",
@@ -6425,7 +6471,8 @@
           "final_target": 1.599859303301781e-19,
           "eur_price": 146.051282,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "SAF.PA",
@@ -6446,7 +6493,8 @@
           "final_target": 2.0501469763038096e-19,
           "eur_price": 278.42,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "FCN",
@@ -6467,7 +6515,8 @@
           "final_target": 6.78340344599955e-20,
           "eur_price": 144.111111,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "XRF.AX",
@@ -6488,7 +6537,8 @@
           "final_target": 1.7464645921861624e-19,
           "eur_price": 1.221591,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "3626.T",
@@ -6509,7 +6559,8 @@
           "final_target": 2.0920342016993472e-19,
           "eur_price": 28.621867,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "4369.T",
@@ -6530,7 +6581,8 @@
           "final_target": 8.249456334843365e-20,
           "eur_price": 15.031545,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "1401.T",
@@ -6548,7 +6600,8 @@
           "final_target": 2.3747729731192256e-19,
           "eur_price": 8.89622,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "NEWA-B.ST",
@@ -6569,7 +6622,8 @@
           "final_target": 1.5265566588595902e-19,
           "eur_price": 9.865508,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "HVN.AX",
@@ -6590,7 +6644,8 @@
           "final_target": 2.2386394905837284e-19,
           "eur_price": 4.159091,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "LOTB.BR",
@@ -6611,7 +6666,8 @@
           "final_target": 5.3173505571557355e-20,
           "eur_price": 8231.0,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6920.T",
@@ -6632,7 +6688,8 @@
           "final_target": 1.390423176324093e-19,
           "eur_price": 93.633154,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "KOG.OL",
@@ -6653,7 +6710,8 @@
           "final_target": 1.683633754092856e-19,
           "eur_price": 25.407599,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "MTX.DE",
@@ -6674,7 +6732,8 @@
           "final_target": 1.5684438842551277e-19,
           "eur_price": 366.21,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "2157.T",
@@ -6695,7 +6754,8 @@
           "final_target": 1.7988236239305841e-19,
           "eur_price": 7.865949,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "7818.T",
@@ -6734,7 +6794,8 @@
           "final_target": 1.4846694334640526e-19,
           "eur_price": 4.6875,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "CTD.AX",
@@ -6755,7 +6816,8 @@
           "final_target": 1.8825980747216593e-19,
           "eur_price": 9.011364,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "SAG.L",
@@ -6776,7 +6838,8 @@
           "final_target": 1.8302390429772373e-19,
           "eur_price": 6.450867,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "GIB-A.TO",
@@ -6797,7 +6860,8 @@
           "final_target": 6.678685382510706e-20,
           "eur_price": 80.432099,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "FORM",
@@ -6818,7 +6882,8 @@
           "final_target": 3.4324254143565476e-20,
           "eur_price": 25.094017,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "ELCO.L",
@@ -6839,7 +6904,8 @@
           "final_target": 1.6941055604417405e-19,
           "eur_price": 1.884393,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "TIH.TO",
@@ -6860,7 +6926,8 @@
           "final_target": 1.9349571064660813e-19,
           "eur_price": 88.617284,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "VBG-B.ST",
@@ -6881,7 +6948,8 @@
           "final_target": 1.1809870493464054e-19,
           "eur_price": 28.042086,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "ALFA.ST",
@@ -6902,7 +6970,8 @@
           "final_target": 7.935302144376833e-20,
           "eur_price": 38.767612,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "JBTM",
@@ -6923,7 +6992,8 @@
           "final_target": 1.7045773667906248e-19,
           "eur_price": 120.931624,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "LEN",
@@ -6944,7 +7014,8 @@
           "final_target": 1.1705152429975213e-19,
           "eur_price": 119.769231,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "DHI",
@@ -6987,7 +7058,8 @@
           "final_target": 2.008259750908272e-19,
           "eur_price": 412.675214,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "4928.T",
@@ -7008,7 +7080,8 @@
           "final_target": 1.0657971795086773e-19,
           "eur_price": 27.116976,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "DANT.CO",
@@ -7029,7 +7102,8 @@
           "final_target": 2.060618782652694e-19,
           "eur_price": 70.490617,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "TOL",
@@ -7050,7 +7124,8 @@
           "final_target": 1.6417465286973185e-19,
           "eur_price": 122.393162,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "SPSC",
@@ -7071,7 +7146,8 @@
           "final_target": 2.6993989699346404e-20,
           "eur_price": 96.025641,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "VMI",
@@ -7092,7 +7168,8 @@
           "final_target": 1.4532540144173994e-19,
           "eur_price": 309.555556,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "MHO",
@@ -7110,7 +7187,8 @@
           "final_target": 1.3066487255330181e-19,
           "eur_price": 134.128205,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "IEX",
@@ -7131,7 +7209,8 @@
           "final_target": 3.5371434778453916e-20,
           "eur_price": 137.880342,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "CCL-A.TO",
@@ -7152,7 +7231,8 @@
           "final_target": 1.1600434366486369e-19,
           "eur_price": 47.746914,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "NEA.MC",
@@ -7173,7 +7253,8 @@
           "final_target": 2.0396751699549252e-19,
           "eur_price": 10.1,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "BMY.L",
@@ -7194,7 +7275,8 @@
           "final_target": 4.37488798575614e-20,
           "eur_price": 5.780347,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "BMI",
@@ -7215,7 +7297,8 @@
           "final_target": 5.840940874599955e-20,
           "eur_price": 156.162393,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "AME",
@@ -7236,7 +7319,8 @@
           "final_target": 1.0972125985553305e-19,
           "eur_price": 157.948718,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "NXU.DE",
@@ -7257,7 +7341,8 @@
           "final_target": 1.2857051128352493e-19,
           "eur_price": 70.28,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "BELA.AT",
@@ -7278,7 +7363,8 @@
           "final_target": 1.851182655675006e-19,
           "eur_price": 31.69,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6055.T",
@@ -7317,7 +7403,8 @@
           "final_target": 9.820227287176022e-20,
           "eur_price": 27.1,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6036.T",
@@ -7335,7 +7422,8 @@
           "final_target": 3.956015731800764e-20,
           "eur_price": 19.968745,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "DIOD",
@@ -7356,7 +7444,8 @@
           "final_target": 6.573967319021862e-20,
           "eur_price": 45.512821,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "7187.T",
@@ -7396,7 +7485,8 @@
           "final_target": 2.311942135025919e-19,
           "eur_price": 33.518551,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "4828.T",
@@ -7417,7 +7507,8 @@
           "final_target": 2.332885747723688e-19,
           "eur_price": 35.9148,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "JKHY",
@@ -7438,7 +7529,8 @@
           "final_target": 8.982482779265273e-20,
           "eur_price": 137.153846,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "IP.MI",
@@ -7459,7 +7551,8 @@
           "final_target": 8.563610525309897e-20,
           "eur_price": 40.62,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "MCRI",
@@ -7477,7 +7570,8 @@
           "final_target": 1.819767236628353e-19,
           "eur_price": 87.273504,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "ATR",
@@ -7498,7 +7592,8 @@
           "final_target": 5.73622281111111e-20,
           "eur_price": 115.57265,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "COTN.SW",
@@ -7519,7 +7614,8 @@
           "final_target": 2.908835096912328e-20,
           "eur_price": 178.779443,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "UNF",
@@ -7540,7 +7636,8 @@
           "final_target": 9.087200842754117e-20,
           "eur_price": 151.982906,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "AAON",
@@ -7561,7 +7658,8 @@
           "final_target": 3.013553160401172e-20,
           "eur_price": 69.358974,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "MTH",
@@ -7582,7 +7680,8 @@
           "final_target": 9.610791160198334e-20,
           "eur_price": 70.880342,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "IPAR",
@@ -7600,7 +7699,8 @@
           "final_target": 7.097557636466082e-20,
           "eur_price": 93.470085,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "SDI.L",
@@ -7621,7 +7721,8 @@
           "final_target": 2.3433575540725724e-19,
           "eur_price": 1.16763,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6367.T",
@@ -7642,7 +7743,8 @@
           "final_target": 1.2647615001374806e-19,
           "eur_price": 104.717254,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "FSS",
@@ -7663,7 +7765,8 @@
           "final_target": 1.95590071916385e-19,
           "eur_price": 106.777778,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "VEE.AX",
@@ -7684,7 +7787,8 @@
           "final_target": 8.668328588798741e-20,
           "eur_price": 0.681818,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "3445.T",
@@ -7702,7 +7806,8 @@
           "final_target": 1.3694795636263245e-19,
           "eur_price": 20.599641,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6626.T",
@@ -7741,7 +7846,8 @@
           "final_target": 1.5579720779062433e-19,
           "eur_price": 234.025641,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "MATX",
@@ -7784,7 +7890,8 @@
           "final_target": 1.9663725255127344e-19,
           "eur_price": 237.931624,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "KRI.AT",
@@ -7802,7 +7909,8 @@
           "final_target": 1.903541687419428e-19,
           "eur_price": 19.21,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "3091.T",
@@ -7823,7 +7931,8 @@
           "final_target": 1.4323104017196306e-19,
           "eur_price": 22.729641,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6284.T",
@@ -7841,7 +7950,8 @@
           "final_target": 2.175808652490422e-19,
           "eur_price": 41.73757,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "RBT.PA",
@@ -7862,7 +7972,8 @@
           "final_target": 1.1914588556952898e-19,
           "eur_price": 854.1,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "PKG",
@@ -7883,7 +7994,8 @@
           "final_target": 1.0239099541131397e-19,
           "eur_price": 185.495726,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "LISN.SW",
@@ -7904,7 +8016,8 @@
           "final_target": 1.9244853001171969e-19,
           "eur_price": 128479.657388,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "SAR.AT",
@@ -7925,7 +8038,8 @@
           "final_target": 2.1548650397926533e-19,
           "eur_price": 14.48,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "MLHOT.PA",
@@ -7946,7 +8060,8 @@
           "final_target": 2.1339214270948845e-19,
           "eur_price": 53.29,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "AYI",
@@ -7967,7 +8082,8 @@
           "final_target": 1.327592338230787e-19,
           "eur_price": 282.632479,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "SSD",
@@ -7988,7 +8104,8 @@
           "final_target": 1.4008949826729774e-19,
           "eur_price": 167.435897,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "KBH",
@@ -8009,7 +8126,8 @@
           "final_target": 1.002966341415371e-19,
           "eur_price": 57.965812,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "2331.T",
@@ -8030,7 +8148,8 @@
           "final_target": 1.3799513699752086e-19,
           "eur_price": 6.673612,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "4187.T",
@@ -8051,7 +8170,8 @@
           "final_target": 1.3485359509285557e-19,
           "eur_price": 17.64774,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "4326.T",
@@ -8072,7 +8192,8 @@
           "final_target": 1.6103311096506653e-19,
           "eur_price": 10.516872,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "TRI.PA",
@@ -8093,7 +8214,8 @@
           "final_target": 1.8407108493261217e-19,
           "eur_price": 144.93,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "REY.MI",
@@ -8136,7 +8258,8 @@
           "final_target": 4.689042176222672e-20,
           "eur_price": 128.811966,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "AEP.L",
@@ -8154,7 +8277,8 @@
           "final_target": 2.353829360421457e-19,
           "eur_price": 14.289017,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "GD",
@@ -8175,7 +8299,8 @@
           "final_target": 1.872126268372775e-19,
           "eur_price": 276.111111,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "SFC.AX",
@@ -8196,7 +8321,8 @@
           "final_target": 1.086740792206446e-19,
           "eur_price": 11.744318,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "MU",
@@ -8217,7 +8343,8 @@
           "final_target": 1.9454289128149657e-19,
           "eur_price": 119.65812,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "4368.T",
@@ -8235,7 +8362,8 @@
           "final_target": 2.1025060080482316e-19,
           "eur_price": 27.776813,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "ALG",
@@ -8256,7 +8384,8 @@
           "final_target": 1.4113667890218618e-19,
           "eur_price": 178.769231,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "ROCK-B.CO",
@@ -8277,7 +8406,8 @@
           "final_target": 9.401355033220646e-20,
           "eur_price": 31.753351,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "HLMA.L",
@@ -8298,7 +8428,8 @@
           "final_target": 1.8092954302794685e-19,
           "eur_price": 37.468208,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "DSY.PA",
@@ -8319,7 +8450,8 @@
           "final_target": 6.888121509488394e-20,
           "eur_price": 27.71,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "FELE",
@@ -8340,7 +8472,8 @@
           "final_target": 8.773046652287585e-20,
           "eur_price": 80.521368,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "REH.AX",
@@ -8361,7 +8494,8 @@
           "final_target": 2.3852447794681086e-20,
           "eur_price": 5.693182,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "PLAB",
@@ -8382,7 +8516,8 @@
           "final_target": 7.516429890421458e-20,
           "eur_price": 19.350427,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "CBRAIN.CO",
@@ -8403,7 +8538,8 @@
           "final_target": 1.1495716302997525e-19,
           "eur_price": 25.588472,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "BORG.ST",
@@ -8424,7 +8560,8 @@
           "final_target": 1.7883518175816998e-19,
           "eur_price": 5.550778,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "4661.T",
@@ -8445,7 +8582,8 @@
           "final_target": 1.4218385953707462e-19,
           "eur_price": 20.900619,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "WLK",
@@ -8466,7 +8604,8 @@
           "final_target": 4.165451858778452e-20,
           "eur_price": 73.512821,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "PROF.AT",
@@ -8487,7 +8626,8 @@
           "final_target": 1.9977879445593876e-19,
           "eur_price": 6.84,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "SMID",
@@ -8508,7 +8648,8 @@
           "final_target": 9.191918906242958e-20,
           "eur_price": 34.581197,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "4746.T",
@@ -8529,7 +8670,8 @@
           "final_target": 9.715509223687178e-20,
           "eur_price": 23.100075,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "CALM",
@@ -8550,7 +8692,8 @@
           "final_target": 1.35900775727744e-19,
           "eur_price": 97.290598,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "FMM-B.ST",
@@ -8593,7 +8736,8 @@
           "final_target": 3.22298928737886e-20,
           "eur_price": 93.435897,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "2153.T",
@@ -8614,7 +8758,8 @@
           "final_target": 1.3380641445796713e-19,
           "eur_price": 10.262198,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "WSO",
@@ -8635,7 +8780,8 @@
           "final_target": 6.050377001577642e-20,
           "eur_price": 349.555556,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "2801.T",
@@ -8656,7 +8802,8 @@
           "final_target": 4.793760239711516e-20,
           "eur_price": 7.674944,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "FLEXO.AT",
@@ -8677,7 +8824,8 @@
           "final_target": 1.1181562112530993e-19,
           "eur_price": 8.02,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "3837.T",
@@ -8698,7 +8846,8 @@
           "final_target": 2.0815623953504628e-19,
           "eur_price": 7.894889,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6368.T",
@@ -8719,7 +8868,8 @@
           "final_target": 2.2072240715370753e-19,
           "eur_price": 68.437807,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6028.T",
@@ -8740,7 +8890,8 @@
           "final_target": 2.301470328677035e-19,
           "eur_price": 28.008335,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "1414.T",
@@ -8758,7 +8909,8 @@
           "final_target": 1.0553253731597929e-19,
           "eur_price": 29.113851,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6266.T",
@@ -8779,7 +8931,8 @@
           "final_target": 1.0448535668109085e-19,
           "eur_price": 11.91179,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "OR.PA",
@@ -8800,7 +8953,8 @@
           "final_target": 1.7674082048839312e-19,
           "eur_price": 395.48,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "3569.T",
@@ -8821,7 +8975,8 @@
           "final_target": 1.6522183350462029e-19,
           "eur_price": 18.232332,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "DWHT.L",
@@ -8842,7 +8997,8 @@
           "final_target": 3.7465796048230764e-20,
           "eur_price": 9.121387,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "INGR",
@@ -8863,7 +9019,8 @@
           "final_target": 8.354174398332209e-20,
           "eur_price": 109.752137,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "9986.T",
@@ -8884,7 +9041,8 @@
           "final_target": 1.2333460810908274e-19,
           "eur_price": 14.163339,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "ROCK",
@@ -8905,7 +9063,8 @@
           "final_target": 8.877764715776429e-20,
           "eur_price": 53.051282,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "ARB.AX",
@@ -8923,7 +9082,8 @@
           "final_target": 1.2124024683930586e-19,
           "eur_price": 21.994318,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "AIN",
@@ -8944,7 +9104,8 @@
           "final_target": 5.1079144301780476e-20,
           "eur_price": 53.264957,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "2327.T",
@@ -8965,7 +9126,8 @@
           "final_target": 7.30699376344377e-20,
           "eur_price": 20.15975,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "2229.T",
@@ -8986,7 +9148,8 @@
           "final_target": 8.144738271354521e-20,
           "eur_price": 15.865023,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "4923.T",
@@ -9007,7 +9170,8 @@
           "final_target": 7.725866017399145e-20,
           "eur_price": 8.114835,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "CMB.MI",
@@ -9025,7 +9189,8 @@
           "final_target": 2.1862804588393065e-19,
           "eur_price": 58.61,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "AZK.MC",
@@ -9046,7 +9211,8 @@
           "final_target": 2.1653368461415377e-19,
           "eur_price": 8.35,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "ALGEV.PA",
@@ -9067,7 +9233,8 @@
           "final_target": 1.0762689858575617e-19,
           "eur_price": 179.78,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "7611.T",
@@ -9088,7 +9255,8 @@
           "final_target": 2.0292033636060408e-19,
           "eur_price": 21.271054,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "7730.T",
@@ -9106,7 +9274,8 @@
           "final_target": 3.6418615413342355e-20,
           "eur_price": 7.518666,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "AIXA.DE",
@@ -9124,7 +9293,8 @@
           "final_target": 6.469249255533018e-20,
           "eur_price": 12.04,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "PLPC",
@@ -9145,7 +9315,8 @@
           "final_target": 2.259583103281497e-19,
           "eur_price": 165.444444,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "LNN",
@@ -9166,7 +9337,8 @@
           "final_target": 1.4637258207662838e-19,
           "eur_price": 120.068376,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6323.T",
@@ -9184,7 +9356,8 @@
           "final_target": 1.6208029159995497e-19,
           "eur_price": 9.845459,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "EVD.DE",
@@ -9205,7 +9378,8 @@
           "final_target": 1.495141239812937e-19,
           "eur_price": 87.73,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "KAI",
@@ -9226,7 +9400,8 @@
           "final_target": 8.040020207865677e-20,
           "eur_price": 270.794872,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "TGLS",
@@ -9244,7 +9419,8 @@
           "final_target": 7.411711826932614e-20,
           "eur_price": 61.649573,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "ALPDX.PA",
@@ -9265,7 +9441,8 @@
           "final_target": 1.4741976271151682e-19,
           "eur_price": 12.72,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "ALC.MC",
@@ -9286,7 +9463,8 @@
           "final_target": 2.2176958778859596e-19,
           "eur_price": 6.43,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "RCH.TO",
@@ -9307,7 +9485,8 @@
           "final_target": 1.0134381477642554e-19,
           "eur_price": 22.475309,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "HRL",
@@ -9328,7 +9507,8 @@
           "final_target": 5.631504747622267e-20,
           "eur_price": 21.34188,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6454.T",
@@ -9346,7 +9526,8 @@
           "final_target": 2.3224139413748036e-19,
           "eur_price": 33.263877,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6327.T",
@@ -9367,7 +9548,8 @@
           "final_target": 2.2700549096303816e-19,
           "eur_price": 4.847138,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6490.T",
@@ -9385,7 +9567,8 @@
           "final_target": 1.1286280176019837e-19,
           "eur_price": 23.453146,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6402.T",
@@ -9406,7 +9589,8 @@
           "final_target": 2.144393233443769e-19,
           "eur_price": 8.878856,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "7269.T",
@@ -9427,7 +9611,8 @@
           "final_target": 1.631274722348434e-19,
           "eur_price": 11.686057,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "ALFPC.PA",
@@ -9445,7 +9630,8 @@
           "final_target": 1.3171205318819025e-19,
           "eur_price": 101.81,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "WRT1V.HE",
@@ -9466,7 +9652,8 @@
           "final_target": 2.249111296932613e-19,
           "eur_price": 25.94,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6594.T",
@@ -9487,7 +9674,8 @@
           "final_target": 8.458892461821053e-20,
           "eur_price": 13.960757,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "HUBN.SW",
@@ -9508,7 +9696,8 @@
           "final_target": 2.364301166770341e-19,
           "eur_price": 145.685225,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "STMN.SW",
@@ -9529,7 +9718,8 @@
           "final_target": 6.155095065066486e-20,
           "eur_price": 100.492505,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "GLE.L",
@@ -9547,7 +9737,8 @@
           "final_target": 3.118271223890016e-20,
           "eur_price": 3.849711,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "VCM.TO",
@@ -9568,7 +9759,8 @@
           "final_target": 2.5946809064457964e-20,
           "eur_price": 5.87037,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "2914.T",
@@ -9589,7 +9781,8 @@
           "final_target": 1.5893874969528965e-19,
           "eur_price": 27.151705,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "2875.T",
@@ -9610,7 +9803,8 @@
           "final_target": 1.107684404904215e-19,
           "eur_price": 60.867049,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "ALL.AX",
@@ -9631,7 +9825,8 @@
           "final_target": 1.2438178874397118e-19,
           "eur_price": 39.193182,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6506.T",
@@ -9652,7 +9847,8 @@
           "final_target": 4.270169922267296e-20,
           "eur_price": 17.393066,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "SFSN.SW",
@@ -9673,7 +9869,8 @@
           "final_target": 7.202275699954926e-20,
           "eur_price": 115.06424,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "LFUS",
@@ -9694,7 +9891,8 @@
           "final_target": 1.222874274741943e-19,
           "eur_price": 217.529915,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "ASM.AS",
@@ -9715,7 +9913,8 @@
           "final_target": 4.89847830320036e-20,
           "eur_price": 422.77,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "DORM",
@@ -9736,7 +9935,8 @@
           "final_target": 1.8616544620238905e-19,
           "eur_price": 136.034188,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "LNR.TO",
@@ -9757,7 +9957,8 @@
           "final_target": 1.9140134937683125e-19,
           "eur_price": 47.623457,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "5108.T",
@@ -9778,7 +9979,8 @@
           "final_target": 1.9873161382105032e-19,
           "eur_price": 40.423685,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "WAVE.PA",
@@ -9821,7 +10023,8 @@
           "final_target": 2.38524477946811e-19,
           "eur_price": 3.27,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "5357.T",
@@ -9842,7 +10045,8 @@
           "final_target": 1.442782208068515e-19,
           "eur_price": 10.042253,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "BTS-B.ST",
@@ -9885,7 +10089,8 @@
           "final_target": 1.8930698810705437e-19,
           "eur_price": 25.305319,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "GENC",
@@ -9903,7 +10108,8 @@
           "final_target": 7.621147953910301e-20,
           "eur_price": 13.290598,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "1959.T",
@@ -9924,7 +10130,8 @@
           "final_target": 2.196752265188191e-19,
           "eur_price": 42.756266,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "7734.T",
@@ -9942,7 +10149,8 @@
           "final_target": 6.25981312855533e-20,
           "eur_price": 18.081843,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "NSSC",
@@ -9963,7 +10171,8 @@
           "final_target": 1.2542896937885962e-19,
           "eur_price": 33.358974,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6005.T",
@@ -9984,7 +10193,8 @@
           "final_target": 4.479606049244984e-20,
           "eur_price": 17.063148,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "4042.T",
@@ -10005,7 +10215,8 @@
           "final_target": 1.547500271557359e-19,
           "eur_price": 13.630839,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "3663.T",
@@ -10026,7 +10237,8 @@
           "final_target": 2.112977814397116e-19,
           "eur_price": 10.528448,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "1801.T",
@@ -10047,7 +10259,8 @@
           "final_target": 2.228167684234844e-19,
           "eur_price": 58.337674,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "4971.T",
@@ -10065,7 +10278,8 @@
           "final_target": 9.924945350664866e-20,
           "eur_price": 18.602767,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "AMKR",
@@ -10086,7 +10300,8 @@
           "final_target": 9.50607309670949e-20,
           "eur_price": 21.25641,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "7264.T",
@@ -10107,7 +10322,8 @@
           "final_target": 1.7255209794883936e-19,
           "eur_price": 7.993286,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "7832.T",
@@ -10128,7 +10344,8 @@
           "final_target": 2.0187315572571564e-19,
           "eur_price": 28.96915,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "7943.T",
@@ -10149,7 +10366,8 @@
           "final_target": 1.2019306620441742e-19,
           "eur_price": 16.987903,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "2359.T",
@@ -10170,7 +10388,8 @@
           "final_target": 1.5160848525107058e-19,
           "eur_price": 11.784453,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "TRCS.L",
@@ -10188,7 +10407,8 @@
           "final_target": 4.584324112733828e-20,
           "eur_price": 4.589595,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "6728.T",
@@ -10206,7 +10426,8 @@
           "final_target": 1.2961769191841337e-19,
           "eur_price": 36.864039,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "MSLH.L",
@@ -10227,7 +10448,8 @@
           "final_target": 2.4899628429569525e-20,
           "eur_price": 2.023121,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         },
         {
           "ticker": "STIL.ST",
@@ -10248,7 +10470,8 @@
           "final_target": 1.5370284652084745e-19,
           "eur_price": 20.760293,
           "target_value_eur": 0.0,
-          "quantity": 0
+          "quantity": 0,
+          "allocation_note": "minimal_allocation"
         }
       ]
     },
@@ -10316,7 +10539,7 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.008306580308059747,
           "eur_price": 73.166514,
-          "target_value_eur": 8333.14,
+          "target_value_eur": 8333.15,
           "quantity": 114
         },
         {
@@ -10337,7 +10560,7 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.0061973859351668326,
           "eur_price": 0.709877,
-          "target_value_eur": 6217.2,
+          "target_value_eur": 6217.21,
           "quantity": 8758
         },
         {
@@ -10472,7 +10695,7 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.022133521197024407,
           "eur_price": 15.865508,
-          "target_value_eur": 22204.3,
+          "target_value_eur": 22204.31,
           "quantity": 1400
         },
         {
@@ -10595,7 +10818,7 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.019555616963488624,
           "eur_price": 12.837877,
-          "target_value_eur": 19618.15,
+          "target_value_eur": 19618.16,
           "quantity": 1528
         },
         {
@@ -10772,7 +10995,7 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.017915132451238578,
           "eur_price": 5.573132,
-          "target_value_eur": 17972.42,
+          "target_value_eur": 17972.43,
           "quantity": 3225
         },
         {
@@ -11189,7 +11412,7 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.015805938078345665,
           "eur_price": 89.710921,
-          "target_value_eur": 15856.48,
+          "target_value_eur": 15856.49,
           "quantity": 177
         },
         {
@@ -11369,7 +11592,7 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.016274647938988532,
           "eur_price": 13.665567,
-          "target_value_eur": 16326.69,
+          "target_value_eur": 16326.7,
           "quantity": 1195
         },
         {
@@ -11504,7 +11727,7 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.01416545356609562,
           "eur_price": 7.287145,
-          "target_value_eur": 14210.75,
+          "target_value_eur": 14210.76,
           "quantity": 1950
         },
         {
@@ -11564,7 +11787,7 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.012056259193202705,
           "eur_price": 29.9,
-          "target_value_eur": 12094.81,
+          "target_value_eur": 12094.82,
           "quantity": 405
         },
         {
@@ -11684,7 +11907,7 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.01369674370545275,
           "eur_price": 31.648148,
-          "target_value_eur": 13740.54,
+          "target_value_eur": 13740.55,
           "quantity": 434
         },
         {
@@ -11807,7 +12030,7 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.021664811336381536,
           "eur_price": 20.865891,
-          "target_value_eur": 21734.09,
+          "target_value_eur": 21734.1,
           "quantity": 1042
         },
         {
@@ -11846,7 +12069,7 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.020024326824131494,
           "eur_price": 27.574232,
-          "target_value_eur": 20088.36,
+          "target_value_eur": 20088.37,
           "quantity": 729
         },
         {
@@ -11909,7 +12132,7 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.009947064820309789,
           "eur_price": 26.856514,
-          "target_value_eur": 9978.87,
+          "target_value_eur": 9978.88,
           "quantity": 372
         },
         {
@@ -12012,7 +12235,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.026991216931223746,
       "eur_price": 6.06008,
-      "target_value_eur": 27077.53,
+      "target_value_eur": 27077.54,
       "quantity": 4468
     },
     "ALFPC.PA": {
@@ -12035,7 +12258,8 @@
       "final_target": 1.3171205318819025e-19,
       "eur_price": 101.81,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "4936.T": {
       "ticker": "4936.T",
@@ -12076,7 +12300,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.02598045013906974,
       "eur_price": 32.104558,
-      "target_value_eur": 26063.53,
+      "target_value_eur": 26063.54,
       "quantity": 812
     },
     "STP.AX": {
@@ -12160,7 +12384,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.0687695776735895,
       "eur_price": 4.046015,
-      "target_value_eur": 68989.5,
+      "target_value_eur": 68989.51,
       "quantity": 17051
     },
     "7921.T": {
@@ -12181,7 +12405,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.0677588108814355,
       "eur_price": 23.858309,
-      "target_value_eur": 67975.5,
+      "target_value_eur": 67975.51,
       "quantity": 2849
     },
     "5947.T": {
@@ -12202,7 +12426,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.04922808635861197,
       "eur_price": 21.531516,
-      "target_value_eur": 49385.51,
+      "target_value_eur": 49385.52,
       "quantity": 2294
     },
     "GENC": {
@@ -12225,7 +12449,8 @@
       "final_target": 7.621147953910301e-20,
       "eur_price": 13.290598,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "4966.T": {
       "ticker": "4966.T",
@@ -12245,7 +12470,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.025306605610967068,
       "eur_price": 57.232158,
-      "target_value_eur": 25387.53,
+      "target_value_eur": 25387.54,
       "quantity": 444
     },
     "FPE.DE": {
@@ -12354,7 +12579,8 @@
       "final_target": 2.353829360421457e-19,
       "eur_price": 14.289017,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "LYL.AX": {
       "ticker": "LYL.AX",
@@ -12397,7 +12623,8 @@
       "final_target": 3.118271223890016e-20,
       "eur_price": 3.849711,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "4206.T": {
       "ticker": "4206.T",
@@ -12417,7 +12644,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.05360807579127935,
       "eur_price": 22.05244,
-      "target_value_eur": 53779.51,
+      "target_value_eur": 53779.52,
       "quantity": 2439
     },
     "RGR": {
@@ -12501,7 +12728,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.014525093161324287,
       "eur_price": 12.944444,
-      "target_value_eur": 14571.54,
+      "target_value_eur": 14571.55,
       "quantity": 1126
     },
     "DOTD.L": {
@@ -12522,7 +12749,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.013514326369170283,
       "eur_price": 0.763006,
-      "target_value_eur": 13557.54,
+      "target_value_eur": 13557.55,
       "quantity": 17769
     },
     "4251.T": {
@@ -12564,7 +12791,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06270497692066544,
       "eur_price": 3.806622,
-      "target_value_eur": 62905.5,
+      "target_value_eur": 62905.51,
       "quantity": 16525
     },
     "6432.T": {
@@ -12627,7 +12854,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07348648937030822,
       "eur_price": 35.932164,
-      "target_value_eur": 73721.49,
+      "target_value_eur": 73721.5,
       "quantity": 2052
     },
     "6965.T": {
@@ -12670,7 +12897,7 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.012056259193202705,
       "eur_price": 29.9,
-      "target_value_eur": 12094.81,
+      "target_value_eur": 12094.82,
       "quantity": 405
     },
     "6417.T": {
@@ -12691,7 +12918,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06607419956117881,
       "eur_price": 17.427794,
-      "target_value_eur": 66285.5,
+      "target_value_eur": 66285.51,
       "quantity": 3803
     },
     "VH2.DE": {
@@ -12712,7 +12939,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07786647880297559,
       "eur_price": 67.5,
-      "target_value_eur": 78115.49,
+      "target_value_eur": 78115.5,
       "quantity": 1157
     },
     "3836.T": {
@@ -12757,7 +12984,8 @@
       "final_target": 1.3066487255330181e-19,
       "eur_price": 134.128205,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "AIXA.DE": {
       "ticker": "AIXA.DE",
@@ -12779,7 +13007,8 @@
       "final_target": 6.469249255533018e-20,
       "eur_price": 12.04,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "2124.T": {
       "ticker": "2124.T",
@@ -12799,7 +13028,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06978034446574352,
       "eur_price": 6.35527,
-      "target_value_eur": 70003.5,
+      "target_value_eur": 70003.51,
       "quantity": 11015
     },
     "ICP1V.HE": {
@@ -12820,7 +13049,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.026317372403121073,
       "eur_price": 9.93,
-      "target_value_eur": 26401.53,
+      "target_value_eur": 26401.54,
       "quantity": 2659
     },
     "6101.T": {
@@ -12841,7 +13070,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07011726672979485,
       "eur_price": 12.965214,
-      "target_value_eur": 70341.5,
+      "target_value_eur": 70341.51,
       "quantity": 5425
     },
     "8117.T": {
@@ -12862,7 +13091,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06304189918471678,
       "eur_price": 10.898883,
-      "target_value_eur": 63243.5,
+      "target_value_eur": 63243.51,
       "quantity": 5803
     },
     "7734.T": {
@@ -12885,7 +13114,8 @@
       "final_target": 6.25981312855533e-20,
       "eur_price": 18.081843,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "7818.T": {
       "ticker": "7818.T",
@@ -13033,7 +13263,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.0751711006905649,
       "eur_price": 8.811966,
-      "target_value_eur": 75411.49,
+      "target_value_eur": 75411.5,
       "quantity": 8558
     },
     "6914.T": {
@@ -13075,7 +13305,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.054281920319382025,
       "eur_price": 71.179487,
-      "target_value_eur": 54455.51,
+      "target_value_eur": 54455.52,
       "quantity": 765
     },
     "SKAN.SW": {
@@ -13117,7 +13347,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06540035503307613,
       "eur_price": 21.190021,
-      "target_value_eur": 65609.5,
+      "target_value_eur": 65609.51,
       "quantity": 3096
     },
     "3963.T": {
@@ -13138,7 +13368,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07045418899384619,
       "eur_price": 3.169474,
-      "target_value_eur": 70679.5,
+      "target_value_eur": 70679.51,
       "quantity": 22300
     },
     "4477.T": {
@@ -13180,7 +13410,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.04046810749327722,
       "eur_price": 5.452991,
-      "target_value_eur": 40597.52,
+      "target_value_eur": 40597.53,
       "quantity": 7445
     },
     "CKN.L": {
@@ -13224,7 +13454,8 @@
       "final_target": 1.1286280176019837e-19,
       "eur_price": 23.453146,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "6050.T": {
       "ticker": "6050.T",
@@ -13437,7 +13668,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.0384465739089692,
       "eur_price": 8.560514,
-      "target_value_eur": 38569.52,
+      "target_value_eur": 38569.53,
       "quantity": 4506
     },
     "6908.T": {
@@ -13500,7 +13731,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.0485542418305093,
       "eur_price": 12.293801,
-      "target_value_eur": 48709.51,
+      "target_value_eur": 48709.52,
       "quantity": 3962
     },
     "6929.T": {
@@ -13521,7 +13752,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06438958824092213,
       "eur_price": 20.026625,
-      "target_value_eur": 64595.5,
+      "target_value_eur": 64595.51,
       "quantity": 3225
     },
     "3925.T": {
@@ -13585,7 +13816,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.026654294667172413,
       "eur_price": 40.71,
-      "target_value_eur": 26739.53,
+      "target_value_eur": 26739.54,
       "quantity": 657
     },
     "1401.T": {
@@ -13608,7 +13839,8 @@
       "final_target": 2.3747729731192256e-19,
       "eur_price": 8.89622,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "9467.T": {
       "ticker": "9467.T",
@@ -13649,7 +13881,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.05192346447102266,
       "eur_price": 3.346752,
-      "target_value_eur": 52089.51,
+      "target_value_eur": 52089.52,
       "quantity": 15564
     },
     "7092.T": {
@@ -13670,7 +13902,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06506343276902479,
       "eur_price": 10.904671,
-      "target_value_eur": 65271.5,
+      "target_value_eur": 65271.51,
       "quantity": 5986
     },
     "4641.T": {
@@ -13756,7 +13988,8 @@
       "final_target": 3.956015731800764e-20,
       "eur_price": 19.968745,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "9962.T": {
       "ticker": "9962.T",
@@ -13841,7 +14074,8 @@
       "final_target": 1.2961769191841337e-19,
       "eur_price": 36.864039,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "7595.T": {
       "ticker": "7595.T",
@@ -13904,7 +14138,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.05226038673507401,
       "eur_price": 12.751056,
-      "target_value_eur": 52427.51,
+      "target_value_eur": 52427.52,
       "quantity": 4112
     },
     "3901.T": {
@@ -13925,7 +14159,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.02766506145932642,
       "eur_price": 11.865486,
-      "target_value_eur": 27753.53,
+      "target_value_eur": 27753.54,
       "quantity": 2339
     },
     "6941.T": {
@@ -13946,7 +14180,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06809573314548684,
       "eur_price": 19.679342,
-      "target_value_eur": 68313.5,
+      "target_value_eur": 68313.51,
       "quantity": 3471
     },
     "3844.T": {
@@ -13989,7 +14223,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.0559665316396387,
       "eur_price": 29.79684,
-      "target_value_eur": 56145.51,
+      "target_value_eur": 56145.52,
       "quantity": 1884
     },
     "CLBS.L": {
@@ -14076,7 +14310,8 @@
       "final_target": 2.175808652490422e-19,
       "eur_price": 41.73757,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "1723.T": {
       "ticker": "1723.T",
@@ -14096,7 +14331,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06910649993764084,
       "eur_price": 29.61741,
-      "target_value_eur": 69327.5,
+      "target_value_eur": 69327.51,
       "quantity": 2341
     },
     "6196.T": {
@@ -14160,7 +14395,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.05327115352722801,
       "eur_price": 49.71928,
-      "target_value_eur": 53441.51,
+      "target_value_eur": 53441.52,
       "quantity": 1075
     },
     "4290.T": {
@@ -14181,7 +14416,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.0394573407011232,
       "eur_price": 4.085026,
-      "target_value_eur": 39583.52,
+      "target_value_eur": 39583.53,
       "quantity": 9690
     },
     "4055.T": {
@@ -14265,7 +14500,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.02732813919527509,
       "eur_price": 17.38149,
-      "target_value_eur": 27415.53,
+      "target_value_eur": 27415.54,
       "quantity": 1577
     },
     "4368.T": {
@@ -14288,7 +14523,8 @@
       "final_target": 2.1025060080482316e-19,
       "eur_price": 27.776813,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "3371.T": {
       "ticker": "3371.T",
@@ -14332,7 +14568,8 @@
       "final_target": 2.1862804588393065e-19,
       "eur_price": 58.61,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "7821.T": {
       "ticker": "7821.T",
@@ -14354,7 +14591,8 @@
       "final_target": 1.0343817604620241e-19,
       "eur_price": 10.835214,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "1717.T": {
       "ticker": "1717.T",
@@ -14374,7 +14612,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.05529268711153604,
       "eur_price": 6.366846,
-      "target_value_eur": 55469.51,
+      "target_value_eur": 55469.52,
       "quantity": 8712
     },
     "3445.T": {
@@ -14397,7 +14635,8 @@
       "final_target": 1.3694795636263245e-19,
       "eur_price": 20.599641,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "RSW.L": {
       "ticker": "RSW.L",
@@ -14461,7 +14700,8 @@
       "final_target": 1.0553253731597929e-19,
       "eur_price": 29.113851,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "JIN.AX": {
       "ticker": "JIN.AX",
@@ -14567,7 +14807,8 @@
       "final_target": 9.924945350664866e-20,
       "eur_price": 18.602767,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "2148.T": {
       "ticker": "2148.T",
@@ -14587,7 +14828,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.04114195202137989,
       "eur_price": 9.602362,
-      "target_value_eur": 41273.52,
+      "target_value_eur": 41273.53,
       "quantity": 4298
     },
     "6539.T": {
@@ -14608,7 +14849,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.024969683346915725,
       "eur_price": 5.780865,
-      "target_value_eur": 25049.53,
+      "target_value_eur": 25049.54,
       "quantity": 4333
     },
     "6806.T": {
@@ -14629,7 +14870,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.03743580711681519,
       "eur_price": 112.484806,
-      "target_value_eur": 37555.52,
+      "target_value_eur": 37555.53,
       "quantity": 334
     },
     "6061.T": {
@@ -14652,7 +14893,8 @@
       "final_target": 2.311942135025919e-19,
       "eur_price": 33.518551,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "RVRC.ST": {
       "ticker": "RVRC.ST",
@@ -14672,7 +14914,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.050575775414817316,
       "eur_price": 4.344007,
-      "target_value_eur": 50737.51,
+      "target_value_eur": 50737.52,
       "quantity": 11680
     },
     "3964.T": {
@@ -14693,7 +14935,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06708496635333283,
       "eur_price": 10.950975,
-      "target_value_eur": 67299.5,
+      "target_value_eur": 67299.51,
       "quantity": 6146
     },
     "CCRD": {
@@ -14714,7 +14956,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.05562960937558737,
       "eur_price": 23.068376,
-      "target_value_eur": 55807.51,
+      "target_value_eur": 55807.52,
       "quantity": 2419
     },
     "2163.T": {
@@ -14778,7 +15020,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.05091269767886865,
       "eur_price": 12.131736,
-      "target_value_eur": 51075.51,
+      "target_value_eur": 51075.52,
       "quantity": 4210
     },
     "4403.T": {
@@ -14841,7 +15083,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.05293423126317668,
       "eur_price": 8.046243,
-      "target_value_eur": 53103.51,
+      "target_value_eur": 53103.52,
       "quantity": 6600
     },
     "3741.T": {
@@ -14906,7 +15148,8 @@
       "final_target": 1.6208029159995497e-19,
       "eur_price": 9.845459,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "BIG.L": {
       "ticker": "BIG.L",
@@ -14970,7 +15213,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.03878349617302053,
       "eur_price": 156.27,
-      "target_value_eur": 38907.52,
+      "target_value_eur": 38907.53,
       "quantity": 249
     },
     "4441.T": {
@@ -14991,7 +15234,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06742188861738416,
       "eur_price": 7.026683,
-      "target_value_eur": 67637.5,
+      "target_value_eur": 67637.51,
       "quantity": 9626
     },
     "8111.T": {
@@ -15055,7 +15298,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07752955653892425,
       "eur_price": 18.401235,
-      "target_value_eur": 77777.49,
+      "target_value_eur": 77777.5,
       "quantity": 4227
     },
     "NPK": {
@@ -15076,7 +15319,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.05394499805533069,
       "eur_price": 93.367521,
-      "target_value_eur": 54117.51,
+      "target_value_eur": 54117.52,
       "quantity": 580
     },
     "SVM.TO": {
@@ -15097,7 +15340,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06843265540953818,
       "eur_price": 4.32716,
-      "target_value_eur": 68651.5,
+      "target_value_eur": 68651.51,
       "quantity": 15865
     },
     "6957.T": {
@@ -15118,7 +15361,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07719263427487293,
       "eur_price": 40.961973,
-      "target_value_eur": 77439.49,
+      "target_value_eur": 77439.5,
       "quantity": 1891
     },
     "2317.T": {
@@ -15139,7 +15382,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06371574371281945,
       "eur_price": 2.809631,
-      "target_value_eur": 63919.5,
+      "target_value_eur": 63919.51,
       "quantity": 22750
     },
     "3763.T": {
@@ -15160,7 +15403,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07550802295461624,
       "eur_price": 18.041327,
-      "target_value_eur": 75749.49,
+      "target_value_eur": 75749.5,
       "quantity": 4199
     },
     "RRL.AX": {
@@ -15181,7 +15424,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07651878974677025,
       "eur_price": 3.039773,
-      "target_value_eur": 76763.49,
+      "target_value_eur": 76763.5,
       "quantity": 25253
     },
     "MCRI": {
@@ -15204,7 +15447,8 @@
       "final_target": 1.819767236628353e-19,
       "eur_price": 87.273504,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "7730.T": {
       "ticker": "7730.T",
@@ -15226,7 +15470,8 @@
       "final_target": 3.6418615413342355e-20,
       "eur_price": 7.518666,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "CMPO": {
       "ticker": "CMPO",
@@ -15246,7 +15491,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06573727729712749,
       "eur_price": 16.273504,
-      "target_value_eur": 65947.5,
+      "target_value_eur": 65947.51,
       "quantity": 4052
     },
     "6454.T": {
@@ -15269,7 +15514,8 @@
       "final_target": 2.3224139413748036e-19,
       "eur_price": 33.263877,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "PWS.MI": {
       "ticker": "PWS.MI",
@@ -15289,7 +15535,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06944342220169218,
       "eur_price": 19.73,
-      "target_value_eur": 69665.5,
+      "target_value_eur": 69665.51,
       "quantity": 3531
     },
     "3983.T": {
@@ -15331,7 +15577,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.05023885315076598,
       "eur_price": 3.538056,
-      "target_value_eur": 50399.51,
+      "target_value_eur": 50399.52,
       "quantity": 14245
     },
     "4825.T": {
@@ -15436,7 +15682,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.051586542206971335,
       "eur_price": 8.924855,
-      "target_value_eur": 51751.51,
+      "target_value_eur": 51751.52,
       "quantity": 5799
     },
     "ACMR": {
@@ -15457,7 +15703,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07584494521866758,
       "eur_price": 25.649573,
-      "target_value_eur": 76087.49,
+      "target_value_eur": 76087.5,
       "quantity": 2966
     },
     "6315.T": {
@@ -15478,7 +15724,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.0549557648474847,
       "eur_price": 10.094345,
-      "target_value_eur": 55131.51,
+      "target_value_eur": 55131.52,
       "quantity": 5462
     },
     "6194.T": {
@@ -15587,7 +15833,8 @@
       "final_target": 7.411711826932614e-20,
       "eur_price": 61.649573,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "4498.T": {
       "ticker": "4498.T",
@@ -15607,7 +15854,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06337882144876812,
       "eur_price": 15.795566,
-      "target_value_eur": 63581.5,
+      "target_value_eur": 63581.51,
       "quantity": 4025
     },
     "AOF.DE": {
@@ -15628,7 +15875,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.0256435278750184,
       "eur_price": 101.0,
-      "target_value_eur": 25725.53,
+      "target_value_eur": 25725.54,
       "quantity": 255
     },
     "IPAR": {
@@ -15651,7 +15898,8 @@
       "final_target": 7.097557636466082e-20,
       "eur_price": 93.470085,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "4771.T": {
       "ticker": "4771.T",
@@ -15671,7 +15919,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07449725616246224,
       "eur_price": 16.015512,
-      "target_value_eur": 74735.49,
+      "target_value_eur": 74735.5,
       "quantity": 4666
     },
     "BAHN-B.ST": {
@@ -15692,7 +15940,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.05461884258343336,
       "eur_price": 5.589204,
-      "target_value_eur": 54793.51,
+      "target_value_eur": 54793.52,
       "quantity": 9803
     },
     "TAYD": {
@@ -15734,7 +15982,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.05259730899912535,
       "eur_price": 11.876487,
-      "target_value_eur": 52765.51,
+      "target_value_eur": 52765.52,
       "quantity": 4443
     },
     "ARB.AX": {
@@ -15757,7 +16005,8 @@
       "final_target": 1.2124024683930586e-19,
       "eur_price": 21.994318,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "4186.T": {
       "ticker": "4186.T",
@@ -15777,7 +16026,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06472651050497347,
       "eur_price": 27.84627,
-      "target_value_eur": 64933.5,
+      "target_value_eur": 64933.51,
       "quantity": 2332
     },
     "IFCN.SW": {
@@ -15819,7 +16068,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.041478874285431226,
       "eur_price": 8.33526,
-      "target_value_eur": 41611.52,
+      "target_value_eur": 41611.53,
       "quantity": 4992
     },
     "7059.T": {
@@ -15840,7 +16089,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06169421012851143,
       "eur_price": 12.259073,
-      "target_value_eur": 61891.5,
+      "target_value_eur": 61891.51,
       "quantity": 5049
     },
     "XPEL": {
@@ -15967,7 +16216,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.0761818674827189,
       "eur_price": 6.540487,
-      "target_value_eur": 76425.49,
+      "target_value_eur": 76425.5,
       "quantity": 11685
     },
     "9272.T": {
@@ -15988,7 +16237,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.03912041843707187,
       "eur_price": 9.168258,
-      "target_value_eur": 39245.52,
+      "target_value_eur": 39245.53,
       "quantity": 4281
     },
     "6524.T": {
@@ -16032,7 +16281,8 @@
       "final_target": 4.584324112733828e-20,
       "eur_price": 4.589595,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "6088.T": {
       "ticker": "6088.T",
@@ -16074,7 +16324,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07382341163435956,
       "eur_price": 14.4238,
-      "target_value_eur": 74059.49,
+      "target_value_eur": 74059.5,
       "quantity": 5135
     },
     "3655.T": {
@@ -16096,7 +16346,7 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.01416545356609562,
       "eur_price": 7.287145,
-      "target_value_eur": 14210.75,
+      "target_value_eur": 14210.76,
       "quantity": 1950
     },
     "6037.T": {
@@ -16117,7 +16367,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07314956710625688,
       "eur_price": 6.511547,
-      "target_value_eur": 73383.49,
+      "target_value_eur": 73383.5,
       "quantity": 11270
     },
     "FNX.L": {
@@ -16159,7 +16409,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07281264484220554,
       "eur_price": 4.404624,
-      "target_value_eur": 73045.49,
+      "target_value_eur": 73045.5,
       "quantity": 16584
     },
     "QTCOM.HE": {
@@ -16182,7 +16432,8 @@
       "final_target": 3.3277073508677037e-20,
       "eur_price": 46.6,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "KRI.AT": {
       "ticker": "KRI.AT",
@@ -16204,7 +16455,8 @@
       "final_target": 1.903541687419428e-19,
       "eur_price": 19.21,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "PLNW.PA": {
       "ticker": "PLNW.PA",
@@ -16245,7 +16497,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06203113239256277,
       "eur_price": 44.400069,
-      "target_value_eur": 62229.5,
+      "target_value_eur": 62229.51,
       "quantity": 1402
     },
     "6777.T": {
@@ -16266,7 +16518,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.04990193088671464,
       "eur_price": 49.516699,
-      "target_value_eur": 50061.51,
+      "target_value_eur": 50061.52,
       "quantity": 1011
     },
     "TRUE-B.ST": {
@@ -16308,7 +16560,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.03709888485276385,
       "eur_price": 727.344754,
-      "target_value_eur": 37217.52,
+      "target_value_eur": 37217.53,
       "quantity": 51
     },
     "4293.T": {
@@ -16329,7 +16581,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.042152718813533906,
       "eur_price": 2.430978,
-      "target_value_eur": 42287.52,
+      "target_value_eur": 42287.53,
       "quantity": 17395
     },
     "4776.T": {
@@ -16350,7 +16602,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.060683443336357425,
       "eur_price": 21.074261,
-      "target_value_eur": 60877.5,
+      "target_value_eur": 60877.51,
       "quantity": 2889
     },
     "4377.T": {
@@ -16371,7 +16623,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07416033389841088,
       "eur_price": 16.235458,
-      "target_value_eur": 74397.49,
+      "target_value_eur": 74397.5,
       "quantity": 4582
     },
     "4816.T": {
@@ -16413,7 +16665,7 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.0623680546566141,
       "eur_price": 15.465648,
-      "target_value_eur": 62567.5,
+      "target_value_eur": 62567.51,
       "quantity": 4046
     },
     "TTZ.V": {
@@ -16435,7 +16687,8 @@
       "final_target": 7.830584080887989e-20,
       "eur_price": 0.117284,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "7735.T": {
       "ticker": "7735.T",
@@ -16456,7 +16709,8 @@
       "final_target": 1.9768443318616188e-19,
       "eur_price": 71.690687,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "6532.T": {
       "ticker": "6532.T",
@@ -16477,7 +16731,8 @@
       "final_target": 2.280526715979266e-19,
       "eur_price": 48.92053,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "HLAG.DE": {
       "ticker": "HLAG.DE",
@@ -16520,7 +16775,8 @@
       "final_target": 5.526786684133423e-20,
       "eur_price": 52.142045,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "6544.T": {
       "ticker": "6544.T",
@@ -16541,7 +16797,8 @@
       "final_target": 2.0710905890015784e-19,
       "eur_price": 22.579151,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "MSFT": {
       "ticker": "MSFT",
@@ -16562,7 +16819,8 @@
       "final_target": 1.6626901413950873e-19,
       "eur_price": 428.213675,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "RACE.MI": {
       "ticker": "RACE.MI",
@@ -16583,7 +16841,8 @@
       "final_target": 1.139099823950868e-19,
       "eur_price": 405.97,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "SECARE.ST": {
       "ticker": "SECARE.ST",
@@ -16604,7 +16863,8 @@
       "final_target": 5.945658938088798e-20,
       "eur_price": 3.638609,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "OLLI": {
       "ticker": "OLLI",
@@ -16625,7 +16885,8 @@
       "final_target": 1.7778800112328156e-19,
       "eur_price": 114.017094,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "3762.T": {
       "ticker": "3762.T",
@@ -16668,7 +16929,8 @@
       "final_target": 6.364531192044174e-20,
       "eur_price": 11.622388,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "3635.T": {
       "ticker": "3635.T",
@@ -16689,7 +16951,8 @@
       "final_target": 1.275233306486365e-19,
       "eur_price": 10.956763,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "FPE.MI": {
       "ticker": "FPE.MI",
@@ -16710,7 +16973,8 @@
       "final_target": 2.2909985223281504e-19,
       "eur_price": 39.0,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "6098.T": {
       "ticker": "6098.T",
@@ -16731,7 +16995,8 @@
       "final_target": 5.422068620644579e-20,
       "eur_price": 49.939226,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "SAIA": {
       "ticker": "SAIA",
@@ -16752,7 +17017,8 @@
       "final_target": 2.804117033423484e-20,
       "eur_price": 262.74359,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "BRG.OL": {
       "ticker": "BRG.OL",
@@ -16773,7 +17039,8 @@
       "final_target": 1.7150491731395092e-19,
       "eur_price": 17.500864,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "ITT": {
       "ticker": "ITT",
@@ -16794,7 +17061,8 @@
       "final_target": 1.599859303301781e-19,
       "eur_price": 146.051282,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "SAF.PA": {
       "ticker": "SAF.PA",
@@ -16815,7 +17083,8 @@
       "final_target": 2.0501469763038096e-19,
       "eur_price": 278.42,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "FCN": {
       "ticker": "FCN",
@@ -16836,7 +17105,8 @@
       "final_target": 6.78340344599955e-20,
       "eur_price": 144.111111,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "XRF.AX": {
       "ticker": "XRF.AX",
@@ -16857,7 +17127,8 @@
       "final_target": 1.7464645921861624e-19,
       "eur_price": 1.221591,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "3626.T": {
       "ticker": "3626.T",
@@ -16878,7 +17149,8 @@
       "final_target": 2.0920342016993472e-19,
       "eur_price": 28.621867,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "4369.T": {
       "ticker": "4369.T",
@@ -16899,7 +17171,8 @@
       "final_target": 8.249456334843365e-20,
       "eur_price": 15.031545,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "NEWA-B.ST": {
       "ticker": "NEWA-B.ST",
@@ -16920,7 +17193,8 @@
       "final_target": 1.5265566588595902e-19,
       "eur_price": 9.865508,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "HVN.AX": {
       "ticker": "HVN.AX",
@@ -16941,7 +17215,8 @@
       "final_target": 2.2386394905837284e-19,
       "eur_price": 4.159091,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "LOTB.BR": {
       "ticker": "LOTB.BR",
@@ -16962,7 +17237,8 @@
       "final_target": 5.3173505571557355e-20,
       "eur_price": 8231.0,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "6920.T": {
       "ticker": "6920.T",
@@ -16983,7 +17259,8 @@
       "final_target": 1.390423176324093e-19,
       "eur_price": 93.633154,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "KOG.OL": {
       "ticker": "KOG.OL",
@@ -17004,7 +17281,8 @@
       "final_target": 1.683633754092856e-19,
       "eur_price": 25.407599,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "MTX.DE": {
       "ticker": "MTX.DE",
@@ -17025,7 +17303,8 @@
       "final_target": 1.5684438842551277e-19,
       "eur_price": 366.21,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "2157.T": {
       "ticker": "2157.T",
@@ -17046,7 +17325,8 @@
       "final_target": 1.7988236239305841e-19,
       "eur_price": 7.865949,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "SIQ.AX": {
       "ticker": "SIQ.AX",
@@ -17067,7 +17347,8 @@
       "final_target": 1.4846694334640526e-19,
       "eur_price": 4.6875,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "CTD.AX": {
       "ticker": "CTD.AX",
@@ -17088,7 +17369,8 @@
       "final_target": 1.8825980747216593e-19,
       "eur_price": 9.011364,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "SAG.L": {
       "ticker": "SAG.L",
@@ -17109,7 +17391,8 @@
       "final_target": 1.8302390429772373e-19,
       "eur_price": 6.450867,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "GIB-A.TO": {
       "ticker": "GIB-A.TO",
@@ -17130,7 +17413,8 @@
       "final_target": 6.678685382510706e-20,
       "eur_price": 80.432099,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "FORM": {
       "ticker": "FORM",
@@ -17151,7 +17435,8 @@
       "final_target": 3.4324254143565476e-20,
       "eur_price": 25.094017,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "ELCO.L": {
       "ticker": "ELCO.L",
@@ -17172,7 +17457,8 @@
       "final_target": 1.6941055604417405e-19,
       "eur_price": 1.884393,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "TIH.TO": {
       "ticker": "TIH.TO",
@@ -17193,7 +17479,8 @@
       "final_target": 1.9349571064660813e-19,
       "eur_price": 88.617284,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "VBG-B.ST": {
       "ticker": "VBG-B.ST",
@@ -17214,7 +17501,8 @@
       "final_target": 1.1809870493464054e-19,
       "eur_price": 28.042086,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "ALFA.ST": {
       "ticker": "ALFA.ST",
@@ -17235,7 +17523,8 @@
       "final_target": 7.935302144376833e-20,
       "eur_price": 38.767612,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "JBTM": {
       "ticker": "JBTM",
@@ -17256,7 +17545,8 @@
       "final_target": 1.7045773667906248e-19,
       "eur_price": 120.931624,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "LEN": {
       "ticker": "LEN",
@@ -17277,7 +17567,8 @@
       "final_target": 1.1705152429975213e-19,
       "eur_price": 119.769231,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "DHI": {
       "ticker": "DHI",
@@ -17320,7 +17611,8 @@
       "final_target": 2.008259750908272e-19,
       "eur_price": 412.675214,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "4928.T": {
       "ticker": "4928.T",
@@ -17341,7 +17633,8 @@
       "final_target": 1.0657971795086773e-19,
       "eur_price": 27.116976,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "DANT.CO": {
       "ticker": "DANT.CO",
@@ -17362,7 +17655,8 @@
       "final_target": 2.060618782652694e-19,
       "eur_price": 70.490617,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "TOL": {
       "ticker": "TOL",
@@ -17383,7 +17677,8 @@
       "final_target": 1.6417465286973185e-19,
       "eur_price": 122.393162,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "SPSC": {
       "ticker": "SPSC",
@@ -17404,7 +17699,8 @@
       "final_target": 2.6993989699346404e-20,
       "eur_price": 96.025641,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "VMI": {
       "ticker": "VMI",
@@ -17425,7 +17721,8 @@
       "final_target": 1.4532540144173994e-19,
       "eur_price": 309.555556,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "IEX": {
       "ticker": "IEX",
@@ -17446,7 +17743,8 @@
       "final_target": 3.5371434778453916e-20,
       "eur_price": 137.880342,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "CCL-A.TO": {
       "ticker": "CCL-A.TO",
@@ -17467,7 +17765,8 @@
       "final_target": 1.1600434366486369e-19,
       "eur_price": 47.746914,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "NEA.MC": {
       "ticker": "NEA.MC",
@@ -17488,7 +17787,8 @@
       "final_target": 2.0396751699549252e-19,
       "eur_price": 10.1,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "BMY.L": {
       "ticker": "BMY.L",
@@ -17509,7 +17809,8 @@
       "final_target": 4.37488798575614e-20,
       "eur_price": 5.780347,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "BMI": {
       "ticker": "BMI",
@@ -17530,7 +17831,8 @@
       "final_target": 5.840940874599955e-20,
       "eur_price": 156.162393,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "AME": {
       "ticker": "AME",
@@ -17551,7 +17853,8 @@
       "final_target": 1.0972125985553305e-19,
       "eur_price": 157.948718,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "NXU.DE": {
       "ticker": "NXU.DE",
@@ -17572,7 +17875,8 @@
       "final_target": 1.2857051128352493e-19,
       "eur_price": 70.28,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "BELA.AT": {
       "ticker": "BELA.AT",
@@ -17593,7 +17897,8 @@
       "final_target": 1.851182655675006e-19,
       "eur_price": 31.69,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "ALPM.PA": {
       "ticker": "ALPM.PA",
@@ -17614,7 +17919,8 @@
       "final_target": 9.820227287176022e-20,
       "eur_price": 27.1,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "DIOD": {
       "ticker": "DIOD",
@@ -17635,7 +17941,8 @@
       "final_target": 6.573967319021862e-20,
       "eur_price": 45.512821,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "7187.T": {
       "ticker": "7187.T",
@@ -17678,7 +17985,8 @@
       "final_target": 2.332885747723688e-19,
       "eur_price": 35.9148,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "JKHY": {
       "ticker": "JKHY",
@@ -17699,7 +18007,8 @@
       "final_target": 8.982482779265273e-20,
       "eur_price": 137.153846,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "IP.MI": {
       "ticker": "IP.MI",
@@ -17720,7 +18029,8 @@
       "final_target": 8.563610525309897e-20,
       "eur_price": 40.62,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "ATR": {
       "ticker": "ATR",
@@ -17741,7 +18051,8 @@
       "final_target": 5.73622281111111e-20,
       "eur_price": 115.57265,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "COTN.SW": {
       "ticker": "COTN.SW",
@@ -17762,7 +18073,8 @@
       "final_target": 2.908835096912328e-20,
       "eur_price": 178.779443,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "UNF": {
       "ticker": "UNF",
@@ -17783,7 +18095,8 @@
       "final_target": 9.087200842754117e-20,
       "eur_price": 151.982906,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "AAON": {
       "ticker": "AAON",
@@ -17804,7 +18117,8 @@
       "final_target": 3.013553160401172e-20,
       "eur_price": 69.358974,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "MTH": {
       "ticker": "MTH",
@@ -17825,7 +18139,8 @@
       "final_target": 9.610791160198334e-20,
       "eur_price": 70.880342,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "SDI.L": {
       "ticker": "SDI.L",
@@ -17846,7 +18161,8 @@
       "final_target": 2.3433575540725724e-19,
       "eur_price": 1.16763,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "6367.T": {
       "ticker": "6367.T",
@@ -17867,7 +18183,8 @@
       "final_target": 1.2647615001374806e-19,
       "eur_price": 104.717254,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "FSS": {
       "ticker": "FSS",
@@ -17888,7 +18205,8 @@
       "final_target": 1.95590071916385e-19,
       "eur_price": 106.777778,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "VEE.AX": {
       "ticker": "VEE.AX",
@@ -17909,7 +18227,8 @@
       "final_target": 8.668328588798741e-20,
       "eur_price": 0.681818,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "RMD": {
       "ticker": "RMD",
@@ -17930,7 +18249,8 @@
       "final_target": 1.5579720779062433e-19,
       "eur_price": 234.025641,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "MATX": {
       "ticker": "MATX",
@@ -17973,7 +18293,8 @@
       "final_target": 1.9663725255127344e-19,
       "eur_price": 237.931624,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "3091.T": {
       "ticker": "3091.T",
@@ -17994,7 +18315,8 @@
       "final_target": 1.4323104017196306e-19,
       "eur_price": 22.729641,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "RBT.PA": {
       "ticker": "RBT.PA",
@@ -18015,7 +18337,8 @@
       "final_target": 1.1914588556952898e-19,
       "eur_price": 854.1,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "PKG": {
       "ticker": "PKG",
@@ -18036,7 +18359,8 @@
       "final_target": 1.0239099541131397e-19,
       "eur_price": 185.495726,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "LISN.SW": {
       "ticker": "LISN.SW",
@@ -18057,7 +18381,8 @@
       "final_target": 1.9244853001171969e-19,
       "eur_price": 128479.657388,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "SAR.AT": {
       "ticker": "SAR.AT",
@@ -18078,7 +18403,8 @@
       "final_target": 2.1548650397926533e-19,
       "eur_price": 14.48,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "MLHOT.PA": {
       "ticker": "MLHOT.PA",
@@ -18099,7 +18425,8 @@
       "final_target": 2.1339214270948845e-19,
       "eur_price": 53.29,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "AYI": {
       "ticker": "AYI",
@@ -18120,7 +18447,8 @@
       "final_target": 1.327592338230787e-19,
       "eur_price": 282.632479,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "SSD": {
       "ticker": "SSD",
@@ -18141,7 +18469,8 @@
       "final_target": 1.4008949826729774e-19,
       "eur_price": 167.435897,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "KBH": {
       "ticker": "KBH",
@@ -18162,7 +18491,8 @@
       "final_target": 1.002966341415371e-19,
       "eur_price": 57.965812,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "2331.T": {
       "ticker": "2331.T",
@@ -18183,7 +18513,8 @@
       "final_target": 1.3799513699752086e-19,
       "eur_price": 6.673612,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "4187.T": {
       "ticker": "4187.T",
@@ -18204,7 +18535,8 @@
       "final_target": 1.3485359509285557e-19,
       "eur_price": 17.64774,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "4326.T": {
       "ticker": "4326.T",
@@ -18225,7 +18557,8 @@
       "final_target": 1.6103311096506653e-19,
       "eur_price": 10.516872,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "TRI.PA": {
       "ticker": "TRI.PA",
@@ -18246,7 +18579,8 @@
       "final_target": 1.8407108493261217e-19,
       "eur_price": 144.93,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "REY.MI": {
       "ticker": "REY.MI",
@@ -18289,7 +18623,8 @@
       "final_target": 4.689042176222672e-20,
       "eur_price": 128.811966,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "GD": {
       "ticker": "GD",
@@ -18310,7 +18645,8 @@
       "final_target": 1.872126268372775e-19,
       "eur_price": 276.111111,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "SFC.AX": {
       "ticker": "SFC.AX",
@@ -18331,7 +18667,8 @@
       "final_target": 1.086740792206446e-19,
       "eur_price": 11.744318,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "MU": {
       "ticker": "MU",
@@ -18352,7 +18689,8 @@
       "final_target": 1.9454289128149657e-19,
       "eur_price": 119.65812,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "ALG": {
       "ticker": "ALG",
@@ -18373,7 +18711,8 @@
       "final_target": 1.4113667890218618e-19,
       "eur_price": 178.769231,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "ROCK-B.CO": {
       "ticker": "ROCK-B.CO",
@@ -18394,7 +18733,8 @@
       "final_target": 9.401355033220646e-20,
       "eur_price": 31.753351,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "HLMA.L": {
       "ticker": "HLMA.L",
@@ -18415,7 +18755,8 @@
       "final_target": 1.8092954302794685e-19,
       "eur_price": 37.468208,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "DSY.PA": {
       "ticker": "DSY.PA",
@@ -18436,7 +18777,8 @@
       "final_target": 6.888121509488394e-20,
       "eur_price": 27.71,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "FELE": {
       "ticker": "FELE",
@@ -18457,7 +18799,8 @@
       "final_target": 8.773046652287585e-20,
       "eur_price": 80.521368,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "REH.AX": {
       "ticker": "REH.AX",
@@ -18478,7 +18821,8 @@
       "final_target": 2.3852447794681086e-20,
       "eur_price": 5.693182,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "PLAB": {
       "ticker": "PLAB",
@@ -18499,7 +18843,8 @@
       "final_target": 7.516429890421458e-20,
       "eur_price": 19.350427,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "CBRAIN.CO": {
       "ticker": "CBRAIN.CO",
@@ -18520,7 +18865,8 @@
       "final_target": 1.1495716302997525e-19,
       "eur_price": 25.588472,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "BORG.ST": {
       "ticker": "BORG.ST",
@@ -18541,7 +18887,8 @@
       "final_target": 1.7883518175816998e-19,
       "eur_price": 5.550778,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "4661.T": {
       "ticker": "4661.T",
@@ -18562,7 +18909,8 @@
       "final_target": 1.4218385953707462e-19,
       "eur_price": 20.900619,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "WLK": {
       "ticker": "WLK",
@@ -18583,7 +18931,8 @@
       "final_target": 4.165451858778452e-20,
       "eur_price": 73.512821,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "PROF.AT": {
       "ticker": "PROF.AT",
@@ -18604,7 +18953,8 @@
       "final_target": 1.9977879445593876e-19,
       "eur_price": 6.84,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "SMID": {
       "ticker": "SMID",
@@ -18625,7 +18975,8 @@
       "final_target": 9.191918906242958e-20,
       "eur_price": 34.581197,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "4746.T": {
       "ticker": "4746.T",
@@ -18646,7 +18997,8 @@
       "final_target": 9.715509223687178e-20,
       "eur_price": 23.100075,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "CALM": {
       "ticker": "CALM",
@@ -18667,7 +19019,8 @@
       "final_target": 1.35900775727744e-19,
       "eur_price": 97.290598,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "FMM-B.ST": {
       "ticker": "FMM-B.ST",
@@ -18710,7 +19063,8 @@
       "final_target": 3.22298928737886e-20,
       "eur_price": 93.435897,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "2153.T": {
       "ticker": "2153.T",
@@ -18731,7 +19085,8 @@
       "final_target": 1.3380641445796713e-19,
       "eur_price": 10.262198,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "WSO": {
       "ticker": "WSO",
@@ -18752,7 +19107,8 @@
       "final_target": 6.050377001577642e-20,
       "eur_price": 349.555556,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "2801.T": {
       "ticker": "2801.T",
@@ -18773,7 +19129,8 @@
       "final_target": 4.793760239711516e-20,
       "eur_price": 7.674944,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "FLEXO.AT": {
       "ticker": "FLEXO.AT",
@@ -18794,7 +19151,8 @@
       "final_target": 1.1181562112530993e-19,
       "eur_price": 8.02,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "3837.T": {
       "ticker": "3837.T",
@@ -18815,7 +19173,8 @@
       "final_target": 2.0815623953504628e-19,
       "eur_price": 7.894889,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "6368.T": {
       "ticker": "6368.T",
@@ -18836,7 +19195,8 @@
       "final_target": 2.2072240715370753e-19,
       "eur_price": 68.437807,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "6028.T": {
       "ticker": "6028.T",
@@ -18857,7 +19217,8 @@
       "final_target": 2.301470328677035e-19,
       "eur_price": 28.008335,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "6266.T": {
       "ticker": "6266.T",
@@ -18878,7 +19239,8 @@
       "final_target": 1.0448535668109085e-19,
       "eur_price": 11.91179,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "OR.PA": {
       "ticker": "OR.PA",
@@ -18899,7 +19261,8 @@
       "final_target": 1.7674082048839312e-19,
       "eur_price": 395.48,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "3569.T": {
       "ticker": "3569.T",
@@ -18920,7 +19283,8 @@
       "final_target": 1.6522183350462029e-19,
       "eur_price": 18.232332,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "DWHT.L": {
       "ticker": "DWHT.L",
@@ -18941,7 +19305,8 @@
       "final_target": 3.7465796048230764e-20,
       "eur_price": 9.121387,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "INGR": {
       "ticker": "INGR",
@@ -18962,7 +19327,8 @@
       "final_target": 8.354174398332209e-20,
       "eur_price": 109.752137,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "9986.T": {
       "ticker": "9986.T",
@@ -18983,7 +19349,8 @@
       "final_target": 1.2333460810908274e-19,
       "eur_price": 14.163339,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "ROCK": {
       "ticker": "ROCK",
@@ -19004,7 +19371,8 @@
       "final_target": 8.877764715776429e-20,
       "eur_price": 53.051282,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "AIN": {
       "ticker": "AIN",
@@ -19025,7 +19393,8 @@
       "final_target": 5.1079144301780476e-20,
       "eur_price": 53.264957,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "2327.T": {
       "ticker": "2327.T",
@@ -19046,7 +19415,8 @@
       "final_target": 7.30699376344377e-20,
       "eur_price": 20.15975,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "2229.T": {
       "ticker": "2229.T",
@@ -19067,7 +19437,8 @@
       "final_target": 8.144738271354521e-20,
       "eur_price": 15.865023,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "4923.T": {
       "ticker": "4923.T",
@@ -19088,7 +19459,8 @@
       "final_target": 7.725866017399145e-20,
       "eur_price": 8.114835,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "AZK.MC": {
       "ticker": "AZK.MC",
@@ -19109,7 +19481,8 @@
       "final_target": 2.1653368461415377e-19,
       "eur_price": 8.35,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "ALGEV.PA": {
       "ticker": "ALGEV.PA",
@@ -19130,7 +19503,8 @@
       "final_target": 1.0762689858575617e-19,
       "eur_price": 179.78,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "7611.T": {
       "ticker": "7611.T",
@@ -19151,7 +19525,8 @@
       "final_target": 2.0292033636060408e-19,
       "eur_price": 21.271054,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "PLPC": {
       "ticker": "PLPC",
@@ -19172,7 +19547,8 @@
       "final_target": 2.259583103281497e-19,
       "eur_price": 165.444444,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "LNN": {
       "ticker": "LNN",
@@ -19193,7 +19569,8 @@
       "final_target": 1.4637258207662838e-19,
       "eur_price": 120.068376,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "EVD.DE": {
       "ticker": "EVD.DE",
@@ -19214,7 +19591,8 @@
       "final_target": 1.495141239812937e-19,
       "eur_price": 87.73,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "KAI": {
       "ticker": "KAI",
@@ -19235,7 +19613,8 @@
       "final_target": 8.040020207865677e-20,
       "eur_price": 270.794872,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "ALPDX.PA": {
       "ticker": "ALPDX.PA",
@@ -19256,7 +19635,8 @@
       "final_target": 1.4741976271151682e-19,
       "eur_price": 12.72,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "ALC.MC": {
       "ticker": "ALC.MC",
@@ -19277,7 +19657,8 @@
       "final_target": 2.2176958778859596e-19,
       "eur_price": 6.43,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "RCH.TO": {
       "ticker": "RCH.TO",
@@ -19298,7 +19679,8 @@
       "final_target": 1.0134381477642554e-19,
       "eur_price": 22.475309,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "HRL": {
       "ticker": "HRL",
@@ -19319,7 +19701,8 @@
       "final_target": 5.631504747622267e-20,
       "eur_price": 21.34188,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "6327.T": {
       "ticker": "6327.T",
@@ -19340,7 +19723,8 @@
       "final_target": 2.2700549096303816e-19,
       "eur_price": 4.847138,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "6402.T": {
       "ticker": "6402.T",
@@ -19361,7 +19745,8 @@
       "final_target": 2.144393233443769e-19,
       "eur_price": 8.878856,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "7269.T": {
       "ticker": "7269.T",
@@ -19382,7 +19767,8 @@
       "final_target": 1.631274722348434e-19,
       "eur_price": 11.686057,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "WRT1V.HE": {
       "ticker": "WRT1V.HE",
@@ -19403,7 +19789,8 @@
       "final_target": 2.249111296932613e-19,
       "eur_price": 25.94,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "6594.T": {
       "ticker": "6594.T",
@@ -19424,7 +19811,8 @@
       "final_target": 8.458892461821053e-20,
       "eur_price": 13.960757,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "HUBN.SW": {
       "ticker": "HUBN.SW",
@@ -19445,7 +19833,8 @@
       "final_target": 2.364301166770341e-19,
       "eur_price": 145.685225,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "STMN.SW": {
       "ticker": "STMN.SW",
@@ -19466,7 +19855,8 @@
       "final_target": 6.155095065066486e-20,
       "eur_price": 100.492505,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "VCM.TO": {
       "ticker": "VCM.TO",
@@ -19487,7 +19877,8 @@
       "final_target": 2.5946809064457964e-20,
       "eur_price": 5.87037,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "2914.T": {
       "ticker": "2914.T",
@@ -19508,7 +19899,8 @@
       "final_target": 1.5893874969528965e-19,
       "eur_price": 27.151705,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "2875.T": {
       "ticker": "2875.T",
@@ -19529,7 +19921,8 @@
       "final_target": 1.107684404904215e-19,
       "eur_price": 60.867049,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "ALL.AX": {
       "ticker": "ALL.AX",
@@ -19550,7 +19943,8 @@
       "final_target": 1.2438178874397118e-19,
       "eur_price": 39.193182,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "6506.T": {
       "ticker": "6506.T",
@@ -19571,7 +19965,8 @@
       "final_target": 4.270169922267296e-20,
       "eur_price": 17.393066,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "SFSN.SW": {
       "ticker": "SFSN.SW",
@@ -19592,7 +19987,8 @@
       "final_target": 7.202275699954926e-20,
       "eur_price": 115.06424,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "LFUS": {
       "ticker": "LFUS",
@@ -19613,7 +20009,8 @@
       "final_target": 1.222874274741943e-19,
       "eur_price": 217.529915,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "ASM.AS": {
       "ticker": "ASM.AS",
@@ -19634,7 +20031,8 @@
       "final_target": 4.89847830320036e-20,
       "eur_price": 422.77,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "DORM": {
       "ticker": "DORM",
@@ -19655,7 +20053,8 @@
       "final_target": 1.8616544620238905e-19,
       "eur_price": 136.034188,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "LNR.TO": {
       "ticker": "LNR.TO",
@@ -19676,7 +20075,8 @@
       "final_target": 1.9140134937683125e-19,
       "eur_price": 47.623457,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "5108.T": {
       "ticker": "5108.T",
@@ -19697,7 +20097,8 @@
       "final_target": 1.9873161382105032e-19,
       "eur_price": 40.423685,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "WAVE.PA": {
       "ticker": "WAVE.PA",
@@ -19740,7 +20141,8 @@
       "final_target": 2.38524477946811e-19,
       "eur_price": 3.27,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "5357.T": {
       "ticker": "5357.T",
@@ -19761,7 +20163,8 @@
       "final_target": 1.442782208068515e-19,
       "eur_price": 10.042253,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "BTS-B.ST": {
       "ticker": "BTS-B.ST",
@@ -19804,7 +20207,8 @@
       "final_target": 1.8930698810705437e-19,
       "eur_price": 25.305319,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "1959.T": {
       "ticker": "1959.T",
@@ -19825,7 +20229,8 @@
       "final_target": 2.196752265188191e-19,
       "eur_price": 42.756266,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "NSSC": {
       "ticker": "NSSC",
@@ -19846,7 +20251,8 @@
       "final_target": 1.2542896937885962e-19,
       "eur_price": 33.358974,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "6005.T": {
       "ticker": "6005.T",
@@ -19867,7 +20273,8 @@
       "final_target": 4.479606049244984e-20,
       "eur_price": 17.063148,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "4042.T": {
       "ticker": "4042.T",
@@ -19888,7 +20295,8 @@
       "final_target": 1.547500271557359e-19,
       "eur_price": 13.630839,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "3663.T": {
       "ticker": "3663.T",
@@ -19909,7 +20317,8 @@
       "final_target": 2.112977814397116e-19,
       "eur_price": 10.528448,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "1801.T": {
       "ticker": "1801.T",
@@ -19930,7 +20339,8 @@
       "final_target": 2.228167684234844e-19,
       "eur_price": 58.337674,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "AMKR": {
       "ticker": "AMKR",
@@ -19951,7 +20361,8 @@
       "final_target": 9.50607309670949e-20,
       "eur_price": 21.25641,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "7264.T": {
       "ticker": "7264.T",
@@ -19972,7 +20383,8 @@
       "final_target": 1.7255209794883936e-19,
       "eur_price": 7.993286,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "7832.T": {
       "ticker": "7832.T",
@@ -19993,7 +20405,8 @@
       "final_target": 2.0187315572571564e-19,
       "eur_price": 28.96915,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "7943.T": {
       "ticker": "7943.T",
@@ -20014,7 +20427,8 @@
       "final_target": 1.2019306620441742e-19,
       "eur_price": 16.987903,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "2359.T": {
       "ticker": "2359.T",
@@ -20035,7 +20449,8 @@
       "final_target": 1.5160848525107058e-19,
       "eur_price": 11.784453,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "MSLH.L": {
       "ticker": "MSLH.L",
@@ -20056,7 +20471,8 @@
       "final_target": 2.4899628429569525e-20,
       "eur_price": 2.023121,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "STIL.ST": {
       "ticker": "STIL.ST",
@@ -20077,7 +20493,8 @@
       "final_target": 1.5370284652084745e-19,
       "eur_price": 20.760293,
       "target_value_eur": 0.0,
-      "quantity": 0
+      "quantity": 0,
+      "allocation_note": "minimal_allocation"
     },
     "2154.T": {
       "ticker": "2154.T",
@@ -20139,7 +20556,7 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.008306580308059747,
       "eur_price": 73.166514,
-      "target_value_eur": 8333.14,
+      "target_value_eur": 8333.15,
       "quantity": 114
     },
     "FBF.V": {
@@ -20160,7 +20577,7 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.0061973859351668326,
       "eur_price": 0.709877,
-      "target_value_eur": 6217.2,
+      "target_value_eur": 6217.21,
       "quantity": 8758
     },
     "MGPI": {
@@ -20223,7 +20640,7 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.022133521197024407,
       "eur_price": 15.865508,
-      "target_value_eur": 22204.3,
+      "target_value_eur": 22204.31,
       "quantity": 1400
     },
     "DECK": {
@@ -20328,7 +20745,7 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.019555616963488624,
       "eur_price": 12.837877,
-      "target_value_eur": 19618.15,
+      "target_value_eur": 19618.16,
       "quantity": 1528
     },
     "6086.T": {
@@ -20433,7 +20850,7 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.017915132451238578,
       "eur_price": 5.573132,
-      "target_value_eur": 17972.42,
+      "target_value_eur": 17972.43,
       "quantity": 3225
     },
     "MONC.MI": {
@@ -20706,7 +21123,7 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.015805938078345665,
       "eur_price": 89.710921,
-      "target_value_eur": 15856.48,
+      "target_value_eur": 15856.49,
       "quantity": 177
     },
     "ONTO": {
@@ -20832,7 +21249,7 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.016274647938988532,
       "eur_price": 13.665567,
-      "target_value_eur": 16326.69,
+      "target_value_eur": 16326.7,
       "quantity": 1195
     },
     "2371.T": {
@@ -21021,7 +21438,7 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.01369674370545275,
       "eur_price": 31.648148,
-      "target_value_eur": 13740.54,
+      "target_value_eur": 13740.55,
       "quantity": 434
     },
     "6750.T": {
@@ -21126,7 +21543,7 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.021664811336381536,
       "eur_price": 20.865891,
-      "target_value_eur": 21734.09,
+      "target_value_eur": 21734.1,
       "quantity": 1042
     },
     "4686.T": {
@@ -21147,7 +21564,7 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.020024326824131494,
       "eur_price": 27.574232,
-      "target_value_eur": 20088.36,
+      "target_value_eur": 20088.37,
       "quantity": 729
     },
     "7508.T": {
@@ -21210,7 +21627,7 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.009947064820309789,
       "eur_price": 26.856514,
-      "target_value_eur": 9978.87,
+      "target_value_eur": 9978.88,
       "quantity": 372
     },
     "AJ91.DE": {
@@ -21236,8 +21653,8 @@
     }
   },
   "account_total_value": {
-    "value": 1003197.93,
+    "value": 1003198.05,
     "currency": "EUR",
-    "timestamp": "2025-09-12 19:33:13"
+    "timestamp": "2025-09-12 19:39:31"
   }
 }
