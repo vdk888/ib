@@ -120,6 +120,50 @@ def step4_optimize_portfolio():
         print(f"Step 4 failed - {e}")
         return False
 
+def step5_update_currency():
+    """Step 5: Update universe.json with EUR exchange rates"""
+    print("\nSTEP 5: Updating EUR exchange rates")
+    print("=" * 50)
+    
+    try:
+        # Import and run currency updater
+        from src.currency import main as currency_main
+        
+        success = currency_main()
+        
+        if success:
+            print("Step 5 complete - exchange rates updated")
+            return True
+        else:
+            print("Step 5 failed - exchange rate update error")
+            return False
+            
+    except Exception as e:
+        print(f"Step 5 failed - {e}")
+        return False
+
+def step6_calculate_targets():
+    """Step 6: Calculate final stock allocations based on screener allocations and 180d performance"""
+    print("\nSTEP 6: Calculating final stock allocations")
+    print("=" * 50)
+    
+    try:
+        # Import and run targetter
+        from src.targetter import main as targetter_main
+        
+        success = targetter_main()
+        
+        if success:
+            print("Step 6 complete - stock allocations calculated")
+            return True
+        else:
+            print("Step 6 failed - allocation calculation error")
+            return False
+            
+    except Exception as e:
+        print(f"Step 6 failed - {e}")
+        return False
+
 def run_all_steps():
     """Run all steps in sequence"""
     print("Uncle Stock Screener - Full Pipeline")
@@ -133,13 +177,21 @@ def run_all_steps():
                 # Step 3: Parse historical data
                 if step3_parse_history():
                     # Step 4: Optimize portfolio
-                    step4_optimize_portfolio()
-                    
-                    print("\n" + "=" * 60)
-                    print("ALL STEPS COMPLETE")
-                    print("Files created:")
-                    print("  - CSV files in data/files_exports/")
-                    print("  - universe.json with stock data, historical performance, and optimal portfolio")
+                    if step4_optimize_portfolio():
+                        # Step 5: Update currency exchange rates
+                        if step5_update_currency():
+                            # Step 6: Calculate final stock allocations
+                            step6_calculate_targets()
+                            
+                            print("\n" + "=" * 60)
+                            print("ALL STEPS COMPLETE")
+                            print("Files created:")
+                            print("  - CSV files in data/files_exports/")
+                            print("  - universe.json with complete stock data, portfolio optimization, and final allocations")
+                        else:
+                            print("Step 5 failed - stopping pipeline")
+                    else:
+                        print("Step 4 failed - stopping pipeline")
                 else:
                     print("Step 3 failed - stopping pipeline")
             else:
@@ -160,6 +212,8 @@ def show_help():
     print("  2, step2, parse     - Parse CSV files and create universe.json")
     print("  3, step3, history   - Parse historical performance data")
     print("  4, step4, portfolio - Optimize portfolio allocations")
+    print("  5, step5, currency  - Update EUR exchange rates")
+    print("  6, step6, target    - Calculate final stock allocations")
     print("  all, full           - Run all steps (default)")
     print("  help, -h, --help    - Show this help")
     print("\nExamples:")
@@ -168,6 +222,8 @@ def show_help():
     print("  python main.py parse      # Only parse existing CSV files")
     print("  python main.py 3          # Only parse historical data")
     print("  python main.py portfolio  # Only optimize portfolio")
+    print("  python main.py 5          # Only update exchange rates")
+    print("  python main.py target     # Only calculate stock allocations")
 
 def main():
     """Main function with command-line argument support"""
@@ -182,6 +238,10 @@ def main():
             step3_parse_history()
         elif arg in ['4', 'step4', 'portfolio']:
             step4_optimize_portfolio()
+        elif arg in ['5', 'step5', 'currency']:
+            step5_update_currency()
+        elif arg in ['6', 'step6', 'target']:
+            step6_calculate_targets()
         elif arg in ['all', 'full']:
             run_all_steps()
         elif arg in ['help', '-h', '--help']:
