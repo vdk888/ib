@@ -6,6 +6,7 @@ requests>=2.31.0
 python-dotenv>=1.0.0
 
 # Trading and financial data
+ibapi>=9.81.1
 ib-insync>=0.9.85
 yfinance>=0.2.65
 
