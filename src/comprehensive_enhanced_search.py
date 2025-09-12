@@ -99,6 +99,17 @@ def get_all_ticker_variations(ticker):
     if base_ticker != ticker:
         variations.append(base_ticker)
     
+    # Japanese stocks (.T suffix) - specific handling
+    if '.T' in ticker:
+        base = ticker.replace('.T', '')
+        variations.append(base)
+        # Some Japanese stocks are listed with different numbers
+        if base.isdigit():
+            # Try common variations for numbered Japanese stocks
+            base_num = int(base)
+            # Sometimes stocks are listed with slight variations (rare but possible)
+            variations.append(str(base_num))
+    
     # Share class variations
     if '-A' in ticker:
         # ROCK-A.CO -> ROCKA, ROCK.A
@@ -133,6 +144,16 @@ def get_all_ticker_variations(ticker):
         base = ticker.replace('.L', '')
         variations.append(base)
     
+    # Finnish stocks (.HE suffix)
+    if '.HE' in ticker:
+        base = ticker.replace('.HE', '')
+        variations.append(base)
+    
+    # French stocks (.PA suffix)
+    if '.PA' in ticker:
+        base = ticker.replace('.PA', '')
+        variations.append(base)
+    
     # Remove duplicates
     seen = set()
     variations = [x for x in variations if not (x in seen or seen.add(x))]
@@ -144,10 +165,14 @@ def similarity_score(str1, str2):
         return 0.0
     return SequenceMatcher(None, str1.lower(), str2.lower()).ratio()
 
-def is_valid_match(universe_stock, ibkr_contract):
-    """Strict validation to prevent false positives"""
+def is_valid_match(universe_stock, ibkr_contract, search_method="unknown"):
+    """Validation with different rules based on search method"""
     universe_name = universe_stock['name'].lower()
     ibkr_name = ibkr_contract['longName'].lower()
+    
+    # Must have currency match
+    if ibkr_contract['currency'] != universe_stock['currency']:
+        return False, "Currency mismatch"
     
     # Extract key company identifiers - clean punctuation first
     # Special handling for L'OREAL type names - join L + OREAL = LOREAL
@@ -162,46 +187,54 @@ def is_valid_match(universe_stock, ibkr_contract):
     universe_words = set(re.findall(r'\b[a-zA-Z]{3,}\b', universe_clean))
     ibkr_words = set(re.findall(r'\b[a-zA-Z]{3,}\b', ibkr_clean))
     
-    # Debug for L'Oréal
-    if "oreal" in universe_name or "oreal" in ibkr_name:
-        print(f"    DEBUG - Universe: '{universe_name}' -> '{universe_clean}' -> {universe_words}")
-        print(f"    DEBUG - IBKR: '{ibkr_name}' -> '{ibkr_clean}' -> {ibkr_words}")
-    
     # Remove common corporate suffixes that don't help with matching
     ignore_words = {
         'ltd', 'plc', 'inc', 'corp', 'sa', 'ab', 'oyj', 'group', 'international', 
         'company', 'limited', 'corporation', 'societe', 'anonyme', 'systems',
-        'software', 'commercial', 'industrial', 'authority', 'public'
+        'software', 'commercial', 'industrial', 'authority', 'public', 'co'
     }
     
     universe_key_words = universe_words - ignore_words
     ibkr_key_words = ibkr_words - ignore_words
     
-    # Must have currency match
-    if ibkr_contract['currency'] != universe_stock['currency']:
-        return False, "Currency mismatch"
-    
-    # Must have significant word overlap OR very high name similarity
     word_overlap = len(universe_key_words & ibkr_key_words)
     name_similarity = similarity_score(universe_name, ibkr_name)
     
-    # Check for exact key word matches (like "ROCKWOOL" = "ROCKWOOL")
+    # Check for exact key word matches
     exact_matches = []
     for word in universe_key_words:
         if word in ibkr_key_words:
             exact_matches.append(word)
     
-    # Strict requirements:
-    if name_similarity > 0.8:  # Very high similarity is OK
-        return True, f"High similarity: {name_similarity:.2f}"
-    elif exact_matches and name_similarity > 0.5:  # Exact key word match + decent similarity
-        return True, f"Exact word match ({','.join(exact_matches)}): {name_similarity:.2f}"
-    elif word_overlap >= 2 and name_similarity > 0.6:  # Good overlap + decent similarity
-        return True, f"Word overlap: {word_overlap}, similarity: {name_similarity:.2f}"
-    elif word_overlap >= 1 and name_similarity > 0.7:  # Some overlap + high similarity
-        return True, f"Some overlap + high similarity: {word_overlap}, {name_similarity:.2f}"
+    # Different validation rules based on search method
+    if search_method == "ticker":
+        # Be more lenient for ticker matches - ticker match + currency is strong signal
+        if name_similarity > 0.3:  # Very lenient for ticker matches
+            return True, f"Ticker match + similarity: {name_similarity:.2f}"
+        elif word_overlap >= 1:  # Any word overlap for ticker matches
+            return True, f"Ticker match + word overlap: {word_overlap}"
+        else:
+            return True, f"Ticker match (currency confirmed): {name_similarity:.2f}"
+    
+    elif search_method == "isin":
+        # ISIN is very reliable, be lenient
+        if name_similarity > 0.2:
+            return True, f"ISIN match + similarity: {name_similarity:.2f}"
+        else:
+            return True, f"ISIN match (reliable identifier)"
+    
     else:
-        return False, f"Insufficient match: overlap={word_overlap}, similarity={name_similarity:.2f}"
+        # Name-based search - more strict validation
+        if name_similarity > 0.8:  # Very high similarity is OK
+            return True, f"High similarity: {name_similarity:.2f}"
+        elif exact_matches and name_similarity > 0.5:  # Exact key word match + decent similarity
+            return True, f"Exact word match ({','.join(exact_matches)}): {name_similarity:.2f}"
+        elif word_overlap >= 2 and name_similarity > 0.6:  # Good overlap + decent similarity
+            return True, f"Word overlap: {word_overlap}, similarity: {name_similarity:.2f}"
+        elif word_overlap >= 1 and name_similarity > 0.7:  # Some overlap + high similarity
+            return True, f"Some overlap + high similarity: {word_overlap}, {name_similarity:.2f}"
+        else:
+            return False, f"Insufficient match: overlap={word_overlap}, similarity={name_similarity:.2f}"
 
 def search_by_name_matching(app, stock):
     """Use reqMatchingSymbols to search by company name parts"""
@@ -279,6 +312,7 @@ def comprehensive_stock_search(app, stock, verbose=False):
         print(f"Searching: {stock['name']} ({stock.get('ticker', 'N/A')})")
     
     all_contracts = []
+    search_method = "unknown"
     
     # Strategy 1: ISIN search
     if stock.get('isin') and stock.get('isin') not in ['null', '', None]:
@@ -295,9 +329,11 @@ def comprehensive_stock_search(app, stock, verbose=False):
         while not app.search_completed and (time.time() - timeout_start) < 5:
             time.sleep(0.05)
         
-        all_contracts.extend(app.contract_details)
-        if verbose:
-            print(f"    ISIN found: {len(app.contract_details)} results")
+        if app.contract_details:
+            all_contracts.extend(app.contract_details)
+            search_method = "isin"
+            if verbose:
+                print(f"    ISIN found: {len(app.contract_details)} results")
     
     # Strategy 2: Ticker variations on SMART exchange
     if not all_contracts and stock.get('ticker'):
@@ -325,6 +361,7 @@ def comprehensive_stock_search(app, stock, verbose=False):
             
             if app.contract_details:
                 all_contracts.extend(app.contract_details)
+                search_method = "ticker"
                 if verbose:
                     print(f"      FOUND with {variant}!")
                 break  # Found it, move on
@@ -336,19 +373,21 @@ def comprehensive_stock_search(app, stock, verbose=False):
         if verbose:
             print(f"  Strategy 3 - Name-based search")
         name_matches = search_by_name_matching(app, stock)
-        all_contracts.extend(name_matches)
-        if verbose:
-            print(f"    Name search found: {len(name_matches)} results")
+        if name_matches:
+            all_contracts.extend(name_matches)
+            search_method = "name"
+            if verbose:
+                print(f"    Name search found: {len(name_matches)} results")
     
-    # Match and score results with strict validation
+    # Match and score results with validation based on search method
     if all_contracts:
         valid_matches = []
         
         if verbose:
-            print(f"  Evaluating {len(all_contracts)} potential matches with strict validation...")
+            print(f"  Evaluating {len(all_contracts)} potential matches using {search_method} validation...")
         
         for contract in all_contracts:
-            is_valid, reason = is_valid_match(stock, contract)
+            is_valid, reason = is_valid_match(stock, contract, search_method)
             
             if is_valid:
                 name_sim = similarity_score(stock['name'].lower(), contract['longName'].lower())
@@ -364,6 +403,7 @@ def comprehensive_stock_search(app, stock, verbose=False):
             valid_matches.sort(key=lambda x: x[1], reverse=True)
             best_match = valid_matches[0][0]
             best_score = valid_matches[0][1]
+            best_match['search_method'] = search_method  # Add search method to result
         else:
             best_match = None
             best_score = 0.0

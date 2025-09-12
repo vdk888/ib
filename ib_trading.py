@@ -172,9 +172,9 @@ def print_account_summary(app):
     
     print("="*60)
 
-def test_trading():
-    """Test trading functionality with buy and sell orders"""
-    print("Interactive Brokers Trading Test")
+def test_sell_order():
+    """Test selling one share of existing AAPL position"""
+    print("Interactive Brokers SELL Order Test")
     print("="*50)
     
     # Initialize API client
@@ -182,7 +182,7 @@ def test_trading():
     
     # Connect to IB Gateway (paper trading port 4002)
     print("Connecting to IB Gateway...")
-    app.connect("127.0.0.1", 4002, clientId=5)
+    app.connect("127.0.0.1", 4002, clientId=6)
     
     # Start message processing in separate thread
     api_thread = threading.Thread(target=app.run, daemon=True)
@@ -217,46 +217,62 @@ def test_trading():
     # Print current account status
     print_account_summary(app)
     
-    # Test trading - Buy 1 share of AAPL
+    # Check if we have AAPL position before selling
+    has_aapl = False
+    aapl_position = 0
+    for item in app.portfolio_items:
+        if item['symbol'] == 'AAPL' and item['position'] > 0:
+            has_aapl = True
+            aapl_position = item['position']
+            break
+    
+    if not has_aapl:
+        print("\n❌ No AAPL position found to sell!")
+        app.disconnect()
+        return
+    
+    print(f"\n✅ Found AAPL position: {aapl_position} shares")
+    
+    # Test sell order - Sell 1 share of AAPL
     print(f"\n{'='*50}")
-    print("TESTING BUY ORDER")
+    print("TESTING SELL ORDER")
     print("="*50)
     
     contract_aapl = create_stock_contract("AAPL")
-    buy_order = create_market_order("BUY", 1)
+    sell_order = create_market_order("SELL", 1)
     
-    buy_order_id = app.nextorderId
-    print(f"Placing BUY order for 1 share of AAPL (Order ID: {buy_order_id})")
-    app.placeOrder(buy_order_id, contract_aapl, buy_order)
+    sell_order_id = app.nextorderId
+    print(f"Placing SELL order for 1 share of AAPL (Order ID: {sell_order_id})")
+    app.placeOrder(sell_order_id, contract_aapl, sell_order)
     app.nextorderId += 1
     
     # Wait for order to process
-    time.sleep(5)
+    print("Waiting for order to process...")
+    time.sleep(8)
     
-    # Check if buy order was filled
-    if buy_order_id in app.orders and app.orders[buy_order_id]['status'] == 'Filled':
-        print("BUY order filled successfully!")
+    # Check sell order status
+    if sell_order_id in app.orders:
+        order_status = app.orders[sell_order_id]['status']
+        filled = app.orders[sell_order_id]['filled']
+        remaining = app.orders[sell_order_id]['remaining']
+        avg_price = app.orders[sell_order_id]['avgFillPrice']
         
-        # Test sell order - Sell the share we just bought
-        print(f"\n{'='*50}")
-        print("TESTING SELL ORDER")
-        print("="*50)
+        print(f"\n📊 Order Status: {order_status}")
+        print(f"📊 Filled: {filled} shares")
+        print(f"📊 Remaining: {remaining} shares")
+        if avg_price > 0:
+            print(f"📊 Average Fill Price: ${avg_price:.2f}")
         
-        sell_order = create_market_order("SELL", 1)
-        sell_order_id = app.nextorderId
-        print(f"Placing SELL order for 1 share of AAPL (Order ID: {sell_order_id})")
-        app.placeOrder(sell_order_id, contract_aapl, sell_order)
-        app.nextorderId += 1
-        
-        # Wait for sell order to process
-        time.sleep(5)
-        
-        if sell_order_id in app.orders and app.orders[sell_order_id]['status'] == 'Filled':
-            print("SELL order filled successfully!")
+        if order_status == 'Filled':
+            print("\n✅ SELL order filled successfully!")
+        elif order_status == 'PreSubmitted':
+            print("\n⏳ Order is pre-submitted (market closed)")
+        elif order_status == 'Submitted':
+            print("\n⏳ Order is submitted and pending")
         else:
-            print(f"SELL order status: {app.orders.get(sell_order_id, {}).get('status', 'Unknown')}")
+            print(f"\n⚠️ Order status: {order_status}")
     else:
-        print(f"BUY order status: {app.orders.get(buy_order_id, {}).get('status', 'Unknown')}")
+        print("\n❌ No order status received")
     
     # Cancel subscriptions
     app.cancelAccountSummary(9001)
@@ -264,6 +280,7 @@ def test_trading():
     app.reqAccountUpdates(False, app.account_id)
     
     # Final account summary
+    print("\nFetching final account status...")
     time.sleep(2)
     app.reqAccountSummary(9002, "All", "NetLiquidation,TotalCashValue,SettledCash,AccruedCash,BuyingPower,EquityWithLoanValue,AvailableFunds")
     app.reqPositions()
@@ -280,4 +297,4 @@ def test_trading():
     print("\nDisconnected from IB Gateway")
 
 if __name__ == "__main__":
-    test_trading()
+    test_sell_order()
