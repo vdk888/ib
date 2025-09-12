@@ -139,6 +139,43 @@ def similarity_score(str1, str2):
         return 0.0
     return SequenceMatcher(None, str1.lower(), str2.lower()).ratio()
 
+def is_valid_match(universe_stock, ibkr_contract):
+    """Strict validation to prevent false positives"""
+    universe_name = universe_stock['name'].lower()
+    ibkr_name = ibkr_contract['longName'].lower()
+    
+    # Extract key company identifiers
+    universe_words = set(re.findall(r'\b[a-zA-Z]{3,}\b', universe_name))
+    ibkr_words = set(re.findall(r'\b[a-zA-Z]{3,}\b', ibkr_name))
+    
+    # Remove common corporate suffixes that don't help with matching
+    ignore_words = {
+        'ltd', 'plc', 'inc', 'corp', 'sa', 'ab', 'oyj', 'group', 'international', 
+        'company', 'limited', 'corporation', 'societe', 'anonyme', 'systems',
+        'software', 'commercial', 'industrial', 'authority', 'public'
+    }
+    
+    universe_key_words = universe_words - ignore_words
+    ibkr_key_words = ibkr_words - ignore_words
+    
+    # Must have currency match
+    if ibkr_contract['currency'] != universe_stock['currency']:
+        return False, "Currency mismatch"
+    
+    # Must have significant word overlap OR very high name similarity
+    word_overlap = len(universe_key_words & ibkr_key_words)
+    name_similarity = similarity_score(universe_name, ibkr_name)
+    
+    # Strict requirements:
+    if name_similarity > 0.8:  # Very high similarity is OK
+        return True, f"High similarity: {name_similarity:.2f}"
+    elif word_overlap >= 2 and name_similarity > 0.6:  # Good overlap + decent similarity
+        return True, f"Word overlap: {word_overlap}, similarity: {name_similarity:.2f}"
+    elif word_overlap >= 1 and name_similarity > 0.7:  # Some overlap + high similarity
+        return True, f"Some overlap + high similarity: {word_overlap}, {name_similarity:.2f}"
+    else:
+        return False, f"Insufficient match: overlap={word_overlap}, similarity={name_similarity:.2f}"
+
 def search_by_name_matching(app, stock):
     """Use reqMatchingSymbols to search by company name parts"""
     name = stock['name'].lower()
@@ -269,37 +306,30 @@ def comprehensive_stock_search(app, stock):
         all_contracts.extend(name_matches)
         print(f"    Name search found: {len(name_matches)} results")
     
-    # Match and score results
+    # Match and score results with strict validation
     if all_contracts:
-        best_match = None
-        best_score = 0.0
+        valid_matches = []
         
-        universe_name = stock['name'].lower()
-        universe_currency = stock['currency']
-        
-        print(f"  Evaluating {len(all_contracts)} potential matches...")
+        print(f"  Evaluating {len(all_contracts)} potential matches with strict validation...")
         
         for contract in all_contracts:
-            score = 0.0
-            reasons = []
+            is_valid, reason = is_valid_match(stock, contract)
             
-            # Name similarity (70%)
-            if contract['longName']:
-                name_sim = similarity_score(universe_name, contract['longName'].lower())
-                score += name_sim * 0.7
-                if name_sim > 0.3:
-                    reasons.append(f"name:{name_sim:.2f}")
-            
-            # Currency match (30%)
-            if contract['currency'] == universe_currency:
-                score += 0.3
-                reasons.append("currency")
-            
-            print(f"    {contract['symbol']}: {contract['longName'][:40]} -> {score:.2f} [{','.join(reasons)}]")
-            
-            if score > best_score:
-                best_score = score
-                best_match = contract
+            if is_valid:
+                name_sim = similarity_score(stock['name'].lower(), contract['longName'].lower())
+                print(f"    VALID: {contract['symbol']}: {contract['longName'][:40]} -> {reason}")
+                valid_matches.append((contract, name_sim))
+            else:
+                print(f"    REJECTED: {contract['symbol']}: {contract['longName'][:40]} -> {reason}")
+        
+        if valid_matches:
+            # Sort by name similarity and pick the best
+            valid_matches.sort(key=lambda x: x[1], reverse=True)
+            best_match = valid_matches[0][0]
+            best_score = valid_matches[0][1]
+        else:
+            best_match = None
+            best_score = 0.0
         
         return best_match, best_score
     
@@ -350,7 +380,7 @@ def test_comprehensive_search():
         
         match, score = comprehensive_stock_search(app, stock)
         
-        if match and score > 0.3:  # Lower threshold for comprehensive search
+        if match and score > 0.6:  # Stricter threshold with validation
             print(f"\n✓ FOUND! Score: {score:.1%}")
             print(f"  Symbol: {match['symbol']}")
             print(f"  Name: {match['longName']}")
