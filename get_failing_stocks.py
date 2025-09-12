@@ -117,7 +117,7 @@ def test_stock(app, stock):
         app.next_req_id += 1
         
         timeout_start = time.time()
-        while not app.search_completed and (time.time() - timeout_start) < 2:
+        while not app.search_completed and (time.time() - timeout_start) < 5:
             time.sleep(0.05)
         
         if app.contract_details:
@@ -146,7 +146,7 @@ def test_stock(app, stock):
             app.next_req_id += 1
             
             timeout_start = time.time()
-            while not app.search_completed and (time.time() - timeout_start) < 2:
+            while not app.search_completed and (time.time() - timeout_start) < 5:
                 time.sleep(0.05)
             
             if app.contract_details:
