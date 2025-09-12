@@ -217,11 +217,15 @@ def is_valid_match(universe_stock, ibkr_contract, search_method="unknown"):
             return True, f"Ticker match (currency confirmed): {name_similarity:.2f}"
     
     elif search_method == "isin":
-        # ISIN is very reliable, be lenient
-        if name_similarity > 0.2:
+        # ISIN should be reliable, but add safety check for name similarity
+        # to catch data quality issues (wrong ISIN in source data)
+        if name_similarity > 0.3:  # Require at least 30% similarity
             return True, f"ISIN match + similarity: {name_similarity:.2f}"
+        elif word_overlap >= 1:  # Or at least one word overlap
+            return True, f"ISIN match + word overlap: {word_overlap}"
         else:
-            return True, f"ISIN match (reliable identifier)"
+            # ISIN match but no name similarity - likely data quality issue
+            return False, f"ISIN match but poor name similarity: {name_similarity:.2f} (possible wrong ISIN)"
     
     else:
         # Name-based search - more strict validation
