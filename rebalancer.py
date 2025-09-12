@@ -23,6 +23,7 @@ class IBRebalancerApi(EWrapper, EClient):
         self.account_id = None
         self.current_positions = {}  # symbol -> quantity
         self.portfolio_items = []
+        self.contract_details = {}  # symbol -> contract details
         self.data_ready = False
         
     def connectAck(self):
@@ -47,7 +48,18 @@ class IBRebalancerApi(EWrapper, EClient):
             # Use the symbol from IBKR
             symbol = contract.symbol
             self.current_positions[symbol] = int(position)
-            print(f"  Position: {symbol} = {int(position)} shares")
+            
+            # Store contract details for later use
+            self.contract_details[symbol] = {
+                'symbol': contract.symbol,
+                'conId': contract.conId,
+                'exchange': contract.exchange,
+                'primaryExchange': contract.primaryExchange,
+                'currency': contract.currency,
+                'secType': contract.secType
+            }
+            
+            print(f"  Position: {symbol} = {int(position)} shares (conId: {contract.conId})")
             
     def positionEnd(self):
         super().positionEnd()
@@ -85,6 +97,7 @@ class PortfolioRebalancer:
         self.universe_data = None
         self.target_quantities = {}  # symbol -> total_quantity
         self.current_positions = {}  # symbol -> current_quantity
+        self.current_contract_details = {}  # symbol -> contract details from IBKR
         self.orders = []
         
     def load_universe_data(self):
@@ -184,8 +197,9 @@ class PortfolioRebalancer:
         if not app.data_ready:
             print("[WARNING] Timeout waiting for position data, using partial data")
             
-        # Store current positions
+        # Store current positions and contract details
         self.current_positions = app.current_positions.copy()
+        self.current_contract_details = app.contract_details.copy()
         
         # Cancel subscriptions and disconnect
         app.cancelPositions()
@@ -223,19 +237,35 @@ class PortfolioRebalancer:
                 ibkr_details = self.symbol_details[symbol]['ibkr_details']
                 stock_info = self.symbol_details[symbol]
             else:
-                # For stocks we need to sell but aren't in targets
-                ibkr_details = {
-                    'symbol': symbol,
-                    'exchange': 'SMART',
-                    'primaryExchange': 'NASDAQ',  # Default fallback
-                    'conId': None
-                }
-                stock_info = {
-                    'ticker': symbol,
-                    'name': f'Unknown ({symbol})',
-                    'currency': 'USD',  # Default fallback
-                    'screens': []
-                }
+                # For stocks we need to sell but aren't in targets - use real IBKR data
+                if symbol in self.current_contract_details:
+                    contract_data = self.current_contract_details[symbol]
+                    ibkr_details = {
+                        'symbol': contract_data['symbol'],
+                        'exchange': contract_data['exchange'],
+                        'primaryExchange': contract_data['primaryExchange'],
+                        'conId': contract_data['conId']
+                    }
+                    stock_info = {
+                        'ticker': symbol,
+                        'name': f'{symbol} (Current Holding)',
+                        'currency': contract_data['currency'],
+                        'screens': []
+                    }
+                else:
+                    # Ultimate fallback if somehow we don't have contract data
+                    ibkr_details = {
+                        'symbol': symbol,
+                        'exchange': 'SMART',
+                        'primaryExchange': 'NASDAQ',  # Default fallback
+                        'conId': None
+                    }
+                    stock_info = {
+                        'ticker': symbol,
+                        'name': f'Unknown ({symbol})',
+                        'currency': 'USD',  # Default fallback
+                        'screens': []
+                    }
                 
             order = {
                 'symbol': symbol,

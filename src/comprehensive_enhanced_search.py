@@ -191,7 +191,7 @@ def is_valid_match(universe_stock, ibkr_contract, search_method="unknown"):
     ignore_words = {
         'ltd', 'plc', 'inc', 'corp', 'sa', 'ab', 'oyj', 'group', 'international', 
         'company', 'limited', 'corporation', 'societe', 'anonyme', 'systems',
-        'software', 'commercial', 'industrial', 'authority', 'public', 'co'
+        'software', 'commercial', 'industrial', 'authority', 'public', 'co', 'oy'
     }
     
     universe_key_words = universe_words - ignore_words
@@ -219,13 +219,15 @@ def is_valid_match(universe_stock, ibkr_contract, search_method="unknown"):
     elif search_method == "isin":
         # ISIN should be reliable, but add safety check for name similarity
         # to catch data quality issues (wrong ISIN in source data)
-        if name_similarity > 0.3:  # Require at least 30% similarity
-            return True, f"ISIN match + similarity: {name_similarity:.2f}"
-        elif word_overlap >= 1:  # Or at least one word overlap
-            return True, f"ISIN match + word overlap: {word_overlap}"
+        if name_similarity > 0.6:  # Require at least 60% similarity for ISIN matches
+            return True, f"ISIN match + good similarity: {name_similarity:.2f}"
+        elif word_overlap >= 2:  # Or at least 2 meaningful word overlap (excluding corporate suffixes)
+            return True, f"ISIN match + strong word overlap: {word_overlap}"
+        elif word_overlap >= 1 and name_similarity > 0.4:  # 1 word + decent similarity
+            return True, f"ISIN match + word overlap + similarity: {word_overlap}, {name_similarity:.2f}"
         else:
-            # ISIN match but no name similarity - likely data quality issue
-            return False, f"ISIN match but poor name similarity: {name_similarity:.2f} (possible wrong ISIN)"
+            # ISIN match but insufficient name similarity - likely data quality issue
+            return False, f"ISIN match but poor name similarity: {name_similarity:.2f}, word_overlap: {word_overlap} (possible wrong ISIN)"
     
     else:
         # Name-based search - more strict validation
