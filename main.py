@@ -195,6 +195,37 @@ def step7_calculate_quantities():
         print(f"Step 7 failed - {e}")
         return False
 
+def step8_ibkr_search():
+    """Step 8: Search for all universe stocks on IBKR and update with identification details"""
+    print("\nSTEP 8: Searching for stocks on Interactive Brokers")
+    print("=" * 50)
+    
+    try:
+        # Import and run IBKR comprehensive search
+        import subprocess
+        
+        # Run comprehensive_enhanced_search.py using the virtual environment
+        result = subprocess.run(
+            ["./portfolio_env/Scripts/python", "src/comprehensive_enhanced_search.py"],
+            capture_output=True,
+            text=True
+        )
+        
+        if result.returncode == 0:
+            print("Step 8 complete - IBKR stock search completed")
+            # Display key results
+            print("\nIBKR search output:")
+            print(result.stdout)
+            return True
+        else:
+            print("Step 8 failed - IBKR search error")
+            print(f"Error: {result.stderr}")
+            return False
+            
+    except Exception as e:
+        print(f"Step 8 failed - {e}")
+        return False
+
 def run_all_steps():
     """Run all steps in sequence"""
     print("Uncle Stock Screener - Full Pipeline")
@@ -214,13 +245,18 @@ def run_all_steps():
                             # Step 6: Calculate final stock allocations
                             if step6_calculate_targets():
                                 # Step 7: Calculate stock quantities from IBKR account value
-                                step7_calculate_quantities()
-                                
-                                print("\n" + "=" * 60)
-                                print("ALL STEPS COMPLETE")
-                                print("Files created:")
-                                print("  - CSV files in data/files_exports/")
-                                print("  - universe.json with complete stock data, portfolio optimization, allocations, and quantities")
+                                if step7_calculate_quantities():
+                                    # Step 8: Search for stocks on IBKR and update with identification details
+                                    step8_ibkr_search()
+                                    
+                                    print("\n" + "=" * 60)
+                                    print("ALL STEPS COMPLETE")
+                                    print("Files created:")
+                                    print("  - CSV files in data/files_exports/")
+                                    print("  - universe.json with complete stock data, portfolio optimization, allocations, and quantities")
+                                    print("  - universe_with_ibkr.json with IBKR identification details")
+                                else:
+                                    print("Step 7 failed - stopping pipeline")
                             else:
                                 print("Step 6 failed - stopping pipeline")
                         else:
@@ -250,6 +286,7 @@ def show_help():
     print("  5, step5, currency  - Update EUR exchange rates")
     print("  6, step6, target    - Calculate final stock allocations")
     print("  7, step7, qty       - Get account value from IBKR and calculate stock quantities")
+    print("  8, step8, ibkr      - Search for all universe stocks on IBKR")
     print("  all, full           - Run all steps (default)")
     print("  help, -h, --help    - Show this help")
     print("\nExamples:")
@@ -261,6 +298,7 @@ def show_help():
     print("  python main.py 5          # Only update exchange rates")
     print("  python main.py target     # Only calculate stock allocations")
     print("  python main.py qty        # Only calculate stock quantities from IBKR")
+    print("  python main.py ibkr       # Only search for stocks on IBKR")
 
 def main():
     """Main function with command-line argument support"""
@@ -281,6 +319,8 @@ def main():
             step6_calculate_targets()
         elif arg in ['7', 'step7', 'qty']:
             step7_calculate_quantities()
+        elif arg in ['8', 'step8', 'ibkr']:
+            step8_ibkr_search()
         elif arg in ['all', 'full']:
             run_all_steps()
         elif arg in ['help', '-h', '--help']:
