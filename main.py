@@ -3,11 +3,14 @@
 Main entry point for Uncle Stock API screener
 """
 
+import sys
 from screener import get_all_screeners, get_all_screener_histories
+from parser import create_universe, save_universe
 from config import UNCLE_STOCK_SCREENS
 
-def main():
-    print("Uncle Stock Screener")
+def step1_fetch_data():
+    """Step 1: Fetch current stocks and backtest history from all screeners"""
+    print("STEP 1: Fetching data from Uncle Stock API")
     print("=" * 50)
     print(f"Configured screeners: {list(UNCLE_STOCK_SCREENS.values())}")
     
@@ -21,7 +24,7 @@ def main():
     
     # Display summary
     print("\n" + "=" * 50)
-    print("SUMMARY")
+    print("STEP 1 SUMMARY")
     print("=" * 50)
     
     total_stocks = 0
@@ -48,9 +51,80 @@ def main():
         else:
             print(f"  ✗ History: Failed - {history_result.get('data', 'Unknown error')}")
     
-    print("\n" + "=" * 50)
-    print(f"Total stocks across all screeners: {total_stocks}")
-    print("Screener run complete")
+    print(f"\nTotal stocks across all screeners: {total_stocks}")
+    print("Step 1 complete - CSV files saved to files_exports/")
+    return True
+
+def step2_parse_data():
+    """Step 2: Parse CSV files and create universe.json"""
+    print("\nSTEP 2: Parsing CSV files and creating universe.json")
+    print("=" * 50)
+    
+    # Create universe from CSV files
+    universe = create_universe()
+    
+    # Save to JSON
+    save_universe(universe)
+    
+    print("Step 2 complete - universe.json created")
+    return True
+
+def run_all_steps():
+    """Run all steps in sequence"""
+    print("Uncle Stock Screener - Full Pipeline")
+    print("=" * 60)
+    
+    try:
+        # Step 1: Fetch data
+        if step1_fetch_data():
+            # Step 2: Parse data
+            step2_parse_data()
+            
+            print("\n" + "=" * 60)
+            print("ALL STEPS COMPLETE")
+            print("Files created:")
+            print("  - CSV files in files_exports/")
+            print("  - universe.json with parsed stock data")
+        else:
+            print("Step 1 failed - stopping pipeline")
+            
+    except Exception as e:
+        print(f"Error in pipeline: {e}")
+
+def show_help():
+    """Show usage help"""
+    print("Uncle Stock Screener")
+    print("=" * 30)
+    print("Usage: python main.py [step]")
+    print("\nAvailable steps:")
+    print("  1, step1, fetch    - Fetch data from Uncle Stock API")
+    print("  2, step2, parse    - Parse CSV files and create universe.json")
+    print("  all, full          - Run all steps (default)")
+    print("  help, -h, --help   - Show this help")
+    print("\nExamples:")
+    print("  python main.py           # Run all steps")
+    print("  python main.py 1         # Only fetch data")
+    print("  python main.py parse     # Only parse existing CSV files")
+
+def main():
+    """Main function with command-line argument support"""
+    if len(sys.argv) > 1:
+        arg = sys.argv[1].lower()
+        
+        if arg in ['1', 'step1', 'fetch']:
+            step1_fetch_data()
+        elif arg in ['2', 'step2', 'parse']:
+            step2_parse_data()
+        elif arg in ['all', 'full']:
+            run_all_steps()
+        elif arg in ['help', '-h', '--help']:
+            show_help()
+        else:
+            print(f"Unknown argument: {arg}")
+            show_help()
+    else:
+        # Default: run all steps
+        run_all_steps()
 
 if __name__ == "__main__":
     main()
