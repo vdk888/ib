@@ -1573,7 +1573,8 @@
           "price_180d_change": "-9.09%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.76
         },
         {
           "ticker": "7740.T",
@@ -1586,7 +1587,8 @@
           "price_180d_change": "-6.37%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "ALFPC.PA",
@@ -1600,7 +1602,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "4936.T",
@@ -1613,7 +1616,8 @@
           "price_180d_change": "-9.50%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "ROCK-A.CO",
@@ -1626,7 +1630,8 @@
           "price_180d_change": "-6.69%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 7.46
         },
         {
           "ticker": "STP.AX",
@@ -1639,7 +1644,8 @@
           "price_180d_change": "-60.08%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.76
         },
         {
           "ticker": "6381.T",
@@ -1652,7 +1658,8 @@
           "price_180d_change": "12.55%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4848.T",
@@ -1665,7 +1672,8 @@
           "price_180d_change": "21.53%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6095.T",
@@ -1678,7 +1686,8 @@
           "price_180d_change": "48.61%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7921.T",
@@ -1691,7 +1700,8 @@
           "price_180d_change": "45.28%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "5947.T",
@@ -1704,7 +1714,8 @@
           "price_180d_change": "14.73%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "GENC",
@@ -1718,7 +1729,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "4966.T",
@@ -1731,7 +1743,8 @@
           "price_180d_change": "-7.12%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "FPE.DE",
@@ -1744,7 +1757,8 @@
           "price_180d_change": "-0.80%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "2121.T",
@@ -1757,7 +1771,8 @@
           "price_180d_change": "7.31%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "2301.T",
@@ -1770,7 +1785,8 @@
           "price_180d_change": "-21.30%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6626.T",
@@ -1785,7 +1801,8 @@
             "quality bloom",
             "TOR Surplus",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "AEP.L",
@@ -1799,7 +1816,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "LYL.AX",
@@ -1812,7 +1830,8 @@
           "price_180d_change": "21.86%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.76
         },
         {
           "ticker": "GLE.L",
@@ -1826,7 +1845,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "4206.T",
@@ -1839,7 +1859,8 @@
           "price_180d_change": "16.62%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "RGR",
@@ -1852,7 +1873,8 @@
           "price_180d_change": "-2.78%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "6245.T",
@@ -1865,7 +1887,8 @@
           "price_180d_change": "-10.78%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6238.T",
@@ -1878,7 +1901,8 @@
           "price_180d_change": "0.18%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "ENGH.TO",
@@ -1891,7 +1915,8 @@
           "price_180d_change": "-23.32%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.62
         },
         {
           "ticker": "DOTD.L",
@@ -1904,7 +1929,8 @@
           "price_180d_change": "-26.19%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "4251.T",
@@ -1917,7 +1943,8 @@
           "price_180d_change": "11.76%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6535.T",
@@ -1930,7 +1957,8 @@
           "price_180d_change": "29.96%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6432.T",
@@ -1943,7 +1971,8 @@
           "price_180d_change": "9.44%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "TET.L",
@@ -1956,7 +1985,8 @@
           "price_180d_change": "-52.38%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "2325.T",
@@ -1969,7 +1999,8 @@
           "price_180d_change": "73.15%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6965.T",
@@ -1982,7 +2013,8 @@
           "price_180d_change": "-11.33%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "OLVAS.HE",
@@ -1996,7 +2028,8 @@
           "screens": [
             "quality bloom",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "6417.T",
@@ -2009,7 +2042,8 @@
           "price_180d_change": "41.07%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "VH2.DE",
@@ -2022,7 +2056,8 @@
           "price_180d_change": "144%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "3836.T",
@@ -2036,7 +2071,8 @@
           "screens": [
             "quality bloom",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "MHO",
@@ -2050,7 +2086,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "AIXA.DE",
@@ -2064,7 +2101,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "2124.T",
@@ -2077,7 +2115,8 @@
           "price_180d_change": "53.15%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "ICP1V.HE",
@@ -2090,7 +2129,8 @@
           "price_180d_change": "-6.54%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "6101.T",
@@ -2103,7 +2143,8 @@
           "price_180d_change": "56.04%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "8117.T",
@@ -2116,7 +2157,8 @@
           "price_180d_change": "30.67%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7734.T",
@@ -2130,7 +2172,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7818.T",
@@ -2145,7 +2188,8 @@
             "quality bloom",
             "TOR Surplus",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "RUG.ST",
@@ -2158,7 +2202,8 @@
           "price_180d_change": "66.37%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "6246.T",
@@ -2171,7 +2216,8 @@
           "price_180d_change": "10.30%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6272.T",
@@ -2184,7 +2230,8 @@
           "price_180d_change": "-2.19%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "BETS-B.ST",
@@ -2197,7 +2244,8 @@
           "price_180d_change": "10.11%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "4053.T",
@@ -2210,7 +2258,8 @@
           "price_180d_change": "-34.10%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "HDSN",
@@ -2223,7 +2272,8 @@
           "price_180d_change": "94.53%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "6914.T",
@@ -2236,7 +2286,8 @@
           "price_180d_change": "13.22%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "ACLS",
@@ -2249,7 +2300,8 @@
           "price_180d_change": "17.35%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "SKAN.SW",
@@ -2262,7 +2314,8 @@
           "price_180d_change": "-20.78%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 0.934
         },
         {
           "ticker": "6420.T",
@@ -2275,7 +2328,8 @@
           "price_180d_change": "38.05%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "3963.T",
@@ -2288,7 +2342,8 @@
           "price_180d_change": "61.54%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4477.T",
@@ -2301,7 +2356,8 @@
           "price_180d_change": "11.08%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "CRCT",
@@ -2314,7 +2370,8 @@
           "price_180d_change": "4.17%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "CKN.L",
@@ -2327,7 +2384,8 @@
           "price_180d_change": "-14.27%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "6490.T",
@@ -2341,7 +2399,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6050.T",
@@ -2355,7 +2414,8 @@
           "screens": [
             "quality bloom",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6856.T",
@@ -2368,7 +2428,8 @@
           "price_180d_change": "24.83%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7839.T",
@@ -2382,7 +2443,8 @@
           "screens": [
             "quality bloom",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "FRP.L",
@@ -2395,7 +2457,8 @@
           "price_180d_change": "-8.67%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "4318.T",
@@ -2409,7 +2472,8 @@
           "screens": [
             "quality bloom",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6788.T",
@@ -2422,7 +2486,8 @@
           "price_180d_change": "23.93%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "3076.T",
@@ -2435,7 +2500,8 @@
           "price_180d_change": "23.29%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "THEP.PA",
@@ -2449,7 +2515,8 @@
           "screens": [
             "quality bloom",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "7976.T",
@@ -2462,7 +2529,8 @@
           "price_180d_change": "-10.81%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4743.T",
@@ -2475,7 +2543,8 @@
           "price_180d_change": "3.00%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6908.T",
@@ -2488,7 +2557,8 @@
           "price_180d_change": "9.78%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "RDX.AX",
@@ -2501,7 +2571,8 @@
           "price_180d_change": "-33.67%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.76
         },
         {
           "ticker": "3433.T",
@@ -2514,7 +2585,8 @@
           "price_180d_change": "13.26%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6929.T",
@@ -2527,7 +2599,8 @@
           "price_180d_change": "34.77%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "3925.T",
@@ -2541,7 +2614,8 @@
           "screens": [
             "quality bloom",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "EVS.BR",
@@ -2554,7 +2628,8 @@
           "price_180d_change": "7.92%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "NRO.PA",
@@ -2567,7 +2642,8 @@
           "price_180d_change": "-6.51%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "1401.T",
@@ -2581,7 +2657,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "9467.T",
@@ -2594,7 +2671,8 @@
           "price_180d_change": "24.78%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "FRACTL.ST",
@@ -2607,7 +2685,8 @@
           "price_180d_change": "15.93%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "7092.T",
@@ -2620,7 +2699,8 @@
           "price_180d_change": "37.29%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4641.T",
@@ -2633,7 +2713,8 @@
           "price_180d_change": "12.45%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6947.T",
@@ -2646,7 +2727,8 @@
           "price_180d_change": "21.01%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6458.T",
@@ -2659,7 +2741,8 @@
           "price_180d_change": "2.23%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6036.T",
@@ -2673,7 +2756,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "9962.T",
@@ -2686,7 +2770,8 @@
           "price_180d_change": "-4.15%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4919.T",
@@ -2699,7 +2784,8 @@
           "price_180d_change": "-27.73%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "OLTH.AT",
@@ -2712,7 +2798,8 @@
           "price_180d_change": "67.59%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "6728.T",
@@ -2726,7 +2813,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7595.T",
@@ -2740,7 +2828,8 @@
           "screens": [
             "quality bloom",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7564.T",
@@ -2753,7 +2842,8 @@
           "price_180d_change": "23.83%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4722.T",
@@ -2766,7 +2856,8 @@
           "price_180d_change": "16.05%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "3901.T",
@@ -2779,7 +2870,8 @@
           "price_180d_change": "-5.56%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6941.T",
@@ -2792,7 +2884,8 @@
           "price_180d_change": "46.18%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "3844.T",
@@ -2806,7 +2899,8 @@
           "screens": [
             "quality bloom",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "9682.T",
@@ -2819,7 +2913,8 @@
           "price_180d_change": "19.21%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "CLBS.L",
@@ -2832,7 +2927,8 @@
           "price_180d_change": "-46.15%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "GAMA.L",
@@ -2846,7 +2942,8 @@
           "screens": [
             "quality bloom",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "6255.T",
@@ -2859,7 +2956,8 @@
           "price_180d_change": "-22.10%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6284.T",
@@ -2873,7 +2971,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "1723.T",
@@ -2886,7 +2985,8 @@
           "price_180d_change": "49.05%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6196.T",
@@ -2900,7 +3000,8 @@
           "screens": [
             "quality bloom",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6866.T",
@@ -2913,7 +3014,8 @@
           "price_180d_change": "-19.41%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7729.T",
@@ -2926,7 +3028,8 @@
           "price_180d_change": "16.42%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4290.T",
@@ -2939,7 +3042,8 @@
           "price_180d_change": "3.24%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4055.T",
@@ -2952,7 +3056,8 @@
           "price_180d_change": "-29.36%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6405.T",
@@ -2965,7 +3070,8 @@
           "price_180d_change": "-15.52%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "5384.T",
@@ -2978,7 +3084,8 @@
           "price_180d_change": "-11.62%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6387.T",
@@ -2991,7 +3098,8 @@
           "price_180d_change": "-5.70%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4368.T",
@@ -3005,7 +3113,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "3371.T",
@@ -3019,7 +3128,8 @@
           "screens": [
             "quality bloom",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "CMB.MI",
@@ -3033,7 +3143,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "7821.T",
@@ -3047,7 +3158,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "1717.T",
@@ -3060,7 +3172,8 @@
           "price_180d_change": "18.98%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "3445.T",
@@ -3074,7 +3187,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "RSW.L",
@@ -3087,7 +3201,8 @@
           "price_180d_change": "-2.99%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "OLY.TO",
@@ -3100,7 +3215,8 @@
           "price_180d_change": "22.64%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.62
         },
         {
           "ticker": "1414.T",
@@ -3114,7 +3230,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "JIN.AX",
@@ -3127,7 +3244,8 @@
           "price_180d_change": "-17.62%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.76
         },
         {
           "ticker": "TFW.L",
@@ -3140,7 +3258,8 @@
           "price_180d_change": "-3.73%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "W7L.L",
@@ -3153,7 +3272,8 @@
           "price_180d_change": "-56.53%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "3150.T",
@@ -3166,7 +3286,8 @@
           "price_180d_change": "0.62%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4971.T",
@@ -3180,7 +3301,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "2148.T",
@@ -3193,7 +3315,8 @@
           "price_180d_change": "4.75%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6539.T",
@@ -3206,7 +3329,8 @@
           "price_180d_change": "-7.65%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6806.T",
@@ -3219,7 +3343,8 @@
           "price_180d_change": "2.76%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6061.T",
@@ -3233,7 +3358,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "RVRC.ST",
@@ -3246,7 +3372,8 @@
           "price_180d_change": "15.46%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "3964.T",
@@ -3259,7 +3386,8 @@
           "price_180d_change": "43.25%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "CCRD",
@@ -3272,7 +3400,8 @@
           "price_180d_change": "19.00%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "2163.T",
@@ -3286,7 +3415,8 @@
           "screens": [
             "quality bloom",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "YETI",
@@ -3299,7 +3429,8 @@
           "price_180d_change": "-17.83%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "3921.T",
@@ -3312,7 +3443,8 @@
           "price_180d_change": "15.58%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4403.T",
@@ -3325,7 +3457,8 @@
           "price_180d_change": "21.31%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7068.T",
@@ -3338,7 +3471,8 @@
           "price_180d_change": "20.21%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "BAG.L",
@@ -3351,7 +3485,8 @@
           "price_180d_change": "16.14%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "3741.T",
@@ -3364,7 +3499,8 @@
           "price_180d_change": "0.00%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "9564.T",
@@ -3377,7 +3513,8 @@
           "price_180d_change": "62.33%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6323.T",
@@ -3391,7 +3528,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "BIG.L",
@@ -3404,7 +3542,8 @@
           "price_180d_change": "-34.55%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "6055.T",
@@ -3419,7 +3558,8 @@
             "quality bloom",
             "TOR Surplus",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "PFV.DE",
@@ -3432,7 +3572,8 @@
           "price_180d_change": "3.01%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "4441.T",
@@ -3445,7 +3586,8 @@
           "price_180d_change": "43.88%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "8111.T",
@@ -3459,7 +3601,8 @@
           "screens": [
             "quality bloom",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "KEYS.L",
@@ -3472,7 +3615,8 @@
           "price_180d_change": "2.27%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "DPM.TO",
@@ -3485,7 +3629,8 @@
           "price_180d_change": "127%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.62
         },
         {
           "ticker": "NPK",
@@ -3498,7 +3643,8 @@
           "price_180d_change": "16.73%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "SVM.TO",
@@ -3511,7 +3657,8 @@
           "price_180d_change": "48.40%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.62
         },
         {
           "ticker": "6957.T",
@@ -3524,7 +3671,8 @@
           "price_180d_change": "119%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "2317.T",
@@ -3537,7 +3685,8 @@
           "price_180d_change": "33.79%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "3763.T",
@@ -3550,7 +3699,8 @@
           "price_180d_change": "96.58%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "RRL.AX",
@@ -3563,7 +3713,8 @@
           "price_180d_change": "107%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.76
         },
         {
           "ticker": "MCRI",
@@ -3577,7 +3728,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "7730.T",
@@ -3591,7 +3743,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "CMPO",
@@ -3604,7 +3757,8 @@
           "price_180d_change": "39.19%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "6454.T",
@@ -3618,7 +3772,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "PWS.MI",
@@ -3631,7 +3786,8 @@
           "price_180d_change": "52.69%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "3983.T",
@@ -3644,7 +3800,8 @@
           "price_180d_change": "9.96%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6184.T",
@@ -3657,7 +3814,8 @@
           "price_180d_change": "15.37%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4825.T",
@@ -3670,7 +3828,8 @@
           "price_180d_change": "23.39%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6436.T",
@@ -3683,7 +3842,8 @@
           "price_180d_change": "1.00%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "ADMCM.HE",
@@ -3696,7 +3856,8 @@
           "price_180d_change": "-10.60%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "5344.T",
@@ -3709,7 +3870,8 @@
           "price_180d_change": "-19.73%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "FEVR.L",
@@ -3722,7 +3884,8 @@
           "price_180d_change": "15.84%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "ACMR",
@@ -3735,7 +3898,8 @@
           "price_180d_change": "97.99%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "6315.T",
@@ -3748,7 +3912,8 @@
           "price_180d_change": "18.89%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6194.T",
@@ -3762,7 +3927,8 @@
           "screens": [
             "quality bloom",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "KNOS.L",
@@ -3776,7 +3942,8 @@
           "screens": [
             "quality bloom",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "3649.T",
@@ -3789,7 +3956,8 @@
           "price_180d_change": "-1.99%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "9759.T",
@@ -3802,7 +3970,8 @@
           "price_180d_change": "-2.10%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "TGLS",
@@ -3816,7 +3985,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "4498.T",
@@ -3829,7 +3999,8 @@
           "price_180d_change": "32.66%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "AOF.DE",
@@ -3842,7 +4013,8 @@
           "price_180d_change": "-6.96%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "IPAR",
@@ -3856,7 +4028,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "4771.T",
@@ -3869,7 +4042,8 @@
           "price_180d_change": "82.11%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "BAHN-B.ST",
@@ -3882,7 +4056,8 @@
           "price_180d_change": "17.88%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "TAYD",
@@ -3895,7 +4070,8 @@
           "price_180d_change": "8.72%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "OEM-B.ST",
@@ -3908,7 +4084,8 @@
           "price_180d_change": "16.13%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "ARB.AX",
@@ -3922,7 +4099,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.76
         },
         {
           "ticker": "4186.T",
@@ -3935,7 +4113,8 @@
           "price_180d_change": "35.78%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "IFCN.SW",
@@ -3948,7 +4127,8 @@
           "price_180d_change": "-8.06%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 0.934
         },
         {
           "ticker": "ELIX.L",
@@ -3961,7 +4141,8 @@
           "price_180d_change": "4.93%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "7059.T",
@@ -3974,7 +4155,8 @@
           "price_180d_change": "27.90%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "XPEL",
@@ -3988,7 +4170,8 @@
           "screens": [
             "quality bloom",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "MYCR.ST",
@@ -4001,7 +4184,8 @@
           "price_180d_change": "2.03%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "ERII",
@@ -4014,7 +4198,8 @@
           "price_180d_change": "-9.94%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "SAM",
@@ -4027,7 +4212,8 @@
           "price_180d_change": "-30.16%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "3922.T",
@@ -4040,7 +4226,8 @@
           "price_180d_change": "61.96%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "2150.T",
@@ -4053,7 +4240,8 @@
           "price_180d_change": "103%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "9272.T",
@@ -4066,7 +4254,8 @@
           "price_180d_change": "3.20%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6524.T",
@@ -4079,7 +4268,8 @@
           "price_180d_change": "-1.42%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "TRCS.L",
@@ -4093,7 +4283,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "6088.T",
@@ -4107,7 +4298,8 @@
           "screens": [
             "quality bloom",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6580.T",
@@ -4120,7 +4312,8 @@
           "price_180d_change": "73.97%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "3655.T",
@@ -4134,7 +4327,8 @@
           "screens": [
             "quality bloom",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6037.T",
@@ -4147,7 +4341,8 @@
           "price_180d_change": "71.06%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "FNX.L",
@@ -4160,7 +4355,8 @@
           "price_180d_change": "0.71%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "EVPL.L",
@@ -4173,7 +4369,8 @@
           "price_180d_change": "69.78%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "QTCOM.HE",
@@ -4187,7 +4384,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "KRI.AT",
@@ -4201,7 +4399,8 @@
           "screens": [
             "quality bloom",
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "PLNW.PA",
@@ -4214,7 +4413,8 @@
           "price_180d_change": "-34.03%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "2326.T",
@@ -4227,7 +4427,8 @@
           "price_180d_change": "28.02%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6777.T",
@@ -4240,7 +4441,8 @@
           "price_180d_change": "15.11%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "TRUE-B.ST",
@@ -4253,7 +4455,8 @@
           "price_180d_change": "-17.07%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "BCHN.SW",
@@ -4266,7 +4469,8 @@
           "price_180d_change": "2.41%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 0.934
         },
         {
           "ticker": "4293.T",
@@ -4279,7 +4483,8 @@
           "price_180d_change": "6.06%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4776.T",
@@ -4292,7 +4497,8 @@
           "price_180d_change": "25.30%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4377.T",
@@ -4305,7 +4511,8 @@
           "price_180d_change": "74.99%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4816.T",
@@ -4318,7 +4525,8 @@
           "price_180d_change": "-16.85%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7373.T",
@@ -4331,7 +4539,8 @@
           "price_180d_change": "28.41%",
           "screens": [
             "quality bloom"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         }
       ]
     },
@@ -4350,7 +4559,8 @@
           "price_180d_change": "-13.64%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.62
         },
         {
           "ticker": "7735.T",
@@ -4363,7 +4573,8 @@
           "price_180d_change": "30.14%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "QTCOM.HE",
@@ -4373,7 +4584,8 @@
           "sector": "Technology",
           "country": "Finland",
           "price": 46.6,
-          "price_180d_change": "-33.54%"
+          "price_180d_change": "-33.54%",
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "6532.T",
@@ -4386,7 +4598,8 @@
           "price_180d_change": "59.15%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "HLAG.DE",
@@ -4400,7 +4613,8 @@
           "screens": [
             "TOR Surplus",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "WTC.AX",
@@ -4413,7 +4627,8 @@
           "price_180d_change": "-22.42%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.76
         },
         {
           "ticker": "6544.T",
@@ -4426,7 +4641,8 @@
           "price_180d_change": "33.40%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "MSFT",
@@ -4439,7 +4655,8 @@
           "price_180d_change": "14.64%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "RACE.MI",
@@ -4452,7 +4669,8 @@
           "price_180d_change": "-1.64%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "SECARE.ST",
@@ -4465,7 +4683,8 @@
           "price_180d_change": "-20.60%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "OLLI",
@@ -4478,7 +4697,8 @@
           "price_180d_change": "18.29%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "3762.T",
@@ -4492,7 +4712,8 @@
           "screens": [
             "TOR Surplus",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7821.T",
@@ -4502,7 +4723,8 @@
           "sector": "Industrials",
           "country": "Japan",
           "price": 1872.0,
-          "price_180d_change": "-4.45%"
+          "price_180d_change": "-4.45%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4980.T",
@@ -4515,7 +4737,8 @@
           "price_180d_change": "-18.98%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "3635.T",
@@ -4528,7 +4751,8 @@
           "price_180d_change": "2.56%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "FPE.MI",
@@ -4541,7 +4765,8 @@
           "price_180d_change": "62.50%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "6098.T",
@@ -4554,7 +4779,8 @@
           "price_180d_change": "-23.58%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "SAIA",
@@ -4567,7 +4793,8 @@
           "price_180d_change": "-39.80%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "BRG.OL",
@@ -4580,7 +4807,8 @@
           "price_180d_change": "16.16%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 11.58
         },
         {
           "ticker": "ITT",
@@ -4593,7 +4821,8 @@
           "price_180d_change": "13.39%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "SAF.PA",
@@ -4606,7 +4835,8 @@
           "price_180d_change": "32.84%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "FCN",
@@ -4619,7 +4849,8 @@
           "price_180d_change": "-16.54%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "XRF.AX",
@@ -4632,7 +4863,8 @@
           "price_180d_change": "16.89%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.76
         },
         {
           "ticker": "3626.T",
@@ -4645,7 +4877,8 @@
           "price_180d_change": "33.47%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4369.T",
@@ -4658,7 +4891,8 @@
           "price_180d_change": "-11.12%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "1401.T",
@@ -4668,7 +4902,8 @@
           "sector": "Industrials",
           "country": "Japan",
           "price": 1537.0,
-          "price_180d_change": "109%"
+          "price_180d_change": "109%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "NEWA-B.ST",
@@ -4681,7 +4916,8 @@
           "price_180d_change": "10.46%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "HVN.AX",
@@ -4694,7 +4930,8 @@
           "price_180d_change": "51.74%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.76
         },
         {
           "ticker": "LOTB.BR",
@@ -4707,7 +4944,8 @@
           "price_180d_change": "-23.76%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "6920.T",
@@ -4720,7 +4958,8 @@
           "price_180d_change": "6.22%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "KOG.OL",
@@ -4733,7 +4972,8 @@
           "price_180d_change": "15.04%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 11.58
         },
         {
           "ticker": "MTX.DE",
@@ -4746,7 +4986,8 @@
           "price_180d_change": "12.92%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "2157.T",
@@ -4759,7 +5000,8 @@
           "price_180d_change": "18.60%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7818.T",
@@ -4769,7 +5011,8 @@
           "sector": "Consumer Staples",
           "country": "Japan",
           "price": 1194.0,
-          "price_180d_change": "13.11%"
+          "price_180d_change": "13.11%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "SIQ.AX",
@@ -4782,7 +5025,8 @@
           "price_180d_change": "7.86%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.76
         },
         {
           "ticker": "CTD.AX",
@@ -4795,7 +5039,8 @@
           "price_180d_change": "23.90%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.76
         },
         {
           "ticker": "SAG.L",
@@ -4808,7 +5053,8 @@
           "price_180d_change": "20.95%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "GIB-A.TO",
@@ -4821,7 +5067,8 @@
           "price_180d_change": "-17.23%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.62
         },
         {
           "ticker": "FORM",
@@ -4834,7 +5081,8 @@
           "price_180d_change": "-30.92%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "ELCO.L",
@@ -4847,7 +5095,8 @@
           "price_180d_change": "15.09%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "TIH.TO",
@@ -4860,7 +5109,8 @@
           "price_180d_change": "28.26%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.62
         },
         {
           "ticker": "VBG-B.ST",
@@ -4873,7 +5123,8 @@
           "price_180d_change": "-0.81%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "ALFA.ST",
@@ -4886,7 +5137,8 @@
           "price_180d_change": "-12.19%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "JBTM",
@@ -4899,7 +5151,8 @@
           "price_180d_change": "15.15%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "LEN",
@@ -4912,7 +5165,8 @@
           "price_180d_change": "-0.81%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "DHI",
@@ -4926,7 +5180,8 @@
           "screens": [
             "TOR Surplus",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "CW",
@@ -4939,7 +5194,8 @@
           "price_180d_change": "31.59%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "4928.T",
@@ -4952,7 +5208,8 @@
           "price_180d_change": "-3.62%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "DANT.CO",
@@ -4965,7 +5222,8 @@
           "price_180d_change": "33.17%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 7.46
         },
         {
           "ticker": "TOL",
@@ -4978,7 +5236,8 @@
           "price_180d_change": "13.90%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "SPSC",
@@ -4991,7 +5250,8 @@
           "price_180d_change": "-40.96%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "VMI",
@@ -5004,7 +5264,8 @@
           "price_180d_change": "7.38%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "MHO",
@@ -5014,7 +5275,8 @@
           "sector": "Consumer Discretionary",
           "country": "United States of America",
           "price": 156.93,
-          "price_180d_change": "3.33%"
+          "price_180d_change": "3.33%",
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "IEX",
@@ -5027,7 +5289,8 @@
           "price_180d_change": "-29.30%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "CCL-A.TO",
@@ -5040,7 +5303,8 @@
           "price_180d_change": "-0.90%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.62
         },
         {
           "ticker": "NEA.MC",
@@ -5053,7 +5317,8 @@
           "price_180d_change": "32.55%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "BMY.L",
@@ -5066,7 +5331,8 @@
           "price_180d_change": "-26.32%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "BMI",
@@ -5079,7 +5345,8 @@
           "price_180d_change": "-20.69%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "AME",
@@ -5092,7 +5359,8 @@
           "price_180d_change": "-2.68%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "NXU.DE",
@@ -5105,7 +5373,8 @@
           "price_180d_change": "2.76%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "BELA.AT",
@@ -5118,7 +5387,8 @@
           "price_180d_change": "22.05%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "6055.T",
@@ -5128,7 +5398,8 @@
           "sector": "Technology",
           "country": "Japan",
           "price": 1572.0,
-          "price_180d_change": "-7.77%"
+          "price_180d_change": "-7.77%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "ALPM.PA",
@@ -5141,7 +5412,8 @@
           "price_180d_change": "-5.56%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "6036.T",
@@ -5151,7 +5423,8 @@
           "sector": "Industrials",
           "country": "Japan",
           "price": 3450.0,
-          "price_180d_change": "-27.73%"
+          "price_180d_change": "-27.73%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "DIOD",
@@ -5164,7 +5437,8 @@
           "price_180d_change": "-17.84%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "7187.T",
@@ -5178,7 +5452,8 @@
           "screens": [
             "TOR Surplus",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6061.T",
@@ -5188,7 +5463,8 @@
           "sector": "Consumer Discretionary",
           "country": "Japan",
           "price": 5791.0,
-          "price_180d_change": "63.87%"
+          "price_180d_change": "63.87%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4828.T",
@@ -5201,7 +5477,8 @@
           "price_180d_change": "70.01%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "JKHY",
@@ -5214,7 +5491,8 @@
           "price_180d_change": "-9.08%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "IP.MI",
@@ -5227,7 +5505,8 @@
           "price_180d_change": "-9.98%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "MCRI",
@@ -5237,7 +5516,8 @@
           "sector": "Consumer Discretionary",
           "country": "United States of America",
           "price": 102.11,
-          "price_180d_change": "19.83%"
+          "price_180d_change": "19.83%",
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "ATR",
@@ -5250,7 +5530,8 @@
           "price_180d_change": "-21.53%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "COTN.SW",
@@ -5263,7 +5544,8 @@
           "price_180d_change": "-38.76%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 0.934
         },
         {
           "ticker": "UNF",
@@ -5276,7 +5558,8 @@
           "price_180d_change": "-8.67%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "AAON",
@@ -5289,7 +5572,8 @@
           "price_180d_change": "-38.20%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "MTH",
@@ -5302,7 +5586,8 @@
           "price_180d_change": "-6.53%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "IPAR",
@@ -5312,7 +5597,8 @@
           "sector": "Consumer Discretionary",
           "country": "United States of America",
           "price": 109.36,
-          "price_180d_change": "-15.18%"
+          "price_180d_change": "-15.18%",
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "SDI.L",
@@ -5325,7 +5611,8 @@
           "price_180d_change": "73.50%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "6367.T",
@@ -5338,7 +5625,8 @@
           "price_180d_change": "2.24%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "FSS",
@@ -5351,7 +5639,8 @@
           "price_180d_change": "29.50%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "VEE.AX",
@@ -5364,7 +5653,8 @@
           "price_180d_change": "-9.63%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.76
         },
         {
           "ticker": "3445.T",
@@ -5374,7 +5664,8 @@
           "sector": "Technology",
           "country": "Japan",
           "price": 3559.0,
-          "price_180d_change": "5.51%"
+          "price_180d_change": "5.51%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6626.T",
@@ -5384,7 +5675,8 @@
           "sector": "Technology",
           "country": "Japan",
           "price": 2347.0,
-          "price_180d_change": "14.82%"
+          "price_180d_change": "14.82%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "RMD",
@@ -5397,7 +5689,8 @@
           "price_180d_change": "12.91%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "MATX",
@@ -5411,7 +5704,8 @@
           "screens": [
             "TOR Surplus",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "WTS",
@@ -5424,7 +5718,8 @@
           "price_180d_change": "29.62%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "KRI.AT",
@@ -5434,7 +5729,8 @@
           "sector": "Consumer Staples",
           "country": "Greece",
           "price": 19.21,
-          "price_180d_change": "25.60%"
+          "price_180d_change": "25.60%",
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "3091.T",
@@ -5447,7 +5743,8 @@
           "price_180d_change": "6.92%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6284.T",
@@ -5457,7 +5754,8 @@
           "sector": "Industrials",
           "country": "Japan",
           "price": 7211.0,
-          "price_180d_change": "41.54%"
+          "price_180d_change": "41.54%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "RBT.PA",
@@ -5470,7 +5768,8 @@
           "price_180d_change": "-0.47%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "PKG",
@@ -5483,7 +5782,8 @@
           "price_180d_change": "-4.59%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "LISN.SW",
@@ -5496,7 +5796,8 @@
           "price_180d_change": "26.88%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 0.934
         },
         {
           "ticker": "SAR.AT",
@@ -5509,7 +5810,8 @@
           "price_180d_change": "36.14%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "MLHOT.PA",
@@ -5522,7 +5824,8 @@
           "price_180d_change": "35.79%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "AYI",
@@ -5535,7 +5838,8 @@
           "price_180d_change": "4.03%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "SSD",
@@ -5548,7 +5852,8 @@
           "price_180d_change": "6.25%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "KBH",
@@ -5561,7 +5866,8 @@
           "price_180d_change": "-5.04%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "2331.T",
@@ -5574,7 +5880,8 @@
           "price_180d_change": "5.76%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4187.T",
@@ -5587,7 +5894,8 @@
           "price_180d_change": "5.15%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4326.T",
@@ -5600,7 +5908,8 @@
           "price_180d_change": "13.65%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "TRI.PA",
@@ -5613,7 +5922,8 @@
           "price_180d_change": "21.20%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "REY.MI",
@@ -5627,7 +5937,8 @@
           "screens": [
             "TOR Surplus",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "ODFL",
@@ -5640,7 +5951,8 @@
           "price_180d_change": "-24.90%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "AEP.L",
@@ -5650,7 +5962,8 @@
           "sector": "Consumer Staples",
           "country": "United Kingdom",
           "price": 12.36,
-          "price_180d_change": "89.60%"
+          "price_180d_change": "89.60%",
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "GD",
@@ -5663,7 +5976,8 @@
           "price_180d_change": "23.17%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "SFC.AX",
@@ -5676,7 +5990,8 @@
           "price_180d_change": "-3.05%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.76
         },
         {
           "ticker": "MU",
@@ -5689,7 +6004,8 @@
           "price_180d_change": "28.91%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "4368.T",
@@ -5699,7 +6015,8 @@
           "sector": "Basic Materials",
           "country": "Japan",
           "price": 4799.0,
-          "price_180d_change": "34.22%"
+          "price_180d_change": "34.22%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "ALG",
@@ -5712,7 +6029,8 @@
           "price_180d_change": "6.74%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "ROCK-B.CO",
@@ -5725,7 +6043,8 @@
           "price_180d_change": "-7.56%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 7.46
         },
         {
           "ticker": "HLMA.L",
@@ -5738,7 +6057,8 @@
           "price_180d_change": "18.99%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "DSY.PA",
@@ -5751,7 +6071,8 @@
           "price_180d_change": "-15.90%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "FELE",
@@ -5764,7 +6085,8 @@
           "price_180d_change": "-9.40%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "REH.AX",
@@ -5777,7 +6099,8 @@
           "price_180d_change": "-56.36%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.76
         },
         {
           "ticker": "PLAB",
@@ -5790,7 +6113,8 @@
           "price_180d_change": "-14.53%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "CBRAIN.CO",
@@ -5803,7 +6127,8 @@
           "price_180d_change": "-1.14%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 7.46
         },
         {
           "ticker": "BORG.ST",
@@ -5816,7 +6141,8 @@
           "price_180d_change": "18.38%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "4661.T",
@@ -5829,7 +6155,8 @@
           "price_180d_change": "6.81%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "WLK",
@@ -5842,7 +6169,8 @@
           "price_180d_change": "-26.82%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "PROF.AT",
@@ -5855,7 +6183,8 @@
           "price_180d_change": "31.11%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "SMID",
@@ -5868,7 +6197,8 @@
           "price_180d_change": "-8.15%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "4746.T",
@@ -5881,7 +6211,8 @@
           "price_180d_change": "-5.70%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "CALM",
@@ -5894,7 +6225,8 @@
           "price_180d_change": "5.28%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "FMM-B.ST",
@@ -5908,7 +6240,8 @@
           "screens": [
             "TOR Surplus",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "JJSF",
@@ -5921,7 +6254,8 @@
           "price_180d_change": "-35.97%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "2153.T",
@@ -5934,7 +6268,8 @@
           "price_180d_change": "5.08%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "WSO",
@@ -5947,7 +6282,8 @@
           "price_180d_change": "-19.76%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "2801.T",
@@ -5960,7 +6296,8 @@
           "price_180d_change": "-24.63%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "FLEXO.AT",
@@ -5973,7 +6310,8 @@
           "price_180d_change": "-2.42%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "3837.T",
@@ -5986,7 +6324,8 @@
           "price_180d_change": "33.43%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6368.T",
@@ -5999,7 +6338,8 @@
           "price_180d_change": "43.78%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6028.T",
@@ -6012,7 +6352,8 @@
           "price_180d_change": "62.84%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "1414.T",
@@ -6022,7 +6363,8 @@
           "sector": "Industrials",
           "country": "Japan",
           "price": 5030.0,
-          "price_180d_change": "-3.95%"
+          "price_180d_change": "-3.95%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6266.T",
@@ -6035,7 +6377,8 @@
           "price_180d_change": "-4.20%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "OR.PA",
@@ -6048,7 +6391,8 @@
           "price_180d_change": "18.07%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "3569.T",
@@ -6061,7 +6405,8 @@
           "price_180d_change": "14.08%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "DWHT.L",
@@ -6074,7 +6419,8 @@
           "price_180d_change": "-28.18%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "INGR",
@@ -6087,7 +6433,8 @@
           "price_180d_change": "-11.02%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "9986.T",
@@ -6100,7 +6447,8 @@
           "price_180d_change": "1.40%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "ROCK",
@@ -6113,7 +6461,8 @@
           "price_180d_change": "-9.09%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "ARB.AX",
@@ -6123,7 +6472,8 @@
           "sector": "Consumer Discretionary",
           "country": "Australia",
           "price": 38.71,
-          "price_180d_change": "0.59%"
+          "price_180d_change": "0.59%",
+          "eur_exchange_rate": 1.76
         },
         {
           "ticker": "AIN",
@@ -6136,7 +6486,8 @@
           "price_180d_change": "-23.96%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "2327.T",
@@ -6149,7 +6500,8 @@
           "price_180d_change": "-14.98%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "2229.T",
@@ -6162,7 +6514,8 @@
           "price_180d_change": "-11.94%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4923.T",
@@ -6175,7 +6528,8 @@
           "price_180d_change": "-13.70%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "CMB.MI",
@@ -6185,7 +6539,8 @@
           "sector": "Industrials",
           "country": "Italy",
           "price": 58.61,
-          "price_180d_change": "41.55%"
+          "price_180d_change": "41.55%",
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "AZK.MC",
@@ -6198,7 +6553,8 @@
           "price_180d_change": "36.81%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "ALGEV.PA",
@@ -6211,7 +6567,8 @@
           "price_180d_change": "-3.21%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "7611.T",
@@ -6224,7 +6581,8 @@
           "price_180d_change": "32.14%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7730.T",
@@ -6234,7 +6592,8 @@
           "sector": "Health Care",
           "country": "Japan",
           "price": 1299.0,
-          "price_180d_change": "-28.37%"
+          "price_180d_change": "-28.37%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "AIXA.DE",
@@ -6244,7 +6603,8 @@
           "sector": "Technology",
           "country": "Germany",
           "price": 12.04,
-          "price_180d_change": "-18.32%"
+          "price_180d_change": "-18.32%",
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "PLPC",
@@ -6257,7 +6617,8 @@
           "price_180d_change": "53.47%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "LNN",
@@ -6270,7 +6631,8 @@
           "price_180d_change": "7.52%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "6323.T",
@@ -6280,7 +6642,8 @@
           "sector": "Technology",
           "country": "Japan",
           "price": 1701.0,
-          "price_180d_change": "13.67%"
+          "price_180d_change": "13.67%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "EVD.DE",
@@ -6293,7 +6656,8 @@
           "price_180d_change": "8.48%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "KAI",
@@ -6306,7 +6670,8 @@
           "price_180d_change": "-12.06%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "TGLS",
@@ -6316,7 +6681,8 @@
           "sector": "Industrials",
           "country": "United States of America",
           "price": 72.13,
-          "price_180d_change": "-14.77%"
+          "price_180d_change": "-14.77%",
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "ALPDX.PA",
@@ -6329,7 +6695,8 @@
           "price_180d_change": "7.56%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "ALC.MC",
@@ -6342,7 +6709,8 @@
           "price_180d_change": "45.93%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "RCH.TO",
@@ -6355,7 +6723,8 @@
           "price_180d_change": "-4.64%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.62
         },
         {
           "ticker": "HRL",
@@ -6368,7 +6737,8 @@
           "price_180d_change": "-22.33%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "6454.T",
@@ -6378,7 +6748,8 @@
           "sector": "Industrials",
           "country": "Japan",
           "price": 5747.0,
-          "price_180d_change": "67.79%"
+          "price_180d_change": "67.79%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6327.T",
@@ -6391,7 +6762,8 @@
           "price_180d_change": "58.75%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6490.T",
@@ -6401,7 +6773,8 @@
           "sector": "Industrials",
           "country": "Japan",
           "price": 4052.0,
-          "price_180d_change": "-1.83%"
+          "price_180d_change": "-1.83%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6402.T",
@@ -6414,7 +6787,8 @@
           "price_180d_change": "36.00%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7269.T",
@@ -6427,7 +6801,8 @@
           "price_180d_change": "13.86%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "ALFPC.PA",
@@ -6437,7 +6812,8 @@
           "sector": "Consumer Discretionary",
           "country": "France",
           "price": 101.81,
-          "price_180d_change": "3.67%"
+          "price_180d_change": "3.67%",
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "WRT1V.HE",
@@ -6450,7 +6826,8 @@
           "price_180d_change": "51.88%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "6594.T",
@@ -6463,7 +6840,8 @@
           "price_180d_change": "-10.37%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "HUBN.SW",
@@ -6476,7 +6854,8 @@
           "price_180d_change": "89.68%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 0.934
         },
         {
           "ticker": "STMN.SW",
@@ -6489,7 +6868,8 @@
           "price_180d_change": "-19.64%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 0.934
         },
         {
           "ticker": "GLE.L",
@@ -6499,7 +6879,8 @@
           "sector": "Consumer Discretionary",
           "country": "United Kingdom",
           "price": 3.33,
-          "price_180d_change": "-36.26%"
+          "price_180d_change": "-36.26%",
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "VCM.TO",
@@ -6512,7 +6893,8 @@
           "price_180d_change": "-42.42%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.62
         },
         {
           "ticker": "2914.T",
@@ -6525,7 +6907,8 @@
           "price_180d_change": "13.17%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "2875.T",
@@ -6538,7 +6921,8 @@
           "price_180d_change": "-2.56%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "ALL.AX",
@@ -6551,7 +6935,8 @@
           "price_180d_change": "1.73%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.76
         },
         {
           "ticker": "6506.T",
@@ -6564,7 +6949,8 @@
           "price_180d_change": "-26.33%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "SFSN.SW",
@@ -6577,7 +6963,8 @@
           "price_180d_change": "-15.09%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 0.934
         },
         {
           "ticker": "LFUS",
@@ -6590,7 +6977,8 @@
           "price_180d_change": "1.08%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "ASM.AS",
@@ -6603,7 +6991,8 @@
           "price_180d_change": "-24.62%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "DORM",
@@ -6616,7 +7005,8 @@
           "price_180d_change": "22.53%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "LNR.TO",
@@ -6629,7 +7019,8 @@
           "price_180d_change": "26.76%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.62
         },
         {
           "ticker": "5108.T",
@@ -6642,7 +7033,8 @@
           "price_180d_change": "30.41%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "WAVE.PA",
@@ -6656,7 +7048,8 @@
           "screens": [
             "TOR Surplus",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "ILYDA.AT",
@@ -6669,7 +7062,8 @@
           "price_180d_change": "156%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "5357.T",
@@ -6682,7 +7076,8 @@
           "price_180d_change": "7.16%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "BTS-B.ST",
@@ -6696,7 +7091,8 @@
           "screens": [
             "TOR Surplus",
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "6841.T",
@@ -6709,7 +7105,8 @@
           "price_180d_change": "25.22%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "GENC",
@@ -6719,7 +7116,8 @@
           "sector": "Industrials",
           "country": "United States of America",
           "price": 15.55,
-          "price_180d_change": "-13.90%"
+          "price_180d_change": "-13.90%",
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "1959.T",
@@ -6732,7 +7130,8 @@
           "price_180d_change": "42.37%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7734.T",
@@ -6742,7 +7141,8 @@
           "sector": "Industrials",
           "country": "Japan",
           "price": 3124.0,
-          "price_180d_change": "-19.09%"
+          "price_180d_change": "-19.09%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "NSSC",
@@ -6755,7 +7155,8 @@
           "price_180d_change": "1.76%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "6005.T",
@@ -6768,7 +7169,8 @@
           "price_180d_change": "-26.14%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4042.T",
@@ -6781,7 +7183,8 @@
           "price_180d_change": "10.91%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "3663.T",
@@ -6794,7 +7197,8 @@
           "price_180d_change": "34.49%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "1801.T",
@@ -6807,7 +7211,8 @@
           "price_180d_change": "51.38%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4971.T",
@@ -6817,7 +7222,8 @@
           "sector": "Basic Materials",
           "country": "Japan",
           "price": 3214.0,
-          "price_180d_change": "-5.18%"
+          "price_180d_change": "-5.18%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "AMKR",
@@ -6830,7 +7236,8 @@
           "price_180d_change": "-6.57%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "7264.T",
@@ -6843,7 +7250,8 @@
           "price_180d_change": "16.74%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7832.T",
@@ -6856,7 +7264,8 @@
           "price_180d_change": "32.05%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7943.T",
@@ -6869,7 +7278,8 @@
           "price_180d_change": "0.10%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "2359.T",
@@ -6882,7 +7292,8 @@
           "price_180d_change": "9.52%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "TRCS.L",
@@ -6892,7 +7303,8 @@
           "sector": "Technology",
           "country": "United Kingdom",
           "price": 3.97,
-          "price_180d_change": "-25.61%"
+          "price_180d_change": "-25.61%",
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "6728.T",
@@ -6902,7 +7314,8 @@
           "sector": "Technology",
           "country": "Japan",
           "price": 6369.0,
-          "price_180d_change": "2.98%"
+          "price_180d_change": "2.98%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "MSLH.L",
@@ -6915,7 +7328,8 @@
           "price_180d_change": "-43.35%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "STIL.ST",
@@ -6928,7 +7342,8 @@
           "price_180d_change": "10.58%",
           "screens": [
             "TOR Surplus"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         }
       ]
     },
@@ -6947,7 +7362,8 @@
           "price_180d_change": "1.62%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "ALCA.ST",
@@ -6960,7 +7376,8 @@
           "price_180d_change": "-24.82%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "EVO.ST",
@@ -6973,7 +7390,8 @@
           "price_180d_change": "-13.52%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "FBF.V",
@@ -6986,7 +7404,8 @@
           "price_180d_change": "-22.82%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.62
         },
         {
           "ticker": "6196.T",
@@ -6996,7 +7415,8 @@
           "sector": "Industrials",
           "country": "Japan",
           "price": 4568.0,
-          "price_180d_change": "27.06%"
+          "price_180d_change": "27.06%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "MGPI",
@@ -7009,7 +7429,8 @@
           "price_180d_change": "-35.38%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "6088.T",
@@ -7019,7 +7440,8 @@
           "sector": "Industrials",
           "country": "Japan",
           "price": 932.97,
-          "price_180d_change": "2.18%"
+          "price_180d_change": "2.18%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "3371.T",
@@ -7029,7 +7451,8 @@
           "sector": "Technology",
           "country": "Japan",
           "price": 2353.0,
-          "price_180d_change": "2.86%"
+          "price_180d_change": "2.86%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7595.T",
@@ -7039,7 +7462,8 @@
           "sector": "Technology",
           "country": "Japan",
           "price": 4914.0,
-          "price_180d_change": "-2.78%"
+          "price_180d_change": "-2.78%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "WATR.L",
@@ -7052,7 +7476,8 @@
           "price_180d_change": "-22.29%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "ZZ-B.ST",
@@ -7065,7 +7490,8 @@
           "price_180d_change": "101%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "DECK",
@@ -7078,7 +7504,8 @@
           "price_180d_change": "-41.73%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "CRM",
@@ -7091,7 +7518,8 @@
           "price_180d_change": "-31.85%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "TPS.MI",
@@ -7104,7 +7532,8 @@
           "price_180d_change": "-4.05%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "5929.T",
@@ -7117,7 +7546,8 @@
           "price_180d_change": "7.13%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7818.T",
@@ -7127,7 +7557,8 @@
           "sector": "Consumer Staples",
           "country": "Japan",
           "price": 1194.0,
-          "price_180d_change": "13.11%"
+          "price_180d_change": "13.11%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "3661.T",
@@ -7140,7 +7571,8 @@
           "price_180d_change": "34.71%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "DHI",
@@ -7150,7 +7582,8 @@
           "sector": "Consumer Discretionary",
           "country": "United States of America",
           "price": 176.69,
-          "price_180d_change": "16.85%"
+          "price_180d_change": "16.85%",
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "6086.T",
@@ -7163,7 +7596,8 @@
           "price_180d_change": "54.19%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "8111.T",
@@ -7173,7 +7607,8 @@
           "sector": "Consumer Discretionary",
           "country": "Japan",
           "price": 7543.0,
-          "price_180d_change": "-15.07%"
+          "price_180d_change": "-15.07%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "GAMA.L",
@@ -7183,7 +7618,8 @@
           "sector": "Telecommunications",
           "country": "United Kingdom",
           "price": 10.2,
-          "price_180d_change": "-34.36%"
+          "price_180d_change": "-34.36%",
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "7187.T",
@@ -7193,7 +7629,8 @@
           "sector": "Consumer Discretionary",
           "country": "Japan",
           "price": 1697.0,
-          "price_180d_change": "35.04%"
+          "price_180d_change": "35.04%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "FRAN.L",
@@ -7206,7 +7643,8 @@
           "price_180d_change": "-11.75%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "9381.T",
@@ -7219,7 +7657,8 @@
           "price_180d_change": "24.44%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "MOUR.BR",
@@ -7232,7 +7671,8 @@
           "price_180d_change": "14.86%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "3676.T",
@@ -7245,7 +7685,8 @@
           "price_180d_change": "17.80%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "3762.T",
@@ -7255,7 +7696,8 @@
           "sector": "Technology",
           "country": "Japan",
           "price": 1991.0,
-          "price_180d_change": "-15.57%"
+          "price_180d_change": "-15.57%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "XPEL",
@@ -7265,7 +7707,8 @@
           "sector": "Consumer Discretionary",
           "country": "United States of America",
           "price": 35.76,
-          "price_180d_change": "-17.70%"
+          "price_180d_change": "-17.70%",
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "MONC.MI",
@@ -7278,7 +7721,8 @@
           "price_180d_change": "-8.46%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "4832.T",
@@ -7291,7 +7735,8 @@
           "price_180d_change": "41.32%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "THEP.PA",
@@ -7301,7 +7746,8 @@
           "sector": "Industrials",
           "country": "France",
           "price": 75.29,
-          "price_180d_change": "7.37%"
+          "price_180d_change": "7.37%",
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "4318.T",
@@ -7311,7 +7757,8 @@
           "sector": "Industrials",
           "country": "Japan",
           "price": 2438.0,
-          "price_180d_change": "6.72%"
+          "price_180d_change": "6.72%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "9790.T",
@@ -7324,7 +7771,8 @@
           "price_180d_change": "11.48%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "SINT.ST",
@@ -7337,7 +7785,8 @@
           "price_180d_change": "0.00%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "PERR.PA",
@@ -7350,7 +7799,8 @@
           "price_180d_change": "-6.29%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "3844.T",
@@ -7360,7 +7810,8 @@
           "sector": "Technology",
           "country": "Japan",
           "price": 1698.0,
-          "price_180d_change": "-26.36%"
+          "price_180d_change": "-26.36%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "PREV-B.ST",
@@ -7373,7 +7824,8 @@
           "price_180d_change": "-39.51%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "9753.T",
@@ -7386,7 +7838,8 @@
           "price_180d_change": "51.60%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "3678.T",
@@ -7399,7 +7852,8 @@
           "price_180d_change": "36.98%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "2379.T",
@@ -7412,7 +7866,8 @@
           "price_180d_change": "-5.31%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "3925.T",
@@ -7422,7 +7877,8 @@
           "sector": "Technology",
           "country": "Japan",
           "price": 1740.0,
-          "price_180d_change": "11.28%"
+          "price_180d_change": "11.28%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "ABDP.L",
@@ -7435,7 +7891,8 @@
           "price_180d_change": "-25.90%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "WAVE.PA",
@@ -7445,7 +7902,8 @@
           "sector": "Technology",
           "country": "France",
           "price": 46.77,
-          "price_180d_change": "17.62%"
+          "price_180d_change": "17.62%",
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "3969.T",
@@ -7458,7 +7916,8 @@
           "price_180d_change": "3.22%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6199.T",
@@ -7471,7 +7930,8 @@
           "price_180d_change": "24.24%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "2163.T",
@@ -7481,7 +7941,8 @@
           "sector": "Industrials",
           "country": "Japan",
           "price": 1975.0,
-          "price_180d_change": "-3.96%"
+          "price_180d_change": "-3.96%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "LOGN.SW",
@@ -7494,7 +7955,8 @@
           "price_180d_change": "12.51%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 0.934
         },
         {
           "ticker": "ONTO",
@@ -7507,7 +7969,8 @@
           "price_180d_change": "-37.27%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "6626.T",
@@ -7517,7 +7980,8 @@
           "sector": "Technology",
           "country": "Japan",
           "price": 2347.0,
-          "price_180d_change": "14.82%"
+          "price_180d_change": "14.82%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4763.T",
@@ -7530,7 +7994,8 @@
           "price_180d_change": "-4.83%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7839.T",
@@ -7540,7 +8005,8 @@
           "sector": "Consumer Discretionary",
           "country": "Japan",
           "price": 1859.0,
-          "price_180d_change": "-17.71%"
+          "price_180d_change": "-17.71%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "REY.MI",
@@ -7550,7 +8016,8 @@
           "sector": "Technology",
           "country": "Italy",
           "price": 114.61,
-          "price_180d_change": "-24.29%"
+          "price_180d_change": "-24.29%",
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "3835.T",
@@ -7563,7 +8030,8 @@
           "price_180d_change": "-22.07%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "BRE2.ST",
@@ -7576,7 +8044,8 @@
           "price_180d_change": "70.32%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "NTEK-B.ST",
@@ -7589,7 +8058,8 @@
           "price_180d_change": "24.78%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "9769.T",
@@ -7602,7 +8072,8 @@
           "price_180d_change": "14.26%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "MATX",
@@ -7612,7 +8083,8 @@
           "sector": "Industrials",
           "country": "United States of America",
           "price": 105.07,
-          "price_180d_change": "-28.15%"
+          "price_180d_change": "-28.15%",
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "2371.T",
@@ -7625,7 +8097,8 @@
           "price_180d_change": "9.42%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "KNOS.L",
@@ -7635,7 +8108,8 @@
           "sector": "Technology",
           "country": "United Kingdom",
           "price": 9.19,
-          "price_180d_change": "15.83%"
+          "price_180d_change": "15.83%",
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "OGUN-B.ST",
@@ -7648,7 +8122,8 @@
           "price_180d_change": "-18.45%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "EQS.PA",
@@ -7661,7 +8136,8 @@
           "price_180d_change": "-1.47%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "FMM-B.ST",
@@ -7671,7 +8147,8 @@
           "sector": "Industrials",
           "country": "Sweden",
           "price": 54.85,
-          "price_180d_change": "9.45%"
+          "price_180d_change": "9.45%",
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "3655.T",
@@ -7681,7 +8158,8 @@
           "sector": "Technology",
           "country": "Japan",
           "price": 1259.0,
-          "price_180d_change": "6.92%"
+          "price_180d_change": "6.92%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "CLFD",
@@ -7694,7 +8172,8 @@
           "price_180d_change": "-0.90%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.17
         },
         {
           "ticker": "INSTAL.ST",
@@ -7707,7 +8186,8 @@
           "price_180d_change": "-29.88%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "OLVAS.HE",
@@ -7717,7 +8197,8 @@
           "sector": "Consumer Staples",
           "country": "Finland",
           "price": 29.9,
-          "price_180d_change": "1.01%"
+          "price_180d_change": "1.01%",
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "HLAG.DE",
@@ -7727,7 +8208,8 @@
           "sector": "Industrials",
           "country": "Germany",
           "price": 118.79,
-          "price_180d_change": "-23.92%"
+          "price_180d_change": "-23.92%",
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "6089.T",
@@ -7740,7 +8222,8 @@
           "price_180d_change": "-3.45%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6050.T",
@@ -7750,7 +8233,8 @@
           "sector": "Industrials",
           "country": "Japan",
           "price": 2012.0,
-          "price_180d_change": "4.32%"
+          "price_180d_change": "4.32%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "2491.T",
@@ -7763,7 +8247,8 @@
           "price_180d_change": "-29.86%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "2146.T",
@@ -7776,7 +8261,8 @@
           "price_180d_change": "26.94%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "NWC.TO",
@@ -7789,7 +8275,8 @@
           "price_180d_change": "6.11%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.62
         },
         {
           "ticker": "6750.T",
@@ -7802,7 +8289,8 @@
           "price_180d_change": "23.62%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "3088.T",
@@ -7815,7 +8303,8 @@
           "price_180d_change": "40.78%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6055.T",
@@ -7825,7 +8314,8 @@
           "sector": "Technology",
           "country": "Japan",
           "price": 1572.0,
-          "price_180d_change": "-7.77%"
+          "price_180d_change": "-7.77%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "VCI.V",
@@ -7838,7 +8328,8 @@
           "price_180d_change": "14.29%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.62
         },
         {
           "ticker": "RNWH.L",
@@ -7851,7 +8342,8 @@
           "price_180d_change": "-15.31%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 0.865
         },
         {
           "ticker": "7419.T",
@@ -7864,7 +8356,8 @@
           "price_180d_change": "57.74%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "6194.T",
@@ -7874,7 +8367,8 @@
           "sector": "Technology",
           "country": "Japan",
           "price": 814.37,
-          "price_180d_change": "2.40%"
+          "price_180d_change": "2.40%",
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "4686.T",
@@ -7887,7 +8381,8 @@
           "price_180d_change": "35.14%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "7508.T",
@@ -7900,7 +8395,8 @@
           "price_180d_change": "-10.47%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "KNOW.ST",
@@ -7913,7 +8409,8 @@
           "price_180d_change": "-23.94%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "7846.T",
@@ -7926,7 +8423,8 @@
           "price_180d_change": "-4.83%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 172.77
         },
         {
           "ticker": "BTS-B.ST",
@@ -7936,7 +8434,8 @@
           "sector": "Industrials",
           "country": "Sweden",
           "price": 185.97,
-          "price_180d_change": "-27.67%"
+          "price_180d_change": "-27.67%",
+          "eur_exchange_rate": 10.93
         },
         {
           "ticker": "AJ91.DE",
@@ -7949,7 +8448,8 @@
           "price_180d_change": "56.89%",
           "screens": [
             "Moat Companies"
-          ]
+          ],
+          "eur_exchange_rate": 1.0
         },
         {
           "ticker": "3836.T",
@@ -7959,7 +8459,8 @@
           "sector": "Technology",
           "country": "Japan",
           "price": 1525.0,
-          "price_180d_change": "-24.73%"
+          "price_180d_change": "-24.73%",
+          "eur_exchange_rate": 172.77
         }
       ]
     }
