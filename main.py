@@ -226,6 +226,37 @@ def step8_ibkr_search():
         print(f"Step 8 failed - {e}")
         return False
 
+def step9_rebalancer():
+    """Step 9: Generate rebalancing orders based on target quantities and current positions"""
+    print("\nSTEP 9: Generating portfolio rebalancing orders")
+    print("=" * 50)
+    
+    try:
+        # Import and run portfolio rebalancer
+        import subprocess
+        
+        # Run rebalancer.py using the virtual environment
+        result = subprocess.run(
+            ["./portfolio_env/Scripts/python", "rebalancer.py"],
+            capture_output=True,
+            text=True
+        )
+        
+        if result.returncode == 0:
+            print("Step 9 complete - rebalancing orders generated")
+            # Display key results
+            print("\nRebalancer output:")
+            print(result.stdout)
+            return True
+        else:
+            print("Step 9 failed - rebalancer error")
+            print(f"Error: {result.stderr}")
+            return False
+            
+    except Exception as e:
+        print(f"Step 9 failed - {e}")
+        return False
+
 def run_all_steps():
     """Run all steps in sequence"""
     print("Uncle Stock Screener - Full Pipeline")
@@ -247,14 +278,19 @@ def run_all_steps():
                                 # Step 7: Calculate stock quantities from IBKR account value
                                 if step7_calculate_quantities():
                                     # Step 8: Search for stocks on IBKR and update with identification details
-                                    step8_ibkr_search()
-                                    
-                                    print("\n" + "=" * 60)
-                                    print("ALL STEPS COMPLETE")
-                                    print("Files created:")
-                                    print("  - CSV files in data/files_exports/")
-                                    print("  - universe.json with complete stock data, portfolio optimization, allocations, and quantities")
-                                    print("  - universe_with_ibkr.json with IBKR identification details")
+                                    if step8_ibkr_search():
+                                        # Step 9: Generate rebalancing orders
+                                        step9_rebalancer()
+                                        
+                                        print("\n" + "=" * 60)
+                                        print("ALL STEPS COMPLETE")
+                                        print("Files created:")
+                                        print("  - CSV files in data/files_exports/")
+                                        print("  - universe.json with complete stock data, portfolio optimization, allocations, and quantities")
+                                        print("  - universe_with_ibkr.json with IBKR identification details")
+                                        print("  - orders.json with rebalancing orders ready for execution")
+                                    else:
+                                        print("Step 8 failed - stopping pipeline")
                                 else:
                                     print("Step 7 failed - stopping pipeline")
                             else:
@@ -287,6 +323,7 @@ def show_help():
     print("  6, step6, target    - Calculate final stock allocations")
     print("  7, step7, qty       - Get account value from IBKR and calculate stock quantities")
     print("  8, step8, ibkr      - Search for all universe stocks on IBKR")
+    print("  9, step9, rebalance - Generate rebalancing orders based on targets vs current positions")
     print("  all, full           - Run all steps (default)")
     print("  help, -h, --help    - Show this help")
     print("\nExamples:")
@@ -299,6 +336,7 @@ def show_help():
     print("  python main.py target     # Only calculate stock allocations")
     print("  python main.py qty        # Only calculate stock quantities from IBKR")
     print("  python main.py ibkr       # Only search for stocks on IBKR")
+    print("  python main.py rebalance  # Only generate rebalancing orders")
 
 def main():
     """Main function with command-line argument support"""
@@ -321,6 +359,8 @@ def main():
             step7_calculate_quantities()
         elif arg in ['8', 'step8', 'ibkr']:
             step8_ibkr_search()
+        elif arg in ['9', 'step9', 'rebalance']:
+            step9_rebalancer()
         elif arg in ['all', 'full']:
             run_all_steps()
         elif arg in ['help', '-h', '--help']:

@@ -3389,8 +3389,14 @@
           "target_value_eur": 36961.97,
           "quantity": 1576,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "6490",
+            "longName": "PILLAR CORP /JAPAN",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 14016731,
+            "search_method": "isin",
+            "match_score": 0.43478260869565216
           }
         },
         {
@@ -4822,8 +4828,14 @@
           "target_value_eur": 11867.55,
           "quantity": 1778,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "4055",
+            "longName": "T&S GROUP INC",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 432569031,
+            "search_method": "isin",
+            "match_score": 0.6666666666666666
           }
         },
         {
@@ -5817,8 +5829,14 @@
           "target_value_eur": 71355.5,
           "quantity": 15501,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "9564",
+            "longName": "FCE INC/JAPAN",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 587799345,
+            "search_method": "ticker",
+            "match_score": 0.4666666666666667
           }
         },
         {
@@ -11026,8 +11044,14 @@
           "quantity": 0,
           "allocation_note": "minimal_allocation",
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "MLHOT",
+            "longName": "HOTELIM",
+            "exchange": "SMART",
+            "primaryExchange": "SBF",
+            "conId": 100292280,
+            "search_method": "isin",
+            "match_score": 0.4666666666666667
           }
         },
         {
@@ -13211,8 +13235,14 @@
           "quantity": 0,
           "allocation_note": "minimal_allocation",
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "6490",
+            "longName": "PILLAR CORP /JAPAN",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 14016731,
+            "search_method": "isin",
+            "match_score": 0.43478260869565216
           }
         },
         {

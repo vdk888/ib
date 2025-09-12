@@ -336,13 +336,17 @@ def comprehensive_stock_search(app, stock, verbose=False):
             time.sleep(0.05)
         
         if app.contract_details:
+            # Mark these as ISIN results
+            for contract in app.contract_details:
+                contract['_search_method'] = 'isin'
             all_contracts.extend(app.contract_details)
-            search_method = "isin"
             if verbose:
                 print(f"    ISIN found: {len(app.contract_details)} results")
     
     # Strategy 2: Ticker variations on SMART exchange
-    if not all_contracts and stock.get('ticker'):
+    # Always try ticker search if we have a ticker, regardless of ISIN results
+    # (ISIN results might get rejected during validation)
+    if stock.get('ticker'):
         if verbose:
             print(f"  Strategy 2 - Ticker variations")
         ticker = stock['ticker']
@@ -366,8 +370,10 @@ def comprehensive_stock_search(app, stock, verbose=False):
                 time.sleep(0.05)
             
             if app.contract_details:
+                # Mark these as ticker results
+                for contract in app.contract_details:
+                    contract['_search_method'] = 'ticker'
                 all_contracts.extend(app.contract_details)
-                search_method = "ticker"
                 if verbose:
                     print(f"      FOUND with {variant}!")
                 break  # Found it, move on
@@ -380,8 +386,10 @@ def comprehensive_stock_search(app, stock, verbose=False):
             print(f"  Strategy 3 - Name-based search")
         name_matches = search_by_name_matching(app, stock)
         if name_matches:
+            # Mark these as name results
+            for contract in name_matches:
+                contract['_search_method'] = 'name'
             all_contracts.extend(name_matches)
-            search_method = "name"
             if verbose:
                 print(f"    Name search found: {len(name_matches)} results")
     
@@ -390,10 +398,11 @@ def comprehensive_stock_search(app, stock, verbose=False):
         valid_matches = []
         
         if verbose:
-            print(f"  Evaluating {len(all_contracts)} potential matches using {search_method} validation...")
+            print(f"  Evaluating {len(all_contracts)} potential matches...")
         
         for contract in all_contracts:
-            is_valid, reason = is_valid_match(stock, contract, search_method)
+            contract_search_method = contract.get('_search_method', 'unknown')
+            is_valid, reason = is_valid_match(stock, contract, contract_search_method)
             
             if is_valid:
                 name_sim = similarity_score(stock['name'].lower(), contract['longName'].lower())
@@ -409,7 +418,8 @@ def comprehensive_stock_search(app, stock, verbose=False):
             valid_matches.sort(key=lambda x: x[1], reverse=True)
             best_match = valid_matches[0][0]
             best_score = valid_matches[0][1]
-            best_match['search_method'] = search_method  # Add search method to result
+            # Keep the individual search method that was used for this specific match
+            best_match['search_method'] = best_match.get('_search_method', 'unknown')
         else:
             best_match = None
             best_score = 0.0
@@ -524,7 +534,7 @@ def process_all_universe_stocks():
         debug = ticker == "OR.PA"
         match, score = comprehensive_stock_search(app, stock, verbose=debug)
         
-        if match and score > 0.5:
+        if match and score > 0.0:
             # Determine search method
             search_method = "unknown"
             if stock.get('isin') and stock.get('isin') not in ['null', '', None]:
