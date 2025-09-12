@@ -68,13 +68,22 @@ class IBOrderExecutor(EWrapper, EClient):
 
 class OrderExecutor:
     def __init__(self, orders_file: str = "orders.json"):
-        self.orders_file = orders_file
+        import os
+        # If relative path, make it relative to data/files_exports directory
+        if not os.path.isabs(orders_file):
+            project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            self.orders_file = os.path.join(project_root, "data", "files_exports", orders_file)
+        else:
+            self.orders_file = orders_file
         self.orders_data = None
         self.api = None
         
     def load_orders(self):
         """Load orders from JSON file"""
+        import os
         print(f"[LOAD] Loading orders from {self.orders_file}...")
+        print(f"[DEBUG] Working directory: {os.getcwd()}")
+        print(f"[DEBUG] Orders file exists: {os.path.exists(self.orders_file)}")
         with open(self.orders_file, 'r') as f:
             self.orders_data = json.load(f)
             
@@ -296,7 +305,11 @@ def main():
             print(f"[WARNING] Invalid delay argument: {sys.argv[2]}")
     
     # Create and run executor
-    executor = OrderExecutor()
+    import os
+    # Default to orders.json in data/files_exports
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    orders_file = os.path.join(project_root, "data", "files_exports", "orders.json")
+    executor = OrderExecutor(orders_file)
     success = executor.run_execution(max_orders, delay)
     
     if success:

@@ -3239,8 +3239,14 @@
           "target_value_eur": 65609.51,
           "quantity": 3096,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "6420",
+            "longName": "GALILEI CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 47416939,
+            "search_method": "isin",
+            "match_score": 0.2564102564102564
           }
         },
         {
@@ -7637,8 +7643,14 @@
           "target_value_eur": 73383.5,
           "quantity": 11270,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "6037",
+            "longName": "RAKUMACHI INC",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 180235469,
+            "search_method": "isin",
+            "match_score": 0.37037037037037035
           }
         },
         {
@@ -11172,8 +11184,14 @@
           "quantity": 0,
           "allocation_note": "minimal_allocation",
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "2331",
+            "longName": "ALSOK CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 45947664,
+            "search_method": "isin",
+            "match_score": 0.42857142857142855
           }
         },
         {
@@ -14217,8 +14235,14 @@
           "quantity": 0,
           "allocation_note": "minimal_allocation",
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "3663",
+            "longName": "CELSYS INC",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 105387887,
+            "search_method": "isin",
+            "match_score": 0.3870967741935484
           }
         },
         {
@@ -14591,8 +14615,14 @@
           "target_value_eur": 12329.92,
           "quantity": 1167,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "2154",
+            "longName": "OPEN UP GROUP INC",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131084437,
+            "search_method": "isin",
+            "match_score": 0.55
           }
         },
         {

@@ -237,7 +237,7 @@ def step9_rebalancer():
         
         # Run rebalancer.py using the virtual environment
         result = subprocess.run(
-            ["./portfolio_env/Scripts/python", "rebalancer.py"],
+            ["./portfolio_env/Scripts/python", "src/rebalancer.py"],
             capture_output=True,
             text=True
         )
@@ -268,7 +268,7 @@ def step10_execute_orders():
         
         # Run order_executor.py using the virtual environment
         result = subprocess.run(
-            ["./portfolio_env/Scripts/python", "order_executor.py"],
+            ["./portfolio_env/Scripts/python", "src/order_executor.py"],
             capture_output=True,
             text=True
         )
@@ -321,7 +321,7 @@ def run_all_steps():
                                             print("  - CSV files in data/files_exports/")
                                             print("  - universe.json with complete stock data, portfolio optimization, allocations, and quantities")
                                             print("  - universe_with_ibkr.json with IBKR identification details")
-                                            print("  - orders.json with rebalancing orders ready for execution")
+                                            print("  - data/files_exports/orders.json with rebalancing orders ready for execution")
                                             print("\nPortfolio rebalancing complete!")
                                         else:
                                             print("Step 9 failed - stopping pipeline")

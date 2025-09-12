@@ -313,6 +313,14 @@ class PortfolioRebalancer:
         
     def save_orders_json(self, output_file: str = "orders.json"):
         """Save orders to JSON file"""
+        import os
+        # Save to data/files_exports directory
+        if not os.path.isabs(output_file):
+            project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            output_file = os.path.join(project_root, "data", "files_exports", output_file)
+            
+        # Ensure the directory exists
+        os.makedirs(os.path.dirname(output_file), exist_ok=True)
         print(f"\n[SAVE] Saving orders to {output_file}...")
         
         orders_data = {
@@ -337,6 +345,11 @@ class PortfolioRebalancer:
         print("[REBALANCE] Starting Portfolio Rebalancing")
         print("=" * 50)
         
+        # Print current working directory for debugging
+        import os
+        print(f"[DEBUG] Working directory: {os.getcwd()}")
+        print(f"[DEBUG] Universe file path: {self.universe_file}")
+        
         try:
             # Step 1: Load universe data
             self.load_universe_data()
@@ -355,7 +368,7 @@ class PortfolioRebalancer:
             
             print("\n" + "=" * 50)
             print("[SUCCESS] Rebalancing analysis complete!")
-            print("   Orders saved to 'orders.json'")
+            print(f"   Orders saved to 'data/files_exports/orders.json'")
             print("   Review the orders before executing them.")
             
         except Exception as e:
@@ -365,7 +378,10 @@ class PortfolioRebalancer:
 
 def main():
     """Main function to run the rebalancer"""
-    universe_file = "data/universe_with_ibkr.json"
+    import os
+    # Get the project root directory (parent of src)
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    universe_file = os.path.join(project_root, "data", "universe_with_ibkr.json")
     
     rebalancer = PortfolioRebalancer(universe_file)
     rebalancer.run_rebalancing()
