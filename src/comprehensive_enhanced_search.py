@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Comprehensive enhanced search with multiple strategies to find all available stocks
+Processes all unique stocks from universe.json and updates with IBKR identification details
 """
 
 import json
@@ -11,6 +12,8 @@ from ibapi.wrapper import EWrapper
 from ibapi.contract import Contract
 import threading
 import time
+import os
+from pathlib import Path
 
 class IBApi(EWrapper, EClient):
     def __init__(self):
@@ -38,6 +41,8 @@ class IBApi(EWrapper, EClient):
             "longName": contractDetails.longName,
             "currency": contract.currency,
             "exchange": contract.exchange,
+            "primaryExchange": contract.primaryExchange if contract.primaryExchange else "",
+            "conId": contract.conId,
             "contract": contract
         }
         self.contract_details.append(details)
@@ -219,8 +224,6 @@ def search_by_name_matching(app, stock):
         if len(term) < 2:
             continue
             
-        print(f"    Searching name: '{term}'")
-        
         try:
             app.matching_symbols = []
             app.symbol_search_completed = False
@@ -252,19 +255,21 @@ def search_by_name_matching(app, stock):
             time.sleep(0.2)
             
         except Exception as e:
-            print(f"    Name search error: {e}")
+            pass
     
     return all_matches
 
-def comprehensive_stock_search(app, stock):
+def comprehensive_stock_search(app, stock, verbose=False):
     """Comprehensive search using multiple strategies"""
-    print(f"Searching: {stock['name']} ({stock.get('ticker', 'N/A')})")
+    if verbose:
+        print(f"Searching: {stock['name']} ({stock.get('ticker', 'N/A')})")
     
     all_contracts = []
     
     # Strategy 1: ISIN search
     if stock.get('isin') and stock.get('isin') not in ['null', '', None]:
-        print(f"  Strategy 1 - ISIN: {stock['isin']}")
+        if verbose:
+            print(f"  Strategy 1 - ISIN: {stock['isin']}")
         contract = create_contract_from_isin(stock['isin'], stock['currency'])
         
         app.contract_details = []
@@ -277,18 +282,22 @@ def comprehensive_stock_search(app, stock):
             time.sleep(0.05)
         
         all_contracts.extend(app.contract_details)
-        print(f"    ISIN found: {len(app.contract_details)} results")
+        if verbose:
+            print(f"    ISIN found: {len(app.contract_details)} results")
     
     # Strategy 2: Ticker variations on SMART exchange
-    if stock.get('ticker'):
-        print(f"  Strategy 2 - Ticker variations")
+    if not all_contracts and stock.get('ticker'):
+        if verbose:
+            print(f"  Strategy 2 - Ticker variations")
         ticker = stock['ticker']
         currency = stock['currency']
         variations = get_all_ticker_variations(ticker)
-        print(f"    Variations: {variations}")
+        if verbose:
+            print(f"    Variations: {variations}")
         
         for variant in variations:
-            print(f"    Trying: {variant} ({currency})")
+            if verbose:
+                print(f"    Trying: {variant} ({currency})")
             contract = create_contract_from_ticker(variant, currency, "SMART")
             
             app.contract_details = []
@@ -302,33 +311,39 @@ def comprehensive_stock_search(app, stock):
             
             if app.contract_details:
                 all_contracts.extend(app.contract_details)
-                print(f"      FOUND with {variant}!")
+                if verbose:
+                    print(f"      FOUND with {variant}!")
                 break  # Found it, move on
             
             time.sleep(0.1)
     
     # Strategy 3: Name-based symbol matching
     if not all_contracts:
-        print(f"  Strategy 3 - Name-based search")
+        if verbose:
+            print(f"  Strategy 3 - Name-based search")
         name_matches = search_by_name_matching(app, stock)
         all_contracts.extend(name_matches)
-        print(f"    Name search found: {len(name_matches)} results")
+        if verbose:
+            print(f"    Name search found: {len(name_matches)} results")
     
     # Match and score results with strict validation
     if all_contracts:
         valid_matches = []
         
-        print(f"  Evaluating {len(all_contracts)} potential matches with strict validation...")
+        if verbose:
+            print(f"  Evaluating {len(all_contracts)} potential matches with strict validation...")
         
         for contract in all_contracts:
             is_valid, reason = is_valid_match(stock, contract)
             
             if is_valid:
                 name_sim = similarity_score(stock['name'].lower(), contract['longName'].lower())
-                print(f"    VALID: {contract['symbol']}: {contract['longName'][:40]} -> {reason}")
+                if verbose:
+                    print(f"    VALID: {contract['symbol']}: {contract['longName'][:40]} -> {reason}")
                 valid_matches.append((contract, name_sim))
             else:
-                print(f"    REJECTED: {contract['symbol']}: {contract['longName'][:40]} -> {reason}")
+                if verbose:
+                    print(f"    REJECTED: {contract['symbol']}: {contract['longName'][:40]} -> {reason}")
         
         if valid_matches:
             # Sort by name similarity and pick the best
@@ -343,26 +358,76 @@ def comprehensive_stock_search(app, stock):
     
     return None, 0.0
 
-def test_comprehensive_search():
-    """Test comprehensive search on all failing stocks"""
+def extract_unique_stocks(universe_data):
+    """Extract unique stocks from universe.json"""
+    unique_stocks = {}
     
-    failing_stocks = [
-        {"name": "ROCKWOOL International A/S", "ticker": "ROCK-A.CO", "isin": "DK0010219070", "currency": "DKK", "country": "Denmark"},
-        {"name": "Thessaloniki Port Authority SA", "ticker": "OLTH.AT", "isin": "GRS427003009", "currency": "EUR", "country": "Greece"},
-        {"name": "Admicom Oyj", "ticker": "ADMCM.HE", "isin": "FI4000251830", "currency": "EUR", "country": "Finland"},
-        {"name": "Everplay Group PLC", "ticker": "EVPL.L", "isin": "null", "currency": "GBP", "country": "United Kingdom"},
-        {"name": "New Wave Group AB (publ)", "ticker": "NEWA-B.ST", "isin": "SE0000426546", "currency": "SEK", "country": "Sweden"},
-        {"name": "Gr. Sarantis S.A.", "ticker": "SAR.AT", "isin": "GRS204003008", "currency": "EUR", "country": "Greece"},
-        {"name": "ROCKWOOL International A/S", "ticker": "ROCK-B.CO", "isin": "DK0010219153", "currency": "DKK", "country": "Denmark"},
-        {"name": "Profile Systems & Software SA", "ticker": "PROF.AT", "isin": "GRS472003011", "currency": "EUR", "country": "Greece"},
-        {"name": "Flexopack Societe Anonyme Commercial and Industrial Plastics Company", "ticker": "FLEXO.AT", "isin": "GRS259003002", "currency": "EUR", "country": "Greece"},
-        {"name": "Dewhurst plc", "ticker": "DWHT.L", "isin": "GB0002675048", "currency": "GBP", "country": "United Kingdom"},
-        {"name": "Ilyda SA", "ticker": "ILYDA.AT", "isin": "GRS475003018", "currency": "EUR", "country": "Greece"}
-    ]
+    # Process all screens
+    for screen_name, screen_data in universe_data.get('screens', {}).items():
+        for stock in screen_data.get('stocks', []):
+            # Use ticker as unique key
+            ticker = stock.get('ticker')
+            if ticker and ticker not in unique_stocks:
+                unique_stocks[ticker] = {
+                    'ticker': ticker,
+                    'isin': stock.get('isin'),
+                    'name': stock.get('name'),
+                    'currency': stock.get('currency'),
+                    'sector': stock.get('sector'),
+                    'country': stock.get('country')
+                }
+    
+    return list(unique_stocks.values())
+
+def update_universe_with_ibkr_details(universe_data, stock_ticker, ibkr_details):
+    """Update universe.json with IBKR identification details"""
+    # Update in all screens where this stock appears
+    for screen_name, screen_data in universe_data.get('screens', {}).items():
+        for stock in screen_data.get('stocks', []):
+            if stock.get('ticker') == stock_ticker:
+                # Add IBKR details
+                stock['ibkr_details'] = {
+                    'found': True,
+                    'symbol': ibkr_details['symbol'],
+                    'longName': ibkr_details['longName'],
+                    'exchange': ibkr_details['exchange'],
+                    'primaryExchange': ibkr_details.get('primaryExchange', ''),
+                    'conId': ibkr_details.get('conId', 0),
+                    'search_method': ibkr_details.get('search_method', 'unknown'),
+                    'match_score': ibkr_details.get('match_score', 0.0)
+                }
+
+def mark_stock_not_found(universe_data, stock_ticker):
+    """Mark stock as not found in IBKR"""
+    for screen_name, screen_data in universe_data.get('screens', {}).items():
+        for stock in screen_data.get('stocks', []):
+            if stock.get('ticker') == stock_ticker:
+                stock['ibkr_details'] = {
+                    'found': False,
+                    'search_attempted': True
+                }
+
+def process_all_universe_stocks():
+    """Process all stocks from universe.json and update with IBKR details"""
+    
+    # Load universe.json
+    script_dir = Path(__file__).parent
+    universe_path = script_dir.parent / 'data' / 'universe.json'
+    
+    if not universe_path.exists():
+        print(f"Error: universe.json not found at {universe_path}")
+        return
+    
+    with open(universe_path, 'r', encoding='utf-8') as f:
+        universe_data = json.load(f)
+    
+    # Extract unique stocks
+    unique_stocks = extract_unique_stocks(universe_data)
+    print(f"Found {len(unique_stocks)} unique stocks in universe.json")
     
     # Connect to IBKR
     app = IBApi()
-    app.connect("127.0.0.1", 4002, clientId=15)
+    app.connect("127.0.0.1", 4002, clientId=20)
     
     api_thread = threading.Thread(target=app.run, daemon=True)
     api_thread.start()
@@ -373,63 +438,112 @@ def test_comprehensive_search():
         time.sleep(0.1)
     
     if not app.connected:
-        print("Failed to connect")
+        print("Failed to connect to IB Gateway")
         return
     
-    results = {
-        'found': [],
-        'still_missing': []
+    print("Connected to IB Gateway")
+    print("="*80)
+    
+    # Statistics
+    stats = {
+        'total': len(unique_stocks),
+        'found_isin': 0,
+        'found_ticker': 0,
+        'found_name': 0,
+        'not_found': 0,
+        'not_found_stocks': []
     }
     
-    for i, stock in enumerate(failing_stocks, 1):
-        print(f"\n{'='*80}")
-        print(f"TESTING {i}/{len(failing_stocks)}: {stock['name']}")
-        print(f"{'='*80}")
+    # Process each stock
+    for i, stock in enumerate(unique_stocks, 1):
+        ticker = stock['ticker']
+        print(f"\n[{i}/{len(unique_stocks)}] Processing: {stock['name']} ({ticker})")
         
-        match, score = comprehensive_stock_search(app, stock)
+        # Search for the stock
+        match, score = comprehensive_stock_search(app, stock, verbose=False)
         
-        if match and score > 0.5:  # Adjusted threshold for exact word matches
-            print(f"\n✓ FOUND! Score: {score:.1%}")
-            print(f"  Symbol: {match['symbol']}")
-            print(f"  Name: {match['longName']}")
-            print(f"  Currency: {match['currency']}")
-            print(f"  Exchange: {match['exchange']}")
+        if match and score > 0.5:
+            # Determine search method
+            search_method = "unknown"
+            if stock.get('isin') and stock.get('isin') not in ['null', '', None]:
+                # Check if found by ISIN
+                test_contract = create_contract_from_isin(stock['isin'], stock['currency'])
+                app.contract_details = []
+                app.search_completed = False
+                app.reqContractDetails(app.next_req_id, test_contract)
+                app.next_req_id += 1
+                
+                timeout_start = time.time()
+                while not app.search_completed and (time.time() - timeout_start) < 3:
+                    time.sleep(0.05)
+                
+                if app.contract_details:
+                    search_method = "isin"
+                    stats['found_isin'] += 1
+                else:
+                    search_method = "ticker"
+                    stats['found_ticker'] += 1
+            else:
+                # If no ISIN, check if found by ticker or name
+                if match['symbol'].upper() in [v.upper() for v in get_all_ticker_variations(ticker)]:
+                    search_method = "ticker"
+                    stats['found_ticker'] += 1
+                else:
+                    search_method = "name"
+                    stats['found_name'] += 1
             
-            results['found'].append({
-                'original': stock,
-                'found': match,
-                'score': score
-            })
+            # Add search method and score to match details
+            match['search_method'] = search_method
+            match['match_score'] = score
+            
+            # Update universe data
+            update_universe_with_ibkr_details(universe_data, ticker, match)
+            
+            print(f"  ✓ FOUND: {match['symbol']} on {match['exchange']} (method: {search_method}, score: {score:.1%})")
         else:
-            print(f"\n✗ NOT FOUND (best score: {score:.1%})")
-            results['still_missing'].append(stock)
+            # Mark as not found
+            mark_stock_not_found(universe_data, ticker)
+            stats['not_found'] += 1
+            stats['not_found_stocks'].append({
+                'ticker': ticker,
+                'name': stock['name'],
+                'currency': stock['currency'],
+                'country': stock.get('country', 'Unknown')
+            })
+            print(f"  ✗ NOT FOUND")
         
-        time.sleep(1)  # Pause between searches
+        # Small delay between searches
+        time.sleep(0.5)
     
+    # Disconnect from IBKR
     app.disconnect()
     
-    # Final summary
-    print(f"\n{'='*80}")
-    print(f"COMPREHENSIVE SEARCH RESULTS")
-    print(f"{'='*80}")
-    print(f"Total tested: {len(failing_stocks)}")
-    print(f"Successfully found: {len(results['found'])}")
-    print(f"Still missing: {len(results['still_missing'])}")
-    print(f"Success rate: {len(results['found'])/len(failing_stocks):.1%}")
+    # Save updated universe.json
+    output_path = script_dir.parent / 'data' / 'universe_with_ibkr.json'
+    with open(output_path, 'w', encoding='utf-8') as f:
+        json.dump(universe_data, f, indent=2, ensure_ascii=False)
     
-    if results['found']:
-        print(f"\n✓ SUCCESSFULLY FOUND:")
-        for item in results['found']:
-            orig = item['original']
-            found = item['found']
-            print(f"  {orig['name']} ({orig['ticker']}) -> {found['symbol']} ({found['currency']})")
+    # Print final statistics
+    print("\n" + "="*80)
+    print("COMPREHENSIVE SEARCH RESULTS")
+    print("="*80)
+    print(f"Total unique stocks: {stats['total']}")
+    print(f"Found via ISIN: {stats['found_isin']} ({stats['found_isin']/stats['total']*100:.1f}%)")
+    print(f"Found via ticker: {stats['found_ticker']} ({stats['found_ticker']/stats['total']*100:.1f}%)")
+    print(f"Found via name: {stats['found_name']} ({stats['found_name']/stats['total']*100:.1f}%)")
+    print(f"Not found: {stats['not_found']} ({stats['not_found']/stats['total']*100:.1f}%)")
     
-    if results['still_missing']:
-        print(f"\n✗ STILL MISSING (likely unavailable in paper trading):")
-        for stock in results['still_missing']:
-            print(f"  {stock['name']} ({stock['ticker']})")
+    total_found = stats['found_isin'] + stats['found_ticker'] + stats['found_name']
+    print(f"\nOVERALL COVERAGE: {total_found}/{stats['total']} ({total_found/stats['total']*100:.1f}%)")
     
-    return results
+    if stats['not_found_stocks']:
+        print(f"\nSTOCKS NOT FOUND IN IBKR ({len(stats['not_found_stocks'])}):")
+        for stock in stats['not_found_stocks']:
+            print(f"  - {stock['name']} ({stock['ticker']}) - {stock['currency']} - {stock['country']}")
+    
+    print(f"\nUpdated universe saved to: {output_path}")
+    
+    return stats
 
 if __name__ == "__main__":
-    test_comprehensive_search()
+    process_all_universe_stocks()
