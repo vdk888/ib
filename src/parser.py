@@ -8,7 +8,7 @@ import csv
 import json
 import os
 from glob import glob
-from config import UNCLE_STOCK_SCREENS
+from config import UNCLE_STOCK_SCREENS, ADDITIONAL_FIELDS, EXTRACT_ADDITIONAL_FIELDS
 
 def find_column_index(headers, description_row, header_name, subtitle_pattern):
     """
@@ -291,7 +291,16 @@ def create_universe():
         'metadata': {
             'screens': list(UNCLE_STOCK_SCREENS.values()),
             'total_stocks': 0,
-            'unique_stocks': 0
+            'unique_stocks': 0,
+            'additional_fields_enabled': EXTRACT_ADDITIONAL_FIELDS,
+            'additional_fields': [
+                {
+                    'field_alias': alias,
+                    'header': header,
+                    'subtitle': subtitle,
+                    'description': desc
+                } for header, subtitle, alias, desc in ADDITIONAL_FIELDS
+            ] if EXTRACT_ADDITIONAL_FIELDS else []
         },
         'screens': {},
         'all_stocks': {}
@@ -308,7 +317,15 @@ def create_universe():
         
         if os.path.exists(csv_path):
             print(f"Parsing {screen_name} from {csv_path}...")
-            stocks = parse_screener_csv(csv_path)
+            
+            # Use flexible parser if additional fields are configured
+            if EXTRACT_ADDITIONAL_FIELDS and ADDITIONAL_FIELDS:
+                # Convert config format to flexible parser format
+                additional_fields_config = [(header, subtitle, alias) for header, subtitle, alias, desc in ADDITIONAL_FIELDS]
+                stocks = parse_screener_csv_flexible(csv_path, additional_fields_config)
+                print(f"  Extracting {len(additional_fields_config)} additional fields per stock")
+            else:
+                stocks = parse_screener_csv(csv_path)
             
             # Store stocks for this screen
             universe['screens'][screen_key] = {
