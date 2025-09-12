@@ -8,14 +8,7 @@ import requests
 import json
 import os
 from datetime import datetime
-from dotenv import load_dotenv
-
-# Load environment variables
-load_dotenv()
-
-# Import constants from environment variables with fallback
-UNCLE_STOCK_USER_ID = os.getenv("UNCLE_STOCK_USER_ID", "missing id")
-UNCLE_STOCK_QUERY_NAME = "Graham"
+from config import UNCLE_STOCK_USER_ID, UNCLE_STOCK_SCREENS
 
 def get_current_stocks(user_id=None, query_name=None, max_results=200):
     """
@@ -23,14 +16,20 @@ def get_current_stocks(user_id=None, query_name=None, max_results=200):
     
     Args:
         user_id: Uncle Stock user ID (defaults to config)
-        query_name: Saved query name (defaults to config) 
+        query_name: Saved query name (must be provided or will return error) 
         max_results: Maximum number of stocks to return
         
     Returns:
         dict: {'success': bool, 'data': list/str, 'raw_response': str}
     """
     user_id = user_id or UNCLE_STOCK_USER_ID
-    query_name = query_name or UNCLE_STOCK_QUERY_NAME
+    
+    if not query_name:
+        return {
+            'success': False,
+            'data': "Query name must be provided",
+            'raw_response': None
+        }
     
     params = {
         'user': user_id,
@@ -103,13 +102,19 @@ def get_screener_history(user_id=None, query_name=None):
     
     Args:
         user_id: Uncle Stock user ID (defaults to config)
-        query_name: Saved query name (defaults to config)
+        query_name: Saved query name (must be provided or will return error)
         
     Returns:
         dict: {'success': bool, 'data': dict/str, 'raw_response': str}
     """
     user_id = user_id or UNCLE_STOCK_USER_ID
-    query_name = query_name or UNCLE_STOCK_QUERY_NAME
+    
+    if not query_name:
+        return {
+            'success': False,
+            'data': "Query name must be provided",
+            'raw_response': None
+        }
     
     params = {
         'user': user_id,
@@ -173,23 +178,72 @@ def get_screener_history(user_id=None, query_name=None):
             'raw_response': None
         }
 
+def get_all_screeners():
+    """
+    Fetch current stocks from all configured screeners
+    
+    Returns:
+        dict: Results for each screener
+    """
+    results = {}
+    
+    for key, screen_name in UNCLE_STOCK_SCREENS.items():
+        print(f"\nFetching stocks for {screen_name}...")
+        result = get_current_stocks(query_name=screen_name)
+        results[key] = result
+        
+        if result['success']:
+            print(f"✓ Found {len(result['data'])} stocks for {screen_name}")
+        else:
+            print(f"✗ Error fetching {screen_name}: {result['data']}")
+    
+    return results
+
+def get_all_screener_histories():
+    """
+    Fetch backtest history from all configured screeners
+    
+    Returns:
+        dict: History results for each screener
+    """
+    results = {}
+    
+    for key, screen_name in UNCLE_STOCK_SCREENS.items():
+        print(f"\nFetching history for {screen_name}...")
+        result = get_screener_history(query_name=screen_name)
+        results[key] = result
+        
+        if result['success']:
+            print(f"✓ Retrieved history for {screen_name}")
+        else:
+            print(f"✗ Error fetching history for {screen_name}: {result['data']}")
+    
+    return results
+
 if __name__ == "__main__":
-    # Test both functions
+    # Test all screeners from config
     print("Testing Uncle Stock Screener Functions")
     print("=" * 50)
     
-    print("\n1. Testing current stocks...")
-    stocks_result = get_current_stocks()
-    print(f"Success: {stocks_result['success']}")
-    if stocks_result['success']:
-        print(f"Found {len(stocks_result['data'])} stocks: {stocks_result['data'][:5]}...")
-    else:
-        print(f"Error: {stocks_result['data']}")
+    print("\n1. Testing current stocks for all screeners...")
+    all_stocks = get_all_screeners()
     
-    print("\n2. Testing screener history...")
-    history_result = get_screener_history()
-    print(f"Success: {history_result['success']}")
-    if history_result['success']:
-        print(f"History data: {history_result['data']}")
-    else:
-        print(f"Error: {history_result['data']}")
+    print("\n2. Testing screener history for all screeners...")
+    all_histories = get_all_screener_histories()
+    
+    print("\n" + "=" * 50)
+    print("Summary:")
+    for key, screen_name in UNCLE_STOCK_SCREENS.items():
+        stocks_result = all_stocks.get(key, {})
+        history_result = all_histories.get(key, {})
+        
+        print(f"\n{screen_name}:")
+        if stocks_result.get('success'):
+            print(f"  Stocks: {len(stocks_result['data'])} found")
+        else:
+            print(f"  Stocks: Failed")
+        
+        if history_result.get('success'):
+            print(f"  History: Retrieved")
+        else:
+            print(f"  History: Failed")
