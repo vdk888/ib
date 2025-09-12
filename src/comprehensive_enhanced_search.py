@@ -150,11 +150,22 @@ def is_valid_match(universe_stock, ibkr_contract):
     ibkr_name = ibkr_contract['longName'].lower()
     
     # Extract key company identifiers - clean punctuation first
-    universe_clean = re.sub(r"[''`\-\.\,\(\)\[\]]", " ", universe_name)
-    ibkr_clean = re.sub(r"[''`\-\.\,\(\)\[\]]", " ", ibkr_name)
+    # Special handling for L'OREAL type names - join L + OREAL = LOREAL
+    universe_clean = re.sub(r"[''`\-\.\,\(\)\[\]]", "", universe_name)  # Remove completely, don't replace with space
+    ibkr_clean = re.sub(r"[''`\-\.\,\(\)\[\]]", "", ibkr_name)
+    
+    # Handle accented characters - normalize to ASCII
+    import unicodedata
+    universe_clean = unicodedata.normalize('NFD', universe_clean).encode('ascii', 'ignore').decode('ascii')
+    ibkr_clean = unicodedata.normalize('NFD', ibkr_clean).encode('ascii', 'ignore').decode('ascii')
     
     universe_words = set(re.findall(r'\b[a-zA-Z]{3,}\b', universe_clean))
     ibkr_words = set(re.findall(r'\b[a-zA-Z]{3,}\b', ibkr_clean))
+    
+    # Debug for L'Oréal
+    if "oreal" in universe_name or "oreal" in ibkr_name:
+        print(f"    DEBUG - Universe: '{universe_name}' -> '{universe_clean}' -> {universe_words}")
+        print(f"    DEBUG - IBKR: '{ibkr_name}' -> '{ibkr_clean}' -> {ibkr_words}")
     
     # Remove common corporate suffixes that don't help with matching
     ignore_words = {
