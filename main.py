@@ -88,6 +88,38 @@ def step3_parse_history():
         print("Step 3 failed - could not update universe.json with historical data")
         return False
 
+def step4_optimize_portfolio():
+    """Step 4: Optimize portfolio allocations using Sharpe ratio maximization"""
+    print("\nSTEP 4: Optimizing portfolio allocations")
+    print("=" * 50)
+    
+    try:
+        # Import and run portfolio optimizer
+        import sys
+        import subprocess
+        
+        # Run portfolio optimizer using the virtual environment
+        result = subprocess.run(
+            ["./portfolio_env/Scripts/python", "src/portfolio_optimizer.py"],
+            capture_output=True,
+            text=True
+        )
+        
+        if result.returncode == 0:
+            print("Step 4 complete - portfolio optimization successful")
+            # Display key results
+            print("\nOptimization output:")
+            print(result.stdout)
+            return True
+        else:
+            print("Step 4 failed - portfolio optimization error")
+            print(f"Error: {result.stderr}")
+            return False
+            
+    except Exception as e:
+        print(f"Step 4 failed - {e}")
+        return False
+
 def run_all_steps():
     """Run all steps in sequence"""
     print("Uncle Stock Screener - Full Pipeline")
@@ -99,13 +131,17 @@ def run_all_steps():
             # Step 2: Parse data
             if step2_parse_data():
                 # Step 3: Parse historical data
-                step3_parse_history()
-                
-                print("\n" + "=" * 60)
-                print("ALL STEPS COMPLETE")
-                print("Files created:")
-                print("  - CSV files in data/files_exports/")
-                print("  - universe.json with parsed stock data and historical performance")
+                if step3_parse_history():
+                    # Step 4: Optimize portfolio
+                    step4_optimize_portfolio()
+                    
+                    print("\n" + "=" * 60)
+                    print("ALL STEPS COMPLETE")
+                    print("Files created:")
+                    print("  - CSV files in data/files_exports/")
+                    print("  - universe.json with stock data, historical performance, and optimal portfolio")
+                else:
+                    print("Step 3 failed - stopping pipeline")
             else:
                 print("Step 2 failed - stopping pipeline")
         else:
@@ -120,17 +156,18 @@ def show_help():
     print("=" * 30)
     print("Usage: python main.py [step]")
     print("\nAvailable steps:")
-    print("  1, step1, fetch    - Fetch data from Uncle Stock API")
-    print("  2, step2, parse    - Parse CSV files and create universe.json")
-    print("  3, step3, history  - Parse historical performance data")
-    print("  all, full          - Run all steps (default)")
-    print("  help, -h, --help   - Show this help")
+    print("  1, step1, fetch     - Fetch data from Uncle Stock API")
+    print("  2, step2, parse     - Parse CSV files and create universe.json")
+    print("  3, step3, history   - Parse historical performance data")
+    print("  4, step4, portfolio - Optimize portfolio allocations")
+    print("  all, full           - Run all steps (default)")
+    print("  help, -h, --help    - Show this help")
     print("\nExamples:")
-    print("  python main.py           # Run all steps")
-    print("  python main.py 1         # Only fetch data")
-    print("  python main.py parse     # Only parse existing CSV files")
-    print("  python main.py 3         # Only parse historical data")
-    print("  python main.py history   # Only parse historical data")
+    print("  python main.py            # Run all steps")
+    print("  python main.py 1          # Only fetch data")
+    print("  python main.py parse      # Only parse existing CSV files")
+    print("  python main.py 3          # Only parse historical data")
+    print("  python main.py portfolio  # Only optimize portfolio")
 
 def main():
     """Main function with command-line argument support"""
@@ -143,6 +180,8 @@ def main():
             step2_parse_data()
         elif arg in ['3', 'step3', 'history']:
             step3_parse_history()
+        elif arg in ['4', 'step4', 'portfolio']:
+            step4_optimize_portfolio()
         elif arg in ['all', 'full']:
             run_all_steps()
         elif arg in ['help', '-h', '--help']:
