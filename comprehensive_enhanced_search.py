@@ -166,9 +166,17 @@ def is_valid_match(universe_stock, ibkr_contract):
     word_overlap = len(universe_key_words & ibkr_key_words)
     name_similarity = similarity_score(universe_name, ibkr_name)
     
+    # Check for exact key word matches (like "ROCKWOOL" = "ROCKWOOL")
+    exact_matches = []
+    for word in universe_key_words:
+        if word in ibkr_key_words:
+            exact_matches.append(word)
+    
     # Strict requirements:
     if name_similarity > 0.8:  # Very high similarity is OK
         return True, f"High similarity: {name_similarity:.2f}"
+    elif exact_matches and name_similarity > 0.5:  # Exact key word match + decent similarity
+        return True, f"Exact word match ({','.join(exact_matches)}): {name_similarity:.2f}"
     elif word_overlap >= 2 and name_similarity > 0.6:  # Good overlap + decent similarity
         return True, f"Word overlap: {word_overlap}, similarity: {name_similarity:.2f}"
     elif word_overlap >= 1 and name_similarity > 0.7:  # Some overlap + high similarity
@@ -380,7 +388,7 @@ def test_comprehensive_search():
         
         match, score = comprehensive_stock_search(app, stock)
         
-        if match and score > 0.6:  # Stricter threshold with validation
+        if match and score > 0.5:  # Adjusted threshold for exact word matches
             print(f"\n✓ FOUND! Score: {score:.1%}")
             print(f"  Symbol: {match['symbol']}")
             print(f"  Name: {match['longName']}")
