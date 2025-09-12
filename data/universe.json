@@ -18417,5 +18417,10 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.021430456406060103
     }
+  },
+  "account_total_value": {
+    "value": 1003198.08,
+    "currency": "USD",
+    "timestamp": "2025-09-12 19:19:47"
   }
 }
