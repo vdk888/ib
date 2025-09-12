@@ -15,7 +15,60 @@
         "subtitle": "180d change",
         "description": "Price change over 180 days"
       }
-    ]
+    ],
+    "historical_performance": {
+      "quality_bloom": {
+        "screen_name": "quality bloom",
+        "backtest_metadata": {
+          "Date": "18 Aug 2025",
+          "Trade": "Long",
+          "Number of stocks": "24",
+          "Begin": "2008",
+          "End": "Last possible",
+          "Max per sector": "No maximum"
+        },
+        "key_statistics": {},
+        "quarterly_summary": {
+          "total_quarters": 68,
+          "avg_quarterly_return": "3.85%",
+          "quarterly_std": "17.75%"
+        }
+      },
+      "TOR_Surplus": {
+        "screen_name": "TOR Surplus",
+        "backtest_metadata": {
+          "Date": "18 Aug 2025",
+          "Trade": "Short",
+          "Number of stocks": "24",
+          "Begin": "2008",
+          "End": "Last possible",
+          "Max per sector": "No maximum"
+        },
+        "key_statistics": {},
+        "quarterly_summary": {
+          "total_quarters": 68,
+          "avg_quarterly_return": "-3.42%",
+          "quarterly_std": "16.78%"
+        }
+      },
+      "Moat_Companies": {
+        "screen_name": "Moat Companies",
+        "backtest_metadata": {
+          "Date": "18 Aug 2025",
+          "Trade": "Long",
+          "Number of stocks": "24",
+          "Begin": "2008",
+          "End": "Last possible",
+          "Max per sector": "No maximum"
+        },
+        "key_statistics": {},
+        "quarterly_summary": {
+          "total_quarters": 68,
+          "avg_quarterly_return": "3.11%",
+          "quarterly_std": "14.24%"
+        }
+      }
+    }
   },
   "screens": {
     "quality_bloom": {
