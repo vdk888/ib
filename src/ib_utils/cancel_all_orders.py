@@ -61,7 +61,7 @@ def main():
     time.sleep(2)
     
     # Cancel ALL orders globally
-    print("\n🚨 CANCELING ALL ORDERS GLOBALLY 🚨")
+    print("\n[CANCEL] CANCELING ALL ORDERS GLOBALLY")
     print("This will cancel ALL open orders across ALL accounts...")
     
     # Use global cancel - this cancels ALL orders

@@ -113,14 +113,34 @@ class OrderExecutor:
             
         return contract
         
-    def create_market_order(self, action: str, quantity: int) -> Order:
-        """Create a market order"""
+    def create_market_order(self, action: str, quantity: int, order_type: str = "MKT") -> Order:
+        """Create a market order with configurable order type for different market sessions"""
         order = Order()
         order.action = action
-        order.orderType = "MKT"
         order.totalQuantity = quantity
         order.eTradeOnly = False
         order.firmQuoteOnly = False
+
+        if order_type == "MOO":
+            # Market on Open - executes at opening price
+            order.orderType = "MKT"
+            order.tif = "OPG"  # Time in Force: At the Opening
+            print(f"    Order type: Market on Open (MOO)")
+        elif order_type == "GTC_MKT":
+            # Good Till Cancelled Market order - stays active until market opens
+            order.orderType = "MKT"
+            order.tif = "GTC"  # Good Till Cancelled
+            print(f"    Order type: Good Till Cancelled Market (GTC)")
+        elif order_type == "DAY":
+            # Day order - expires at end of trading day
+            order.orderType = "MKT"
+            order.tif = "DAY"
+            print(f"    Order type: Day Market")
+        else:
+            # Default market order
+            order.orderType = "MKT"
+            print(f"    Order type: Market")
+
         return order
         
     def connect_to_ibkr(self) -> bool:
@@ -155,35 +175,47 @@ class OrderExecutor:
             
         return True
         
-    def execute_orders(self, max_orders: Optional[int] = None, delay_between_orders: float = 1.0):
-        """Execute orders from the JSON file"""
+    def execute_orders(self, max_orders: Optional[int] = None, delay_between_orders: float = 1.0, order_type: str = "GTC_MKT"):
+        """Execute orders from the JSON file with configurable order type"""
         if not self.orders_data:
             print("[ERROR] No orders loaded")
             return
-            
+
         orders_to_execute = self.orders_data['orders']
         if max_orders:
             orders_to_execute = orders_to_execute[:max_orders]
             print(f"[INFO] Limiting execution to first {max_orders} orders")
-            
+
         print(f"[EXECUTE] Starting execution of {len(orders_to_execute)} orders")
+        print(f"[EXECUTE] Using order type: {order_type}")
         print("=" * 60)
-        
+
         executed_count = 0
         failed_count = 0
-        
+
         for i, order_data in enumerate(orders_to_execute, 1):
             try:
                 symbol = order_data['symbol']
                 action = order_data['action']
                 quantity = order_data['quantity']
-                
+
                 print(f"\n[{i:3d}/{len(orders_to_execute)}] {action} {quantity:,} {symbol}")
-                
+
+                # Determine best order type based on market/currency
+                currency = order_data['stock_info']['currency']
+                if currency == 'USD':
+                    # US stocks - can use MOO for market open execution
+                    selected_order_type = "MOO" if order_type == "MOO" else order_type
+                else:
+                    # International stocks - use GTC to stay active until market opens
+                    selected_order_type = "GTC_MKT"
+
+                print(f"    Currency: {currency}, Selected order type: {selected_order_type}")
+
                 # Create contract and order
                 contract = self.create_contract_from_order(order_data)
-                market_order = self.create_market_order(action, quantity)
-                
+                market_order = self.create_market_order(action, quantity, selected_order_type)
+
                 # Place order
                 order_id = self.api.nextorderId
                 self.api.placeOrder(order_id, contract, market_order)
@@ -251,25 +283,25 @@ class OrderExecutor:
             self.api.disconnect()
             print("[OK] Disconnected from IB Gateway")
             
-    def run_execution(self, max_orders: Optional[int] = None, delay_between_orders: float = 1.0):
+    def run_execution(self, max_orders: Optional[int] = None, delay_between_orders: float = 1.0, order_type: str = "GTC_MKT"):
         """Run the complete order execution process"""
         try:
             # Step 1: Load orders
             self.load_orders()
-            
+
             # Step 2: Connect to IBKR
             if not self.connect_to_ibkr():
                 return False
-                
-            # Step 3: Execute orders
-            self.execute_orders(max_orders, delay_between_orders)
-            
+
+            # Step 3: Execute orders with specified order type
+            self.execute_orders(max_orders, delay_between_orders, order_type)
+
             # Step 4: Wait for status updates
             self.wait_for_order_status()
-            
+
             # Step 5: Disconnect
             self.disconnect()
-            
+
             return True
             
         except Exception as e:
@@ -289,28 +321,43 @@ def main():
     # Parse command line arguments
     max_orders = None
     delay = 1.0
-    
+    order_type = "GTC_MKT"  # Default to Good Till Cancelled for Sunday night execution
+
     if len(sys.argv) > 1:
         try:
             max_orders = int(sys.argv[1])
             print(f"[INFO] Will execute maximum {max_orders} orders")
         except ValueError:
             print(f"[WARNING] Invalid max_orders argument: {sys.argv[1]}")
-            
+
     if len(sys.argv) > 2:
         try:
             delay = float(sys.argv[2])
             print(f"[INFO] Using {delay} second delay between orders")
         except ValueError:
             print(f"[WARNING] Invalid delay argument: {sys.argv[2]}")
-    
+
+    if len(sys.argv) > 3:
+        order_type = sys.argv[3].upper()
+        if order_type not in ["MKT", "GTC_MKT", "MOO", "DAY"]:
+            print(f"[WARNING] Invalid order type: {order_type}, using default GTC_MKT")
+            order_type = "GTC_MKT"
+        else:
+            print(f"[INFO] Using order type: {order_type}")
+
+    print(f"[INFO] Order Type: {order_type}")
+    if order_type == "GTC_MKT":
+        print("[INFO] GTC orders will stay active until markets open - perfect for Sunday night execution!")
+    elif order_type == "MOO":
+        print("[INFO] Market on Open orders will execute at opening bell")
+
     # Create and run executor
     import os
     # Default to orders.json in data directory
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     orders_file = os.path.join(project_root, "data", "orders.json")
     executor = OrderExecutor(orders_file)
-    success = executor.run_execution(max_orders, delay)
+    success = executor.run_execution(max_orders, delay, order_type)
     
     if success:
         print("\n[SUCCESS] Order execution completed successfully")
