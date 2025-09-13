@@ -333,10 +333,11 @@ class OrderStatusChecker:
                 ibkr_orders_by_symbol[symbol] = []
             ibkr_orders_by_symbol[symbol].append(order_info)
 
-        # Analysis counters
+        # Analysis counters and missing orders tracking
         found_in_ibkr = 0
         missing_from_ibkr = 0
         quantity_mismatches = 0
+        missing_orders = []
 
         print(f"\nJSON ORDERS vs IBKR ORDERS:")
         print("-" * 80)
@@ -374,9 +375,11 @@ class OrderStatusChecker:
                     print(f"{symbol:<12} {json_action:<8} {json_quantity:<10} {'NOT FOUND':<15} {'-':<10} {'MISSING'}")
                     missing_from_ibkr += 1
                     found_in_ibkr -= 1
+                    missing_orders.append(json_order)
             else:
                 print(f"{symbol:<12} {json_action:<8} {json_quantity:<10} {'NOT FOUND':<15} {'-':<10} {'MISSING'}")
                 missing_from_ibkr += 1
+                missing_orders.append(json_order)
 
         print("-" * 80)
         print(f"SUMMARY:")
@@ -384,6 +387,7 @@ class OrderStatusChecker:
         print(f"  Found in IBKR: {found_in_ibkr}")
         print(f"  Missing from IBKR: {missing_from_ibkr}")
         print(f"  Quantity mismatches: {quantity_mismatches}")
+        print(f"  Success Rate: {found_in_ibkr}/{len(json_orders_by_symbol)} ({100 * found_in_ibkr / len(json_orders_by_symbol):.2f}%)")
 
         # Show additional IBKR orders not in JSON
         extra_ibkr_orders = []
@@ -393,6 +397,82 @@ class OrderStatusChecker:
 
         if extra_ibkr_orders:
             print(f"  Extra orders in IBKR (not in JSON): {len(extra_ibkr_orders)}")
+
+        # Show detailed analysis of missing orders
+        if missing_orders:
+            self.show_missing_order_analysis(missing_orders)
+
+    def show_missing_order_analysis(self, missing_orders):
+        """Show detailed analysis of why orders are missing from IBKR"""
+        print("\n" + "=" * 80)
+        print("DETAILED ANALYSIS OF MISSING ORDERS")
+        print("=" * 80)
+
+        # Known failure patterns and reasons
+        failure_reasons = {
+            'AAPL': {
+                'reason': 'IBKR Account Restriction',
+                'details': 'Direct routing to NASDAQ is disabled in precautionary settings (Error 10311)',
+                'note': 'Account already has 1 share position - this SELL order would close the position'
+            },
+            'DPM': {
+                'reason': 'Contract Not Supported',
+                'details': 'IBKR does not support this specific DPM contract on TSE (Error 202)',
+                'note': 'Dundee Precious Metals Inc. (CAD) - contract resolution failed'
+            },
+            'AJ91': {
+                'reason': 'Liquidity Constraints',
+                'details': 'Volume (1,547 shares) too large for available liquidity (Error 202)',
+                'note': 'DocCheck AG (EUR) - requires algorithmic order (VWAP, TWAP, or % volume)'
+            },
+            'MOUR': {
+                'reason': 'Liquidity Constraints',
+                'details': 'Volume (12 shares) too large for available liquidity (Error 202)',
+                'note': 'Moury Construct SA (EUR) - extremely illiquid stock, even small orders rejected'
+            }
+        }
+
+        print(f"Found {len(missing_orders)} missing orders with detailed failure analysis:\n")
+
+        for i, order in enumerate(missing_orders, 1):
+            symbol = order['symbol']
+            action = order['action']
+            quantity = order['quantity']
+            currency = order['stock_info']['currency']
+            ticker = order['stock_info']['ticker']
+            exchange = order['ibkr_details'].get('primaryExchange', 'N/A')
+
+            print(f"{i}. {symbol} ({action} {quantity:,} shares)")
+            print(f"   Ticker: {ticker} | Currency: {currency} | Exchange: {exchange}")
+
+            if symbol in failure_reasons:
+                reason_info = failure_reasons[symbol]
+                print(f"   [X] REASON: {reason_info['reason']}")
+                print(f"   [INFO] DETAILS: {reason_info['details']}")
+                print(f"   [NOTE] {reason_info['note']}")
+            else:
+                # Generic analysis based on patterns
+                if action == 'SELL':
+                    print(f"   [X] REASON: Likely Account/Position Issue")
+                    print(f"   [INFO] DETAILS: SELL orders may fail due to account restrictions or position conflicts")
+                    print(f"   [NOTE] Check account settings and current positions")
+                elif currency != 'USD':
+                    print(f"   [X] REASON: Likely International Trading Issue")
+                    print(f"   [INFO] DETAILS: Non-USD stocks may have contract resolution or liquidity issues")
+                    print(f"   [NOTE] Verify contract details and market availability")
+                else:
+                    print(f"   [X] REASON: Unknown - Requires Debug Investigation")
+                    print(f"   [INFO] DETAILS: Run debug_order_executor.py to identify specific error codes")
+                    print(f"   [NOTE] Check contract details, account permissions, and market hours")
+            print()
+
+        print("=" * 80)
+        print("RECOMMENDATIONS:")
+        print("- AAPL: Enable direct routing in Account Settings > API > Precautionary Settings")
+        print("- DPM: Consider alternative Canadian precious metals stocks supported by IBKR")
+        print("- AJ91: Use algorithmic orders (VWAP/TWAP) or reduce position size")
+        print("- MOUR: Consider more liquid Belgian stocks or use smaller order sizes")
+        print("=" * 80)
 
     def show_order_status_summary(self):
         """Show detailed order status summary"""
