@@ -220,26 +220,14 @@ def step9_rebalancer():
     print("=" * 50)
     
     try:
-        # Import and run portfolio rebalancer
-        import subprocess
+        # Import and run portfolio rebalancer directly
+        from src.rebalancer import main as run_rebalancer
         
-        # Run rebalancer.py
-        result = subprocess.run(
-            ["python", "src/rebalancer.py"],
-            capture_output=True,
-            text=True
-        )
+        # Run the function directly
+        run_rebalancer()
         
-        if result.returncode == 0:
-            print("Step 9 complete - rebalancing orders generated")
-            # Display key results
-            print("\nRebalancer output:")
-            print(result.stdout)
-            return True
-        else:
-            print("Step 9 failed - rebalancer error")
-            print(f"Error: {result.stderr}")
-            return False
+        print("Step 9 complete - rebalancing orders generated")
+        return True
             
     except Exception as e:
         print(f"Step 9 failed - {e}")
@@ -251,26 +239,14 @@ def step10_execute_orders():
     print("=" * 50)
     
     try:
-        # Import and run order executor
-        import subprocess
+        # Import and run order executor directly
+        from src.order_executor import main as execute_orders
         
-        # Run order_executor.py
-        result = subprocess.run(
-            ["python", "src/order_executor.py"],
-            capture_output=True,
-            text=True
-        )
+        # Run the function directly
+        execute_orders()
         
-        if result.returncode == 0:
-            print("Step 10 complete - orders executed successfully")
-            # Display key results
-            print("\nOrder execution output:")
-            print(result.stdout)
-            return True
-        else:
-            print("Step 10 failed - order execution error")
-            print(f"Error: {result.stderr}")
-            return False
+        print("Step 10 complete - orders executed successfully")
+        return True
             
     except Exception as e:
         print(f"Step 10 failed - {e}")
