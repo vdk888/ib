@@ -201,26 +201,14 @@ def step8_ibkr_search():
     print("=" * 50)
     
     try:
-        # Import and run IBKR comprehensive search
-        import subprocess
+        # Import and run IBKR comprehensive search directly
+        from src.comprehensive_enhanced_search import process_all_universe_stocks
         
-        # Run comprehensive_enhanced_search.py
-        result = subprocess.run(
-            ["python", "src/comprehensive_enhanced_search.py"],
-            capture_output=True,
-            text=True
-        )
+        # Run the function directly
+        process_all_universe_stocks()
         
-        if result.returncode == 0:
-            print("Step 8 complete - IBKR stock search completed")
-            # Display key results
-            print("\nIBKR search output:")
-            print(result.stdout)
-            return True
-        else:
-            print("Step 8 failed - IBKR search error")
-            print(f"Error: {result.stderr}")
-            return False
+        print("Step 8 complete - IBKR stock search completed")
+        return True
             
     except Exception as e:
         print(f"Step 8 failed - {e}")
