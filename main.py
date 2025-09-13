@@ -10,7 +10,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 from src.screener import get_all_screeners, get_all_screener_histories
 from src.parser import create_universe, save_universe
 from src.history_parser import update_universe_with_history
-from src.config import UNCLE_STOCK_SCREENS
+from config import UNCLE_STOCK_SCREENS
 
 def step1_fetch_data():
     """Step 1: Fetch current stocks and backtest history from all screeners"""
@@ -98,9 +98,9 @@ def step4_optimize_portfolio():
         import sys
         import subprocess
         
-        # Run portfolio optimizer using the virtual environment
+        # Run portfolio optimizer
         result = subprocess.run(
-            ["./portfolio_env/Scripts/python", "src/portfolio_optimizer.py"],
+            ["python", "src/portfolio_optimizer.py"],
             capture_output=True,
             text=True
         )
@@ -173,9 +173,9 @@ def step7_calculate_quantities():
         # Import and run quantity calculator
         import subprocess
         
-        # Run qty.py using the virtual environment
+        # Run qty.py
         result = subprocess.run(
-            ["./portfolio_env/Scripts/python", "src/qty.py"],
+            ["python", "src/qty.py"],
             capture_output=True,
             text=True
         )
@@ -204,9 +204,9 @@ def step8_ibkr_search():
         # Import and run IBKR comprehensive search
         import subprocess
         
-        # Run comprehensive_enhanced_search.py using the virtual environment
+        # Run comprehensive_enhanced_search.py
         result = subprocess.run(
-            ["./portfolio_env/Scripts/python", "src/comprehensive_enhanced_search.py"],
+            ["python", "src/comprehensive_enhanced_search.py"],
             capture_output=True,
             text=True
         )
@@ -235,9 +235,9 @@ def step9_rebalancer():
         # Import and run portfolio rebalancer
         import subprocess
         
-        # Run rebalancer.py using the virtual environment
+        # Run rebalancer.py
         result = subprocess.run(
-            ["./portfolio_env/Scripts/python", "src/rebalancer.py"],
+            ["python", "src/rebalancer.py"],
             capture_output=True,
             text=True
         )
@@ -266,9 +266,9 @@ def step10_execute_orders():
         # Import and run order executor
         import subprocess
         
-        # Run order_executor.py using the virtual environment
+        # Run order_executor.py
         result = subprocess.run(
-            ["./portfolio_env/Scripts/python", "src/order_executor.py"],
+            ["python", "src/order_executor.py"],
             capture_output=True,
             text=True
         )
