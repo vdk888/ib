@@ -223,8 +223,13 @@ def main():
         print("Failed to get account value from IBKR")
         return
     
-    # Update universe.json with the account value
-    success = update_universe_json(account_value, currency)
+    # Round down to nearest 100€ for calculations
+    rounded_account_value = (account_value // 100) * 100
+    print(f"Original account value: €{account_value:,.2f}")
+    print(f"Rounded account value for calculations: €{rounded_account_value:,.2f}")
+    
+    # Update universe.json with the rounded account value
+    success = update_universe_json(rounded_account_value, currency)
     
     if success:
         print("Successfully updated universe.json with account total value")

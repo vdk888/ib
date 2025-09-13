@@ -10,6 +10,9 @@ Calculates final stock allocations based on:
 import json
 import os
 from typing import Dict, List, Any, Tuple
+import sys
+sys.path.append('..')
+from config import MAX_RANKED_STOCKS, MAX_ALLOCATION, MIN_ALLOCATION
 
 def load_universe_data() -> Dict[str, Any]:
     """Load universe.json data"""
@@ -85,25 +88,34 @@ def rank_stocks_in_screener(stocks: List[Dict[str, Any]]) -> List[Tuple[Dict[str
 def calculate_pocket_allocation(rank: int, total_stocks: int) -> float:
     """
     Calculate pocket allocation within screener based on rank
-    Linear allocation: Rank 1 gets 10%, worst rank gets 1%
-    
+    Only top MAX_RANKED_STOCKS get allocation: Rank 1 gets MAX_ALLOCATION%, rank MAX_RANKED_STOCKS gets MIN_ALLOCATION%
+    Ranks beyond MAX_RANKED_STOCKS get 0%
+
     Args:
         rank: Stock rank (1 = best)
         total_stocks: Total number of stocks in screener
-        
+
     Returns:
-        Pocket allocation percentage (0.01 to 0.10)
+        Pocket allocation percentage (0.00 to MAX_ALLOCATION)
     """
-    if total_stocks == 1:
-        return 0.10  # Single stock gets 10%
-    
-    # Linear interpolation from 10% (rank 1) to 1% (worst rank)
-    max_alloc = 0.10  # 10%
-    min_alloc = 0.01  # 1%
-    
-    # Calculate allocation: best gets max_alloc, worst gets min_alloc
-    allocation = max_alloc - ((rank - 1) / (total_stocks - 1)) * (max_alloc - min_alloc)
-    
+    # Stocks ranked beyond MAX_RANKED_STOCKS get 0% allocation
+    if rank > MAX_RANKED_STOCKS:
+        return 0.0
+
+    # Single stock in top MAX_RANKED_STOCKS gets max allocation
+    if total_stocks == 1 or MAX_RANKED_STOCKS == 1:
+        return MAX_ALLOCATION
+
+    # Linear interpolation from MAX_ALLOCATION (rank 1) to MIN_ALLOCATION (rank MAX_RANKED_STOCKS)
+    # Use min(MAX_RANKED_STOCKS, total_stocks) to handle cases where screener has fewer stocks than MAX_RANKED_STOCKS
+    effective_max_rank = min(MAX_RANKED_STOCKS, total_stocks)
+
+    if effective_max_rank == 1:
+        return MAX_ALLOCATION
+
+    # Calculate allocation: best gets MAX_ALLOCATION, worst ranked stock gets MIN_ALLOCATION
+    allocation = MAX_ALLOCATION - ((rank - 1) / (effective_max_rank - 1)) * (MAX_ALLOCATION - MIN_ALLOCATION)
+
     return allocation
 
 def calculate_final_allocations(universe_data: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
