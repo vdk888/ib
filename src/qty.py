@@ -9,8 +9,8 @@ import os
 import sys
 from pathlib import Path
 
-# Add parent directory to path to import ib_fetch
-sys.path.append(str(Path(__file__).parent.parent))
+# Add ib_utils directory to path to import ib_fetch
+sys.path.append(str(Path(__file__).parent / "ib_utils"))
 
 from ib_fetch import IBApi
 import threading
