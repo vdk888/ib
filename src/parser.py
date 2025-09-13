@@ -8,6 +8,8 @@ import csv
 import json
 import os
 from glob import glob
+import sys
+sys.path.append('..')
 from config import UNCLE_STOCK_SCREENS, ADDITIONAL_FIELDS, EXTRACT_ADDITIONAL_FIELDS
 
 def find_column_index(headers, description_row, header_name, subtitle_pattern):

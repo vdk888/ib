@@ -158,6 +158,19 @@ def calculate_stock_fields(stock, account_value, screen_allocation=None):
         # Calculate quantity (shares to buy)
         quantity = target_value_eur / eur_price if eur_price > 0 else 0
         
+        # Apply Japanese stock lot size rounding (100 shares minimum)
+        currency = stock.get("currency", "").upper()
+        if currency == "JPY" and quantity > 0:
+            original_quantity = quantity
+            # For Japanese stocks: always round to nearest 100 shares
+            # For buying: round DOWN to nearest 100 (conservative approach)
+            # For selling: round UP to nearest 100 (sell enough to meet lot requirements)
+            # Since we can't distinguish buy/sell here, we'll round DOWN (conservative for buying)
+            quantity = (int(quantity) // 100) * 100
+            
+            if original_quantity != quantity:
+                print(f"Japanese stock {stock.get('ticker', 'Unknown')}: adjusted quantity from {original_quantity:.1f} to {quantity} (lot size 100)")
+        
         # Add new fields to the stock
         stock["eur_price"] = round(eur_price, 6)
         stock["target_value_eur"] = round(target_value_eur, 2)

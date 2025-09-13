@@ -8,6 +8,8 @@ import requests
 import json
 import os
 from datetime import datetime
+import sys
+sys.path.append('..')
 from config import UNCLE_STOCK_USER_ID, UNCLE_STOCK_SCREENS
 
 def get_current_stocks(user_id=None, query_name=None, max_results=200):

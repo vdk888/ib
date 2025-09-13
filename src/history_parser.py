@@ -8,6 +8,8 @@ import csv
 import json
 import os
 from typing import Dict, List, Any
+import sys
+sys.path.append('..')
 from config import UNCLE_STOCK_SCREENS
 
 def parse_backtest_csv(csv_path: str, debug: bool = False) -> Dict[str, Any]:
