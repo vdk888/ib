@@ -60,6 +60,7 @@ class IBOrderStatusChecker(EWrapper, EClient):
 
     def openOrder(self, orderId, contract, order, orderState):
         """Receive open order information"""
+        print(f"[OPEN] Order {orderId}: {contract.symbol}, {order.action} {order.totalQuantity}, Status: {orderState.status}")
         self.open_orders[orderId] = {
             'contract': contract,
             'order': order,
@@ -77,13 +78,17 @@ class IBOrderStatusChecker(EWrapper, EClient):
 
     def orderStatus(self, orderId, status, filled, remaining, avgFillPrice, permId, parentId, lastFillPrice, clientId, whyHeld, mktCapPrice):
         """Receive order status updates"""
+        print(f"[STATUS] Order {orderId}: {status}, Filled: {filled}, Remaining: {remaining}, Avg Price: ${avgFillPrice:.2f}")
+        if whyHeld:
+            print(f"[STATUS]   Why held: {whyHeld}")
         self.order_status[orderId] = {
             'status': status,
             'filled': filled,
             'remaining': remaining,
             'avgFillPrice': avgFillPrice,
             'permId': permId,
-            'lastFillPrice': lastFillPrice
+            'lastFillPrice': lastFillPrice,
+            'whyHeld': whyHeld
         }
 
     def openOrderEnd(self):
@@ -184,48 +189,68 @@ class OrderStatusChecker:
         # Initialize API client
         self.api = IBOrderStatusChecker()
 
-        # Connect to IB Gateway (paper trading port 4002)
-        self.api.connect("127.0.0.1", 4002, clientId=21)
+        # Connect to IB Gateway - use a different client ID to see ALL orders
+        client_id = 99  # Use a high client ID to avoid conflicts
+        print(f"[DEBUG] Using client ID: {client_id}")
+        self.api.connect("127.0.0.1", 4002, clientId=client_id)
 
         # Start message processing thread
         api_thread = threading.Thread(target=self.api.run, daemon=True)
         api_thread.start()
 
-        # Wait for connection
+        # Wait for connection AND next valid order ID (like debug executor)
         timeout = 15
         start_time = time.time()
-        while not self.api.connected and (time.time() - start_time) < timeout:
+        while (not self.api.connected) and (time.time() - start_time) < timeout:
             time.sleep(0.1)
 
         if not self.api.connected:
             print("[ERROR] Failed to connect to IB Gateway")
             return False
 
-        # Wait for account ID
-        time.sleep(2)
+        # Extended wait to capture all immediate order callbacks including high order IDs
+        print("[DEBUG] Waiting for immediate order callbacks (scanning up to order ID 500+)...")
+        time.sleep(10)  # Longer wait to capture orders with higher IDs
         if not self.api.account_id:
             print("[ERROR] No account ID received")
             return False
+
+        # Log immediate orders found during connection phase
+        if self.api.open_orders:
+            print(f"[DEBUG] Found {len(self.api.open_orders)} orders during connection phase")
+            for order_id, order_info in self.api.open_orders.items():
+                print(f"[DEBUG]   Order {order_id}: {order_info['symbol']} {order_info['action']} {order_info['quantity']} ({order_info['status']})")
+        else:
+            print("[DEBUG] No orders found during connection phase")
 
         return True
 
     def fetch_account_data(self):
         """Fetch current orders, positions, and executions from IBKR"""
-        print("[FETCH] Requesting account data from IBKR...")
+        print(f"[FETCH] Requesting additional account data from IBKR...")
+        print(f"[DEBUG] Already have {len(self.api.open_orders)} orders from connection phase")
 
         # Reset completion flags
         for key in self.api.requests_completed:
             self.api.requests_completed[key] = False
 
-        # Request ALL orders (not just open orders from this client)
-        print("[DEBUG] Requesting all orders...")
+        # Store orders already found during connection
+        initial_order_count = len(self.api.open_orders)
+
+        # Request ALL orders using multiple methods to catch everything
+        print("[DEBUG] Requesting all orders with reqAllOpenOrders()...")
         self.api.reqAllOpenOrders()  # This gets ALL open orders, not just from current client
-        time.sleep(2)
+        time.sleep(3)
 
         # Also request open orders from current client
-        print("[DEBUG] Requesting client open orders...")
+        print("[DEBUG] Requesting client open orders with reqOpenOrders()...")
         self.api.reqOpenOrders()
-        time.sleep(2)
+        time.sleep(3)
+
+        # Request auto open orders (sometimes catches more)
+        print("[DEBUG] Requesting auto open orders...")
+        self.api.reqAutoOpenOrders(True)  # Request automatic order binding
+        time.sleep(3)
 
         # Request positions
         print("[DEBUG] Requesting positions...")
@@ -247,28 +272,29 @@ class OrderStatusChecker:
         self.api.reqExecutions(1, exec_filter)
         time.sleep(2)
 
-        # Wait longer for all requests to complete
-        timeout = 30
+        # Extended timeout to capture orders with higher IDs (up to 500+)
+        timeout = 20
         start_time = time.time()
-        print("[DEBUG] Waiting for additional responses...")
+        print("[DEBUG] Waiting for additional responses (including high order IDs up to 500+)...")
 
         while (time.time() - start_time) < timeout:
-            time.sleep(2)
+            time.sleep(3)
             current_time = int(time.time() - start_time)
-            if current_time % 10 == 0:
-                print(f"[DEBUG] Current status: Open Orders: {len(self.api.open_orders)}, "
+            if current_time % 6 == 0:
+                additional_orders = len(self.api.open_orders) - initial_order_count
+                max_order_id = max(self.api.open_orders.keys()) if self.api.open_orders else 0
+                print(f"[DEBUG] Current status: Open Orders: {len(self.api.open_orders)} (+{additional_orders} from requests), "
                       f"Completed Orders: {len(self.api.completed_orders)}, "
-                      f"Positions: {len(self.api.positions)}")
+                      f"Positions: {len(self.api.positions)}, Max Order ID: {max_order_id}")
 
-                # If we have found orders, we can break early
-                if len(self.api.open_orders) > 0:
-                    print("[DEBUG] Found orders, proceeding...")
-                    break
-
-        # Final status
-        print(f"[DEBUG] Final counts: Open Orders: {len(self.api.open_orders)}, "
+        # Final status with order ID range
+        additional_orders = len(self.api.open_orders) - initial_order_count
+        max_order_id = max(self.api.open_orders.keys()) if self.api.open_orders else 0
+        min_order_id = min(self.api.open_orders.keys()) if self.api.open_orders else 0
+        print(f"[DEBUG] Final counts: Open Orders: {len(self.api.open_orders)} (+{additional_orders} from API requests), "
               f"Completed Orders: {len(self.api.completed_orders)}, "
               f"Positions: {len(self.api.positions)}")
+        print(f"[DEBUG] Order ID range: {min_order_id} to {max_order_id} (scanning capacity up to 500+)")
 
         # Check if all requests completed
         completed = list(self.api.requests_completed.values())

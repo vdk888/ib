@@ -239,20 +239,20 @@ class DebugOrderExecutor:
                 if order_id in self.api.orders_status:
                     status = self.api.orders_status[order_id]['status']
                     why_held = self.api.orders_status[order_id].get('whyHeld', '')
-                    print(f"[STEP 4] ✓ Order acknowledged - Status: {status}")
+                    print(f"[STEP 4] OK Order acknowledged - Status: {status}")
                     if why_held:
                         print(f"[STEP 4]   Why held: {why_held}")
                     self.api.orders_submitted.append(order_id)
                     executed_count += 1
                 else:
-                    print(f"[STEP 4] ⚠ Order acknowledgment not received within {wait_time}s")
+                    print(f"[STEP 4] WARNING Order acknowledgment not received within {wait_time}s")
                     print(f"[STEP 4]   Order may still be processing...")
                     executed_count += 1
 
                 # Check for errors
                 failed_orders = [f for f in self.api.orders_failed if f['symbol'] == symbol]
                 if failed_orders:
-                    print(f"[STEP 4] ✗ Order failed: {failed_orders[-1]['error_message']}")
+                    print(f"[STEP 4] FAILED Order failed: {failed_orders[-1]['error_message']}")
                     failed_count += 1
                     executed_count -= 1
 
