@@ -2,7 +2,7 @@
 Centralized configuration management
 """
 from pydantic_settings import BaseSettings
-from typing import Optional
+from typing import Optional, Dict
 import os
 from pathlib import Path
 
@@ -20,6 +20,16 @@ class UncleStockSettings(BaseServiceSettings):
     uncle_stock_timeout: int = 60
     retry_attempts: int = 3
     max_results_per_screener: int = 200
+
+    # Screener configurations matching legacy config.py
+    uncle_stock_screens: Dict[str, str] = {
+        "quality_bloom": "quality bloom",
+        "TOR_Surplus": "TOR Surplus",
+        "Moat_Companies": "Moat Companies"
+    }
+
+    # Data directory paths
+    data_exports_dir: str = "data/files_exports"
 
     class Config:
         env_prefix = "UNCLE_STOCK_"

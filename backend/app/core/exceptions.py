@@ -21,11 +21,23 @@ class UncleStockAPIError(ExternalAPIError):
 
 class UncleStockTimeoutError(UncleStockAPIError):
     """Raised when Uncle Stock API times out"""
-    pass
+    def __init__(self, message: str = "Uncle Stock API request timed out", **kwargs):
+        super().__init__(message, "UNCLE_STOCK_TIMEOUT", **kwargs)
 
 class UncleStockRateLimitError(UncleStockAPIError):
     """Raised when Uncle Stock API rate limit exceeded"""
-    pass
+    def __init__(self, message: str = "Uncle Stock API rate limit exceeded", **kwargs):
+        super().__init__(message, "UNCLE_STOCK_RATE_LIMIT", **kwargs)
+
+class UncleStockInvalidQueryError(UncleStockAPIError):
+    """Raised when query name is invalid or not found"""
+    def __init__(self, message: str = "Invalid or missing query name", **kwargs):
+        super().__init__(message, "UNCLE_STOCK_INVALID_QUERY", **kwargs)
+
+class FileOperationError(BaseServiceError):
+    """File system operation errors"""
+    def __init__(self, message: str, **kwargs):
+        super().__init__(message, "FILE_OPERATION_ERROR", **kwargs)
 
 class IBKRError(ExternalAPIError):
     """IBKR API specific errors"""
