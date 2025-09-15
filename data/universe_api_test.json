@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "screens": [
+      "quality bloom",
+      "TOR Surplus",
+      "Moat Companies"
+    ],
+    "total_stocks": 0,
+    "unique_stocks": 0,
+    "additional_fields_enabled": true,
+    "additional_fields": [
+      {
+        "field_alias": "price_180d_change",
+        "header": "Price",
+        "subtitle": "180d change",
+        "description": "Price change over 180 days"
+      }
+    ]
+  },
+  "screens": {
+    "quality_bloom": {
+      "name": "quality bloom",
+      "count": 0,
+      "stocks": []
+    },
+    "TOR_Surplus": {
+      "name": "TOR Surplus",
+      "count": 0,
+      "stocks": []
+    },
+    "Moat_Companies": {
+      "name": "Moat Companies",
+      "count": 0,
+      "stocks": []
+    }
+  },
+  "all_stocks": {}
+}

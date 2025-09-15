@@ -68,6 +68,11 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 3. **Create initial FastAPI setup**
 4. **Verify**: Original CLI still works exactly the same
 
+**⚠️ TESTING REQUIREMENTS:**
+- **Activate virtual environment FIRST**: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Unix)
+- **Save ALL tests in**: `backend\app\tests\` directory
+- **Run tests with**: `pytest backend/app/tests/` from project root
+
 **Testing**: Run `python main.py` and ensure identical output
 
 **Status**: ⏸️ Not Started
@@ -144,7 +149,7 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
    - `GET /api/v1/screeners/history/{screener_id}` → `get_screener_history()`
 
 #### Phase 3: Testing (MANDATORY)
-8. **Create unit tests**:
+8. **Create unit tests in `backend\app\tests\`**:
    ```python
    class TestUncleStockService:
        def test_fetch_screener_data_success(self):
@@ -157,7 +162,7 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
            # Test error handling for invalid screener
    ```
 
-9. **Create integration tests**:
+9. **Create integration tests in `backend\app\tests\`**:
    ```python
    class TestScreenerAPIEndpoints:
        def test_get_screener_data_endpoint(self):
@@ -167,7 +172,7 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
            # Test error response structure
    ```
 
-10. **Create behavior verification tests**:
+10. **Create behavior verification tests in `backend\app\tests\`**:
     ```python
     class TestCLIVsAPIBehavior:
         def test_identical_output_screener_data(self):
@@ -176,6 +181,11 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
         def test_identical_file_creation(self):
             # Verify same CSV files are created
     ```
+
+**⚠️ TESTING REQUIREMENTS:**
+- **Activate virtual environment FIRST**: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Unix)
+- **Save ALL tests in**: `backend\app\tests\` directory
+- **Run tests with**: `pytest backend/app/tests/` from project root
 
 #### Phase 4: Error Handling & Monitoring
 11. **Add structured error handlers**:
@@ -314,6 +324,11 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 4. **Test CLI**: `python main.py 2` produces identical universe.json
 5. **Test API**: Universe data matches CLI output exactly
 
+**⚠️ TESTING REQUIREMENTS:**
+- **Activate virtual environment FIRST**: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Unix)
+- **Save ALL tests in**: `backend\app\tests\` directory
+- **Run tests with**: `pytest backend/app/tests/` from project root
+
 **Acceptance Criteria**:
 - CLI `step2_parse_data()` behavior unchanged
 - Identical `data/universe.json` file created
@@ -387,6 +402,11 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 5. **Test CLI**: `python main.py 3` produces identical universe.json with history
 6. **Test API**: Historical data matches CLI processing exactly
 
+**⚠️ TESTING REQUIREMENTS:**
+- **Activate virtual environment FIRST**: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Unix)
+- **Save ALL tests in**: `backend\app\tests\` directory
+- **Run tests with**: `pytest backend/app/tests/` from project root
+
 **Acceptance Criteria**:
 - CLI `step3_parse_history()` behavior unchanged
 - Identical `historical_performance` section structure in universe.json
@@ -429,6 +449,11 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 5. **Test CLI**: `python main.py 4` produces identical optimization results
 6. **Test API**: Portfolio allocations match CLI output exactly
 
+**⚠️ TESTING REQUIREMENTS:**
+- **Activate virtual environment FIRST**: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Unix)
+- **Save ALL tests in**: `backend\app\tests\` directory
+- **Run tests with**: `pytest backend/app/tests/` from project root
+
 **Acceptance Criteria**:
 - CLI `step4_optimize_portfolio()` behavior unchanged
 - Identical portfolio_optimization section in universe.json
@@ -467,6 +492,11 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
    - `GET /api/v1/universe/currencies` → `get_currencies_from_universe()`
 5. **Test CLI**: `python main.py 5` produces identical exchange rate updates
 6. **Test API**: Currency data matches CLI processing exactly
+
+**⚠️ TESTING REQUIREMENTS:**
+- **Activate virtual environment FIRST**: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Unix)
+- **Save ALL tests in**: `backend\app\tests\` directory
+- **Run tests with**: `pytest backend/app/tests/` from project root
 
 **Acceptance Criteria**:
 - CLI `step5_update_currency()` behavior unchanged
@@ -508,6 +538,11 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 5. **Test CLI**: `python main.py 6` produces identical target allocations
 6. **Test API**: Target calculations match CLI output exactly
 
+**⚠️ TESTING REQUIREMENTS:**
+- **Activate virtual environment FIRST**: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Unix)
+- **Save ALL tests in**: `backend\app\tests\` directory
+- **Run tests with**: `pytest backend/app/tests/` from project root
+
 **Acceptance Criteria**:
 - CLI `step6_calculate_targets()` behavior unchanged
 - Identical final_target, rank, and allocation fields in universe.json
@@ -547,6 +582,11 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 5. **Test CLI**: `python main.py 7` produces identical quantity calculations
 6. **Test API**: Account value and quantities match CLI exactly
 
+**⚠️ TESTING REQUIREMENTS:**
+- **Activate virtual environment FIRST**: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Unix)
+- **Save ALL tests in**: `backend\app\tests\` directory
+- **Run tests with**: `pytest backend/app/tests/` from project root
+
 **Acceptance Criteria**:
 - CLI `step7_calculate_quantities()` behavior unchanged
 - Identical account_total_value section in universe.json
@@ -584,6 +624,11 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
    - `GET /api/v1/ibkr/search/results` → Get search results
 5. **Test CLI**: `python main.py 8` produces identical IBKR search results
 6. **Test API**: Search results match CLI processing exactly
+
+**⚠️ TESTING REQUIREMENTS:**
+- **Activate virtual environment FIRST**: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Unix)
+- **Save ALL tests in**: `backend\app\tests\` directory
+- **Run tests with**: `pytest backend/app/tests/` from project root
 
 **Acceptance Criteria**:
 - CLI `step8_ibkr_search()` behavior unchanged
@@ -623,6 +668,11 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 5. **Test CLI**: `python main.py 9` produces identical rebalancing orders
 6. **Test API**: Order generation matches CLI exactly
 
+**⚠️ TESTING REQUIREMENTS:**
+- **Activate virtual environment FIRST**: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Unix)
+- **Save ALL tests in**: `backend\app\tests\` directory
+- **Run tests with**: `pytest backend/app/tests/` from project root
+
 **Acceptance Criteria**:
 - CLI `step9_rebalancer()` behavior unchanged
 - Identical data/orders.json file created
@@ -660,6 +710,11 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
    - `POST /api/v1/orders/execute/preview` → Dry run execution
 5. **Test CLI**: `python main.py 10` produces identical order execution
 6. **Test API**: Execution results match CLI exactly
+
+**⚠️ TESTING REQUIREMENTS:**
+- **Activate virtual environment FIRST**: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Unix)
+- **Save ALL tests in**: `backend\app\tests\` directory
+- **Run tests with**: `pytest backend/app/tests/` from project root
 
 **Acceptance Criteria**:
 - CLI `step10_execute_orders()` behavior unchanged
@@ -699,6 +754,11 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 5. **Test CLI**: `python main.py 11` produces identical status checking
 6. **Test API**: Status checking matches CLI exactly
 
+**⚠️ TESTING REQUIREMENTS:**
+- **Activate virtual environment FIRST**: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Unix)
+- **Save ALL tests in**: `backend\app\tests\` directory
+- **Run tests with**: `pytest backend/app/tests/` from project root
+
 **Acceptance Criteria**:
 - CLI `step11_check_order_status()` behavior unchanged
 - Same order status verification logic
@@ -723,6 +783,11 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 4. **Add async execution** with status tracking
 5. **Add error recovery** and resume functionality
 6. **Test**: Full pipeline API produces identical results to CLI
+
+**⚠️ TESTING REQUIREMENTS:**
+- **Activate virtual environment FIRST**: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Unix)
+- **Save ALL tests in**: `backend\app\tests\` directory
+- **Run tests with**: `pytest backend/app/tests/` from project root
 
 **Acceptance Criteria**:
 - API pipeline execution produces identical file outputs to CLI

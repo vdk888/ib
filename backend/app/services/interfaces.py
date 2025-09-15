@@ -2,8 +2,10 @@
 Service interfaces following Interface-First Design principles
 """
 from abc import ABC, abstractmethod
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, List, Optional, Tuple
 from datetime import datetime
+import pandas as pd
+import numpy as np
 
 
 class IDataProvider(ABC):
@@ -402,5 +404,144 @@ class IHistoricalDataService(ABC):
 
         Returns:
             Dict containing parsed backtest data or error information
+        """
+        pass
+
+
+class IPortfolioOptimizer(ABC):
+    """
+    Interface for portfolio optimization using modern portfolio theory
+    Implements Sharpe ratio maximization with scientific computing precision
+    Following Interface-First Design for financial systems
+    """
+
+    @abstractmethod
+    def load_universe_data(self) -> Dict[str, Any]:
+        """
+        Load universe.json data from data directory
+
+        Returns:
+            Dict containing complete universe data structure
+
+        Raises:
+            FileNotFoundError: If universe.json does not exist
+        """
+        pass
+
+    @abstractmethod
+    def extract_quarterly_returns(self, universe_data: Dict[str, Any]) -> pd.DataFrame:
+        """
+        Extract quarterly returns for each screener from universe data
+
+        Args:
+            universe_data: Complete universe data from load_universe_data()
+
+        Returns:
+            DataFrame with columns=screener_keys, index=quarters, values=decimal_returns
+            Values are decimal (e.g., 0.05 for 5%), not percentages
+        """
+        pass
+
+    @abstractmethod
+    def calculate_portfolio_stats(
+        self,
+        weights: np.ndarray,
+        returns: pd.DataFrame,
+        risk_free_rate: float = 0.02/4
+    ) -> Tuple[float, float, float]:
+        """
+        Calculate portfolio statistics with annualization
+
+        Args:
+            weights: Portfolio weights array (must sum to 1)
+            returns: Quarterly returns DataFrame
+            risk_free_rate: Quarterly risk-free rate (default: 2% annual / 4)
+
+        Returns:
+            Tuple of (expected_annual_return, annual_volatility, sharpe_ratio)
+        """
+        pass
+
+    @abstractmethod
+    def optimize_portfolio(
+        self,
+        returns: pd.DataFrame,
+        risk_free_rate: float = 0.02/4
+    ) -> Dict[str, Any]:
+        """
+        Optimize portfolio to maximize Sharpe ratio using SLSQP
+
+        Args:
+            returns: Quarterly returns DataFrame from extract_quarterly_returns()
+            risk_free_rate: Quarterly risk-free rate
+
+        Returns:
+            Dict with keys:
+            - optimal_weights: Dict[screener_name, weight]
+            - portfolio_stats: Dict with expected_annual_return, annual_volatility, sharpe_ratio
+            - individual_stats: Dict[screener_name, stats] with individual metrics
+            - correlation_matrix: Dict of correlation matrix
+            - optimization_success: bool
+            - optimization_message: str
+        """
+        pass
+
+    @abstractmethod
+    def update_universe_with_portfolio(
+        self,
+        universe_data: Dict[str, Any],
+        portfolio_results: Dict[str, Any]
+    ) -> None:
+        """
+        Update universe data with portfolio optimization results
+
+        Args:
+            universe_data: Universe data to update (modified in-place)
+            portfolio_results: Results from optimize_portfolio()
+
+        Side Effects:
+            Modifies universe_data['metadata']['portfolio_optimization']
+        """
+        pass
+
+    @abstractmethod
+    def save_universe(self, universe_data: Dict[str, Any]) -> None:
+        """
+        Save updated universe data to data/universe.json
+
+        Args:
+            universe_data: Complete universe data to save
+
+        Side Effects:
+            Writes to "data/universe.json" file
+        """
+        pass
+
+    @abstractmethod
+    def display_portfolio_results(self, portfolio_results: Dict[str, Any]) -> None:
+        """
+        Display portfolio optimization results to console
+
+        Args:
+            portfolio_results: Results from optimize_portfolio()
+
+        Side Effects:
+            Prints formatted tables to console
+        """
+        pass
+
+    @abstractmethod
+    def main(self) -> bool:
+        """
+        Main portfolio optimization orchestration function
+
+        Returns:
+            bool: True if optimization successful, False otherwise
+
+        Side Effects:
+            - Loads universe data
+            - Runs optimization
+            - Updates universe.json
+            - Prints results to console
         """
         pass

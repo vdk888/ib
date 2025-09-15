@@ -3,10 +3,11 @@ Dependency injection container
 """
 from functools import lru_cache
 from .config import Settings
-from ..services.interfaces import IScreenerService
+from ..services.interfaces import IScreenerService, IUniverseRepository
 from ..services.implementations.screener_service import ScreenerService
 from ..services.implementations.uncle_stock_provider import UncleStockProvider
 from ..services.implementations.file_manager import FileManager
+from ..services.implementations.universe_service import create_universe_service
 
 @lru_cache()
 def get_settings() -> Settings:
@@ -17,6 +18,7 @@ def get_settings() -> Settings:
 _file_manager = None
 _uncle_stock_provider = None
 _screener_service = None
+_universe_service = None
 
 
 def get_file_manager() -> FileManager:
@@ -44,3 +46,11 @@ def get_screener_service() -> IScreenerService:
             file_manager=get_file_manager()
         )
     return _screener_service
+
+
+def get_universe_service() -> IUniverseRepository:
+    """Get universe service instance"""
+    global _universe_service
+    if _universe_service is None:
+        _universe_service = create_universe_service()
+    return _universe_service
