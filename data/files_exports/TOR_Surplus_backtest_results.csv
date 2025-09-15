@@ -13,7 +13,7 @@ sep=,
 
 ,,"Return","(Avg of) Period SD","Average beta","Top 12","Without outliers","Monte Carlo variant 1","Monte Carlo variant 2","Monte Carlo variant 3","Monte Carlo variant 4","Portfolio SD","Sharpe ratio","Sortini ratio","SPDR S&P 500",
 Total return,,-94.38%,,,88.05%,-93.97%,-95.55%,-94.02%,-94.93%,-93.56%,,,,381%,
-Yearly return,,-15.21%,17%,0.84,14.87%,-11.46%,-16.34%,-14.91%,-15.71%,-14.55%,25%,-0.72,-0.99,9.42%,
+Yearly return,,-15.21%,17%,0.84,14.86%,-11.46%,-16.33%,-14.90%,-15.70%,-14.54%,25%,-0.72,-0.99,9.42%,
 
 2008 Q2,Stocks,,,,,,,,,,"CMG.TO","NOKIA.HE","FORR","MTL.TO","SLAB","RTC.L","4704.T","PAYX","ADBE","MSFT","MANH","RY4C.IR","MSTR","ENGH.TO","UG","CTSH","ORCL","ANF","9983.T","NVDA","DSY.PA","STRA","POWI","NPK",,"SPDR S&P 500",
 ,Quarter return,-6.26%,15%,0.86,-5.38%,-6.30%,-5.23%,-6.35%,-7.33%,-5.85%,-25.25%,22.90%,-17.24%,-22.55%,-13.88%,-20.58%,8.61%,8.68%,-7.74%,4.24%,-3.49%,1.76%,14.09%,1.47%,-16.94%,-11.45%,-5.47%,14.95%,-16.14%,8.15%,-6.09%,-36.89%,-7.55%,-23.80%,,-5.31%,

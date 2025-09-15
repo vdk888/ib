@@ -13,7 +13,7 @@ sep=,
 
 ,,"Return","(Avg of) Period SD","Average beta","Top 12","Without outliers","Monte Carlo variant 1","Monte Carlo variant 2","Monte Carlo variant 3","Monte Carlo variant 4","Portfolio SD","Sharpe ratio","Sortini ratio","US S&P 500 - Total Return",
 Total return,,666%,,,202%,700%,650%,692%,814%,644%,,,,559%,
-Yearly return,,12.38%,15%,0.89,12.66%,6.55%,12.24%,12.59%,13.52%,12.19%,16%,0.60,1.27,11.41%,
+Yearly return,,12.37%,15%,0.89,12.65%,6.54%,12.24%,12.58%,13.51%,12.18%,16%,0.60,1.27,11.41%,
 
 2008 Q2,Stocks,,,,,,,,,,"MGNS.L","PETS","FFIV","AMSG","RECN","SLP","WIRE","COR","MTL.TO","EBAY","MSTR","TRMB","ZD","CMTL","GEN","CMG.TO","ANF","MHK","TED.L","RYA.IR","RTX","ADBE","TSCO","4704.T",,"US S&P 500 - Total Return",
 ,Positions,,,,,,,,,,3%,3%,2%,5%,3%,2%,4%,7%,4%,4%,4%,3%,3%,4%,5%,7%,4%,4%,6%,3%,7%,5%,3%,3%,

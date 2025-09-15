@@ -13,7 +13,7 @@ sep=,
 
 ,,"Return","(Avg of) Period SD","Average beta","Top 12","Without outliers","Monte Carlo variant 1","Monte Carlo variant 2","Monte Carlo variant 3","Monte Carlo variant 4","Portfolio SD","Sharpe ratio","Sortini ratio","US S&P 500 - Total Return",
 Total return,,1051%,,,533%,1171%,789%,1281%,1298%,1107%,,,,560%,
-Yearly return,,15.03%,18%,0.84,15.68%,11.15%,13.34%,16.24%,16.32%,15.34%,19%,0.66,1.24,11.42%,
+Yearly return,,15.02%,18%,0.84,15.68%,11.15%,13.33%,16.23%,16.31%,15.33%,19%,0.66,1.24,11.41%,
 
 2008 Q2,Stocks,,,,,,,,,,"REY.MI","BDT.DE","9946.T","6914.T","BYW6.DE","3395.T","6965.T","A3M.MC","ADEA","ADZ.MC","6101.T","6481.T","2685.T","6345.T","6908.T","HTLD","7296.T","KOMN.SW","ROCK-B.CO","6718.T","NVLS1","SMMX","PRDO","6482.T",,"US S&P 500 - Total Return",
 ,Quarter return,1.19%,19%,0.88,0.44%,1.74%,4.14%,0.38%,2.37%,1.62%,-8.60%,5.38%,15.52%,4.62%,9.83%,34.30%,-0.51%,-39.33%,-22.49%,-26.43%,12.68%,20.32%,-33.19%,0.81%,11.34%,6.86%,31.98%,-10.23%,-22.11%,13.43%,-0.70%,-8.74%,13.52%,20.30%,,-5.72%,
