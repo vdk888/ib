@@ -47,6 +47,10 @@ class IBKRConnectionError(IBKRError):
     """IBKR connection specific errors"""
     pass
 
+class OrderExecutionError(BaseServiceError):
+    """Order execution specific errors"""
+    pass
+
 class ValidationError(BaseServiceError):
     """Data validation errors"""
     pass

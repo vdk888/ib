@@ -1440,3 +1440,203 @@ class IOrderStatusService(ABC):
             - order_status_breakdown: Orders grouped by status
         """
         pass
+
+
+class IAccountService(ABC):
+    """
+    Interface for IBKR account data management
+    Handles connection to Interactive Brokers API and account value fetching
+    Following fintech security and reliability standards
+    """
+
+    @abstractmethod
+    async def get_account_total_value(self) -> Tuple[Optional[float], Optional[str]]:
+        """
+        Connect to IBKR and fetch account net liquidation value
+
+        IBKR Integration Details:
+        - Connects to 127.0.0.1:4002 (paper trading gateway)
+        - Uses threading for API message processing
+        - 10-second connection timeout with retry logic
+        - Requests NetLiquidation from account summary
+
+        Returns:
+            Tuple of (total_value: float, currency: str) on success
+            Tuple of (None, None) on failure (connection issues, timeout, etc.)
+
+        Side Effects:
+            - Creates/destroys IBKR API connection
+            - Console output for connection status and values
+            - Threading: Spawns daemon thread for message processing
+
+        Error Handling:
+            - Connection failures to IB Gateway
+            - Timeout scenarios (connection, account ID, data retrieval)
+            - Missing account ID from managedAccounts callback
+            - Network connectivity issues
+        """
+        pass
+
+    @abstractmethod
+    async def test_connection(self) -> Dict[str, Any]:
+        """
+        Test IBKR connection without fetching account data
+
+        Returns:
+            Dict with connection test results:
+            - connected: bool
+            - account_id: Optional[str]
+            - connection_time: float (seconds)
+            - error_message: Optional[str]
+        """
+        pass
+
+
+class IQuantityCalculator(ABC):
+    """
+    Interface for portfolio quantity calculations
+    Handles EUR conversions, target allocations, and stock quantity computations
+    Following financial precision standards and risk management principles
+    """
+
+    @abstractmethod
+    def calculate_stock_quantities(
+        self,
+        universe_data: Dict[str, Any],
+        account_value: float
+    ) -> int:
+        """
+        Calculate EUR prices and quantities for all stocks based on account value and target allocations
+
+        Processing Logic:
+        - Handles both "screens" and "all_stocks" categories in universe data
+        - Integrates with portfolio_optimization.optimal_allocations from metadata
+        - Counts total processed, minimal allocations (<1e-10), meaningful allocations (>1e-10)
+
+        Args:
+            universe_data: Complete universe data structure from universe.json
+            account_value: Total account value in EUR for allocation calculations
+
+        Returns:
+            int: Total number of stocks processed with quantity calculations
+
+        Side Effects:
+            - Modifies universe_data in-place with new calculated fields
+            - Console progress output for processing status
+            - Updates stock dictionaries with eur_price, target_value_eur, quantity fields
+
+        Validation:
+        - Validates stock dictionaries structure
+        - Handles missing screen data gracefully
+        - Processes both screen context and all_stocks context
+        """
+        pass
+
+    @abstractmethod
+    def calculate_stock_fields(
+        self,
+        stock: Dict[str, Any],
+        account_value: float,
+        screen_allocation: Optional[float] = None
+    ) -> None:
+        """
+        Calculate EUR price, target value, and quantity for individual stock
+
+        Financial Calculations:
+        - EUR price conversion: price / eur_exchange_rate
+        - Target value: account_value * final_target
+        - Quantity calculation: target_value_eur / eur_price
+
+        Target Allocation Logic:
+        - If screen_allocation provided: final_target = allocation_target * screen_allocation
+        - If screen_allocation None: uses existing final_target (for all_stocks context)
+
+        Japanese Stock Handling:
+        - Detects JPY currency stocks
+        - Rounds to 100-share lots (minimum lot size requirement)
+        - Conservative rounding DOWN to avoid fractional lot purchases
+
+        Args:
+            stock: Stock dictionary to update with calculated fields
+            account_value: Total account value in EUR
+            screen_allocation: Optional screen allocation factor (for screen context)
+
+        Side Effects:
+            - Modifies stock dictionary in-place with new fields:
+              * eur_price: EUR equivalent price (6 decimal precision)
+              * target_value_eur: Target value in EUR (2 decimal precision)
+              * quantity: Integer quantity to purchase
+              * allocation_note: "minimal_allocation" flag for very small allocations
+            - Console output for Japanese stock lot size adjustments
+
+        Error Handling:
+            - ValueError, TypeError, ZeroDivisionError with graceful fallback to 0 values
+            - Missing or invalid price/exchange rate data handling
+        """
+        pass
+
+    @abstractmethod
+    def update_universe_json(
+        self,
+        account_value: float,
+        currency: str
+    ) -> bool:
+        """
+        Update universe.json with account value and calculate all stock quantities
+
+        File Operations:
+        - Reads data/universe.json with UTF-8 encoding
+        - Creates top-level "account_total_value" section with value, currency, timestamp
+        - Writes updated universe.json back to disk
+
+        Account Value Storage Structure:
+        {
+            "account_total_value": {
+                "value": float,
+                "currency": str,
+                "timestamp": str (YYYY-MM-DD HH:MM:SS format)
+            }
+        }
+
+        Args:
+            account_value: Total account value (already rounded to nearest 100€)
+            currency: Account currency (typically "EUR")
+
+        Returns:
+            bool: True on successful update, False on failure
+
+        Side Effects:
+            - Modifies universe.json file on disk
+            - Console output for success/failure status
+            - Updates all stocks with calculated quantities
+
+        Error Handling:
+            - File not found (universe.json missing)
+            - JSON parsing errors
+            - File write permission issues
+            - Invalid universe data structure
+        """
+        pass
+
+    @abstractmethod
+    def round_account_value_conservatively(self, account_value: float) -> float:
+        """
+        Round account value DOWN to nearest 100€ for conservative allocation calculations
+
+        Risk Management:
+        - Prevents over-allocation beyond account capacity
+        - Avoids fractional quantity issues
+        - Conservative approach for financial safety
+
+        Args:
+            account_value: Original account value in EUR
+
+        Returns:
+            float: Rounded account value (DOWN to nearest 100€)
+
+        Example:
+            €9,847.32 → €9,800.00
+            €10,000.00 → €10,000.00
+            €10,099.99 → €10,000.00
+        """
+        pass

@@ -3,7 +3,7 @@ Dependency injection container
 """
 from functools import lru_cache
 from .config import Settings
-from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer, ITargetAllocationService, IOrderExecutionService
+from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer, ITargetAllocationService, IOrderExecutionService, IRebalancingService, IAccountService, IQuantityCalculator
 from ..services.implementations.screener_service import ScreenerService
 from ..services.implementations.uncle_stock_provider import UncleStockProvider
 from ..services.implementations.file_manager import FileManager
@@ -11,6 +11,10 @@ from ..services.implementations.universe_service import create_universe_service
 from ..services.implementations.portfolio_optimizer_service import PortfolioOptimizerService
 from ..services.implementations.target_allocation_service import TargetAllocationService
 from ..services.implementations.order_execution_service import OrderExecutionService
+from ..services.implementations.rebalancing_service import RebalancingService
+from ..services.implementations.account_service import AccountService
+from ..services.implementations.quantity_service import QuantityService
+from ..services.implementations.quantity_orchestrator_service import QuantityOrchestratorService
 
 @lru_cache()
 def get_settings() -> Settings:
@@ -25,6 +29,10 @@ _universe_service = None
 _portfolio_optimizer_service = None
 _target_allocation_service = None
 _order_execution_service = None
+_rebalancing_service = None
+_account_service = None
+_quantity_service = None
+_quantity_orchestrator_service = None
 
 
 def get_file_manager() -> FileManager:
@@ -84,3 +92,38 @@ def get_order_execution_service() -> IOrderExecutionService:
     if _order_execution_service is None:
         _order_execution_service = OrderExecutionService()
     return _order_execution_service
+
+
+def get_rebalancing_service() -> IRebalancingService:
+    """Get rebalancing service instance"""
+    global _rebalancing_service
+    if _rebalancing_service is None:
+        _rebalancing_service = RebalancingService()
+    return _rebalancing_service
+
+
+def get_account_service() -> IAccountService:
+    """Get account service instance"""
+    global _account_service
+    if _account_service is None:
+        _account_service = AccountService()
+    return _account_service
+
+
+def get_quantity_service() -> IQuantityCalculator:
+    """Get quantity calculator service instance"""
+    global _quantity_service
+    if _quantity_service is None:
+        _quantity_service = QuantityService()
+    return _quantity_service
+
+
+def get_quantity_orchestrator_service() -> QuantityOrchestratorService:
+    """Get quantity orchestrator service instance"""
+    global _quantity_orchestrator_service
+    if _quantity_orchestrator_service is None:
+        _quantity_orchestrator_service = QuantityOrchestratorService(
+            account_service=get_account_service(),
+            quantity_service=get_quantity_service()
+        )
+    return _quantity_orchestrator_service
