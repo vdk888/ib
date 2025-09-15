@@ -1,0 +1,60 @@
+"""
+Centralized configuration management
+"""
+from pydantic_settings import BaseSettings
+from typing import Optional
+import os
+from pathlib import Path
+
+# Get the root directory (where main.py and config.py are located)
+ROOT_DIR = Path(__file__).parent.parent.parent.parent
+
+class BaseServiceSettings(BaseSettings):
+    """Base configuration for all services"""
+    log_level: str = "INFO"
+    environment: str = "development"
+    debug: bool = False
+
+class UncleStockSettings(BaseServiceSettings):
+    uncle_stock_user_id: Optional[str] = None
+    uncle_stock_timeout: int = 60
+    retry_attempts: int = 3
+    max_results_per_screener: int = 200
+
+    class Config:
+        env_prefix = "UNCLE_STOCK_"
+
+class IBKRSettings(BaseServiceSettings):
+    ibkr_host: str = "127.0.0.1"
+    ibkr_port: int = 4002
+    ibkr_client_id: int = 1
+    connection_timeout: int = 10
+
+    class Config:
+        env_prefix = "IBKR_"
+
+class PortfolioSettings(BaseServiceSettings):
+    max_ranked_stocks: int = 30
+    max_allocation: float = 0.10
+    min_allocation: float = 0.01
+    risk_free_rate: float = 0.02
+
+    class Config:
+        env_prefix = "PORTFOLIO_"
+
+class Settings(BaseServiceSettings):
+    """Main application settings"""
+    # File paths
+    data_directory: str = str(ROOT_DIR / "data")
+    exports_directory: str = str(ROOT_DIR / "data" / "files_exports")
+
+    # Service configurations
+    uncle_stock: UncleStockSettings = UncleStockSettings()
+    ibkr: IBKRSettings = IBKRSettings()
+    portfolio: PortfolioSettings = PortfolioSettings()
+
+    class Config:
+        env_file = str(ROOT_DIR / ".env")
+
+# Global settings instance
+settings = Settings()
