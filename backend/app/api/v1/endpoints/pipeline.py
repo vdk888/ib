@@ -109,7 +109,7 @@ async def execute_pipeline_in_background(
 )
 async def run_full_pipeline(
     background_tasks: BackgroundTasks,
-    request: PipelineExecutionRequest = PipelineExecutionRequest(),
+    request: Optional[PipelineExecutionRequest] = None,
     orchestrator_service = Depends(get_pipeline_orchestrator_service)
 ):
     """
@@ -147,6 +147,10 @@ async def run_full_pipeline(
     """
     try:
         logger.info("Starting full pipeline execution")
+
+        # Create request if not provided
+        if request is None:
+            request = PipelineExecutionRequest()
 
         # Generate execution ID if not provided
         if not request.execution_id:
@@ -214,7 +218,7 @@ async def run_full_pipeline(
 )
 async def run_individual_step(
     step_number: int,
-    request: StepExecutionRequest = StepExecutionRequest(step_number=1),
+    request: Optional[StepExecutionRequest] = None,
     orchestrator_service = Depends(get_pipeline_orchestrator_service)
 ):
     """
@@ -249,6 +253,10 @@ async def run_individual_step(
             )
 
         logger.info(f"Starting individual step execution: step {step_number}")
+
+        # Create request if not provided
+        if request is None:
+            request = StepExecutionRequest(step_number=step_number)
 
         # Override step number in request
         request.step_number = step_number
@@ -319,7 +327,7 @@ async def run_step_range(
     start_step: int,
     end_step: int,
     background_tasks: BackgroundTasks,
-    request: StepRangeExecutionRequest = StepRangeExecutionRequest(start_step=1, end_step=1),
+    request: Optional[StepRangeExecutionRequest] = None,
     orchestrator_service = Depends(get_pipeline_orchestrator_service)
 ):
     """
@@ -350,6 +358,10 @@ async def run_step_range(
             )
 
         logger.info(f"Starting step range execution: steps {start_step}-{end_step}")
+
+        # Create request if not provided
+        if request is None:
+            request = StepRangeExecutionRequest(start_step=start_step, end_step=end_step)
 
         # Override step range in request
         request.start_step = start_step
@@ -671,7 +683,7 @@ async def get_execution_results(
 async def resume_failed_execution(
     execution_id: str,
     background_tasks: BackgroundTasks,
-    request: ResumeExecutionRequest = ResumeExecutionRequest(execution_id=""),
+    request: Optional[ResumeExecutionRequest] = None,
     orchestrator_service = Depends(get_pipeline_orchestrator_service)
 ):
     """
@@ -701,6 +713,10 @@ async def resume_failed_execution(
     """
     try:
         logger.info(f"Resuming execution: {execution_id}")
+
+        # Create request if not provided
+        if request is None:
+            request = ResumeExecutionRequest(execution_id=execution_id)
 
         # Override execution ID in request
         request.execution_id = execution_id

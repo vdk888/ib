@@ -3,7 +3,7 @@ Dependency injection container
 """
 from functools import lru_cache
 from .config import Settings
-from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer, ITargetAllocationService, IOrderExecutionService, IRebalancingService, IAccountService, IQuantityCalculator, IPipelineOrchestrator
+from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer, ITargetAllocationService, IOrderExecutionService, IRebalancingService, IAccountService, IQuantityCalculator, IPipelineOrchestrator, ICurrencyService
 from ..services.implementations.screener_service import ScreenerService
 from ..services.implementations.uncle_stock_provider import UncleStockProvider
 from ..services.implementations.file_manager import FileManager
@@ -15,7 +15,8 @@ from ..services.implementations.rebalancing_service import RebalancingService
 from ..services.implementations.account_service import AccountService
 from ..services.implementations.quantity_service import QuantityService
 from ..services.implementations.quantity_orchestrator_service import QuantityOrchestratorService
-# from ..services.implementations.pipeline_orchestrator_service import PipelineOrchestratorService
+from ..services.implementations.pipeline_orchestrator_service import PipelineOrchestratorService
+from ..services.implementations.currency_service import CurrencyService
 
 @lru_cache()
 def get_settings() -> Settings:
@@ -35,6 +36,7 @@ _account_service = None
 _quantity_service = None
 _quantity_orchestrator_service = None
 _pipeline_orchestrator_service = None
+_currency_service = None
 
 
 def get_file_manager() -> FileManager:
@@ -137,3 +139,11 @@ def get_pipeline_orchestrator_service() -> IPipelineOrchestrator:
     if _pipeline_orchestrator_service is None:
         _pipeline_orchestrator_service = PipelineOrchestratorService()
     return _pipeline_orchestrator_service
+
+
+def get_currency_service() -> ICurrencyService:
+    """Get currency service instance"""
+    global _currency_service
+    if _currency_service is None:
+        _currency_service = CurrencyService()
+    return _currency_service

@@ -50,7 +50,7 @@ except ImportError as e:
     step11_check_order_status = lambda: False
 
 from ..interfaces import IPipelineOrchestrator
-from ....models.schemas import (
+from ...models.schemas import (
     PipelineExecutionStatus,
     PipelineStepStatus,
     PipelineStepInfo,

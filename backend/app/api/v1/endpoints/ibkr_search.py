@@ -11,8 +11,8 @@ from pydantic import BaseModel, Field
 import uuid
 import time
 
-from backend.app.services.implementations.ibkr_search_service import IBKRSearchService
-from backend.app.models.schemas import ErrorResponse
+from ....services.implementations.ibkr_search_service import IBKRSearchService
+from ....models.errors import ErrorResponse
 
 # Set up logging
 logger = logging.getLogger(__name__)

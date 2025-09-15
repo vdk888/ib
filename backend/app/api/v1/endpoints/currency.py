@@ -7,9 +7,9 @@ Maintains 100% compatibility with CLI behavior
 from fastapi import APIRouter, Depends, HTTPException
 from typing import Dict
 
-from backend.app.services.interfaces import ICurrencyService
-from backend.app.core.dependencies import get_currency_service
-from backend.app.models.schemas import (
+from ....services.interfaces import ICurrencyService
+from ....core.dependencies import get_currency_service
+from ....models.schemas import (
     ExchangeRatesResponse,
     UniverseCurrenciesResponse,
     UniverseUpdateResponse,

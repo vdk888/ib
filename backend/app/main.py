@@ -32,9 +32,9 @@ from .api.v1.endpoints.universe import router as universe_router
 from .api.v1.endpoints.portfolio import router as portfolio_router
 from .api.v1.endpoints.target_allocation import router as target_allocation_router
 from .api.v1.endpoints.orders import router as orders_router
-# from .api.v1.endpoints.pipeline import router as pipeline_router  # temporarily disabled
-# from .api.v1.endpoints.ibkr_search import router as ibkr_search_router
-# from .api.v1.endpoints.currency import router as currency_router
+from .api.v1.endpoints.pipeline import router as pipeline_router
+from .api.v1.endpoints.ibkr_search import router as ibkr_search_router
+from .api.v1.endpoints.currency import router as currency_router
 
 app.include_router(screeners_router, prefix="/api/v1")
 app.include_router(historical_router, prefix="/api/v1")
@@ -42,9 +42,9 @@ app.include_router(universe_router, prefix="/api/v1")
 app.include_router(portfolio_router, prefix="/api/v1")
 app.include_router(target_allocation_router, prefix="/api/v1/portfolio/targets", tags=["Target Allocation"])
 app.include_router(orders_router, prefix="/api/v1")
-# app.include_router(pipeline_router, prefix="/api/v1")  # temporarily disabled
-# app.include_router(ibkr_search_router, prefix="/api/v1")  # missing dependencies
-# app.include_router(currency_router, prefix="/api/v1")  # missing dependencies
+app.include_router(pipeline_router, prefix="/api/v1")
+app.include_router(ibkr_search_router, prefix="/api/v1")
+app.include_router(currency_router, prefix="/api/v1")
 
 # Exception handlers
 @app.exception_handler(BaseServiceError)
