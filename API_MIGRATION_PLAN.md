@@ -72,6 +72,7 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 - **Activate virtual environment FIRST**: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Unix)
 - **Save ALL tests in**: `backend\app\tests\` directory
 - **Run tests with**: `pytest backend/app/tests/` from project root
+- **🚨 MANDATORY**: ALL tests must pass 100% before step validation
 
 **Testing**: Run `python main.py` and ensure identical output
 
@@ -600,8 +601,11 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 ## Step 8: IBKR Search Service
 **Goal**: Wrap `src/comprehensive_enhanced_search.py` functions with API endpoints
 
+### ⚠️ **CRITICAL PERFORMANCE ISSUE**
+The current implementation searches stocks **one by one** in IBKR, resulting in **30+ minute runtimes** for large universes. This step MUST include performance optimization analysis and implementation.
+
 ### Current Functions:
-- `process_all_universe_stocks()` - Search all stocks on IBKR
+- `process_all_universe_stocks()` - Search all stocks on IBKR (EXTREMELY SLOW)
 - Search and identification logic for IBKR instruments
 
 ### Actions:
@@ -613,17 +617,42 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
    - Map all dependencies: IBKR API imports, search algorithms
    - Note all side effects: universe files creation, console output
    - Identify search patterns, instrument matching, and data structures
-   - **UPDATE THIS PLAN** with exact implementation details
+   - **ANALYZE PERFORMANCE BOTTLENECKS**: Document why searches are slow
+   - **RESEARCH OPTIMIZATION OPTIONS**: Investigate IBKR API batch capabilities
+   - **UPDATE THIS PLAN** with exact implementation details and optimization strategy
 
-#### Phase 2: Implementation (ONLY AFTER ANALYSIS)
-2. **Create interface**: `IBrokerageSearchService`
-3. **Create implementation**: `IBKRSearchService` wrapping existing functions
-4. **Create API endpoints**:
-   - `POST /api/v1/ibkr/search/all` → `process_all_universe_stocks()`
+#### Phase 2: Performance Optimization Research (MANDATORY)
+2. **Investigate IBKR API batch capabilities**:
+   - Research if IBKR API supports batch symbol lookup
+   - Analyze concurrent search possibilities (threading/asyncio)
+   - Investigate caching strategies for previously searched symbols
+   - Document rate limiting constraints and connection pooling options
+   - **GOAL**: Reduce 30-minute runtime to under 5 minutes
+
+#### Phase 3: Implementation (ONLY AFTER ANALYSIS & OPTIMIZATION RESEARCH)
+3. **Create interface**: `IBrokerageSearchService` with performance considerations
+4. **Create optimized implementation**: `IBKRSearchService` with:
+   - Batch processing where possible
+   - Concurrent search implementation (if safe with IBKR API)
+   - Symbol caching mechanism
+   - Progress tracking for long-running operations
+   - Async endpoints for non-blocking operations
+5. **Create API endpoints**:
+   - `POST /api/v1/ibkr/search/all` → Optimized `process_all_universe_stocks()`
+   - `POST /api/v1/ibkr/search/batch` → Batch search multiple stocks
    - `POST /api/v1/ibkr/search/stocks` → Search specific stocks
    - `GET /api/v1/ibkr/search/results` → Get search results
-5. **Test CLI**: `python main.py 8` produces identical IBKR search results
-6. **Test API**: Search results match CLI processing exactly
+   - `GET /api/v1/ibkr/search/progress/{task_id}` → Get search progress
+   - `GET /api/v1/ibkr/search/cache/stats` → Get cache statistics
+
+#### Phase 4: Performance Testing & Validation
+6. **Benchmark original vs optimized implementation**:
+   - Measure search time for 50, 100, 200+ stocks
+   - Document performance improvements achieved
+   - Verify search accuracy remains 100% identical
+7. **Test CLI**: `python main.py 8` produces identical IBKR search results
+8. **Test API**: Search results match CLI processing exactly
+9. **Load testing**: Validate API can handle multiple concurrent search requests
 
 **⚠️ TESTING REQUIREMENTS:**
 - **Activate virtual environment FIRST**: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Unix)
@@ -635,6 +664,10 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 - Identical IBKR identification details added to stocks
 - Same universe_with_ibkr.json file created
 - Same search logic and instrument matching
+- **PERFORMANCE REQUIREMENT**: Reduce search time from 30+ minutes to under 5 minutes
+- **API ENHANCEMENT**: Provide async endpoints with progress tracking
+- **CACHING**: Implement symbol caching to avoid repeated searches
+- **RELIABILITY**: Handle IBKR API failures gracefully with retry logic
 
 **Status**: ⏸️ Not Started
 
@@ -1065,7 +1098,7 @@ def event_loop():
 - [ ] Step 5: Currency Exchange Service
 - [ ] Step 6: Target Allocation Service
 - [ ] Step 7: Quantity Calculation Service
-- [ ] Step 8: IBKR Search Service
+- [ ] Step 8: IBKR Search Service ⚠️ **CRITICAL**: Performance optimization required (30min → <5min)
 - [ ] Step 9: Rebalancing Orders Service
 - [ ] Step 10: Order Execution Service
 - [ ] Step 11: Order Status Checking Service

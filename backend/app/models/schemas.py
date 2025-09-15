@@ -429,3 +429,66 @@ class UpdateUniverseResponse(BaseModel):
     success: bool = Field(description="Whether the update was successful")
     message: str = Field(description="Operation status message")
     metadata: Dict[str, Any] = Field(description="Update operation metadata")
+
+
+# Portfolio Optimization Schemas
+
+class PortfolioStats(BaseModel):
+    """Portfolio performance statistics"""
+    expected_annual_return: float = Field(description="Expected annual return (decimal, e.g., 0.12 = 12%)")
+    annual_volatility: float = Field(description="Annual volatility (decimal)")
+    sharpe_ratio: float = Field(description="Sharpe ratio")
+
+
+class ScreenerStats(BaseModel):
+    """Individual screener performance statistics"""
+    annual_return: float = Field(description="Annual return (decimal)")
+    annual_volatility: float = Field(description="Annual volatility (decimal)")
+    sharpe_ratio: float = Field(description="Sharpe ratio")
+
+
+class OptimizationDetails(BaseModel):
+    """Portfolio optimization technical details"""
+    success: bool = Field(description="Whether optimization was successful")
+    message: str = Field(description="Optimization status message")
+    method: str = Field(description="Optimization method used")
+    objective: str = Field(description="Optimization objective")
+    constraints: str = Field(description="Optimization constraints")
+
+
+class PortfolioOptimizationData(BaseModel):
+    """Complete portfolio optimization results"""
+    optimal_allocations: Dict[str, float] = Field(description="Optimal portfolio weights by screener")
+    portfolio_performance: PortfolioStats = Field(description="Optimized portfolio performance")
+    individual_screener_stats: Dict[str, ScreenerStats] = Field(description="Individual screener statistics")
+    correlation_matrix: Dict[str, Dict[str, float]] = Field(description="Screener correlation matrix")
+    optimization_details: OptimizationDetails = Field(description="Optimization technical details")
+
+
+class PortfolioOptimizationResponse(BaseModel):
+    """
+    Response model for portfolio optimization
+    Maintains compatibility with CLI output
+    """
+    success: bool = Field(description="Whether the optimization was successful")
+    optimization_results: PortfolioOptimizationData = Field(description="Complete optimization results")
+    universe_updated: bool = Field(description="Whether universe.json was updated")
+    message: str = Field(description="Operation status message")
+
+
+class QuarterlyReturnsMetadata(BaseModel):
+    """Metadata for quarterly returns data"""
+    num_quarters: int = Field(description="Number of quarters in dataset")
+    num_screeners: int = Field(description="Number of screeners with data")
+    screeners: List[str] = Field(description="List of screener names")
+    data_range: str = Field(description="Date range of quarterly data")
+
+
+class QuarterlyReturnsResponse(BaseModel):
+    """
+    Response model for quarterly returns data
+    Used as input for portfolio optimization
+    """
+    returns_data: Dict[str, List[float]] = Field(description="Quarterly returns by screener (decimal format)")
+    quarters: List[str] = Field(description="Quarter labels (e.g., '2023Q1')")
+    metadata: QuarterlyReturnsMetadata = Field(description="Dataset metadata")

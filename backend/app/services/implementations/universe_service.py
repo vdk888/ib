@@ -117,7 +117,22 @@ class UniverseService(IUniverseRepository):
         Returns:
             Universe dictionary with metadata, screens, and all_stocks sections
         """
-        return create_universe()
+        # We need to change to the project root directory to make the legacy function work
+        import os
+        current_dir = os.getcwd()
+
+        # Calculate project root (go up from backend/app/services/implementations to project root)
+        project_root = os.path.abspath(os.path.join(
+            os.path.dirname(__file__), '..', '..', '..', '..'
+        ))
+
+        try:
+            # Change to project root where data/files_exports/ exists
+            os.chdir(project_root)
+            return create_universe()
+        finally:
+            # Always restore original directory
+            os.chdir(current_dir)
 
     def save_universe(
         self,
@@ -131,7 +146,21 @@ class UniverseService(IUniverseRepository):
             universe: Universe dictionary
             output_path: Path to save the JSON file
         """
-        save_universe(universe, output_path)
+        import os
+        current_dir = os.getcwd()
+
+        # Calculate project root for proper path resolution
+        project_root = os.path.abspath(os.path.join(
+            os.path.dirname(__file__), '..', '..', '..', '..'
+        ))
+
+        try:
+            # Change to project root for consistent path behavior
+            os.chdir(project_root)
+            save_universe(universe, output_path)
+        finally:
+            # Always restore original directory
+            os.chdir(current_dir)
 
     def load_universe(
         self,
@@ -146,7 +175,18 @@ class UniverseService(IUniverseRepository):
         Returns:
             Universe dictionary or None if file not found
         """
+        import os
+        current_dir = os.getcwd()
+
+        # Calculate project root for proper path resolution
+        project_root = os.path.abspath(os.path.join(
+            os.path.dirname(__file__), '..', '..', '..', '..'
+        ))
+
         try:
+            # Change to project root for consistent path behavior
+            os.chdir(project_root)
+
             if not os.path.exists(file_path):
                 return None
 
@@ -156,6 +196,9 @@ class UniverseService(IUniverseRepository):
         except Exception as e:
             print(f"Error loading universe from {file_path}: {e}")
             return None
+        finally:
+            # Always restore original directory
+            os.chdir(current_dir)
 
     def get_stock_field(
         self,

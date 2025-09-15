@@ -3,11 +3,12 @@ Dependency injection container
 """
 from functools import lru_cache
 from .config import Settings
-from ..services.interfaces import IScreenerService, IUniverseRepository
+from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer
 from ..services.implementations.screener_service import ScreenerService
 from ..services.implementations.uncle_stock_provider import UncleStockProvider
 from ..services.implementations.file_manager import FileManager
 from ..services.implementations.universe_service import create_universe_service
+from ..services.implementations.portfolio_optimizer_service import PortfolioOptimizerService
 
 @lru_cache()
 def get_settings() -> Settings:
@@ -19,6 +20,7 @@ _file_manager = None
 _uncle_stock_provider = None
 _screener_service = None
 _universe_service = None
+_portfolio_optimizer_service = None
 
 
 def get_file_manager() -> FileManager:
@@ -54,3 +56,11 @@ def get_universe_service() -> IUniverseRepository:
     if _universe_service is None:
         _universe_service = create_universe_service()
     return _universe_service
+
+
+def get_portfolio_optimizer_service() -> IPortfolioOptimizer:
+    """Get portfolio optimizer service instance"""
+    global _portfolio_optimizer_service
+    if _portfolio_optimizer_service is None:
+        _portfolio_optimizer_service = PortfolioOptimizerService()
+    return _portfolio_optimizer_service
