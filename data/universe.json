@@ -1502,6 +1502,59 @@
           }
         ]
       }
+    },
+    "portfolio_optimization": {
+      "optimal_allocations": {
+        "quality_bloom": 0.7786647880297559,
+        "TOR_Surplus": 2.3852447794681098e-18,
+        "Moat_Companies": 0.22133521197024406
+      },
+      "portfolio_performance": {
+        "expected_annual_return": 0.1473725876843136,
+        "annual_volatility": 0.1782886957339823,
+        "sharpe_ratio": 0.7144176312465786
+      },
+      "individual_screener_stats": {
+        "quality_bloom": {
+          "annual_return": 0.1539058823529412,
+          "annual_volatility": 0.18855501154644516,
+          "sharpe_ratio": 0.7101687791520582
+        },
+        "TOR_Surplus": {
+          "annual_return": -0.13668235294117648,
+          "annual_volatility": 0.20142577184356117,
+          "sharpe_ratio": -0.7778664641924022
+        },
+        "Moat_Companies": {
+          "annual_return": 0.12438823529411763,
+          "annual_volatility": 0.16302538570048505,
+          "sharpe_ratio": 0.6403188978549801
+        }
+      },
+      "correlation_matrix": {
+        "quality_bloom": {
+          "quality_bloom": 1.0,
+          "TOR_Surplus": -0.8462142977302949,
+          "Moat_Companies": 0.842654739280663
+        },
+        "TOR_Surplus": {
+          "quality_bloom": -0.8462142977302949,
+          "TOR_Surplus": 1.0,
+          "Moat_Companies": -0.8799552307142274
+        },
+        "Moat_Companies": {
+          "quality_bloom": 0.842654739280663,
+          "TOR_Surplus": -0.8799552307142274,
+          "Moat_Companies": 1.0
+        }
+      },
+      "optimization_details": {
+        "success": true,
+        "message": "Optimization terminated successfully",
+        "method": "SLSQP (Sequential Least Squares Programming)",
+        "objective": "Maximize Sharpe Ratio",
+        "constraints": "Long-only (weights >= 0), weights sum to 1"
+      }
     }
   },
   "screens": {
