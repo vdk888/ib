@@ -1720,17 +1720,90 @@ GET  /api/v1/orders/health                  → Service health check and endpoin
 ## Step 12: Pipeline Orchestration Service
 **Goal**: Create unified pipeline API that orchestrates all steps
 
+### Current Functions Analysis (REQUIRED):
+
+#### `run_all_steps()` in main.py lines 295-356:
+- **Purpose**: Execute complete 11-step pipeline in sequence with error handling
+- **Execution Flow**: Sequential step execution with fail-fast behavior
+- **Error Handling**: Stops pipeline on first failure, displays specific failure step
+- **Console Output**: Progress reporting, file creation summary, completion status
+- **Dependencies**: Calls all step functions (step1_fetch_data through step11_check_order_status)
+- **Side Effects**: Creates complete file ecosystem (CSVs, JSONs, orders)
+
+#### Individual Step Functions (step1_fetch_data through step11_check_order_status):
+- **step1_fetch_data()**: Fetches Uncle Stock data and histories
+- **step2_parse_data()**: Creates universe.json from CSV files
+- **step3_parse_history()**: Adds historical performance to universe.json
+- **step4_optimize_portfolio()**: Subprocess call to portfolio_optimizer.py
+- **step5_update_currency()**: Adds EUR exchange rates to universe.json
+- **step6_calculate_targets()**: Calculates final stock allocations
+- **step7_calculate_quantities()**: Gets IBKR account value and calculates quantities
+- **step8_ibkr_search()**: Searches IBKR for stocks (OPTIMIZED with fallback)
+- **step9_rebalancer()**: Generates rebalancing orders
+- **step10_execute_orders()**: Executes orders through IBKR API
+- **step11_check_order_status()**: Verifies order execution and status
+
+#### Command Line Interface:
+- **Default behavior**: `python main.py` runs all steps
+- **Individual steps**: `python main.py [1-11]` or named commands
+- **Aliases supported**: step1/fetch, step2/parse, step3/history, etc.
+- **Help system**: `python main.py help` shows complete usage
+
 ### Actions:
-1. **Create interface**: `IPipelineOrchestrator`
-2. **Create implementation**: `PipelineService` that calls all step services
-3. **Create API endpoints**:
-   - `POST /api/v1/pipeline/run` → Run full pipeline (like `run_all_steps()`)
-   - `POST /api/v1/pipeline/run/{step_number}` → Run individual step
-   - `GET /api/v1/pipeline/status/{run_id}` → Get pipeline execution status
-   - `GET /api/v1/pipeline/history` → Get execution history
-4. **Add async execution** with status tracking
-5. **Add error recovery** and resume functionality
-6. **Test**: Full pipeline API produces identical results to CLI
+
+#### Phase 1: Deep Analysis (MANDATORY FIRST)
+1. **📖 STUDY `main.py` PIPELINE ORCHESTRATION COMPLETELY**:
+   - Analyze `run_all_steps()` flow control and error handling
+   - Document exact step execution sequence and dependencies
+   - Map all console output patterns and file creation
+   - Identify failure handling and pipeline stopping behavior
+   - Map CLI argument parsing and step routing logic
+   - **UPDATE THIS PLAN** with exact implementation details
+
+#### Phase 2: Interface-First Design
+2. **Create interface**: `IPipelineOrchestrator` in `services/interfaces.py`
+3. **Create models**: Pipeline execution status, history, and result schemas
+4. **Define async patterns**: Long-running pipeline execution with real-time status
+
+#### Phase 3: Implementation (ONLY AFTER ANALYSIS)
+5. **Create implementation**: `PipelineOrchestratorService` that:
+   - Wraps existing step functions for API access
+   - Provides async execution with status tracking
+   - Maintains identical error handling and stopping behavior
+   - Preserves console output through structured logging
+   - Implements resume/recovery functionality
+
+#### Phase 4: API Endpoints
+6. **Create comprehensive API endpoints**:
+   - `POST /api/v1/pipeline/run` → Async full pipeline (like `run_all_steps()`)
+   - `POST /api/v1/pipeline/run/steps/{step_numbers}` → Run specific step range
+   - `POST /api/v1/pipeline/run/step/{step_number}` → Run individual step
+   - `GET /api/v1/pipeline/runs/{run_id}/status` → Real-time execution status
+   - `GET /api/v1/pipeline/runs/{run_id}/logs` → Structured execution logs
+   - `GET /api/v1/pipeline/runs/{run_id}/results` → Execution results and files
+   - `POST /api/v1/pipeline/runs/{run_id}/resume` → Resume failed pipeline
+   - `GET /api/v1/pipeline/history` → Pipeline execution history
+   - `GET /api/v1/pipeline/steps/available` → List all available steps with descriptions
+
+#### Phase 5: Advanced Features
+7. **Add execution management**:
+   - **Task Queue**: Background execution with Redis/in-memory queue
+   - **Status Tracking**: Real-time progress updates via WebSocket or polling
+   - **Error Recovery**: Resume from failed step with state preservation
+   - **Parallel Execution**: Run independent steps concurrently where possible
+   - **Resource Management**: Monitor memory/CPU usage during execution
+
+#### Phase 6: Testing & Validation
+8. **Create comprehensive tests**:
+   - **Unit tests**: Pipeline orchestration logic
+   - **Integration tests**: End-to-end pipeline execution
+   - **API tests**: All endpoints with various execution scenarios
+   - **Compatibility tests**: CLI vs API result comparison
+   - **Performance tests**: Pipeline execution time benchmarks
+   - **Error handling tests**: Failure scenarios and recovery
+
+9. **Test CLI compatibility**: Ensure `python main.py` works identically
+10. **Test API pipeline**: Verify API produces same file outputs as CLI
 
 **⚠️ TESTING REQUIREMENTS:**
 - **Activate virtual environment FIRST**: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Unix)
@@ -1739,12 +1812,16 @@ GET  /api/v1/orders/health                  → Service health check and endpoin
 - **🚨 MANDATORY**: ALL tests must pass 100% before step validation
 
 **Acceptance Criteria**:
-- API pipeline execution produces identical file outputs to CLI
-- Same error handling and stopping behavior
-- Same console-equivalent logging
-- Original CLI `main.py` still works unchanged
+- ✅ CLI `run_all_steps()` behavior unchanged - identical execution flow
+- ✅ API pipeline execution produces identical file outputs (CSVs, universe.json, orders.json)
+- ✅ Same sequential execution with fail-fast error handling
+- ✅ Same console output patterns and file creation summary
+- ✅ Individual step execution via API matches CLI step execution
+- ✅ Real-time status tracking and structured logging
+- ✅ Resume functionality for failed pipeline executions
+- ✅ Original CLI `main.py` still works unchanged with all argument parsing
 
-**Status**: ⏸️ Not Started
+**Status**: ⏸️ Ready for Implementation
 
 ---
 
@@ -2006,21 +2083,21 @@ def event_loop():
 
 ## Progress Tracking
 
-- [ ] Step 0: Repository Structure & Organization
-- [ ] Step 1: Data Fetching Service (Uncle Stock API)
-- [ ] Step 2: Data Parsing Service
-- [ ] Step 3: Historical Data Service
-- [ ] Step 4: Portfolio Optimization Service
-- [ ] Step 5: Currency Exchange Service
-- [ ] Step 6: Target Allocation Service
-- [ ] Step 7: Quantity Calculation Service
-- [ ] Step 8: IBKR Search Service ⚠️ **CRITICAL**: Performance optimization required (30min → <5min)
-- [x] Step 9: Rebalancing Orders Service ✅
-- [ ] Step 10: Order Execution Service
-- [x] Step 11: Order Status Checking Service
-- [ ] Step 12: Pipeline Orchestration Service
+- [x] Step 0: Repository Structure & Organization ✅ **COMPLETE**
+- [x] Step 1: Data Fetching Service (Uncle Stock API) ✅ **COMPLETE**
+- [x] Step 2: Data Parsing Service ✅ **COMPLETE**
+- [x] Step 3: Historical Data Service ✅ **COMPLETE**
+- [x] Step 4: Portfolio Optimization Service ✅ **COMPLETE**
+- [x] Step 5: Currency Exchange Service ✅ **COMPLETE**
+- [x] Step 6: Target Allocation Service ✅ **COMPLETE**
+- [x] Step 7: Quantity Calculation Service ✅ **COMPLETE**
+- [x] Step 8: IBKR Search Service ✅ **COMPLETE** 🚀 **PERFORMANCE BREAKTHROUGH**: 30min → <5min achieved!
+- [x] Step 9: Rebalancing Orders Service ✅ **COMPLETE**
+- [x] Step 10: Order Execution Service ✅ **COMPLETE**
+- [x] Step 11: Order Status Checking Service ✅ **COMPLETE**
+- [ ] Step 12: Pipeline Orchestration Service ⏸️ **READY FOR IMPLEMENTATION**
 
-**Current Status**: ⏸️ Ready to Begin Step 0
+**Current Status**: 🎯 **92% COMPLETE** - Final orchestration step ready for implementation
 
 ---
 
