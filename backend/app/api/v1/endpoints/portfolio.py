@@ -11,10 +11,10 @@ import logging
 from ....core.dependencies import get_portfolio_optimizer_service
 from ....core.exceptions import ValidationError
 from ....models.schemas import (
-    ErrorResponse,
     PortfolioOptimizationResponse,
     QuarterlyReturnsResponse
 )
+from ....models.errors import ErrorResponse
 
 # Configure logging
 logger = logging.getLogger(__name__)
