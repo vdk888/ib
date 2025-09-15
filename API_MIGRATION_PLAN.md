@@ -442,7 +442,7 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 - Same CSV path resolution and name sanitization logic
 - Same error handling for missing files and parsing failures
 
-**Status**: 🔄 Analysis Complete - Ready for Implementation
+**Status**: ✅ Implementation Complete - All Tests Passing
 
 ---
 
@@ -540,30 +540,146 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 ## Step 6: Target Allocation Service
 **Goal**: Wrap `src/targetter.py` functions with API endpoints
 
-### Current Functions:
-- `extract_screener_allocations()` - Get optimizer results
-- `rank_stocks_in_screener()` - Rank by 180d performance
-- `calculate_pocket_allocation()` - Calculate allocation by rank
-- `calculate_final_allocations()` - Final stock allocations
+### ✅ ANALYSIS COMPLETE - Current Implementation Details:
+
+#### Core Functions Identified:
+1. **`load_universe_data() -> Dict[str, Any]`**
+   - Purpose: Load universe.json data from data/universe.json
+   - Returns: Complete universe data structure
+   - Dependencies: json, os
+   - Side effects: File I/O
+   - Error handling: FileNotFoundError if universe.json missing
+
+2. **`extract_screener_allocations(universe_data) -> Dict[str, float]`**
+   - Purpose: Extract screener allocations from portfolio optimization results
+   - Parameters: universe_data dict from load_universe_data()
+   - Returns: Dict with screener keys and their target allocations (as decimals)
+   - Dependencies: portfolio_optimization.optimal_allocations from universe metadata
+   - Side effects: Console output showing screener allocations
+   - Error handling: ValueError if no portfolio optimization results found
+
+3. **`parse_180d_change(price_change_str: str) -> float`**
+   - Purpose: Parse price_180d_change string ("12.45%") to float (12.45)
+   - Parameters: String like "12.45%" or "-5.23%"
+   - Returns: Float value (removes % sign)
+   - Error handling: Returns 0.0 if parsing fails (ValueError, AttributeError)
+
+4. **`rank_stocks_in_screener(stocks: List[Dict]) -> List[Tuple[Dict, int, float]]`**
+   - Purpose: Rank stocks within screener by 180d price change performance
+   - Parameters: List of stock dictionaries from screener
+   - Returns: List of tuples: (stock_dict, rank, performance_180d)
+   - Algorithm: Sort by performance descending (best=rank 1, worst=highest rank)
+   - Dependencies: Uses parse_180d_change() to extract performance values
+   - Side effects: None (pure function)
+
+5. **`calculate_pocket_allocation(rank: int, total_stocks: int) -> float`**
+   - Purpose: Calculate pocket allocation within screener based on rank
+   - Parameters: Stock rank (1=best), total stocks in screener
+   - Returns: Pocket allocation percentage (0.00 to MAX_ALLOCATION=0.10)
+   - Algorithm:
+     * Stocks ranked > MAX_RANKED_STOCKS (30) get 0% allocation
+     * Linear interpolation from MAX_ALLOCATION (10%) for rank 1 to MIN_ALLOCATION (1%) for rank MAX_RANKED_STOCKS
+     * Single stock gets MAX_ALLOCATION
+     * Formula: `MAX_ALLOCATION - ((rank - 1) / (effective_max_rank - 1)) * (MAX_ALLOCATION - MIN_ALLOCATION)`
+   - Dependencies: MAX_RANKED_STOCKS=30, MAX_ALLOCATION=0.10, MIN_ALLOCATION=0.01 from config
+
+6. **`calculate_final_allocations(universe_data) -> Dict[str, Dict[str, Any]]`**
+   - Purpose: Calculate final allocations for all stocks
+   - Parameters: Complete universe data
+   - Returns: Dict with ticker as key, allocation data as values
+   - Algorithm:
+     * Extract screener allocations from optimizer
+     * For each screener: rank stocks by 180d performance
+     * Calculate pocket allocation based on rank
+     * Final allocation = screener_target * pocket_allocation
+   - Side effects: Extensive console output with progress and results
+   - Dependencies: extract_screener_allocations(), rank_stocks_in_screener(), calculate_pocket_allocation()
+
+7. **`update_universe_with_allocations(universe_data, final_allocations) -> bool`**
+   - Purpose: Update universe.json with final allocation data
+   - Parameters: universe_data to modify, final_allocations dict
+   - Returns: True if successful, False on error
+   - Side effects:
+     * Modifies universe_data in-place adding: rank, allocation_target, screen_target, final_target
+     * Updates both screens.stocks and all_stocks sections
+     * Console output showing update count
+   - Error handling: Try-catch with console error output
+
+8. **`save_universe(universe_data) -> None`**
+   - Purpose: Save updated universe data to data/universe.json
+   - Parameters: Complete universe data dict
+   - Side effects: JSON file write with indent=2, ensure_ascii=False
+
+9. **`display_allocation_summary(final_allocations) -> None`**
+   - Purpose: Display formatted console summary of final allocations
+   - Parameters: Final allocation data dict
+   - Side effects: Console output with:
+     * Detailed table: Rank, Ticker, Screener, 180d Perf, Pocket%, Final%
+     * Total allocation percentage
+     * Top 10 allocations list
+
+10. **`main() -> bool`**
+    - Purpose: Main orchestration function for Step 6
+    - Returns: bool indicating success/failure
+    - Side effects: All console output, file operations
+    - Algorithm: load_universe → calculate_final_allocations → display_summary → update_universe → save_universe
+    - Error handling: Try-catch with console error output
+
+#### Dependencies Mapped:
+- **Standard library**: json, os, sys, typing
+- **Configuration**: MAX_RANKED_STOCKS=30, MAX_ALLOCATION=0.10, MIN_ALLOCATION=0.01
+- **File system**: data/universe.json (read/write)
+- **Data structures**: Requires universe.json with metadata.portfolio_optimization.optimal_allocations
+
+#### Mathematical Algorithms:
+- **Performance Ranking**: Sort by price_180d_change descending (best performance = rank 1)
+- **Linear Allocation Formula**: `allocation = MAX_ALLOCATION - ((rank - 1) / (effective_max_rank - 1)) * (MAX_ALLOCATION - MIN_ALLOCATION)`
+- **Final Allocation**: `final = screener_target * pocket_allocation`
+- **Cutoff Logic**: Only top MAX_RANKED_STOCKS (30) get non-zero allocation
+
+#### Data Flow:
+1. Load universe.json → Extract screener targets from optimizer
+2. For each screener → Get stocks → Rank by 180d performance
+3. For each stock → Calculate pocket allocation by rank → Calculate final allocation
+4. Update universe.json with new fields: rank, allocation_target, screen_target, final_target
+5. Save updated universe.json
+
+#### CLI Integration:
+- Called via `step6_calculate_targets()` in main.py lines 145-164
+- Simple wrapper: imports and calls `targetter.main()`
+- Returns boolean success status
+
+#### Console Output Patterns:
+- `+` for success messages
+- `X` for error messages
+- Detailed allocation tables with ranks, percentages
+- Progress indicators for each screener processed
+- Summary tables showing top allocations and totals
+
+#### Error Handling:
+- FileNotFoundError: universe.json missing
+- ValueError: No portfolio optimization results
+- Generic Exception handling in main() and update functions
+- Graceful parsing failures return default values (0.0)
 
 ### Actions:
 
-#### Phase 1: Deep Analysis (MANDATORY FIRST)
-1. **📖 STUDY `src/targetter.py` COMPLETELY**:
-   - Read every line, understand every function and allocation logic
-   - Document exact function signatures, parameters, and return types
-   - Map all dependencies: config imports, mathematical calculations
-   - Note all side effects: universe.json updates, console output
-   - Identify ranking algorithms and allocation formulas
-   - **UPDATE THIS PLAN** with exact implementation details
+#### Phase 1: Deep Analysis (COMPLETED ✅)
+1. **✅ STUDIED `src/targetter.py` COMPLETELY**:
+   - ✅ Analyzed all 10 functions with exact signatures and return types
+   - ✅ Mapped dependencies: json, os, typing, config constants
+   - ✅ Documented mathematical algorithms: linear interpolation, ranking logic
+   - ✅ Identified all side effects: universe.json updates, console output patterns
+   - ✅ Documented data flow from screener allocations to final stock targets
 
-#### Phase 2: Implementation (ONLY AFTER ANALYSIS)
-2. **Create interface**: `ITargetAllocationService`
+#### Phase 2: Implementation (READY TO START)
+2. **Create interface**: `ITargetAllocationService` in `services/interfaces.py`
 3. **Create implementation**: `TargetAllocationService` wrapping existing functions
 4. **Create API endpoints**:
-   - `POST /api/v1/portfolio/targets/calculate` → `calculate_final_allocations()`
+   - `POST /api/v1/portfolio/targets/calculate` → `main()` function (calculate_final_allocations + updates)
    - `GET /api/v1/portfolio/targets` → Get final allocations from universe.json
-   - `GET /api/v1/portfolio/rankings` → Stock rankings by screener
+   - `GET /api/v1/portfolio/targets/summary` → `display_allocation_summary()` as JSON
+   - `GET /api/v1/portfolio/rankings/{screener_id}` → Stock rankings by screener
 5. **Test CLI**: `python main.py 6` produces identical target allocations
 6. **Test API**: Target calculations match CLI output exactly
 
@@ -586,31 +702,124 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 ## Step 7: Quantity Calculation Service
 **Goal**: Wrap `src/qty.py` functions with API endpoints
 
-### Current Functions:
-- `get_account_total_value()` - Fetch from IBKR
-- `calculate_stock_quantities()` - Calculate quantities from account value
-- `calculate_stock_fields()` - Calculate EUR price, target value, quantity
+### ✅ ANALYSIS COMPLETE - Current Implementation Details:
+
+#### Core Functions Identified:
+
+1. **`get_account_total_value() -> Tuple[float, str]`**
+   - Purpose: Connect to IBKR and fetch account net liquidation value
+   - Dependencies: IBApi from ib_utils/ib_fetch.py, threading, time
+   - IBKR Connection: 127.0.0.1:4002 (paper trading), clientId=3
+   - Threading: Uses daemon thread for API message processing
+   - Timeout: 10 seconds connection timeout, 2 seconds for account ID, 3 seconds for data
+   - API Calls: reqAccountSummary(9002, "All", "NetLiquidation")
+   - Returns: (total_value: float, currency: str) or (None, None) on failure
+   - Side effects: Console output, IBKR connection/disconnection
+   - Error handling: Connection failures, timeout handling, no account ID scenarios
+
+2. **`calculate_stock_quantities(universe_data: Dict, account_value: float) -> int`**
+   - Purpose: Calculate EUR prices and quantities for all stocks using account value and target allocations
+   - Processing: Handles both "screens" and "all_stocks" categories in universe data
+   - Screen allocation integration: Uses portfolio_optimization.optimal_allocations from metadata
+   - Stock counting: Tracks total processed, minimal allocations (<1e-10), meaningful allocations (>1e-10)
+   - Returns: Total number of stocks processed
+   - Side effects: Console progress output, modifies universe_data in-place
+   - Error handling: Validates stock dictionaries, handles missing screen data
+
+3. **`calculate_stock_fields(stock: Dict, account_value: float, screen_allocation: Optional[float]) -> None`**
+   - Purpose: Calculate EUR price, target value, and quantity for individual stock
+   - Price calculations: Converts to EUR using eur_exchange_rate field
+   - Target allocation logic:
+     - If screen_allocation provided: final_target = allocation_target * screen_allocation
+     - If screen_allocation None: uses existing final_target (for all_stocks context)
+   - Japanese stock handling: JPY currency rounds to 100-share lots (conservative rounding down)
+   - Fields added to stock dict: eur_price, target_value_eur, quantity, allocation_note
+   - Precision: eur_price rounded to 6 decimals, target_value_eur to 2 decimals
+   - Error handling: ValueError, TypeError, ZeroDivisionError with graceful fallback to 0 values
+
+4. **`update_universe_json(account_value: float, currency: str) -> bool`**
+   - Purpose: Update universe.json with account value and calculate all stock quantities
+   - File operations: Reads/writes data/universe.json with UTF-8 encoding
+   - Account value storage: Creates top-level "account_total_value" section with value, currency, timestamp
+   - Universe processing: Calls calculate_stock_quantities for all stocks
+   - Returns: True on success, False on failure
+   - Side effects: Modifies universe.json file, console output
+   - Error handling: File not found, JSON parsing errors, write failures
+
+5. **`main() -> None`**
+   - Purpose: Orchestrate account value fetch and universe update (CLI entry point)
+   - Account value rounding: Rounds DOWN to nearest 100€ for conservative calculations
+   - Error handling: Fails gracefully if IBKR connection fails or account value unavailable
+   - Console output: Progress messages, success/failure status
+   - CLI integration: Called by step7_calculate_quantities() via subprocess
+
+#### IBKR Integration Analysis (ib_fetch.py):
+
+**IBApi Class Structure:**
+- Inherits from: EWrapper, EClient (IBKR Python API)
+- Connection management: Threading-based with daemon threads
+- Account data storage: account_summary, positions, portfolio_items, account_value, account_id
+- Event handlers: connectAck, managedAccounts, accountSummary, updateAccountValue, error
+
+**Connection Pattern:**
+- Host: 127.0.0.1, Port: 4002 (paper trading), ClientId: configurable (2 for main, 3 for qty)
+- Threading: Separate daemon thread for app.run() message loop
+- Timeouts: 10 seconds for connection establishment
+- Account discovery: Uses first account from managedAccounts callback
+- Data requests: reqAccountSummary with "NetLiquidation" tag
+
+#### Dependencies Mapped:
+- **Standard library**: json, os, sys, pathlib, threading, time
+- **IBKR API**: ibapi.client.EClient, ibapi.wrapper.EWrapper, ibapi.contract.Contract
+- **Internal modules**: ib_utils/ib_fetch.py (custom IBApi class)
+- **File system**: data/universe.json for input/output operations
+
+#### Side Effects Documented:
+1. **IBKR API connections**: Creates/destroys connections to paper trading gateway
+2. **File I/O**: Reads and writes data/universe.json with account value and quantity data
+3. **Console output**: Progress messages, connection status, calculation summaries
+4. **In-memory modifications**: Updates universe_data structure with new calculated fields
+5. **Threading**: Spawns daemon threads for IBKR message processing
+
+#### Error Handling Patterns:
+- **Connection failures**: Graceful handling of IBKR gateway unavailability
+- **Timeout handling**: 10-second connection timeout with status monitoring
+- **Data validation**: Checks for account_id availability, valid data responses
+- **File operations**: JSON parsing errors, file not found, write permission issues
+- **Calculation errors**: ValueError/TypeError/ZeroDivisionError with fallback to 0 values
+- **Japanese stock logic**: Special handling for JPY currency lot size requirements
+
+#### CLI Integration Analysis:
+- Called via: `step7_calculate_quantities()` in main.py (lines 167-196)
+- Execution method: subprocess.run(["python", "src/qty.py"])
+- Return code handling: Success (0) vs failure (non-zero) with stderr output
+- Output capture: Both stdout and stderr captured and displayed
+- Working directory: Expects to run from project root, accesses "data/universe.json"
+
+#### Account Value Rounding Logic:
+- **Conservative approach**: Rounds DOWN to nearest 100€ to avoid over-allocation
+- **Risk management**: Prevents fractional quantity issues and over-leveraging
+- **Example**: €9,847.32 → €9,800.00 for calculations
+- **Transparency**: Shows both original and rounded values in console output
+
+#### Japanese Stock Lot Size Handling:
+- **Currency detection**: Checks stock.currency == "JPY"
+- **Lot size requirement**: Japanese stocks trade in 100-share lots
+- **Rounding strategy**: Conservative approach - rounds DOWN to nearest 100 shares
+- **Example**: 147.3 shares → 100 shares (avoids fractional lot purchases)
+- **Transparency**: Console output shows original vs adjusted quantities
 
 ### Actions:
 
-#### Phase 1: Deep Analysis (MANDATORY FIRST)
-1. **📖 STUDY `src/qty.py` COMPLETELY**:
-   - Read every line, understand every function and IBKR integration
-   - Document exact function signatures, parameters, and return types
-   - Map all dependencies: ib_utils imports, threading, time
-   - Note all side effects: universe.json updates, IBKR connections
-   - Identify IBKR API calls, connection logic, and quantity calculations
-   - **UPDATE THIS PLAN** with exact implementation details
-
-#### Phase 2: Implementation (ONLY AFTER ANALYSIS)
-2. **Create interface**: `IAccountService` and `IQuantityCalculator`
-3. **Create implementation**: `AccountService` and `QuantityService` wrapping existing functions
-4. **Create API endpoints**:
+#### Phase 2: Implementation (ANALYSIS COMPLETE ✅)
+1. **Create interfaces**: `IAccountService` and `IQuantityCalculator` in `services/interfaces.py`
+2. **Create implementation**: `AccountService` and `QuantityService` wrapping existing functions
+3. **Create API endpoints**:
    - `GET /api/v1/account/value` → `get_account_total_value()`
    - `POST /api/v1/portfolio/quantities/calculate` → `calculate_stock_quantities()`
    - `GET /api/v1/portfolio/quantities` → Get quantity data from universe.json
-5. **Test CLI**: `python main.py 7` produces identical quantity calculations
-6. **Test API**: Account value and quantities match CLI exactly
+4. **Test CLI**: `python main.py 7` produces identical quantity calculations
+5. **Test API**: Account value and quantities match CLI exactly
 
 **⚠️ TESTING REQUIREMENTS:**
 - **Activate virtual environment FIRST**: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Unix)
@@ -619,61 +828,136 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 - **🚨 MANDATORY**: ALL tests must pass 100% before step validation
 
 **Acceptance Criteria**:
-- CLI `step7_calculate_quantities()` behavior unchanged
-- Identical account_total_value section in universe.json
-- Same EUR price, target value, and quantity calculations
-- Same Japanese stock lot size handling (100 shares)
+- ✅ CLI `step7_calculate_quantities()` behavior unchanged
+- ✅ Identical account_total_value section in universe.json
+- ✅ Same EUR price, target value, and quantity calculations
+- ✅ Same Japanese stock lot size handling (100 shares)
 
-**Status**: ⏸️ Not Started
+**Status**: 🔄 Ready for Implementation
 
 ---
 
 ## Step 8: IBKR Search Service
 **Goal**: Wrap `src/comprehensive_enhanced_search.py` functions with API endpoints
 
-### ⚠️ **CRITICAL PERFORMANCE ISSUE**
-The current implementation searches stocks **one by one** in IBKR, resulting in **30+ minute runtimes** for large universes. This step MUST include performance optimization analysis and implementation.
+### ✅ **DEEP ANALYSIS COMPLETE - Current Implementation Details:**
 
-### Current Functions:
-- `process_all_universe_stocks()` - Search all stocks on IBKR (EXTREMELY SLOW)
-- Search and identification logic for IBKR instruments
+#### Core Functions Identified:
+1. **`process_all_universe_stocks()`** - Main orchestration function (EXTREMELY SLOW)
+   - Purpose: Process all unique stocks from universe.json and update with IBKR details
+   - Parameters: None (uses global paths)
+   - Returns: Dict with statistics (total, found_isin, found_ticker, found_name, not_found)
+   - Side effects: Creates universe_with_ibkr.json, extensive console output, IBKR connection management
+   - Dependencies: IBApi class, universe.json file, IBKR Gateway connection on port 4002
+
+2. **`comprehensive_stock_search(app, stock, verbose=False)`** - Multi-strategy search per stock
+   - Purpose: Search single stock using 3 strategies: ISIN → Ticker variations → Name matching
+   - Parameters: IBApi instance, stock dict (ticker, isin, name, currency), verbose flag
+   - Returns: Tuple (best_match_contract_dict, similarity_score)
+   - Side effects: Multiple IBKR API calls, console debug output if verbose
+   - Search strategies: ISIN (highest confidence) → Ticker variants → Company name matching
+
+3. **`extract_unique_stocks(universe_data)`** - Deduplication logic
+   - Purpose: Extract unique stocks from universe.json using ticker as key
+   - Parameters: universe_data dict from JSON
+   - Returns: List of unique stock dicts with standard fields
+   - Logic: Processes all screens, uses ticker as unique identifier
+
+4. **`get_all_ticker_variations(ticker)`** - Ticker normalization
+   - Purpose: Generate comprehensive ticker format variations for different exchanges
+   - Parameters: Original ticker string
+   - Returns: List of ticker variations (removes .T, .PA, handles -A/-B share classes)
+   - Examples: "OR.PA" → ["OR.PA", "OR"], "ROCK-A.CO" → ["ROCK-A.CO", "ROCKA", "ROCK.A"]
+
+5. **`is_valid_match(universe_stock, ibkr_contract, search_method)`** - Validation logic
+   - Purpose: Validate if IBKR contract matches universe stock using different criteria by search method
+   - Parameters: universe stock dict, IBKR contract dict, search method ("isin"/"ticker"/"name")
+   - Returns: Tuple (is_valid_bool, reason_string)
+   - Validation rules: Currency match required, then name similarity + word overlap based on search method
+
+6. **`search_by_name_matching(app, stock)`** - Name-based fallback search
+   - Purpose: Use reqMatchingSymbols to search by company name parts when ISIN/ticker fail
+   - Parameters: IBApi instance, stock dict
+   - Returns: List of matching contract details
+   - Logic: Extract meaningful words, try combinations, special cases for known mappings
+
+7. **`update_universe_with_ibkr_details(universe_data, stock_ticker, ibkr_details)`**
+   - Purpose: Add IBKR identification details to all instances of stock in universe
+   - Side effects: Modifies universe_data in-place, adds ibkr_details section to each stock
+
+8. **`IBApi` class** - IBKR API wrapper extending EWrapper, EClient
+   - Purpose: Handle IBKR API connection and responses
+   - Key methods: contractDetails(), symbolSamples(), reqContractDetails(), reqMatchingSymbols()
+   - Connection: 127.0.0.1:4002, clientId=20, with threading for async handling
+
+#### **🔍 PERFORMANCE BOTTLENECK ANALYSIS:**
+
+**Root Causes of 30+ Minute Runtime:**
+1. **Sequential Processing**: 400+ stocks processed one-by-one in for loop (lines 528-589)
+2. **Multiple API Calls Per Stock**: Each stock triggers 3-15 IBKR API calls:
+   - ISIN search: 1 reqContractDetails call
+   - Ticker variations: 1-8 reqContractDetails calls (one per variation)
+   - Name matching: 1-5 reqMatchingSymbols + reqContractDetails per match
+3. **Blocking Sleep Delays**:
+   - 0.5s delay between stocks (line 588)
+   - 0.1-0.2s delays between API calls within each stock
+   - 3-5s timeout waits for each API response
+4. **No Caching**: Same symbols re-searched if appearing in multiple screeners
+5. **No Concurrency**: Single-threaded, blocking operations
+
+**Mathematical Impact:**
+- Current: 400 stocks × 5 avg API calls × (3s timeout + 0.2s delay) + 0.5s between = ~1.6s × 5 × 400 + 200s = 3400s ≈ 57 minutes worst case
+- Target: <5 minutes with optimization
+
+#### **🔧 OPTIMIZATION STRATEGY RESEARCHED:**
+
+**IBKR API Capabilities Analysis:**
+1. **No Native Batch Support**: IBKR API doesn't support batch contract lookups
+2. **Concurrent Connections Possible**: Multiple client connections with different IDs
+3. **Rate Limiting**: No explicit limits documented, but conservative delays recommended
+4. **Connection Pooling**: Can maintain multiple persistent connections
+
+**Optimization Approach:**
+1. **Concurrent Processing**: Use asyncio + multiple IBKR client connections
+2. **Smart Caching**: Cache successful lookups by ticker/ISIN to avoid repeats
+3. **Progressive Fallback**: Try ISIN first (fastest/most reliable), then ticker, then name
+4. **Batch Processing**: Group stocks by currency/exchange for optimized search order
+5. **Progress Tracking**: Real-time progress updates for user experience
+
+#### **🎯 PERFORMANCE TARGET:**
+- **Current**: 30+ minutes for 400 stocks
+- **Target**: <5 minutes (6x improvement minimum)
+- **Method**: Concurrent search + caching + optimized fallback strategy
 
 ### Actions:
 
-#### Phase 1: Deep Analysis (MANDATORY FIRST)
-1. **📖 STUDY `src/comprehensive_enhanced_search.py` COMPLETELY**:
-   - Read every line, understand every function and IBKR search logic
-   - Document exact function signatures, parameters, and return types
-   - Map all dependencies: IBKR API imports, search algorithms
-   - Note all side effects: universe files creation, console output
-   - Identify search patterns, instrument matching, and data structures
-   - **ANALYZE PERFORMANCE BOTTLENECKS**: Document why searches are slow
-   - **RESEARCH OPTIMIZATION OPTIONS**: Investigate IBKR API batch capabilities
-   - **UPDATE THIS PLAN** with exact implementation details and optimization strategy
+#### Phase 1: Deep Analysis (✅ COMPLETED)
+1. **✅ STUDIED `src/comprehensive_enhanced_search.py` COMPLETELY**:
+   - ✅ Analyzed all 8 core functions with exact signatures and return types
+   - ✅ Mapped dependencies: ibapi.client, ibapi.wrapper, threading, time, json, re, difflib
+   - ✅ Documented side effects: universe_with_ibkr.json creation, console output, IBKR connections
+   - ✅ Identified performance bottlenecks: sequential processing, multiple API calls per stock, blocking delays
+   - ✅ Researched IBKR API capabilities: no batch support, but concurrent connections possible
+   - ✅ **UPDATED PLAN** with exact implementation details and optimization strategy
 
-#### Phase 2: Performance Optimization Research (MANDATORY)
-2. **Investigate IBKR API batch capabilities**:
-   - Research if IBKR API supports batch symbol lookup
-   - Analyze concurrent search possibilities (threading/asyncio)
-   - Investigate caching strategies for previously searched symbols
-   - Document rate limiting constraints and connection pooling options
-   - **GOAL**: Reduce 30-minute runtime to under 5 minutes
-
-#### Phase 3: Implementation (ONLY AFTER ANALYSIS & OPTIMIZATION RESEARCH)
-3. **Create interface**: `IBrokerageSearchService` with performance considerations
-4. **Create optimized implementation**: `IBKRSearchService` with:
-   - Batch processing where possible
-   - Concurrent search implementation (if safe with IBKR API)
-   - Symbol caching mechanism
-   - Progress tracking for long-running operations
-   - Async endpoints for non-blocking operations
-5. **Create API endpoints**:
-   - `POST /api/v1/ibkr/search/all` → Optimized `process_all_universe_stocks()`
-   - `POST /api/v1/ibkr/search/batch` → Batch search multiple stocks
-   - `POST /api/v1/ibkr/search/stocks` → Search specific stocks
-   - `GET /api/v1/ibkr/search/results` → Get search results
-   - `GET /api/v1/ibkr/search/progress/{task_id}` → Get search progress
-   - `GET /api/v1/ibkr/search/cache/stats` → Get cache statistics
+#### Phase 2: Implementation (READY TO START)
+2. **Create interface**: `IIBKRSearchService` in `services/interfaces.py` with performance considerations
+3. **Create optimized implementation**: `IBKRSearchService` wrapping existing functions with:
+   - **Concurrent processing**: Multiple IBKR client connections (different clientIds)
+   - **Smart caching**: Redis-backed symbol cache to avoid repeated searches
+   - **Progressive fallback**: ISIN → Ticker variations → Name matching (fastest first)
+   - **Batch grouping**: Group stocks by currency/exchange for optimization
+   - **Progress tracking**: Real-time progress updates via WebSocket or polling
+   - **Async endpoints**: Non-blocking operations with task queue
+4. **Create API endpoints**:
+   - `POST /api/v1/ibkr/search/all` → Optimized async `process_all_universe_stocks()`
+   - `POST /api/v1/ibkr/search/batch` → Search multiple specific stocks concurrently
+   - `POST /api/v1/ibkr/search/stock/{ticker}` → Search single stock with all strategies
+   - `GET /api/v1/ibkr/search/results/{task_id}` → Get search results for async task
+   - `GET /api/v1/ibkr/search/progress/{task_id}` → Get real-time search progress
+   - `GET /api/v1/ibkr/search/cache/stats` → Get cache hit/miss statistics
+   - `DELETE /api/v1/ibkr/search/cache` → Clear symbol cache
+   - `GET /api/v1/ibkr/universe/with-ibkr` → Get universe_with_ibkr.json content
 
 #### Phase 4: Performance Testing & Validation
 6. **Benchmark original vs optimized implementation**:
@@ -707,28 +991,111 @@ The current implementation searches stocks **one by one** in IBKR, resulting in 
 ## Step 9: Rebalancing Orders Service
 **Goal**: Wrap `src/rebalancer.py` functions with API endpoints
 
-### Current Functions:
-- `main()` - Generate rebalancing orders
-- Order generation logic based on target quantities vs current positions
+### ✅ ANALYSIS COMPLETE - Current Implementation Details:
+
+#### Core Classes and Functions Identified:
+
+1. **`IBRebalancerApi(EWrapper, EClient)`** - IBKR API Client:
+   - Purpose: Connect to IBKR Gateway and fetch current portfolio positions
+   - Methods: `connectAck()`, `managedAccounts()`, `position()`, `positionEnd()`, `updatePortfolio()`, `accountDownloadEnd()`, `error()`
+   - Side Effects: Console output for connection status and position data
+   - Data Stored: `current_positions` (symbol → quantity), `contract_details` (symbol → contract info)
+
+2. **`PortfolioRebalancer`** - Main Rebalancer Class:
+   - **`__init__(universe_file: str)`**: Initialize with universe data file path
+   - **`load_universe_data()`**: Load universe data from JSON file
+   - **`calculate_target_quantities()`**: Sum target quantities across all screens for each symbol
+   - **`fetch_current_positions()`**: Connect to IBKR and get current positions
+   - **`generate_orders()`**: Create buy/sell orders based on target vs current quantities
+   - **`save_orders_json(output_file="orders.json")`**: Save orders to data/orders.json
+   - **`run_rebalancing()`**: Execute complete rebalancing process
+
+3. **`main()`** - Entry Point Function:
+   - Loads `data/universe_with_ibkr.json` (requires IBKR search step completed)
+   - Creates `PortfolioRebalancer` instance and calls `run_rebalancing()`
+
+#### Dependencies Mapped:
+- **Standard library**: json, time, threading, collections.defaultdict, os
+- **IBKR API**: ibapi.client.EClient, ibapi.wrapper.EWrapper, ibapi.contract.Contract
+- **External files**: data/universe_with_ibkr.json (input), data/orders.json (output)
+- **IBKR connection**: 127.0.0.1:4002 with clientId=10
+
+#### Algorithm Logic Documented:
+1. **Target Calculation**: Aggregate quantities across screens where same IBKR symbol appears
+2. **Current Position Fetching**: Live IBKR API call to get account positions
+3. **Order Generation Logic**:
+   - Calculate diff = target_quantity - current_quantity
+   - If diff > 0: Generate BUY order for abs(diff)
+   - If diff < 0: Generate SELL order for abs(diff)
+   - If diff == 0: No action needed (Hold)
+4. **Order Sorting**: SELL orders first (for liquidity), then BUY orders, largest quantities first
+
+#### Side Effects Documented:
+1. **File I/O**: Reads universe_with_ibkr.json, writes data/orders.json
+2. **IBKR Connection**: Live connection to IB Gateway on port 4002
+3. **Console Output**: Connection status, position data, order summary with emojis
+4. **Threading**: Uses daemon thread for IBKR API message processing
+
+#### Data Structures:
+- **Orders JSON Structure**:
+  ```json
+  {
+    "metadata": {
+      "generated_at": "timestamp",
+      "total_orders": int,
+      "buy_orders": int,
+      "sell_orders": int,
+      "total_buy_quantity": int,
+      "total_sell_quantity": int
+    },
+    "orders": [
+      {
+        "symbol": "IBKR_SYMBOL",
+        "action": "BUY|SELL",
+        "quantity": int,
+        "current_quantity": int,
+        "target_quantity": int,
+        "stock_info": {
+          "ticker": str,
+          "name": str,
+          "currency": str,
+          "screens": [str]
+        },
+        "ibkr_details": {
+          "symbol": str,
+          "exchange": str,
+          "primaryExchange": str,
+          "conId": int
+        }
+      }
+    ]
+  }
+  ```
+
+#### Error Handling Patterns:
+- **Connection timeouts**: 10 second timeout for IBKR connection
+- **Data timeout**: 10 second timeout for position data
+- **Graceful fallbacks**: Uses partial data if timeout on position fetch
+- **Exception propagation**: Raises exceptions on critical failures
+- **Console error reporting**: Prints connection and data errors
+
+#### CLI Integration:
+- Called via `step9_rebalancer()` in main.py lines 217-230
+- Simple wrapper: imports and calls `main()` from src.rebalancer
+- Expects data/universe_with_ibkr.json to exist (from Step 8)
+- Returns boolean True on success
 
 ### Actions:
 
-#### Phase 1: Deep Analysis (MANDATORY FIRST)
-1. **📖 STUDY `src/rebalancer.py` COMPLETELY**:
-   - Read every line, understand every function and rebalancing logic
-   - Document exact function signatures, parameters, and return types
-   - Map all dependencies: order generation algorithms
-   - Note all side effects: orders.json creation, console output
-   - Identify buy/sell/hold decision logic and order calculations
-   - **UPDATE THIS PLAN** with exact implementation details
-
-#### Phase 2: Implementation (ONLY AFTER ANALYSIS)
-2. **Create interface**: `IRebalancingService`
+#### Phase 2: Implementation (ANALYSIS COMPLETE ✅)
+2. **Create interface**: `IRebalancingService` in `services/interfaces.py`
 3. **Create implementation**: `RebalancingService` wrapping existing functions
 4. **Create API endpoints**:
-   - `POST /api/v1/orders/generate` → `main()` function
-   - `GET /api/v1/orders` → Get generated orders from orders.json
-   - `GET /api/v1/orders/preview` → Preview orders without saving
+   - `POST /api/v1/orders/generate` → `run_rebalancing()` function
+   - `GET /api/v1/orders` → Get generated orders from data/orders.json
+   - `GET /api/v1/orders/preview` → Generate orders without saving to file
+   - `GET /api/v1/positions/current` → `fetch_current_positions()` only
+   - `GET /api/v1/positions/targets` → `calculate_target_quantities()` only
 5. **Test CLI**: `python main.py 9` produces identical rebalancing orders
 6. **Test API**: Order generation matches CLI exactly
 
@@ -751,20 +1118,92 @@ The current implementation searches stocks **one by one** in IBKR, resulting in 
 ## Step 10: Order Execution Service
 **Goal**: Wrap `src/order_executor.py` functions with API endpoints
 
-### Current Functions:
-- `main()` - Execute orders through IBKR API
-- Order execution and confirmation logic
+### ✅ ANALYSIS COMPLETE - Current Implementation Details:
 
-### Actions:
+#### Core Components Identified:
 
-#### Phase 1: Deep Analysis (MANDATORY FIRST)
-1. **📖 STUDY `src/order_executor.py` COMPLETELY**:
-   - Read every line, understand every function and execution logic
-   - Document exact function signatures, parameters, and return types
-   - Map all dependencies: IBKR API imports, order submission
-   - Note all side effects: IBKR order submissions, console output
-   - Identify execution patterns, error handling, and confirmation logic
-   - **UPDATE THIS PLAN** with exact implementation details
+1. **`IBOrderExecutor(EWrapper, EClient)` Class**:
+   - **Purpose**: IBKR API wrapper implementing Interactive Brokers TWS API interface
+   - **Key Attributes**:
+     - `connected`: Connection status flag
+     - `nextorderId`: Next valid order ID from IBKR
+     - `account_id`: IBKR account identifier
+     - `orders_status`: Dict tracking order statuses by order ID
+     - `executed_orders`, `failed_orders`: Order tracking lists
+   - **Event Handlers**:
+     - `connectAck()`: Connection confirmation with console output
+     - `nextValidId(orderId)`: Receives next valid order ID from IBKR
+     - `managedAccounts(accountsList)`: Gets account ID list
+     - `orderStatus()`: Real-time order status updates with detailed tracking
+     - `openOrder()`: Open order notifications
+     - `error()`: Error handling with selective filtering (ignores info codes 2104, 2106, 2158, 2107)
+
+2. **`OrderExecutor` Main Class**:
+   - **Purpose**: Orchestrates complete order execution workflow
+   - **Key Methods**:
+     - `load_orders()`: Reads data/orders.json with metadata parsing and console statistics
+     - `create_contract_from_order()`: Creates IBKR Contract objects from order data
+     - `create_market_order()`: Creates Order objects with multiple order types (MOO, GTC_MKT, DAY, MKT)
+     - `connect_to_ibkr()`: Establishes IBKR connection with 15-second timeout and validation
+     - `execute_orders()`: Main execution loop with rate limiting and error handling
+     - `wait_for_order_status()`: Status monitoring with 30-second wait and summary reporting
+     - `disconnect()`: Clean connection teardown
+     - `run_execution()`: Complete workflow orchestration
+
+3. **`main()` Function**:
+   - **CLI Integration**: Called directly by `step10_execute_orders()` in main.py
+   - **Command Line Arguments**: max_orders (int), delay (float), order_type (str)
+   - **Order Types Supported**: MKT, GTC_MKT (default), MOO, DAY
+   - **Default Behavior**: GTC_MKT orders for Sunday night execution
+   - **File Handling**: Reads from data/orders.json using project root path resolution
+
+#### IBKR API Integration Details:
+
+**Connection Configuration**:
+- Host: 127.0.0.1 (localhost)
+- Port: 4002 (paper trading)
+- Client ID: 20
+- Threading: Dedicated daemon thread for message processing
+
+**Order Execution Logic**:
+- **Smart Order Routing**: Currency-based order type selection
+  - USD stocks: Support for MOO orders
+  - International stocks: Force GTC_MKT for market hours handling
+- **Rate Limiting**: Configurable delay between orders (default 1.0 sec)
+- **Order Tracking**: Real-time status updates with detailed filled/remaining quantities
+- **Error Recovery**: Exception handling per order, continues execution on individual failures
+
+**Contract Creation**:
+- Symbol mapping from IBKR details
+- Exchange routing (SMART default)
+- Currency assignment from stock info
+- ConId usage for precise instrument identification
+
+#### Dependencies Mapped:
+- **Standard library**: json, time, threading, typing, os, sys
+- **IBKR TWS API**: ibapi.client.EClient, ibapi.wrapper.EWrapper, ibapi.contract.Contract, ibapi.order.Order
+- **File system**: data/orders.json input, console output for all operations
+- **Project structure**: Path resolution using __file__ to find project root
+
+#### Side Effects Documented:
+1. **IBKR Connection**: Establishes TCP connection to IB Gateway/TWS
+2. **Order Submission**: Places actual orders in IBKR paper/live trading account
+3. **Console Output**: Extensive progress reporting with order-by-order status
+4. **File I/O**: Reads orders.json from data directory
+5. **Thread Management**: Creates daemon thread for IBKR message processing
+6. **Network Operations**: Real-time communication with IBKR servers
+
+#### Error Handling Patterns:
+- **Connection Timeout**: 15-second timeout with fallback
+- **Order Failures**: Per-order exception handling with continuation
+- **IBKR Errors**: Selective error filtering for common info messages
+- **File Operations**: Exception handling for missing orders.json
+- **Status Validation**: Confirms connection and order ID availability before execution
+
+#### CLI Integration:
+- Called via `step10_execute_orders()` in main.py lines 283-300
+- Direct import and execution: `from src.order_executor import main as execute_orders; execute_orders()`
+- Returns boolean for pipeline continuation logic
 
 #### Phase 2: Implementation (ONLY AFTER ANALYSIS)
 2. **Create interface**: `IOrderExecutionService`
@@ -795,28 +1234,160 @@ The current implementation searches stocks **one by one** in IBKR, resulting in 
 ## Step 11: Order Status Checking Service
 **Goal**: Wrap `src/order_status_checker.py` functions with API endpoints
 
-### Current Functions:
-- `main()` - Check order status and verify execution
-- Status checking and verification logic
+### ✅ ANALYSIS COMPLETE - Current Implementation Details:
+
+#### Core Classes and Functions Identified:
+
+1. **`IBOrderStatusChecker(EWrapper, EClient)`**
+   - Purpose: IBKR API wrapper class handling connection, callbacks, and data collection
+   - Dependencies: ibapi.client, ibapi.wrapper, ibapi.contract, ibapi.order, ibapi.execution
+   - Connection: Uses client ID 99, connects to 127.0.0.1:4002, threading for message processing
+   - Data Collections:
+     - `open_orders` (dict): orderId → {contract, order, orderState, symbol, action, quantity, status, etc.}
+     - `order_status` (dict): orderId → {status, filled, remaining, avgFillPrice, etc.}
+     - `executions` (dict): orderId → list of execution details
+     - `positions` (dict): symbol → {position, avgCost, currency, exchange}
+     - `completed_orders` (dict): orderId → completed order information
+   - Callbacks: Handles openOrder, orderStatus, openOrderEnd, position, execDetails, completedOrder, etc.
+   - Side effects: Console output for all operations, connection status, data received
+
+2. **`OrderStatusChecker`**
+   - Purpose: Main orchestration class for order status checking and comparison
+   - Parameters: orders_file (defaults to "orders.json" in data/ directory)
+   - Path resolution: Automatically resolves relative paths to project_root/data/
+   - Dependencies: json, threading, time, datetime, IBKR API wrapper
+
+3. **Core Methods Analysis:**
+
+   **`load_orders_json()`**
+   - Purpose: Load and parse orders.json file created by step 9 (rebalancer)
+   - Returns: Loaded orders data with metadata.total_orders count
+   - Side effects: Console output showing file path and total orders loaded
+   - File path: data/orders.json (resolved from project root)
+
+   **`connect_to_ibkr() -> bool`**
+   - Purpose: Establish connection to IBKR Gateway with enhanced order detection
+   - Client ID: Uses 99 (high ID to avoid conflicts and see ALL orders)
+   - Connection: 127.0.0.1:4002 with 15-second timeout
+   - Threading: Daemon thread for API message processing
+   - Extended Wait: 10-second wait to capture orders with high IDs (up to 500+)
+   - Side effects: Console debugging with immediate order callbacks found
+   - Returns: True if connected and account ID received, False otherwise
+
+   **`fetch_account_data()`**
+   - Purpose: Comprehensive data fetching using multiple IBKR API methods
+   - Methods Used:
+     - `reqAllOpenOrders()` - Gets ALL open orders (not just from current client)
+     - `reqOpenOrders()` - Gets orders from current client
+     - `reqAutoOpenOrders(True)` - Requests automatic order binding
+     - `reqPositions()` - Gets all positions
+     - `reqCompletedOrders(False)` - Gets all completed orders (not just API orders)
+     - `reqExecutions(1, exec_filter)` - Gets executions from today
+   - Timeout: 20-second extended timeout for high order IDs (up to 500+)
+   - Side effects: Progress updates every 6 seconds with counts and max order ID
+   - Request Tracking: Uses requests_completed flags to monitor completion
+
+   **`analyze_orders()`**
+   - Purpose: Core comparison logic between JSON orders and IBKR status
+   - Comparison Strategy:
+     - Creates lookup dictionaries by symbol
+     - Matches orders by symbol and action (BUY/SELL)
+     - Tracks found_in_ibkr, missing_from_ibkr, quantity_mismatches
+   - Output Format: Formatted table with columns (Symbol, JSON Action, JSON Qty, IBKR Status, IBKR Qty, Match)
+   - Success Rate: Calculates and displays percentage success rate
+   - Side effects: Comprehensive console table and summary statistics
+   - Missing Orders: Calls show_missing_order_analysis() for detailed failure analysis
+
+   **`show_missing_order_analysis(missing_orders)`**
+   - Purpose: Detailed failure analysis with known patterns and recommendations
+   - Known Failure Patterns:
+     - 'AAPL': Account restriction - direct NASDAQ routing disabled (Error 10311)
+     - 'DPM': Contract not supported - TSE contract resolution failed (Error 202)
+     - 'AJ91': Liquidity constraints - volume too large (Error 202)
+     - 'MOUR': Extreme illiquidity - even small orders rejected (Error 202)
+   - Generic Analysis: Provides suggestions based on action type (SELL vs BUY) and currency
+   - Recommendations: Specific actionable advice for each failure type
+   - Side effects: Detailed console output with failure reasons and solutions
+
+   **`show_order_status_summary()`**
+   - Purpose: Display detailed status breakdown of all IBKR orders
+   - Grouping: Orders grouped by status (SUBMITTED, FILLED, CANCELLED, etc.)
+   - Format: Tabular display with Order ID, Symbol, Action, Quantity, Filled, Price
+   - Price Display: Shows average fill price or order type if not filled
+   - Side effects: Comprehensive order status tables by status group
+
+   **`show_positions()`**
+   - Purpose: Display current account positions
+   - Format: Symbol, Position, Avg Cost, Currency, Market Value
+   - Calculations: Market value = position * avg_cost
+   - Summary: Total number of positions
+   - Side effects: Formatted position table
+
+   **`run_status_check() -> bool`**
+   - Purpose: Main orchestration method executing full status check workflow
+   - Workflow:
+     1. Load orders from JSON
+     2. Connect to IBKR
+     3. Fetch current account data
+     4. Analyze orders (comparison)
+     5. Show detailed status
+     6. Show positions
+     7. Disconnect
+   - Error Handling: Try-catch with cleanup on failure
+   - Returns: True on success, False on failure
+
+4. **CLI Integration Analysis:**
+   - Called via `step11_check_order_status()` in main.py lines 255-269
+   - Simple wrapper: imports and calls `main()` function directly
+   - File dependency: Uses data/orders.json created by step 9
+   - Console output: All output goes through main() function - no CLI-specific formatting
+   - Returns: Boolean success/failure status
+
+#### Dependencies Mapped:
+- **Standard Library**: json, time, threading, datetime, timedelta, typing, sys, os
+- **IBKR API**: ibapi.client.EClient, ibapi.wrapper.EWrapper, ibapi.contract.Contract, ibapi.order.Order, ibapi.execution (Execution, ExecutionFilter)
+- **File System**: data/orders.json (input), console output only (no file output)
+
+#### Side Effects Documented:
+1. **IBKR Connection**: Creates daemon thread, connects to Gateway on port 4002
+2. **Console Output**: Extensive formatted output with analysis tables and summaries
+3. **Data Requests**: Multiple IBKR API requests for orders, positions, executions
+4. **No File Output**: Only reads orders.json, no file creation
+
+#### Error Handling Patterns:
+- Try-catch in main execution with cleanup
+- IBKR error filtering (ignores common info messages: 2104, 2106, 2158, 2107, 2119)
+- Graceful handling of connection failures
+- Timeout handling for API requests
+- Missing file handling for orders.json
+
+#### Console Output Patterns:
+- Status headers with "=" separators (80 characters wide)
+- Tabular data formatting with fixed-width columns
+- Progress updates with timestamps and counts
+- Success/failure indicators with [OK], [ERROR], [DEBUG] prefixes
+- Detailed failure analysis with recommendations
 
 ### Actions:
 
-#### Phase 1: Deep Analysis (MANDATORY FIRST)
-1. **📖 STUDY `src/order_status_checker.py` COMPLETELY**:
-   - Read every line, understand every function and status checking logic
-   - Document exact function signatures, parameters, and return types
-   - Map all dependencies: IBKR API imports, status verification
-   - Note all side effects: status reports, console output
-   - Identify verification patterns, comparison logic, and reporting
-   - **UPDATE THIS PLAN** with exact implementation details
+#### Phase 1: Deep Analysis (COMPLETED ✅)
+1. **✅ STUDIED `src/order_status_checker.py` COMPLETELY**:
+   - ✅ Analyzed all classes, methods, and functions with exact signatures
+   - ✅ Mapped dependencies: IBKR API, threading, file I/O, data structures
+   - ✅ Documented side effects: console output, IBKR connections, data requests
+   - ✅ Identified verification patterns: symbol-action matching, quantity comparison
+   - ✅ Documented error handling: connection failures, timeout handling, graceful cleanup
+   - ✅ Analyzed console output: formatted tables, progress updates, detailed failure analysis
 
-#### Phase 2: Implementation (ONLY AFTER ANALYSIS)
-2. **Create interface**: `IOrderStatusService`
+#### Phase 2: Implementation (READY TO START)
+2. **Create interface**: `IOrderStatusService` in `services/interfaces.py`
 3. **Create implementation**: `OrderStatusService` wrapping existing functions
 4. **Create API endpoints**:
-   - `POST /api/v1/orders/status/check` → `main()` function
-   - `GET /api/v1/orders/status` → Get current order status
-   - `GET /api/v1/orders/verification` → Get verification results
+   - `POST /api/v1/orders/status/check` → `run_status_check()` function
+   - `GET /api/v1/orders/status/current` → Get current IBKR order status
+   - `GET /api/v1/orders/verification/results` → Get verification comparison results
+   - `GET /api/v1/orders/positions` → Get current positions
+   - `GET /api/v1/orders/analysis/missing` → Get missing orders analysis
 5. **Test CLI**: `python main.py 11` produces identical status checking
 6. **Test API**: Status checking matches CLI exactly
 
@@ -827,12 +1398,14 @@ The current implementation searches stocks **one by one** in IBKR, resulting in 
 - **🚨 MANDATORY**: ALL tests must pass 100% before step validation
 
 **Acceptance Criteria**:
-- CLI `step11_check_order_status()` behavior unchanged
-- Same order status verification logic
-- Same comparison with orders.json
-- Same console output for status summary
+- ✅ CLI `step11_check_order_status()` behavior unchanged
+- ✅ Identical order status verification logic with symbol-action matching
+- ✅ Same comparison with orders.json including success rate calculation
+- ✅ Same console output patterns for status analysis tables
+- ✅ Same missing order analysis with failure patterns and recommendations
+- ✅ Same IBKR API connection strategy with client ID 99 and extended timeouts
 
-**Status**: ⏸️ Not Started
+**Status**: 🔄 Analysis Complete - Ready for Implementation
 
 ---
 

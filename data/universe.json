@@ -15,7 +15,1547 @@
         "subtitle": "180d change",
         "description": "Price change over 180 days"
       }
-    ]
+    ],
+    "historical_performance": {
+      "quality_bloom": {
+        "screen_name": "quality bloom",
+        "backtest_metadata": {
+          "Date": "18 Aug 2025",
+          "Trade": "Long",
+          "Number of stocks": "24",
+          "Begin": "2008",
+          "End": "Last possible",
+          "Max per sector": "No maximum"
+        },
+        "key_statistics": {},
+        "quarterly_summary": {
+          "total_quarters": 68,
+          "avg_quarterly_return": "3.85%",
+          "quarterly_std": "17.75%"
+        },
+        "quarterly_data": [
+          {
+            "quarter": "2008 Q2",
+            "return": "1.19%",
+            "period_sd": "19%",
+            "beta": "0.88",
+            "benchmark_return": "-5.72%"
+          },
+          {
+            "quarter": "2008 Q3",
+            "return": "-10.89%",
+            "period_sd": "23%",
+            "beta": "0.97",
+            "benchmark_return": "-9.14%"
+          },
+          {
+            "quarter": "2008 Q4",
+            "return": "-17.94%",
+            "period_sd": "35%",
+            "beta": "0.92",
+            "benchmark_return": "-19.11%"
+          },
+          {
+            "quarter": "2009 Q1",
+            "return": "5.78%",
+            "period_sd": "21%",
+            "beta": "1.08",
+            "benchmark_return": "-13.74%"
+          },
+          {
+            "quarter": "2009 Q2",
+            "return": "32.90%",
+            "period_sd": "24%",
+            "beta": "1.08",
+            "benchmark_return": "15.92%"
+          },
+          {
+            "quarter": "2009 Q3",
+            "return": "17.00%",
+            "period_sd": "25%",
+            "beta": "0.91",
+            "benchmark_return": "15.58%"
+          },
+          {
+            "quarter": "2009 Q4",
+            "return": "0.17%",
+            "period_sd": "15%",
+            "beta": "0.95",
+            "benchmark_return": "7.76%"
+          },
+          {
+            "quarter": "2010 Q1",
+            "return": "13.22%",
+            "period_sd": "10%",
+            "beta": "0.91",
+            "benchmark_return": "3.80%"
+          },
+          {
+            "quarter": "2010 Q2",
+            "return": "-5.22%",
+            "period_sd": "13%",
+            "beta": "0.84",
+            "benchmark_return": "-11.50%"
+          },
+          {
+            "quarter": "2010 Q3",
+            "return": "9.62%",
+            "period_sd": "17%",
+            "beta": "0.91",
+            "benchmark_return": "11.42%"
+          },
+          {
+            "quarter": "2010 Q4",
+            "return": "11.08%",
+            "period_sd": "10%",
+            "beta": "0.82",
+            "benchmark_return": "10.72%"
+          },
+          {
+            "quarter": "2011 Q1",
+            "return": "-1.46%",
+            "period_sd": "13%",
+            "beta": "0.79",
+            "benchmark_return": "5.84%"
+          },
+          {
+            "quarter": "2011 Q2",
+            "return": "-0.62%",
+            "period_sd": "10%",
+            "beta": "0.80",
+            "benchmark_return": "0.10%"
+          },
+          {
+            "quarter": "2011 Q3",
+            "return": "-16.74%",
+            "period_sd": "16%",
+            "beta": "0.82",
+            "benchmark_return": "-13.88%"
+          },
+          {
+            "quarter": "2011 Q4",
+            "return": "5.07%",
+            "period_sd": "15%",
+            "beta": "0.93",
+            "benchmark_return": "11.84%"
+          },
+          {
+            "quarter": "2012 Q1",
+            "return": "14.14%",
+            "period_sd": "11%",
+            "beta": "0.83",
+            "benchmark_return": "12.59%"
+          },
+          {
+            "quarter": "2012 Q2",
+            "return": "-5.34%",
+            "period_sd": "10%",
+            "beta": "0.74",
+            "benchmark_return": "-2.74%"
+          },
+          {
+            "quarter": "2012 Q3",
+            "return": "3.83%",
+            "period_sd": "19%",
+            "beta": "0.77",
+            "benchmark_return": "6.35%"
+          },
+          {
+            "quarter": "2012 Q4",
+            "return": "6.11%",
+            "period_sd": "20%",
+            "beta": "0.81",
+            "benchmark_return": "-0.39%"
+          },
+          {
+            "quarter": "2013 Q1",
+            "return": "18.89%",
+            "period_sd": "19%",
+            "beta": "0.68",
+            "benchmark_return": "10.61%"
+          },
+          {
+            "quarter": "2013 Q2",
+            "return": "4.69%",
+            "period_sd": "30%",
+            "beta": "0.59",
+            "benchmark_return": "3.13%"
+          },
+          {
+            "quarter": "2013 Q3",
+            "return": "16.99%",
+            "period_sd": "16%",
+            "beta": "0.62",
+            "benchmark_return": "5.08%"
+          },
+          {
+            "quarter": "2013 Q4",
+            "return": "7.84%",
+            "period_sd": "18%",
+            "beta": "0.67",
+            "benchmark_return": "10.32%"
+          },
+          {
+            "quarter": "2014 Q1",
+            "return": "3.69%",
+            "period_sd": "16%",
+            "beta": "0.67",
+            "benchmark_return": "2.03%"
+          },
+          {
+            "quarter": "2014 Q2",
+            "return": "-0.30%",
+            "period_sd": "25%",
+            "beta": "0.81",
+            "benchmark_return": "5.27%"
+          },
+          {
+            "quarter": "2014 Q3",
+            "return": "-6.99%",
+            "period_sd": "15%",
+            "beta": "0.90",
+            "benchmark_return": "0.97%"
+          },
+          {
+            "quarter": "2014 Q4",
+            "return": "3.33%",
+            "period_sd": "22%",
+            "beta": "0.82",
+            "benchmark_return": "5.16%"
+          },
+          {
+            "quarter": "2015 Q1",
+            "return": "11.15%",
+            "period_sd": "17%",
+            "beta": "0.77",
+            "benchmark_return": "0.76%"
+          },
+          {
+            "quarter": "2015 Q2",
+            "return": "1.03%",
+            "period_sd": "14%",
+            "beta": "0.71",
+            "benchmark_return": "0.49%"
+          },
+          {
+            "quarter": "2015 Q3",
+            "return": "-5.06%",
+            "period_sd": "19%",
+            "beta": "0.73",
+            "benchmark_return": "-6.65%"
+          },
+          {
+            "quarter": "2015 Q4",
+            "return": "8.99%",
+            "period_sd": "12%",
+            "beta": "0.73",
+            "benchmark_return": "6.78%"
+          },
+          {
+            "quarter": "2016 Q1",
+            "return": "9.10%",
+            "period_sd": "17%",
+            "beta": "0.64",
+            "benchmark_return": "1.46%"
+          },
+          {
+            "quarter": "2016 Q2",
+            "return": "-1.39%",
+            "period_sd": "17%",
+            "beta": "0.74",
+            "benchmark_return": "2.65%"
+          },
+          {
+            "quarter": "2016 Q3",
+            "return": "8.49%",
+            "period_sd": "22%",
+            "beta": "0.80",
+            "benchmark_return": "3.63%"
+          },
+          {
+            "quarter": "2016 Q4",
+            "return": "12.15%",
+            "period_sd": "18%",
+            "beta": "0.79",
+            "benchmark_return": "4.59%"
+          },
+          {
+            "quarter": "2017 Q1",
+            "return": "3.78%",
+            "period_sd": "13%",
+            "beta": "0.83",
+            "benchmark_return": "5.45%"
+          },
+          {
+            "quarter": "2017 Q2",
+            "return": "4.82%",
+            "period_sd": "13%",
+            "beta": "0.74",
+            "benchmark_return": "3.45%"
+          },
+          {
+            "quarter": "2017 Q3",
+            "return": "1.71%",
+            "period_sd": "22%",
+            "beta": "0.80",
+            "benchmark_return": "4.20%"
+          },
+          {
+            "quarter": "2017 Q4",
+            "return": "6.77%",
+            "period_sd": "15%",
+            "beta": "0.82",
+            "benchmark_return": "6.97%"
+          },
+          {
+            "quarter": "2018 Q1",
+            "return": "-4.24%",
+            "period_sd": "15%",
+            "beta": "0.85",
+            "benchmark_return": "-1.41%"
+          },
+          {
+            "quarter": "2018 Q2",
+            "return": "1.74%",
+            "period_sd": "23%",
+            "beta": "0.86",
+            "benchmark_return": "3.22%"
+          },
+          {
+            "quarter": "2018 Q3",
+            "return": "-0.01%",
+            "period_sd": "15%",
+            "beta": "0.68",
+            "benchmark_return": "8.70%"
+          },
+          {
+            "quarter": "2018 Q4",
+            "return": "-15.14%",
+            "period_sd": "22%",
+            "beta": "0.72",
+            "benchmark_return": "-14.91%"
+          },
+          {
+            "quarter": "2019 Q1",
+            "return": "15.11%",
+            "period_sd": "24%",
+            "beta": "0.81",
+            "benchmark_return": "15.60%"
+          },
+          {
+            "quarter": "2019 Q2",
+            "return": "-5.69%",
+            "period_sd": "10%",
+            "beta": "0.72",
+            "benchmark_return": "4.58%"
+          },
+          {
+            "quarter": "2019 Q3",
+            "return": "2.84%",
+            "period_sd": "37%",
+            "beta": "0.90",
+            "benchmark_return": "1.16%"
+          },
+          {
+            "quarter": "2019 Q4",
+            "return": "7.05%",
+            "period_sd": "12%",
+            "beta": "0.86",
+            "benchmark_return": "9.29%"
+          },
+          {
+            "quarter": "2020 Q1",
+            "return": "-24.63%",
+            "period_sd": "12%",
+            "beta": "0.89",
+            "benchmark_return": "-22.63%"
+          },
+          {
+            "quarter": "2020 Q2",
+            "return": "21.99%",
+            "period_sd": "16%",
+            "beta": "0.86",
+            "benchmark_return": "24.95%"
+          },
+          {
+            "quarter": "2020 Q3",
+            "return": "8.79%",
+            "period_sd": "13%",
+            "beta": "0.93",
+            "benchmark_return": "9.48%"
+          },
+          {
+            "quarter": "2020 Q4",
+            "return": "12.31%",
+            "period_sd": "23%",
+            "beta": "1.03",
+            "benchmark_return": "11.64%"
+          },
+          {
+            "quarter": "2021 Q1",
+            "return": "13.28%",
+            "period_sd": "13%",
+            "beta": "0.99",
+            "benchmark_return": "6.46%"
+          },
+          {
+            "quarter": "2021 Q2",
+            "return": "1.02%",
+            "period_sd": "13%",
+            "beta": "0.91",
+            "benchmark_return": "8.10%"
+          },
+          {
+            "quarter": "2021 Q3",
+            "return": "0.34%",
+            "period_sd": "11%",
+            "beta": "0.93",
+            "benchmark_return": "0.72%"
+          },
+          {
+            "quarter": "2021 Q4",
+            "return": "1.53%",
+            "period_sd": "17%",
+            "beta": "0.96",
+            "benchmark_return": "11.06%"
+          },
+          {
+            "quarter": "2022 Q1",
+            "return": "-2.58%",
+            "period_sd": "16%",
+            "beta": "0.99",
+            "benchmark_return": "-4.63%"
+          },
+          {
+            "quarter": "2022 Q2",
+            "return": "-3.24%",
+            "period_sd": "20%",
+            "beta": "0.96",
+            "benchmark_return": "-16.38%"
+          },
+          {
+            "quarter": "2022 Q3",
+            "return": "1.24%",
+            "period_sd": "13%",
+            "beta": "0.89",
+            "benchmark_return": "-4.12%"
+          },
+          {
+            "quarter": "2022 Q4",
+            "return": "17.08%",
+            "period_sd": "34%",
+            "beta": "0.92",
+            "benchmark_return": "7.22%"
+          },
+          {
+            "quarter": "2023 Q1",
+            "return": "8.91%",
+            "period_sd": "17%",
+            "beta": "0.87",
+            "benchmark_return": "6.92%"
+          },
+          {
+            "quarter": "2023 Q2",
+            "return": "3.52%",
+            "period_sd": "16%",
+            "beta": "0.88",
+            "benchmark_return": "8.94%"
+          },
+          {
+            "quarter": "2023 Q3",
+            "return": "3.10%",
+            "period_sd": "24%",
+            "beta": "0.90",
+            "benchmark_return": "-3.36%"
+          },
+          {
+            "quarter": "2023 Q4",
+            "return": "5.38%",
+            "period_sd": "14%",
+            "beta": "0.85",
+            "benchmark_return": "11.21%"
+          },
+          {
+            "quarter": "2024 Q1",
+            "return": "12.11%",
+            "period_sd": "22%",
+            "beta": "0.91",
+            "benchmark_return": "11.20%"
+          },
+          {
+            "quarter": "2024 Q2",
+            "return": "3.48%",
+            "period_sd": "17%",
+            "beta": "0.85",
+            "benchmark_return": "4.42%"
+          },
+          {
+            "quarter": "2024 Q3",
+            "return": "-0.77%",
+            "period_sd": "16%",
+            "beta": "0.82",
+            "benchmark_return": "5.59%"
+          },
+          {
+            "quarter": "2024 Q4",
+            "return": "3.39%",
+            "period_sd": "13%",
+            "beta": "0.92",
+            "benchmark_return": "2.87%"
+          },
+          {
+            "quarter": "2025 Q1",
+            "return": "2.15%",
+            "period_sd": "23%",
+            "beta": "0.81",
+            "benchmark_return": "-4.87%"
+          }
+        ]
+      },
+      "TOR_Surplus": {
+        "screen_name": "TOR Surplus",
+        "backtest_metadata": {
+          "Date": "18 Aug 2025",
+          "Trade": "Short",
+          "Number of stocks": "24",
+          "Begin": "2008",
+          "End": "Last possible",
+          "Max per sector": "No maximum"
+        },
+        "key_statistics": {},
+        "quarterly_summary": {
+          "total_quarters": 68,
+          "avg_quarterly_return": "-3.42%",
+          "quarterly_std": "16.78%"
+        },
+        "quarterly_data": [
+          {
+            "quarter": "2008 Q2",
+            "return": "-6.26%",
+            "period_sd": "15%",
+            "beta": "0.86",
+            "benchmark_return": "-5.31%"
+          },
+          {
+            "quarter": "2008 Q3",
+            "return": "6.84%",
+            "period_sd": "18%",
+            "beta": "0.88",
+            "benchmark_return": "-8.89%"
+          },
+          {
+            "quarter": "2008 Q4",
+            "return": "17.95%",
+            "period_sd": "15%",
+            "beta": "0.91",
+            "benchmark_return": "-21.54%"
+          },
+          {
+            "quarter": "2009 Q1",
+            "return": "5.06%",
+            "period_sd": "16%",
+            "beta": "0.94",
+            "benchmark_return": "-13.17%"
+          },
+          {
+            "quarter": "2009 Q2",
+            "return": "-25.86%",
+            "period_sd": "17%",
+            "beta": "0.95",
+            "benchmark_return": "17.59%"
+          },
+          {
+            "quarter": "2009 Q3",
+            "return": "-19.20%",
+            "period_sd": "16%",
+            "beta": "1.00",
+            "benchmark_return": "11.54%"
+          },
+          {
+            "quarter": "2009 Q4",
+            "return": "-9.52%",
+            "period_sd": "11%",
+            "beta": "1.00",
+            "benchmark_return": "9.10%"
+          },
+          {
+            "quarter": "2010 Q1",
+            "return": "-6.92%",
+            "period_sd": "13%",
+            "beta": "0.85",
+            "benchmark_return": "4.83%"
+          },
+          {
+            "quarter": "2010 Q2",
+            "return": "10.40%",
+            "period_sd": "14%",
+            "beta": "0.84",
+            "benchmark_return": "-12.44%"
+          },
+          {
+            "quarter": "2010 Q3",
+            "return": "-13.82%",
+            "period_sd": "23%",
+            "beta": "0.83",
+            "benchmark_return": "11.48%"
+          },
+          {
+            "quarter": "2010 Q4",
+            "return": "-12.56%",
+            "period_sd": "15%",
+            "beta": "0.87",
+            "benchmark_return": "10.19%"
+          },
+          {
+            "quarter": "2011 Q1",
+            "return": "-6.56%",
+            "period_sd": "21%",
+            "beta": "0.83",
+            "benchmark_return": "5.29%"
+          },
+          {
+            "quarter": "2011 Q2",
+            "return": "3.00%",
+            "period_sd": "12%",
+            "beta": "0.83",
+            "benchmark_return": "-0.99%"
+          },
+          {
+            "quarter": "2011 Q3",
+            "return": "16.36%",
+            "period_sd": "17%",
+            "beta": "0.85",
+            "benchmark_return": "-14.84%"
+          },
+          {
+            "quarter": "2011 Q4",
+            "return": "-5.63%",
+            "period_sd": "13%",
+            "beta": "0.86",
+            "benchmark_return": "13.57%"
+          },
+          {
+            "quarter": "2012 Q1",
+            "return": "-12.88%",
+            "period_sd": "12%",
+            "beta": "0.79",
+            "benchmark_return": "10.08%"
+          },
+          {
+            "quarter": "2012 Q2",
+            "return": "4.15%",
+            "period_sd": "9%",
+            "beta": "0.82",
+            "benchmark_return": "-2.96%"
+          },
+          {
+            "quarter": "2012 Q3",
+            "return": "-2.02%",
+            "period_sd": "11%",
+            "beta": "0.86",
+            "benchmark_return": "5.89%"
+          },
+          {
+            "quarter": "2012 Q4",
+            "return": "-2.40%",
+            "period_sd": "12%",
+            "beta": "0.84",
+            "benchmark_return": "0.41%"
+          },
+          {
+            "quarter": "2013 Q1",
+            "return": "-13.13%",
+            "period_sd": "19%",
+            "beta": "0.82",
+            "benchmark_return": "7.91%"
+          },
+          {
+            "quarter": "2013 Q2",
+            "return": "-3.95%",
+            "period_sd": "13%",
+            "beta": "0.81",
+            "benchmark_return": "2.98%"
+          },
+          {
+            "quarter": "2013 Q3",
+            "return": "-6.74%",
+            "period_sd": "12%",
+            "beta": "0.81",
+            "benchmark_return": "4.27%"
+          },
+          {
+            "quarter": "2013 Q4",
+            "return": "-16.16%",
+            "period_sd": "12%",
+            "beta": "0.73",
+            "benchmark_return": "9.42%"
+          },
+          {
+            "quarter": "2014 Q1",
+            "return": "-7.00%",
+            "period_sd": "12%",
+            "beta": "0.72",
+            "benchmark_return": "1.98%"
+          },
+          {
+            "quarter": "2014 Q2",
+            "return": "4.30%",
+            "period_sd": "12%",
+            "beta": "0.74",
+            "benchmark_return": "4.57%"
+          },
+          {
+            "quarter": "2014 Q3",
+            "return": "-1.54%",
+            "period_sd": "29%",
+            "beta": "0.72",
+            "benchmark_return": "0.25%"
+          },
+          {
+            "quarter": "2014 Q4",
+            "return": "-5.52%",
+            "period_sd": "12%",
+            "beta": "0.68",
+            "benchmark_return": "4.92%"
+          },
+          {
+            "quarter": "2015 Q1",
+            "return": "-8.15%",
+            "period_sd": "17%",
+            "beta": "0.71",
+            "benchmark_return": "0.00%"
+          },
+          {
+            "quarter": "2015 Q2",
+            "return": "-8.79%",
+            "period_sd": "29%",
+            "beta": "0.76",
+            "benchmark_return": "0.65%"
+          },
+          {
+            "quarter": "2015 Q3",
+            "return": "4.18%",
+            "period_sd": "16%",
+            "beta": "0.78",
+            "benchmark_return": "-7.53%"
+          },
+          {
+            "quarter": "2015 Q4",
+            "return": "-8.69%",
+            "period_sd": "12%",
+            "beta": "0.74",
+            "benchmark_return": "4.38%"
+          },
+          {
+            "quarter": "2016 Q1",
+            "return": "-6.48%",
+            "period_sd": "15%",
+            "beta": "0.61",
+            "benchmark_return": "1.93%"
+          },
+          {
+            "quarter": "2016 Q2",
+            "return": "0.95%",
+            "period_sd": "17%",
+            "beta": "0.67",
+            "benchmark_return": "2.51%"
+          },
+          {
+            "quarter": "2016 Q3",
+            "return": "-3.76%",
+            "period_sd": "21%",
+            "beta": "0.66",
+            "benchmark_return": "3.03%"
+          },
+          {
+            "quarter": "2016 Q4",
+            "return": "-7.85%",
+            "period_sd": "14%",
+            "beta": "0.59",
+            "benchmark_return": "4.27%"
+          },
+          {
+            "quarter": "2017 Q1",
+            "return": "-3.88%",
+            "period_sd": "15%",
+            "beta": "0.60",
+            "benchmark_return": "4.78%"
+          },
+          {
+            "quarter": "2017 Q2",
+            "return": "-9.25%",
+            "period_sd": "21%",
+            "beta": "0.67",
+            "benchmark_return": "3.00%"
+          },
+          {
+            "quarter": "2017 Q3",
+            "return": "-4.78%",
+            "period_sd": "21%",
+            "beta": "0.65",
+            "benchmark_return": "3.54%"
+          },
+          {
+            "quarter": "2017 Q4",
+            "return": "-9.72%",
+            "period_sd": "16%",
+            "beta": "0.67",
+            "benchmark_return": "6.50%"
+          },
+          {
+            "quarter": "2018 Q1",
+            "return": "1.56%",
+            "period_sd": "20%",
+            "beta": "0.76",
+            "benchmark_return": "-1.98%"
+          },
+          {
+            "quarter": "2018 Q2",
+            "return": "-5.87%",
+            "period_sd": "18%",
+            "beta": "0.72",
+            "benchmark_return": "2.65%"
+          },
+          {
+            "quarter": "2018 Q3",
+            "return": "-1.42%",
+            "period_sd": "13%",
+            "beta": "0.73",
+            "benchmark_return": "8.39%"
+          },
+          {
+            "quarter": "2018 Q4",
+            "return": "20.28%",
+            "period_sd": "10%",
+            "beta": "0.69",
+            "benchmark_return": "-15.79%"
+          },
+          {
+            "quarter": "2019 Q1",
+            "return": "-23.38%",
+            "period_sd": "33%",
+            "beta": "0.80",
+            "benchmark_return": "15.74%"
+          },
+          {
+            "quarter": "2019 Q2",
+            "return": "-1.48%",
+            "period_sd": "19%",
+            "beta": "0.74",
+            "benchmark_return": "4.21%"
+          },
+          {
+            "quarter": "2019 Q3",
+            "return": "0.32%",
+            "period_sd": "16%",
+            "beta": "0.75",
+            "benchmark_return": "0.36%"
+          },
+          {
+            "quarter": "2019 Q4",
+            "return": "-13.71%",
+            "period_sd": "21%",
+            "beta": "0.76",
+            "benchmark_return": "8.67%"
+          },
+          {
+            "quarter": "2020 Q1",
+            "return": "26.93%",
+            "period_sd": "18%",
+            "beta": "0.82",
+            "benchmark_return": "-23.35%"
+          },
+          {
+            "quarter": "2020 Q2",
+            "return": "-32.67%",
+            "period_sd": "34%",
+            "beta": "0.95",
+            "benchmark_return": "24.84%"
+          },
+          {
+            "quarter": "2020 Q3",
+            "return": "-11.00%",
+            "period_sd": "21%",
+            "beta": "0.97",
+            "benchmark_return": "9.08%"
+          },
+          {
+            "quarter": "2020 Q4",
+            "return": "-9.82%",
+            "period_sd": "23%",
+            "beta": "1.01",
+            "benchmark_return": "11.14%"
+          },
+          {
+            "quarter": "2021 Q1",
+            "return": "-15.65%",
+            "period_sd": "28%",
+            "beta": "1.02",
+            "benchmark_return": "6.15%"
+          },
+          {
+            "quarter": "2021 Q2",
+            "return": "-6.03%",
+            "period_sd": "17%",
+            "beta": "1.11",
+            "benchmark_return": "7.65%"
+          },
+          {
+            "quarter": "2021 Q3",
+            "return": "1.42%",
+            "period_sd": "19%",
+            "beta": "1.07",
+            "benchmark_return": "0.49%"
+          },
+          {
+            "quarter": "2021 Q4",
+            "return": "6.39%",
+            "period_sd": "20%",
+            "beta": "1.07",
+            "benchmark_return": "10.52%"
+          },
+          {
+            "quarter": "2022 Q1",
+            "return": "1.01%",
+            "period_sd": "18%",
+            "beta": "1.05",
+            "benchmark_return": "-4.83%"
+          },
+          {
+            "quarter": "2022 Q2",
+            "return": "13.83%",
+            "period_sd": "12%",
+            "beta": "1.02",
+            "benchmark_return": "-16.93%"
+          },
+          {
+            "quarter": "2022 Q3",
+            "return": "0.96%",
+            "period_sd": "14%",
+            "beta": "1.03",
+            "benchmark_return": "-4.11%"
+          },
+          {
+            "quarter": "2022 Q4",
+            "return": "-3.25%",
+            "period_sd": "12%",
+            "beta": "0.99",
+            "benchmark_return": "6.45%"
+          },
+          {
+            "quarter": "2023 Q1",
+            "return": "0.19%",
+            "period_sd": "12%",
+            "beta": "1.00",
+            "benchmark_return": "6.37%"
+          },
+          {
+            "quarter": "2023 Q2",
+            "return": "-2.01%",
+            "period_sd": "14%",
+            "beta": "1.03",
+            "benchmark_return": "8.33%"
+          },
+          {
+            "quarter": "2023 Q3",
+            "return": "3.77%",
+            "period_sd": "16%",
+            "beta": "1.01",
+            "benchmark_return": "-3.68%"
+          },
+          {
+            "quarter": "2023 Q4",
+            "return": "-0.65%",
+            "period_sd": "13%",
+            "beta": "1.06",
+            "benchmark_return": "10.67%"
+          },
+          {
+            "quarter": "2024 Q1",
+            "return": "-5.99%",
+            "period_sd": "18%",
+            "beta": "0.95",
+            "benchmark_return": "10.94%"
+          },
+          {
+            "quarter": "2024 Q2",
+            "return": "0.28%",
+            "period_sd": "17%",
+            "beta": "0.88",
+            "benchmark_return": "4.16%"
+          },
+          {
+            "quarter": "2024 Q3",
+            "return": "-4.40%",
+            "period_sd": "16%",
+            "beta": "0.91",
+            "benchmark_return": "5.09%"
+          },
+          {
+            "quarter": "2024 Q4",
+            "return": "3.40%",
+            "period_sd": "14%",
+            "beta": "0.90",
+            "benchmark_return": "2.79%"
+          },
+          {
+            "quarter": "2025 Q1",
+            "return": "0.46%",
+            "period_sd": "20%",
+            "beta": "0.90",
+            "benchmark_return": "-5.42%"
+          }
+        ]
+      },
+      "Moat_Companies": {
+        "screen_name": "Moat Companies",
+        "backtest_metadata": {
+          "Date": "18 Aug 2025",
+          "Trade": "Long",
+          "Number of stocks": "24",
+          "Begin": "2008",
+          "End": "Last possible",
+          "Max per sector": "No maximum"
+        },
+        "key_statistics": {},
+        "quarterly_summary": {
+          "total_quarters": 68,
+          "avg_quarterly_return": "3.11%",
+          "quarterly_std": "14.24%"
+        },
+        "quarterly_data": [
+          {
+            "quarter": "2008 Q2",
+            "return": "3.22%",
+            "period_sd": "17%",
+            "beta": "0.95",
+            "benchmark_return": "-5.72%"
+          },
+          {
+            "quarter": "2008 Q3",
+            "return": "-3.58%",
+            "period_sd": "16%",
+            "beta": "0.97",
+            "benchmark_return": "-9.14%"
+          },
+          {
+            "quarter": "2008 Q4",
+            "return": "-14.00%",
+            "period_sd": "7%",
+            "beta": "1.02",
+            "benchmark_return": "-19.11%"
+          },
+          {
+            "quarter": "2009 Q1",
+            "return": "-9.36%",
+            "period_sd": "11%",
+            "beta": "1.01",
+            "benchmark_return": "-13.74%"
+          },
+          {
+            "quarter": "2009 Q2",
+            "return": "24.97%",
+            "period_sd": "24%",
+            "beta": "0.93",
+            "benchmark_return": "15.92%"
+          },
+          {
+            "quarter": "2009 Q3",
+            "return": "11.98%",
+            "period_sd": "14%",
+            "beta": "0.95",
+            "benchmark_return": "15.58%"
+          },
+          {
+            "quarter": "2009 Q4",
+            "return": "5.33%",
+            "period_sd": "13%",
+            "beta": "0.94",
+            "benchmark_return": "7.76%"
+          },
+          {
+            "quarter": "2010 Q1",
+            "return": "5.78%",
+            "period_sd": "11%",
+            "beta": "0.88",
+            "benchmark_return": "3.80%"
+          },
+          {
+            "quarter": "2010 Q2",
+            "return": "-6.97%",
+            "period_sd": "10%",
+            "beta": "0.88",
+            "benchmark_return": "-11.50%"
+          },
+          {
+            "quarter": "2010 Q3",
+            "return": "10.90%",
+            "period_sd": "15%",
+            "beta": "0.79",
+            "benchmark_return": "11.42%"
+          },
+          {
+            "quarter": "2010 Q4",
+            "return": "9.22%",
+            "period_sd": "15%",
+            "beta": "0.78",
+            "benchmark_return": "10.72%"
+          },
+          {
+            "quarter": "2011 Q1",
+            "return": "5.77%",
+            "period_sd": "12%",
+            "beta": "0.85",
+            "benchmark_return": "5.84%"
+          },
+          {
+            "quarter": "2011 Q2",
+            "return": "0.14%",
+            "period_sd": "9%",
+            "beta": "0.83",
+            "benchmark_return": "0.10%"
+          },
+          {
+            "quarter": "2011 Q3",
+            "return": "-9.04%",
+            "period_sd": "8%",
+            "beta": "0.78",
+            "benchmark_return": "-13.88%"
+          },
+          {
+            "quarter": "2011 Q4",
+            "return": "10.11%",
+            "period_sd": "14%",
+            "beta": "0.87",
+            "benchmark_return": "11.84%"
+          },
+          {
+            "quarter": "2012 Q1",
+            "return": "13.76%",
+            "period_sd": "14%",
+            "beta": "0.83",
+            "benchmark_return": "12.59%"
+          },
+          {
+            "quarter": "2012 Q2",
+            "return": "-4.36%",
+            "period_sd": "9%",
+            "beta": "0.84",
+            "benchmark_return": "-2.74%"
+          },
+          {
+            "quarter": "2012 Q3",
+            "return": "3.22%",
+            "period_sd": "13%",
+            "beta": "0.79",
+            "benchmark_return": "6.35%"
+          },
+          {
+            "quarter": "2012 Q4",
+            "return": "0.91%",
+            "period_sd": "17%",
+            "beta": "0.78",
+            "benchmark_return": "-0.39%"
+          },
+          {
+            "quarter": "2013 Q1",
+            "return": "20.79%",
+            "period_sd": "19%",
+            "beta": "0.76",
+            "benchmark_return": "10.61%"
+          },
+          {
+            "quarter": "2013 Q2",
+            "return": "3.01%",
+            "period_sd": "17%",
+            "beta": "0.76",
+            "benchmark_return": "3.13%"
+          },
+          {
+            "quarter": "2013 Q3",
+            "return": "11.27%",
+            "period_sd": "13%",
+            "beta": "0.72",
+            "benchmark_return": "5.08%"
+          },
+          {
+            "quarter": "2013 Q4",
+            "return": "10.36%",
+            "period_sd": "13%",
+            "beta": "0.67",
+            "benchmark_return": "10.32%"
+          },
+          {
+            "quarter": "2014 Q1",
+            "return": "5.25%",
+            "period_sd": "13%",
+            "beta": "0.76",
+            "benchmark_return": "2.03%"
+          },
+          {
+            "quarter": "2014 Q2",
+            "return": "0.98%",
+            "period_sd": "14%",
+            "beta": "0.77",
+            "benchmark_return": "5.27%"
+          },
+          {
+            "quarter": "2014 Q3",
+            "return": "-3.59%",
+            "period_sd": "12%",
+            "beta": "0.76",
+            "benchmark_return": "0.97%"
+          },
+          {
+            "quarter": "2014 Q4",
+            "return": "7.55%",
+            "period_sd": "18%",
+            "beta": "0.82",
+            "benchmark_return": "5.16%"
+          },
+          {
+            "quarter": "2015 Q1",
+            "return": "8.91%",
+            "period_sd": "31%",
+            "beta": "0.76",
+            "benchmark_return": "0.76%"
+          },
+          {
+            "quarter": "2015 Q2",
+            "return": "5.05%",
+            "period_sd": "12%",
+            "beta": "0.72",
+            "benchmark_return": "0.49%"
+          },
+          {
+            "quarter": "2015 Q3",
+            "return": "-7.17%",
+            "period_sd": "10%",
+            "beta": "0.76",
+            "benchmark_return": "-6.65%"
+          },
+          {
+            "quarter": "2015 Q4",
+            "return": "4.14%",
+            "period_sd": "14%",
+            "beta": "0.83",
+            "benchmark_return": "6.78%"
+          },
+          {
+            "quarter": "2016 Q1",
+            "return": "1.01%",
+            "period_sd": "15%",
+            "beta": "0.75",
+            "benchmark_return": "1.46%"
+          },
+          {
+            "quarter": "2016 Q2",
+            "return": "-1.82%",
+            "period_sd": "13%",
+            "beta": "0.78",
+            "benchmark_return": "2.65%"
+          },
+          {
+            "quarter": "2016 Q3",
+            "return": "9.58%",
+            "period_sd": "17%",
+            "beta": "0.83",
+            "benchmark_return": "3.63%"
+          },
+          {
+            "quarter": "2016 Q4",
+            "return": "9.45%",
+            "period_sd": "18%",
+            "beta": "0.84",
+            "benchmark_return": "4.59%"
+          },
+          {
+            "quarter": "2017 Q1",
+            "return": "2.90%",
+            "period_sd": "14%",
+            "beta": "0.92",
+            "benchmark_return": "5.45%"
+          },
+          {
+            "quarter": "2017 Q2",
+            "return": "7.48%",
+            "period_sd": "11%",
+            "beta": "0.88",
+            "benchmark_return": "3.45%"
+          },
+          {
+            "quarter": "2017 Q3",
+            "return": "5.26%",
+            "period_sd": "12%",
+            "beta": "0.86",
+            "benchmark_return": "4.20%"
+          },
+          {
+            "quarter": "2017 Q4",
+            "return": "4.98%",
+            "period_sd": "14%",
+            "beta": "0.87",
+            "benchmark_return": "6.97%"
+          },
+          {
+            "quarter": "2018 Q1",
+            "return": "-3.44%",
+            "period_sd": "11%",
+            "beta": "0.85",
+            "benchmark_return": "-1.41%"
+          },
+          {
+            "quarter": "2018 Q2",
+            "return": "0.44%",
+            "period_sd": "10%",
+            "beta": "0.80",
+            "benchmark_return": "3.22%"
+          },
+          {
+            "quarter": "2018 Q3",
+            "return": "2.92%",
+            "period_sd": "16%",
+            "beta": "0.74",
+            "benchmark_return": "8.70%"
+          },
+          {
+            "quarter": "2018 Q4",
+            "return": "-9.97%",
+            "period_sd": "7%",
+            "beta": "0.74",
+            "benchmark_return": "-14.91%"
+          },
+          {
+            "quarter": "2019 Q1",
+            "return": "12.16%",
+            "period_sd": "14%",
+            "beta": "0.95",
+            "benchmark_return": "15.60%"
+          },
+          {
+            "quarter": "2019 Q2",
+            "return": "0.95%",
+            "period_sd": "14%",
+            "beta": "0.87",
+            "benchmark_return": "4.58%"
+          },
+          {
+            "quarter": "2019 Q3",
+            "return": "0.54%",
+            "period_sd": "13%",
+            "beta": "0.76",
+            "benchmark_return": "1.16%"
+          },
+          {
+            "quarter": "2019 Q4",
+            "return": "9.90%",
+            "period_sd": "16%",
+            "beta": "0.76",
+            "benchmark_return": "9.29%"
+          },
+          {
+            "quarter": "2020 Q1",
+            "return": "-12.19%",
+            "period_sd": "11%",
+            "beta": "0.75",
+            "benchmark_return": "-22.63%"
+          },
+          {
+            "quarter": "2020 Q2",
+            "return": "28.38%",
+            "period_sd": "24%",
+            "beta": "0.93",
+            "benchmark_return": "24.95%"
+          },
+          {
+            "quarter": "2020 Q3",
+            "return": "7.96%",
+            "period_sd": "14%",
+            "beta": "0.92",
+            "benchmark_return": "9.48%"
+          },
+          {
+            "quarter": "2020 Q4",
+            "return": "10.93%",
+            "period_sd": "24%",
+            "beta": "0.97",
+            "benchmark_return": "11.64%"
+          },
+          {
+            "quarter": "2021 Q1",
+            "return": "10.46%",
+            "period_sd": "13%",
+            "beta": "0.94",
+            "benchmark_return": "6.46%"
+          },
+          {
+            "quarter": "2021 Q2",
+            "return": "1.55%",
+            "period_sd": "17%",
+            "beta": "1.00",
+            "benchmark_return": "8.10%"
+          },
+          {
+            "quarter": "2021 Q3",
+            "return": "3.39%",
+            "period_sd": "19%",
+            "beta": "1.06",
+            "benchmark_return": "0.72%"
+          },
+          {
+            "quarter": "2021 Q4",
+            "return": "1.47%",
+            "period_sd": "13%",
+            "beta": "1.01",
+            "benchmark_return": "11.06%"
+          },
+          {
+            "quarter": "2022 Q1",
+            "return": "-9.68%",
+            "period_sd": "10%",
+            "beta": "1.05",
+            "benchmark_return": "-4.63%"
+          },
+          {
+            "quarter": "2022 Q2",
+            "return": "-7.16%",
+            "period_sd": "10%",
+            "beta": "0.98",
+            "benchmark_return": "-16.38%"
+          },
+          {
+            "quarter": "2022 Q3",
+            "return": "-6.15%",
+            "period_sd": "15%",
+            "beta": "0.98",
+            "benchmark_return": "-4.12%"
+          },
+          {
+            "quarter": "2022 Q4",
+            "return": "8.37%",
+            "period_sd": "16%",
+            "beta": "0.99",
+            "benchmark_return": "7.22%"
+          },
+          {
+            "quarter": "2023 Q1",
+            "return": "6.86%",
+            "period_sd": "18%",
+            "beta": "1.09",
+            "benchmark_return": "6.92%"
+          },
+          {
+            "quarter": "2023 Q2",
+            "return": "3.49%",
+            "period_sd": "19%",
+            "beta": "1.10",
+            "benchmark_return": "8.94%"
+          },
+          {
+            "quarter": "2023 Q3",
+            "return": "-4.98%",
+            "period_sd": "13%",
+            "beta": "1.14",
+            "benchmark_return": "-3.36%"
+          },
+          {
+            "quarter": "2023 Q4",
+            "return": "4.01%",
+            "period_sd": "17%",
+            "beta": "1.19",
+            "benchmark_return": "11.21%"
+          },
+          {
+            "quarter": "2024 Q1",
+            "return": "-1.40%",
+            "period_sd": "14%",
+            "beta": "1.11",
+            "benchmark_return": "11.20%"
+          },
+          {
+            "quarter": "2024 Q2",
+            "return": "0.18%",
+            "period_sd": "13%",
+            "beta": "1.17",
+            "benchmark_return": "4.42%"
+          },
+          {
+            "quarter": "2024 Q3",
+            "return": "-2.77%",
+            "period_sd": "14%",
+            "beta": "1.07",
+            "benchmark_return": "5.59%"
+          },
+          {
+            "quarter": "2024 Q4",
+            "return": "-6.26%",
+            "period_sd": "10%",
+            "beta": "1.00",
+            "benchmark_return": "2.87%"
+          },
+          {
+            "quarter": "2025 Q1",
+            "return": "-1.89%",
+            "period_sd": "14%",
+            "beta": "0.95",
+            "benchmark_return": "-4.87%"
+          }
+        ]
+      }
+    },
+    "portfolio_optimization": {
+      "optimal_allocations": {
+        "quality_bloom": 0.7786647880297559,
+        "TOR_Surplus": 2.3852447794681098e-18,
+        "Moat_Companies": 0.22133521197024406
+      },
+      "portfolio_performance": {
+        "expected_annual_return": 0.1473725876843136,
+        "annual_volatility": 0.1782886957339823,
+        "sharpe_ratio": 0.7144176312465786
+      },
+      "individual_screener_stats": {
+        "quality_bloom": {
+          "annual_return": 0.1539058823529412,
+          "annual_volatility": 0.18855501154644516,
+          "sharpe_ratio": 0.7101687791520582
+        },
+        "TOR_Surplus": {
+          "annual_return": -0.13668235294117648,
+          "annual_volatility": 0.20142577184356117,
+          "sharpe_ratio": -0.7778664641924022
+        },
+        "Moat_Companies": {
+          "annual_return": 0.12438823529411763,
+          "annual_volatility": 0.16302538570048505,
+          "sharpe_ratio": 0.6403188978549801
+        }
+      },
+      "correlation_matrix": {
+        "quality_bloom": {
+          "quality_bloom": 1.0,
+          "TOR_Surplus": -0.8462142977302949,
+          "Moat_Companies": 0.842654739280663
+        },
+        "TOR_Surplus": {
+          "quality_bloom": -0.8462142977302949,
+          "TOR_Surplus": 1.0,
+          "Moat_Companies": -0.8799552307142274
+        },
+        "Moat_Companies": {
+          "quality_bloom": 0.842654739280663,
+          "TOR_Surplus": -0.8799552307142274,
+          "Moat_Companies": 1.0
+        }
+      },
+      "optimization_details": {
+        "success": true,
+        "message": "Optimization terminated successfully",
+        "method": "SLSQP (Sequential Least Squares Programming)",
+        "objective": "Maximize Sharpe Ratio",
+        "constraints": "Long-only (weights >= 0), weights sum to 1"
+      }
+    }
   },
   "screens": {
     "quality_bloom": {

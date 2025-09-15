@@ -545,3 +545,515 @@ class IPortfolioOptimizer(ABC):
             - Prints results to console
         """
         pass
+
+
+class IOrderExecutionService(ABC):
+    """
+    Interface for IBKR order execution service
+    Handles order execution workflow with IBKR TWS/Gateway API
+    Following Interface-First Design for financial trading systems
+    """
+
+    @abstractmethod
+    async def load_orders(self, orders_file: str = "orders.json") -> Dict[str, Any]:
+        """
+        Load orders from JSON file in data directory
+
+        Args:
+            orders_file: Filename of orders JSON (default: "orders.json")
+
+        Returns:
+            Dict containing:
+            - metadata: Order summary statistics (total_orders, buy_orders, sell_orders)
+            - orders: List of order dictionaries with execution details
+
+        Raises:
+            FileNotFoundError: If orders file doesn't exist
+            ValueError: If orders file format is invalid
+        """
+        pass
+
+    @abstractmethod
+    async def connect_to_ibkr(
+        self,
+        host: str = "127.0.0.1",
+        port: int = 4002,
+        client_id: int = 20,
+        timeout: int = 15
+    ) -> bool:
+        """
+        Establish connection to IBKR Gateway/TWS
+
+        Args:
+            host: IBKR Gateway host (default: localhost)
+            port: IBKR Gateway port (default: 4002 for paper trading)
+            client_id: Client ID for API connection (default: 20)
+            timeout: Connection timeout in seconds (default: 15)
+
+        Returns:
+            True if connection successful and ready for trading, False otherwise
+
+        Side Effects:
+            - Establishes TCP connection to IBKR
+            - Starts background thread for message processing
+            - Retrieves account ID and next valid order ID
+        """
+        pass
+
+    @abstractmethod
+    async def execute_orders(
+        self,
+        max_orders: Optional[int] = None,
+        delay_between_orders: float = 1.0,
+        order_type: str = "GTC_MKT"
+    ) -> Dict[str, Any]:
+        """
+        Execute loaded orders through IBKR API
+
+        Args:
+            max_orders: Limit execution to first N orders (None for all)
+            delay_between_orders: Delay in seconds between order submissions
+            order_type: Order type (MKT, GTC_MKT, MOO, DAY)
+
+        Returns:
+            Dict containing:
+            - executed_count: Number of orders successfully submitted
+            - failed_count: Number of orders that failed to submit
+            - total_orders: Total orders processed
+            - order_statuses: Dict mapping order_id to status info
+
+        Side Effects:
+            - Places actual orders in IBKR account
+            - Generates extensive console output
+            - Updates internal order tracking state
+        """
+        pass
+
+    @abstractmethod
+    async def get_order_statuses(self, wait_time: int = 30) -> Dict[str, Any]:
+        """
+        Get current status of all submitted orders
+
+        Args:
+            wait_time: Time to wait for status updates in seconds
+
+        Returns:
+            Dict containing:
+            - status_summary: Count of orders by status (Filled, PreSubmitted, etc.)
+            - total_filled_shares: Total shares filled across all orders
+            - pending_orders_count: Number of orders still pending
+            - order_details: Dict mapping order_id to detailed status info
+
+        Side Effects:
+            - Waits for specified time to collect status updates
+            - Prints status summary to console
+        """
+        pass
+
+    @abstractmethod
+    async def disconnect(self) -> None:
+        """
+        Disconnect from IBKR Gateway/TWS
+
+        Side Effects:
+            - Closes IBKR API connection
+            - Cleans up background threads
+            - Prints disconnection confirmation
+        """
+        pass
+
+    @abstractmethod
+    async def run_execution(
+        self,
+        orders_file: str = "orders.json",
+        max_orders: Optional[int] = None,
+        delay_between_orders: float = 1.0,
+        order_type: str = "GTC_MKT"
+    ) -> Dict[str, Any]:
+        """
+        Complete order execution workflow
+
+        Args:
+            orders_file: Orders JSON filename in data directory
+            max_orders: Limit execution to first N orders
+            delay_between_orders: Delay between order submissions
+            order_type: IBKR order type
+
+        Returns:
+            Dict containing:
+            - success: Boolean indicating overall success
+            - execution_summary: Summary of execution results
+            - order_statuses: Final status of all orders
+            - error_message: Error description if failed
+
+        Side Effects:
+            - Complete order execution workflow from load to status check
+            - Extensive console output matching CLI behavior
+            - File I/O for orders.json reading
+            - IBKR API interactions (connection, orders, status)
+        """
+        pass
+
+    @abstractmethod
+    def create_ibkr_contract(self, order_data: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Create IBKR contract specification from order data
+
+        Args:
+            order_data: Order dictionary with stock_info and ibkr_details
+
+        Returns:
+            Dict containing IBKR Contract parameters:
+            - symbol, secType, exchange, primaryExchange, currency, conId
+
+        Note:
+            This is a utility method for contract creation without IBKR dependencies
+        """
+        pass
+
+    @abstractmethod
+    def create_ibkr_order(
+        self,
+        action: str,
+        quantity: int,
+        order_type: str = "GTC_MKT"
+    ) -> Dict[str, Any]:
+        """
+        Create IBKR order specification
+
+        Args:
+            action: Order action (BUY or SELL)
+            quantity: Number of shares to trade
+            order_type: Order type (MKT, GTC_MKT, MOO, DAY)
+
+        Returns:
+            Dict containing IBKR Order parameters:
+            - action, totalQuantity, orderType, tif, eTradeOnly, firmQuoteOnly
+
+        Note:
+            This is a utility method for order creation without IBKR dependencies
+        """
+        pass
+
+
+class ITargetAllocationService(ABC):
+    """
+    Interface for calculating final stock allocations based on:
+    1. Screener allocations from portfolio optimizer
+    2. Stock performance ranking within each screener (180d price change)
+    3. Linear allocation within screener (best: MAX_ALLOCATION%, worst: MIN_ALLOCATION%)
+    Following Interface-First Design for financial systems
+    """
+
+    @abstractmethod
+    def load_universe_data(self) -> Dict[str, Any]:
+        """
+        Load universe.json data from data/universe.json
+
+        Returns:
+            Dict containing complete universe data structure
+
+        Raises:
+            FileNotFoundError: If universe.json does not exist
+        """
+        pass
+
+    @abstractmethod
+    def extract_screener_allocations(self, universe_data: Dict[str, Any]) -> Dict[str, float]:
+        """
+        Extract screener allocations from portfolio optimization results
+
+        Args:
+            universe_data: Complete universe data from load_universe_data()
+
+        Returns:
+            Dict with screener keys and their target allocations (as decimals)
+
+        Raises:
+            ValueError: If no portfolio optimization results found
+        """
+        pass
+
+    @abstractmethod
+    def parse_180d_change(self, price_change_str: str) -> float:
+        """
+        Parse price_180d_change string to float
+
+        Args:
+            price_change_str: String like "12.45%" or "-5.23%"
+
+        Returns:
+            Float value (e.g., 12.45 or -5.23)
+            Returns 0.0 if parsing fails
+        """
+        pass
+
+    @abstractmethod
+    def rank_stocks_in_screener(self, stocks: List[Dict[str, Any]]) -> List[Tuple[Dict[str, Any], int, float]]:
+        """
+        Rank stocks within a screener by 180d price change performance
+
+        Args:
+            stocks: List of stock dictionaries from screener
+
+        Returns:
+            List of tuples: (stock_dict, rank, performance_180d)
+            Rank 1 = best performing, highest rank number = worst performing
+        """
+        pass
+
+    @abstractmethod
+    def calculate_pocket_allocation(self, rank: int, total_stocks: int) -> float:
+        """
+        Calculate pocket allocation within screener based on rank
+        Only top MAX_RANKED_STOCKS get allocation: Rank 1 gets MAX_ALLOCATION%, rank MAX_RANKED_STOCKS gets MIN_ALLOCATION%
+        Ranks beyond MAX_RANKED_STOCKS get 0%
+
+        Args:
+            rank: Stock rank (1 = best)
+            total_stocks: Total number of stocks in screener
+
+        Returns:
+            Pocket allocation percentage (0.00 to MAX_ALLOCATION)
+        """
+        pass
+
+    @abstractmethod
+    def calculate_final_allocations(self, universe_data: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
+        """
+        Calculate final allocations for all stocks
+
+        Args:
+            universe_data: Complete universe data
+
+        Returns:
+            Dict with stock tickers as keys and allocation data as values:
+            {
+                'ticker': {
+                    'ticker': str,
+                    'screener': str,
+                    'rank': int,
+                    'performance_180d': float,
+                    'pocket_allocation': float,
+                    'screener_target': float,
+                    'final_allocation': float
+                }
+            }
+        """
+        pass
+
+    @abstractmethod
+    def update_universe_with_allocations(
+        self,
+        universe_data: Dict[str, Any],
+        final_allocations: Dict[str, Dict[str, Any]]
+    ) -> bool:
+        """
+        Update universe.json with final allocation data
+
+        Args:
+            universe_data: Universe data dictionary (modified in-place)
+            final_allocations: Final allocation data for each ticker
+
+        Returns:
+            bool: True if successful, False otherwise
+
+        Side Effects:
+            Modifies universe_data adding: rank, allocation_target, screen_target, final_target
+            Updates both screens.stocks and all_stocks sections
+        """
+        pass
+
+    @abstractmethod
+    def save_universe(self, universe_data: Dict[str, Any]) -> None:
+        """
+        Save updated universe data to data/universe.json
+
+        Args:
+            universe_data: Complete universe data to save
+
+        Side Effects:
+            Writes to "data/universe.json" file with proper formatting
+        """
+        pass
+
+    @abstractmethod
+    def get_allocation_summary(self, final_allocations: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
+        """
+        Get allocation summary data (equivalent to display_allocation_summary but returns JSON)
+
+        Args:
+            final_allocations: Final allocation data
+
+        Returns:
+            Dict containing:
+            - sorted_allocations: List of allocation data sorted by final_allocation desc
+            - total_allocation: Total allocation percentage
+            - top_10_allocations: Top 10 allocations for quick reference
+        """
+        pass
+
+    @abstractmethod
+    def main(self) -> bool:
+        """
+        Main target allocation orchestration function
+
+        Returns:
+            bool: True if allocation calculation successful, False otherwise
+
+        Side Effects:
+            - Loads universe data
+            - Calculates final allocations
+            - Displays allocation summary
+            - Updates universe.json with allocation data
+            - Saves updated universe data
+            - Prints progress and results to console
+        """
+        pass
+
+
+class IRebalancingService(ABC):
+    """
+    Interface for portfolio rebalancing and order generation
+    Connects to IBKR API to fetch current positions and generates orders
+    Following Interface-First Design for trading system integration
+    """
+
+    @abstractmethod
+    def load_universe_data(self, universe_file: str) -> Dict[str, Any]:
+        """
+        Load universe data with IBKR details and target quantities
+
+        Args:
+            universe_file: Path to universe_with_ibkr.json file
+
+        Returns:
+            Dict containing complete universe data structure
+
+        Raises:
+            FileNotFoundError: If universe file does not exist
+        """
+        pass
+
+    @abstractmethod
+    def calculate_target_quantities(self, universe_data: Dict[str, Any]) -> Dict[str, int]:
+        """
+        Calculate target quantities by aggregating across all screens for each IBKR symbol
+
+        Args:
+            universe_data: Complete universe data from load_universe_data()
+
+        Returns:
+            Dict mapping IBKR symbol to total target quantity
+
+        Side Effects:
+            Prints progress to console for target calculation
+        """
+        pass
+
+    @abstractmethod
+    def fetch_current_positions(self) -> Tuple[Dict[str, int], Dict[str, Dict[str, Any]]]:
+        """
+        Fetch current positions from IBKR account via live API connection
+
+        Returns:
+            Tuple of (current_positions, contract_details)
+            - current_positions: Dict mapping symbol to current quantity
+            - contract_details: Dict mapping symbol to IBKR contract info
+
+        Side Effects:
+            - Establishes connection to IBKR Gateway (127.0.0.1:4002)
+            - Prints connection status and position data to console
+            - Uses threading for IBKR API message processing
+
+        Raises:
+            Exception: If connection to IBKR Gateway fails or timeout
+        """
+        pass
+
+    @abstractmethod
+    def generate_orders(
+        self,
+        target_quantities: Dict[str, int],
+        current_positions: Dict[str, int],
+        symbol_details: Dict[str, Dict[str, Any]],
+        current_contract_details: Dict[str, Dict[str, Any]]
+    ) -> List[Dict[str, Any]]:
+        """
+        Generate buy/sell orders to reach target quantities
+
+        Args:
+            target_quantities: Dict mapping symbol to target quantity
+            current_positions: Dict mapping symbol to current quantity
+            symbol_details: Symbol information from universe data
+            current_contract_details: IBKR contract details from fetch_current_positions()
+
+        Returns:
+            List of order dictionaries with structure:
+            {
+                'symbol': str,
+                'action': 'BUY'|'SELL',
+                'quantity': int,
+                'current_quantity': int,
+                'target_quantity': int,
+                'stock_info': {
+                    'ticker': str,
+                    'name': str,
+                    'currency': str,
+                    'screens': List[str]
+                },
+                'ibkr_details': {
+                    'symbol': str,
+                    'exchange': str,
+                    'primaryExchange': str,
+                    'conId': int
+                }
+            }
+
+        Side Effects:
+            Prints order generation progress and summary to console
+        """
+        pass
+
+    @abstractmethod
+    def save_orders_json(
+        self,
+        orders: List[Dict[str, Any]],
+        output_file: str = "orders.json"
+    ) -> None:
+        """
+        Save orders to JSON file with metadata
+
+        Args:
+            orders: List of order dictionaries from generate_orders()
+            output_file: Output file path (defaults to "orders.json" in data directory)
+
+        Side Effects:
+            Creates data/orders.json with complete metadata structure
+        """
+        pass
+
+    @abstractmethod
+    def run_rebalancing(self, universe_file: str) -> Dict[str, Any]:
+        """
+        Execute complete rebalancing process orchestration
+
+        Args:
+            universe_file: Path to universe_with_ibkr.json file
+
+        Returns:
+            Dict containing:
+            - orders: List of generated orders
+            - metadata: Summary statistics
+            - target_quantities: Dict of calculated targets
+            - current_positions: Dict of current positions
+
+        Side Effects:
+            - Loads universe data
+            - Calculates target quantities
+            - Fetches current positions from IBKR
+            - Generates orders
+            - Saves orders to data/orders.json
+            - Prints complete rebalancing summary to console
+        """
+        pass
