@@ -912,6 +912,171 @@ class ITargetAllocationService(ABC):
         pass
 
 
+class ICurrencyService(ABC):
+    """
+    Interface for currency exchange rate management
+    Handles fetching EUR-based exchange rates and updating universe.json with currency data
+    Following Interface-First Design for financial systems with external API integration
+    """
+
+    @abstractmethod
+    def fetch_exchange_rates(self) -> Dict[str, float]:
+        """
+        Fetch current EUR-based exchange rates from external API
+
+        External API Integration:
+        - Uses exchangerate-api.com free API
+        - Base currency: EUR (European Euro)
+        - Endpoint: https://api.exchangerate-api.com/v4/latest/EUR
+        - Timeout: 10 seconds
+        - No API key required (free tier)
+
+        Returns:
+            Dict with currency codes as keys and exchange rates as values
+            Always includes EUR with rate 1.0 as base currency
+            Returns empty dict on API failures or network issues
+
+        Side Effects:
+            Console output: Success messages with currency count or error messages
+
+        Error Handling:
+            - HTTP status code errors (non-200 responses)
+            - Network timeout (10-second limit)
+            - JSON parsing errors
+            - General request exceptions
+            All errors result in empty dict return with console error messages
+        """
+        pass
+
+    @abstractmethod
+    def get_currencies_from_universe(self) -> set:
+        """
+        Extract all unique currency codes from universe.json file
+
+        File Operations:
+        - Reads from "data/universe.json" (hardcoded path)
+        - UTF-8 encoding for international character support
+        - Searches both "screens" and "all_stocks" sections
+
+        Data Extraction Logic:
+        - Iterates through screens.{}.stocks[].currency fields
+        - Iterates through all_stocks.{}.currency fields
+        - Collects unique currency codes into set (de-duplicated)
+
+        Returns:
+            Set of unique currency codes found in universe data
+            Returns empty set if file missing or JSON parsing fails
+
+        Side Effects:
+            Console output: Success with currency count and sorted comma-separated list
+
+        Error Handling:
+            - File not found (data/universe.json missing)
+            - JSON parsing errors
+            - Missing or invalid currency fields (gracefully skipped)
+            All errors result in empty set return with console error messages
+        """
+        pass
+
+    @abstractmethod
+    def update_universe_with_exchange_rates(self, exchange_rates: Dict[str, float]) -> bool:
+        """
+        Update universe.json by adding EUR exchange rates to ALL stock objects
+
+        File Operations:
+        - Reads "data/universe.json" with UTF-8 encoding
+        - Writes updated JSON back to same file
+        - Pretty formatting: 2-space indent, ensure_ascii=False for international chars
+
+        Update Logic:
+        - Processes ALL stocks in "screens" sections: screens.{}.stocks[]
+        - Processes ALL stocks in "all_stocks" section: all_stocks.{}
+        - Adds "eur_exchange_rate" field to each stock dictionary
+        - Tracks separate counters for screens vs all_stocks updates
+
+        Args:
+            exchange_rates: Dict with currency codes and their EUR exchange rates
+
+        Returns:
+            bool: True if successful file update, False on any errors
+
+        Side Effects:
+            - Modifies data/universe.json file on disk
+            - Console output: Progress messages with update counts for each section
+            - Console output: Total summary and warnings for missing rates
+
+        Statistics Tracking:
+        - updated_stocks_screens: Count of stocks updated in screens sections
+        - updated_stocks_all: Count of stocks updated in all_stocks section
+        - missing_rates: Set of currencies without exchange rate data
+
+        Error Handling:
+        - File not found (universe.json missing)
+        - JSON parsing errors (invalid JSON format)
+        - File write permission issues
+        - Missing currency field in stock data (gracefully skipped)
+        All errors result in False return with console error messages
+        """
+        pass
+
+    @abstractmethod
+    def display_exchange_rate_summary(self, exchange_rates: Dict[str, float]) -> None:
+        """
+        Display formatted console table of fetched exchange rates
+
+        Console Output Format:
+        - Header: "EXCHANGE RATES TO EUR" with 50 "=" character border
+        - Currency list: Alphabetically sorted by currency code
+        - Rate precision: 4 decimal places for all rates
+        - Special handling: EUR displays as "(base currency)" instead of rate
+        - Rate interpretation: "1 EUR = {rate} {currency}" format
+
+        Args:
+            exchange_rates: Dict with currency codes and their EUR exchange rates
+
+        Side Effects:
+            Prints formatted exchange rate table to console
+            Box-style formatting with header borders
+        """
+        pass
+
+    @abstractmethod
+    def run_currency_update(self) -> bool:
+        """
+        Execute complete 3-step currency update workflow
+
+        Workflow Steps:
+        1. "Analyzing currencies in universe.json..." → get_currencies_from_universe()
+        2. "Fetching current exchange rates..." → fetch_exchange_rates()
+        3. "Updating universe.json with EUR exchange rates..." → update_universe_with_exchange_rates()
+
+        Console Output:
+        - Main header: "Uncle Stock Currency Exchange Rate Updater" (60 "=" chars)
+        - Step progress: Numbered steps with descriptive messages
+        - Exchange rate summary table via display_exchange_rate_summary()
+        - Success confirmation with feature description
+        - Error messages for each step failure
+
+        Returns:
+            bool: True if entire workflow completed successfully, False on any step failure
+
+        Side Effects:
+        - Complete console output matching original CLI behavior exactly
+        - File I/O: Reads and updates data/universe.json
+        - External API call: Fetches from exchangerate-api.com
+        - All individual function side effects included
+
+        Error Handling:
+        - Early exit on any step failure
+        - Top-level exception handler for unexpected errors
+        - Maintains original CLI error message format
+
+        CLI Integration:
+        This method provides identical behavior to currency.main() for CLI compatibility
+        """
+        pass
+
+
 class IRebalancingService(ABC):
     """
     Interface for portfolio rebalancing and order generation
@@ -1055,5 +1220,223 @@ class IRebalancingService(ABC):
             - Generates orders
             - Saves orders to data/orders.json
             - Prints complete rebalancing summary to console
+        """
+        pass
+
+
+class IOrderStatusService(ABC):
+    """
+    Interface for order status checking and verification against IBKR
+    Handles connection to IBKR Gateway, data collection, and comparison with orders.json
+    Following Interface-First Design for trading system verification
+    """
+
+    @abstractmethod
+    def load_orders_json(self, orders_file: str = "orders.json") -> Dict[str, Any]:
+        """
+        Load orders from JSON file created by rebalancer
+
+        Args:
+            orders_file: Path to orders JSON file (defaults to data/orders.json)
+
+        Returns:
+            Dict containing:
+            - metadata: Order metadata with total_orders count
+            - orders: List of order dictionaries
+
+        Side Effects:
+            Console output showing file path and total orders loaded
+
+        Raises:
+            FileNotFoundError: If orders.json file does not exist
+        """
+        pass
+
+    @abstractmethod
+    def connect_to_ibkr(self) -> bool:
+        """
+        Establish connection to IBKR Gateway with enhanced order detection
+
+        Connection Details:
+            - Host: 127.0.0.1:4002
+            - Client ID: 99 (high ID to avoid conflicts and see ALL orders)
+            - Timeout: 15 seconds for connection
+            - Extended wait: 10 seconds to capture orders with high IDs (up to 500+)
+            - Threading: Daemon thread for API message processing
+
+        Returns:
+            True if connected and account ID received, False otherwise
+
+        Side Effects:
+            - Creates IBKR API connection thread
+            - Console output for connection status and immediate order callbacks
+            - Populates initial order data during connection phase
+
+        Raises:
+            Exception: If connection to IBKR Gateway fails
+        """
+        pass
+
+    @abstractmethod
+    def fetch_account_data(self) -> None:
+        """
+        Comprehensive data fetching using multiple IBKR API methods
+
+        API Methods Used:
+            - reqAllOpenOrders(): Gets ALL open orders (not just from current client)
+            - reqOpenOrders(): Gets orders from current client
+            - reqAutoOpenOrders(True): Requests automatic order binding
+            - reqPositions(): Gets all positions
+            - reqCompletedOrders(False): Gets all completed orders (not just API orders)
+            - reqExecutions(1, exec_filter): Gets executions from today
+
+        Timeouts:
+            - 20-second extended timeout for high order IDs (up to 500+)
+            - Progress updates every 6 seconds
+
+        Side Effects:
+            - Populates open_orders, completed_orders, positions, executions data
+            - Console progress updates with counts and max order ID
+            - Request completion tracking via flags
+        """
+        pass
+
+    @abstractmethod
+    def analyze_orders(self) -> Dict[str, Any]:
+        """
+        Core comparison logic between JSON orders and IBKR status
+
+        Comparison Strategy:
+            - Creates lookup dictionaries by symbol
+            - Matches orders by symbol and action (BUY/SELL)
+            - Tracks found_in_ibkr, missing_from_ibkr, quantity_mismatches
+
+        Returns:
+            Dict containing:
+            - found_in_ibkr: int count of matched orders
+            - missing_from_ibkr: int count of missing orders
+            - quantity_mismatches: int count of quantity differences
+            - success_rate: float percentage of successful matches
+            - missing_orders: List of orders not found in IBKR
+            - extra_ibkr_orders: List of IBKR orders not in JSON
+            - analysis_table: List of comparison results for each order
+
+        Side Effects:
+            Console output with formatted comparison table and summary statistics
+        """
+        pass
+
+    @abstractmethod
+    def get_missing_order_analysis(self, missing_orders: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """
+        Detailed failure analysis with known patterns and recommendations
+
+        Known Failure Patterns:
+            - AAPL: Account restriction - direct NASDAQ routing disabled (Error 10311)
+            - DPM: Contract not supported - TSE contract resolution failed (Error 202)
+            - AJ91: Liquidity constraints - volume too large (Error 202)
+            - MOUR: Extreme illiquidity - even small orders rejected (Error 202)
+
+        Args:
+            missing_orders: List of order dictionaries not found in IBKR
+
+        Returns:
+            Dict containing:
+            - failure_analysis: List of detailed failure information for each order
+            - recommendations: List of actionable recommendations
+            - failure_patterns: Dict of known failure reasons by symbol
+
+        Side Effects:
+            Console output with detailed failure analysis and recommendations
+        """
+        pass
+
+    @abstractmethod
+    def get_order_status_summary(self) -> Dict[str, Any]:
+        """
+        Get detailed status breakdown of all IBKR orders
+
+        Returns:
+            Dict containing:
+            - orders_by_status: Dict mapping status to list of orders
+            - status_counts: Dict mapping status to count
+            - total_orders: int total number of orders
+            - order_details: List of all order information
+
+        Side Effects:
+            Console output with comprehensive order status tables by status group
+        """
+        pass
+
+    @abstractmethod
+    def get_positions_summary(self) -> Dict[str, Any]:
+        """
+        Get current account positions summary
+
+        Returns:
+            Dict containing:
+            - positions: Dict mapping symbol to position information
+            - total_positions: int count of positions
+            - market_values: Dict mapping symbol to market value
+            - total_market_value: float sum of all market values
+
+        Side Effects:
+            Console output with formatted position table and summary
+        """
+        pass
+
+    @abstractmethod
+    def run_status_check(self) -> bool:
+        """
+        Execute complete order status check workflow
+
+        Workflow:
+            1. Load orders from JSON (data/orders.json)
+            2. Connect to IBKR Gateway (127.0.0.1:4002)
+            3. Fetch current account data (orders, positions, executions)
+            4. Analyze orders (comparison between JSON and IBKR)
+            5. Show detailed status breakdown
+            6. Show current positions
+            7. Disconnect from IBKR
+
+        Returns:
+            True if status check completed successfully, False if failed
+
+        Side Effects:
+            - Complete console output workflow matching CLI behavior
+            - IBKR API connection and disconnection
+            - Data collection and analysis
+            - Formatted reporting tables and summaries
+
+        Raises:
+            Exception: If any step in the workflow fails
+        """
+        pass
+
+    @abstractmethod
+    def disconnect(self) -> None:
+        """
+        Disconnect from IBKR Gateway and cleanup resources
+
+        Side Effects:
+            - Closes IBKR API connection
+            - Stops message processing thread
+            - Console output confirming disconnection
+        """
+        pass
+
+    @abstractmethod
+    def get_verification_results(self) -> Dict[str, Any]:
+        """
+        Get verification results without console output for API responses
+
+        Returns:
+            Dict containing complete verification results suitable for JSON API responses:
+            - comparison_summary: Summary statistics
+            - order_matches: List of matched orders
+            - missing_orders: List of missing orders with analysis
+            - extra_orders: List of extra IBKR orders
+            - positions: Current position data
+            - order_status_breakdown: Orders grouped by status
         """
         pass

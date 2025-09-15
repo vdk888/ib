@@ -8,7 +8,7 @@ from fastapi import APIRouter, HTTPException, Depends, status
 from fastapi.responses import JSONResponse
 from typing import Dict, Any
 import logging
-from ....core.dependencies import get_portfolio_optimizer_service
+from ....core.dependencies import get_portfolio_optimizer_service, get_account_service, get_quantity_orchestrator_service
 from ....core.exceptions import ValidationError
 from ....models.schemas import (
     PortfolioOptimizationResponse,

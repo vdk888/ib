@@ -495,23 +495,88 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 ## Step 5: Currency Exchange Service
 **Goal**: Wrap `src/currency.py` functions with API endpoints
 
-### Current Functions:
-- `fetch_exchange_rates()` - Get rates from exchangerate-api.com
-- `get_currencies_from_universe()` - Extract currencies from universe
-- `update_universe_with_exchange_rates()` - Add EUR rates to stocks
+### ✅ ANALYSIS COMPLETE - Current Implementation Details:
+
+#### Core Functions Identified:
+
+1. **`fetch_exchange_rates() -> Dict[str, float]`**
+   - Purpose: Fetch current EUR-based exchange rates from exchangerate-api.com free API
+   - API Endpoint: `https://api.exchangerate-api.com/v4/latest/EUR` (no API key required)
+   - Timeout: 10 seconds hardcoded in requests.get()
+   - Returns: Dict with currency codes as keys and exchange rates as values
+   - Special Logic: Always adds EUR with rate 1.0 as base currency
+   - Side Effects: Console prints (`+` success with count, `X` errors)
+   - Error Handling: Returns empty dict on HTTP errors or request exceptions
+
+2. **`get_currencies_from_universe() -> set`**
+   - Purpose: Extract all unique currencies from universe.json file
+   - File Path: `data/universe.json` (hardcoded)
+   - Data Sources: Extracts from both `screens.{}.stocks[].currency` AND `all_stocks.{}.currency`
+   - Returns: Set of unique currency codes found across all stocks
+   - Side Effects: Console print with currency count and sorted comma-separated list
+   - Error Handling: Returns empty set if file missing or JSON parsing fails
+
+3. **`update_universe_with_exchange_rates(exchange_rates: Dict[str, float]) -> bool`**
+   - Purpose: Add `eur_exchange_rate` field to ALL stocks in universe.json
+   - File Operations: Reads and writes `data/universe.json` with UTF-8 encoding
+   - Update Logic: Updates BOTH `screens` sections AND `all_stocks` sections
+   - Statistics Tracking: Separate counters for updated_stocks_screens and updated_stocks_all
+   - Side Effects: Console prints for each section updated with counts, total summary
+   - Warning Logic: Collects and displays missing exchange rates for currencies
+   - JSON Format: Pretty format with 2-space indent, ensure_ascii=False
+   - Error Handling: Returns False on file errors or JSON parsing issues
+
+4. **`display_exchange_rate_summary(exchange_rates: Dict[str, float])`**
+   - Purpose: Display formatted console table of all fetched exchange rates
+   - Output Format: Sorted currency list with 4 decimal precision rates
+   - Special Handling: EUR shows as "(base currency)" instead of rate
+   - Console Styling: Box headers with "=" borders (50 chars wide)
+
+5. **`main() -> bool` (CLI Integration Function)**
+   - Purpose: Orchestrate complete 3-step currency update workflow
+   - Step 1: "Analyzing currencies in universe.json..." → `get_currencies_from_universe()`
+   - Step 2: "Fetching current exchange rates..." → `fetch_exchange_rates()`
+   - Step 3: "Updating universe.json with EUR exchange rates..." → `update_universe_with_exchange_rates()`
+   - Console Headers: Main header "Uncle Stock Currency Exchange Rate Updater" with 60 "=" chars
+   - Success Messages: Final confirmation with feature description
+   - Return Logic: Returns boolean indicating overall workflow success/failure
+   - Error Handling: Top-level try-catch for any unexpected errors
+
+#### Dependencies Mapped:
+- **Standard Library**: `json`, `os`, `typing.Dict`, `typing.Any`
+- **External**: `requests` (HTTP client with 10-second timeout)
+- **File System**: `data/universe.json` (read/write operations)
+- **External API**: `exchangerate-api.com` free tier (no authentication required)
+
+#### Console Output Patterns:
+- **Success Prefix**: `+` for all positive status messages
+- **Error Prefix**: `X` for all error messages and warnings
+- **Headers**: `=` character borders (60 chars main, 50 chars summary sections)
+- **Progress Steps**: Numbered workflow steps with descriptive messages
+- **Statistics**: Detailed counts (currencies found, stocks updated, etc.)
+
+#### Error Handling Strategy:
+- **External API Failures**: Graceful degradation, returns empty dict, continues execution
+- **File System Issues**: Returns empty set/False, displays error messages
+- **JSON Parsing Errors**: Exception handling with contextual error messages
+- **Missing Exchange Rates**: Warning messages but processing continues
+- **Network Timeouts**: 10-second timeout with error message display
+
+#### Side Effects Documented:
+1. **File I/O**: Reads from `data/universe.json`, writes updated version back
+2. **Console Output**: Comprehensive progress messages, error reporting, statistics
+3. **Data Modification**: Adds `eur_exchange_rate` field to ALL stock objects in universe
+4. **External API Call**: HTTP GET to exchangerate-api.com with 10-second timeout
+
+#### CLI Integration:
+- Called via `step5_update_currency()` in main.py lines 123-139
+- Simple wrapper: imports and calls `currency.main()`
+- Returns boolean success status to main pipeline
+- Maintains identical console output and error handling
 
 ### Actions:
 
-#### Phase 1: Deep Analysis (MANDATORY FIRST)
-1. **📖 STUDY `src/currency.py` COMPLETELY**:
-   - Read every line, understand every function and API calls
-   - Document exact function signatures, parameters, and return types
-   - Map all dependencies: requests, json imports, external API
-   - Note all side effects: universe.json updates, console output
-   - Identify API endpoints, timeout values, and error handling
-   - **UPDATE THIS PLAN** with exact implementation details
-
-#### Phase 2: Implementation (ONLY AFTER ANALYSIS)
+#### Phase 2: Implementation (ANALYSIS COMPLETE ✅)
 2. **Create interface**: `ICurrencyService`
 3. **Create implementation**: `CurrencyService` wrapping existing functions
 4. **Create API endpoints**:

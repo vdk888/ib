@@ -492,3 +492,696 @@ class QuarterlyReturnsResponse(BaseModel):
     returns_data: Dict[str, List[float]] = Field(description="Quarterly returns by screener (decimal format)")
     quarters: List[str] = Field(description="Quarter labels (e.g., '2023Q1')")
     metadata: QuarterlyReturnsMetadata = Field(description="Dataset metadata")
+
+
+# Target Allocation Service Schemas (Step 6)
+
+class StockAllocationData(BaseModel):
+    """
+    Individual stock allocation data
+    Matches the structure from calculate_final_allocations()
+    """
+    ticker: str = Field(description="Stock ticker symbol")
+    screener: str = Field(description="Screener name where stock appears")
+    rank: int = Field(description="Rank within screener (1 = best performing)")
+    performance_180d: float = Field(description="180-day performance percentage (e.g., 12.45 for 12.45%)")
+    pocket_allocation: float = Field(description="Allocation within screener (decimal, 0.0 to MAX_ALLOCATION)")
+    screener_target: float = Field(description="Screener target allocation from optimizer (decimal)")
+    final_allocation: float = Field(description="Final allocation = screener_target * pocket_allocation")
+
+
+class AllocationSummaryStats(BaseModel):
+    """
+    Summary statistics for allocation results
+    """
+    total_stocks: int = Field(description="Total number of stocks processed")
+    total_allocation_pct: float = Field(description="Total allocation percentage")
+    stocks_with_allocation: int = Field(description="Number of stocks with non-zero allocation")
+
+
+class Top10Allocation(BaseModel):
+    """
+    Top 10 allocation entry for quick reference
+    """
+    rank_overall: int = Field(description="Overall rank (1-10)")
+    ticker: str = Field(description="Stock ticker symbol")
+    final_allocation: float = Field(description="Final allocation percentage (decimal)")
+    screener: str = Field(description="Screener name")
+    screener_rank: int = Field(description="Rank within screener")
+    performance_180d: float = Field(description="180-day performance percentage")
+
+
+class AllocationSummaryData(BaseModel):
+    """
+    Complete allocation summary data (JSON equivalent of display_allocation_summary)
+    """
+    sorted_allocations: List[StockAllocationData] = Field(description="All allocations sorted by final_allocation desc")
+    total_allocation: float = Field(description="Total allocation (decimal)")
+    top_10_allocations: List[Top10Allocation] = Field(description="Top 10 allocations for quick reference")
+    summary_stats: AllocationSummaryStats = Field(description="Summary statistics")
+
+
+class TargetAllocationResponse(BaseModel):
+    """
+    Response model for target allocation calculation
+    """
+    success: bool = Field(description="Whether the calculation was successful")
+    message: str = Field(description="Operation status message")
+    allocation_data: Dict[str, StockAllocationData] = Field(description="Allocation data by ticker")
+    universe_updated: bool = Field(description="Whether universe.json was updated with allocation data")
+
+
+class AllocationSummaryResponse(BaseModel):
+    """
+    Response model for allocation summary data
+    """
+    success: bool = Field(description="Whether the operation was successful")
+    summary: AllocationSummaryData = Field(description="Complete allocation summary")
+
+
+class ScreenerAllocation(BaseModel):
+    """
+    Screener allocation from portfolio optimizer
+    """
+    screener_id: str = Field(description="Screener identifier")
+    screener_name: str = Field(description="Screener display name")
+    allocation: float = Field(description="Target allocation (decimal, e.g., 0.35 = 35%)")
+
+
+class ScreenerAllocationsResponse(BaseModel):
+    """
+    Response model for screener allocations
+    """
+    success: bool = Field(description="Whether extraction was successful")
+    screener_allocations: Dict[str, float] = Field(description="Screener allocations by ID")
+    screeners_data: List[ScreenerAllocation] = Field(description="Detailed screener allocation data")
+
+
+class StockRanking(BaseModel):
+    """
+    Individual stock ranking within screener
+    """
+    ticker: str = Field(description="Stock ticker symbol")
+    rank: int = Field(description="Rank within screener (1 = best)")
+    performance_180d: float = Field(description="180-day performance percentage")
+    pocket_allocation: float = Field(description="Allocation within screener (decimal)")
+
+
+class ScreenerRankingsResponse(BaseModel):
+    """
+    Response model for stock rankings within a screener
+    """
+    success: bool = Field(description="Whether ranking was successful")
+    screener_id: str = Field(description="Screener identifier")
+    screener_name: str = Field(description="Screener display name")
+    rankings: List[StockRanking] = Field(description="Stock rankings sorted by performance")
+    total_stocks: int = Field(description="Total stocks in screener")
+    stocks_with_allocation: int = Field(description="Stocks receiving non-zero allocation")
+
+
+class CalculateTargetsRequest(BaseModel):
+    """
+    Request model for calculating target allocations
+    """
+    force_recalculate: bool = Field(default=False, description="Force recalculation even if data exists")
+    save_to_universe: bool = Field(default=True, description="Save results to universe.json")
+
+
+class UniverseAllocationUpdate(BaseModel):
+    """
+    Model for universe update with allocation data
+    """
+    stocks_updated: int = Field(description="Number of stocks updated with allocation data")
+    fields_added: List[str] = Field(description="Fields added to stock records")
+
+
+class UniverseAllocationUpdateResponse(BaseModel):
+    """
+    Response model for universe allocation update
+    """
+    success: bool = Field(description="Whether the update was successful")
+    message: str = Field(description="Update status message")
+    update_details: UniverseAllocationUpdate = Field(description="Details of the update operation")
+
+
+# ============================================================================
+# Rebalancing and Orders Models
+# ============================================================================
+
+class OrderAction(str, Enum):
+    """Order action enumeration"""
+    BUY = "BUY"
+    SELL = "SELL"
+
+
+class StockInfo(BaseModel):
+    """Stock information for order context"""
+    ticker: str = Field(description="Original stock ticker")
+    name: str = Field(description="Company name")
+    currency: str = Field(description="Stock currency")
+    screens: List[str] = Field(description="List of screens this stock appears in")
+
+
+class IBKRDetails(BaseModel):
+    """IBKR contract details for order execution"""
+    symbol: str = Field(description="IBKR symbol for trading")
+    exchange: str = Field(description="Trading exchange")
+    primaryExchange: str = Field(description="Primary exchange")
+    conId: Optional[int] = Field(description="IBKR contract ID", default=None)
+
+
+class Order(BaseModel):
+    """Individual rebalancing order"""
+    symbol: str = Field(description="IBKR trading symbol")
+    action: OrderAction = Field(description="BUY or SELL action")
+    quantity: int = Field(description="Number of shares to trade", gt=0)
+    current_quantity: int = Field(description="Current position quantity", ge=0)
+    target_quantity: int = Field(description="Target position quantity", ge=0)
+    stock_info: StockInfo = Field(description="Stock information")
+    ibkr_details: IBKRDetails = Field(description="IBKR contract details")
+
+    @validator('quantity')
+    def validate_quantity_logic(cls, v, values):
+        """Validate order quantity matches the action logic"""
+        if 'current_quantity' in values and 'target_quantity' in values:
+            diff = values['target_quantity'] - values['current_quantity']
+            expected_qty = abs(diff)
+            if v != expected_qty:
+                raise ValueError(f"Order quantity {v} doesn't match expected {expected_qty}")
+        return v
+
+
+class OrderMetadata(BaseModel):
+    """Metadata for order generation"""
+    generated_at: str = Field(description="Timestamp when orders were generated")
+    total_orders: int = Field(description="Total number of orders", ge=0)
+    buy_orders: int = Field(description="Number of BUY orders", ge=0)
+    sell_orders: int = Field(description="Number of SELL orders", ge=0)
+    total_buy_quantity: int = Field(description="Total shares to buy", ge=0)
+    total_sell_quantity: int = Field(description="Total shares to sell", ge=0)
+
+    @validator('total_orders')
+    def validate_order_totals(cls, v, values):
+        """Validate that order counts add up correctly"""
+        if 'buy_orders' in values and 'sell_orders' in values:
+            if v != values['buy_orders'] + values['sell_orders']:
+                raise ValueError("Total orders must equal buy_orders + sell_orders")
+        return v
+
+
+class RebalancingResponse(BaseModel):
+    """
+    Response model for rebalancing order generation
+    Complete response including orders, metadata, and analysis data
+    """
+    success: bool = Field(description="Whether the rebalancing was successful")
+    orders: List[Order] = Field(description="List of generated orders")
+    metadata: OrderMetadata = Field(description="Order generation metadata")
+    target_quantities: Dict[str, int] = Field(description="Target quantities by symbol")
+    current_positions: Dict[str, int] = Field(description="Current positions by symbol")
+    message: str = Field(description="Rebalancing status message")
+
+
+class OrdersResponse(BaseModel):
+    """
+    Response model for retrieving saved orders
+    Simplified response for getting orders from file
+    """
+    success: bool = Field(description="Whether the retrieval was successful")
+    orders: List[Order] = Field(description="List of orders from file")
+    metadata: OrderMetadata = Field(description="Order metadata from file")
+
+
+class PositionsResponse(BaseModel):
+    """
+    Response model for current IBKR positions
+    """
+    success: bool = Field(description="Whether position fetch was successful")
+    positions: Dict[str, int] = Field(description="Current positions by symbol")
+    contract_details: Dict[str, Dict[str, Any]] = Field(description="IBKR contract details by symbol")
+    message: str = Field(description="Position fetch status message")
+
+
+class TargetQuantitiesResponse(BaseModel):
+    """
+    Response model for target quantities calculation
+    """
+    success: bool = Field(description="Whether calculation was successful")
+    target_quantities: Dict[str, int] = Field(description="Target quantities by symbol")
+    total_symbols: int = Field(description="Total number of symbols with targets", ge=0)
+    total_shares: int = Field(description="Total target shares across all symbols", ge=0)
+
+
+# ============================================================================
+# Order Execution Models
+# ============================================================================
+
+class OrderType(str, Enum):
+    """Supported IBKR order types"""
+    MKT = "MKT"              # Market order
+    GTC_MKT = "GTC_MKT"      # Good Till Cancelled Market order (default)
+    MOO = "MOO"              # Market on Open order
+    DAY = "DAY"              # Day order
+
+
+class OrderExecutionRequest(BaseModel):
+    """
+    Request model for order execution
+    """
+    orders_file: str = Field(
+        default="orders.json",
+        description="Orders JSON filename in data directory"
+    )
+    max_orders: Optional[int] = Field(
+        default=None,
+        description="Limit execution to first N orders (None for all)",
+        ge=1
+    )
+    delay_between_orders: float = Field(
+        default=1.0,
+        description="Delay in seconds between order submissions",
+        ge=0.1,
+        le=10.0
+    )
+    order_type: OrderType = Field(
+        default=OrderType.GTC_MKT,
+        description="IBKR order type for all orders"
+    )
+
+    @validator('orders_file')
+    def validate_orders_file(cls, v):
+        if not v.endswith('.json'):
+            v = f"{v}.json"
+        return v
+
+
+class IBKRConnectionRequest(BaseModel):
+    """
+    Request model for IBKR connection
+    """
+    host: str = Field(
+        default="127.0.0.1",
+        description="IBKR Gateway/TWS host"
+    )
+    port: int = Field(
+        default=4002,
+        description="IBKR Gateway/TWS port (4002 for paper trading, 4001 for live)",
+        ge=1000,
+        le=65535
+    )
+    client_id: int = Field(
+        default=20,
+        description="Client ID for API connection",
+        ge=1,
+        le=999
+    )
+    timeout: int = Field(
+        default=15,
+        description="Connection timeout in seconds",
+        ge=5,
+        le=60
+    )
+
+
+class OrderStatusSummary(BaseModel):
+    """
+    Summary of order statuses
+    """
+    status: str = Field(description="Order status (Filled, PreSubmitted, Submitted, etc.)")
+    count: int = Field(description="Number of orders with this status", ge=0)
+
+
+class OrderDetails(BaseModel):
+    """
+    Detailed order information
+    """
+    order_id: int = Field(description="IBKR order ID")
+    status: str = Field(description="Current order status")
+    filled: int = Field(description="Number of shares filled", ge=0)
+    remaining: int = Field(description="Number of shares remaining", ge=0)
+    avg_fill_price: float = Field(description="Average fill price", ge=0.0)
+    perm_id: Optional[int] = Field(description="IBKR permanent ID")
+    symbol: Optional[str] = Field(description="Stock symbol")
+    action: Optional[str] = Field(description="Order action (BUY/SELL)")
+    quantity: Optional[int] = Field(description="Order quantity")
+    order_type: Optional[str] = Field(description="Order type used")
+    submission_time: Optional[str] = Field(description="Order submission timestamp")
+
+
+class OrderExecutionSummary(BaseModel):
+    """
+    Summary of order execution results
+    """
+    total_processed: int = Field(description="Total orders processed", ge=0)
+    successful_submissions: int = Field(description="Successfully submitted orders", ge=0)
+    failed_submissions: int = Field(description="Failed order submissions", ge=0)
+    success_rate: float = Field(description="Success rate (0.0-1.0)", ge=0.0, le=1.0)
+
+
+class OrderStatusResponse(BaseModel):
+    """
+    Response model for order status checking
+    """
+    success: bool = Field(description="Whether status check was successful")
+    status_summary: Dict[str, int] = Field(description="Count of orders by status")
+    total_filled_shares: int = Field(description="Total shares filled across all orders", ge=0)
+    pending_orders_count: int = Field(description="Number of orders still pending", ge=0)
+    order_details: Dict[str, OrderDetails] = Field(description="Detailed order information by order ID")
+    wait_time_used: int = Field(description="Wait time used in seconds", ge=0)
+    checked_at: datetime = Field(
+        default_factory=datetime.utcnow,
+        description="Timestamp when status was checked"
+    )
+
+
+class OrderExecutionResponse(BaseModel):
+    """
+    Response model for order execution
+    """
+    success: bool = Field(description="Whether order execution was successful")
+    executed_count: int = Field(description="Number of orders successfully submitted", ge=0)
+    failed_count: int = Field(description="Number of orders that failed to submit", ge=0)
+    total_orders: int = Field(description="Total orders processed", ge=0)
+    order_statuses: Dict[str, Dict[str, Any]] = Field(description="Order statuses by order ID")
+    order_results: List[OrderDetails] = Field(description="List of order execution results")
+    execution_summary: OrderExecutionSummary = Field(description="Summary of execution results")
+    executed_at: datetime = Field(
+        default_factory=datetime.utcnow,
+        description="Timestamp when execution completed"
+    )
+
+
+class OrderExecutionWorkflowResponse(BaseModel):
+    """
+    Response model for complete order execution workflow
+    """
+    success: bool = Field(description="Whether the entire workflow was successful")
+    execution_summary: Optional[OrderExecutionSummary] = Field(description="Execution summary if successful")
+    order_statuses: Optional[Dict[str, Dict[str, Any]]] = Field(description="Final order statuses")
+    status_summary: Optional[Dict[str, int]] = Field(description="Status summary counts")
+    total_filled_shares: Optional[int] = Field(description="Total shares filled")
+    pending_orders_count: Optional[int] = Field(description="Pending orders count")
+    orders_loaded: Optional[int] = Field(description="Number of orders loaded from file")
+    error_message: Optional[str] = Field(description="Error message if workflow failed")
+    workflow_completed_at: Optional[str] = Field(description="Workflow completion timestamp")
+    failure_time: Optional[str] = Field(description="Failure timestamp if applicable")
+
+
+class LoadOrdersResponse(BaseModel):
+    """
+    Response model for loading orders from file
+    """
+    success: bool = Field(description="Whether orders were loaded successfully")
+    metadata: Optional[Dict[str, Any]] = Field(description="Order metadata (totals, counts)")
+    orders: Optional[List[Dict[str, Any]]] = Field(description="List of orders")
+    total_orders: Optional[int] = Field(description="Total number of orders loaded", ge=0)
+    orders_file: str = Field(description="Orders file used")
+    loaded_at: datetime = Field(
+        default_factory=datetime.utcnow,
+        description="Timestamp when orders were loaded"
+    )
+
+
+class IBKRConnectionResponse(BaseModel):
+    """
+    Response model for IBKR connection
+    """
+    success: bool = Field(description="Whether connection was successful")
+    account_id: Optional[str] = Field(description="IBKR account ID if connected")
+    next_order_id: Optional[int] = Field(description="Next valid order ID if connected")
+    connection_details: Dict[str, Any] = Field(description="Connection parameters used")
+    error_message: Optional[str] = Field(description="Error message if connection failed")
+    connected_at: Optional[str] = Field(description="Connection timestamp if successful")
+
+
+class ContractSpecification(BaseModel):
+    """
+    IBKR contract specification
+    """
+    symbol: str = Field(description="Stock symbol")
+    sec_type: str = Field(description="Security type (STK for stocks)")
+    exchange: str = Field(description="Exchange routing")
+    primary_exchange: str = Field(description="Primary exchange")
+    currency: str = Field(description="Contract currency")
+    con_id: Optional[int] = Field(description="Contract ID for precise identification")
+
+
+class OrderSpecification(BaseModel):
+    """
+    IBKR order specification
+    """
+    action: str = Field(description="Order action (BUY/SELL)")
+    total_quantity: int = Field(description="Total quantity to trade", ge=1)
+    order_type: str = Field(description="Order type (MKT, etc.)")
+    tif: Optional[str] = Field(description="Time in Force")
+    e_trade_only: bool = Field(description="Electronic trading only flag")
+    firm_quote_only: bool = Field(description="Firm quote only flag")
+
+
+# Order Status Checking Models
+
+class OrderMatchStatus(str, Enum):
+    """Order matching status"""
+    OK = "OK"
+    MISSING = "MISSING"
+    QTY_DIFF = "QTY_DIFF"
+    NOT_FOUND = "NOT_FOUND"
+
+
+class OrderAnalysisRow(BaseModel):
+    """Single row in order analysis table"""
+    symbol: str = Field(description="Stock symbol")
+    json_action: str = Field(description="Action from orders.json (BUY/SELL)")
+    json_quantity: int = Field(description="Quantity from orders.json", ge=0)
+    ibkr_status: Optional[str] = Field(description="IBKR order status or 'NOT_FOUND'")
+    ibkr_quantity: Optional[int] = Field(description="IBKR order quantity or None", ge=0)
+    match_status: OrderMatchStatus = Field(description="Match status between JSON and IBKR")
+
+
+class OrderFailureAnalysis(BaseModel):
+    """Detailed analysis of a missing order"""
+    symbol: str = Field(description="Stock symbol")
+    action: str = Field(description="Order action (BUY/SELL)")
+    quantity: int = Field(description="Order quantity", ge=0)
+    currency: str = Field(description="Stock currency")
+    ticker: str = Field(description="Stock ticker")
+    exchange: str = Field(description="Exchange")
+    reason: str = Field(description="Failure reason category")
+    details: str = Field(description="Detailed failure explanation")
+    note: str = Field(description="Additional notes or suggestions")
+
+
+class OrderStatusDetail(BaseModel):
+    """Detailed order information"""
+    order_id: int = Field(description="IBKR order ID")
+    symbol: str = Field(description="Stock symbol")
+    action: str = Field(description="Order action (BUY/SELL)")
+    quantity: int = Field(description="Order quantity", ge=0)
+    filled: int = Field(description="Filled quantity", ge=0)
+    status: str = Field(description="Order status")
+    avg_fill_price: Any = Field(description="Average fill price or N/A")
+    order_type: str = Field(description="Order type")
+
+
+class PositionDetail(BaseModel):
+    """Current position information"""
+    position: int = Field(description="Position size (+ long, - short)")
+    avg_cost: float = Field(description="Average cost per share")
+    currency: str = Field(description="Position currency")
+    exchange: str = Field(description="Exchange")
+    market_value: float = Field(description="Current market value")
+
+
+class ComparisonSummary(BaseModel):
+    """Summary of order comparison results"""
+    found_in_ibkr: int = Field(description="Number of orders found in IBKR", ge=0)
+    missing_from_ibkr: int = Field(description="Number of orders missing from IBKR", ge=0)
+    quantity_mismatches: int = Field(description="Number of quantity mismatches", ge=0)
+    success_rate: float = Field(description="Success rate percentage", ge=0, le=100)
+    total_orders: int = Field(description="Total orders in JSON file", ge=0)
+    timestamp: str = Field(description="Analysis timestamp")
+
+
+class OrderStatusCheckResponse(BaseModel):
+    """Complete order status check results"""
+    comparison_summary: ComparisonSummary = Field(description="Comparison summary statistics")
+    order_matches: List[OrderAnalysisRow] = Field(description="Detailed order comparison table")
+    missing_orders: List[OrderFailureAnalysis] = Field(description="Missing orders with failure analysis")
+    recommendations: List[str] = Field(description="Actionable recommendations")
+    extra_orders: List[Dict[str, Any]] = Field(description="Extra orders in IBKR not in JSON")
+    positions: Dict[str, PositionDetail] = Field(description="Current account positions")
+    order_status_breakdown: Dict[str, List[OrderStatusDetail]] = Field(description="Orders grouped by status")
+
+
+class OrderStatusRequest(BaseModel):
+    """Request for order status checking"""
+    orders_file: Optional[str] = Field(
+        default="orders.json",
+        description="Orders file to compare against (default: data/orders.json)"
+    )
+
+
+class PositionsSummaryResponse(BaseModel):
+    """Response for positions summary"""
+    positions: Dict[str, PositionDetail] = Field(description="Current account positions")
+    total_positions: int = Field(description="Total number of positions", ge=0)
+    market_values: Dict[str, float] = Field(description="Market value by symbol")
+    total_market_value: float = Field(description="Total portfolio market value")
+
+
+class OrderStatusSummaryResponse(BaseModel):
+    """Response for order status summary"""
+    orders_by_status: Dict[str, List[OrderStatusDetail]] = Field(description="Orders grouped by status")
+    status_counts: Dict[str, int] = Field(description="Count of orders by status")
+    total_orders: int = Field(description="Total number of orders", ge=0)
+    order_details: List[OrderStatusDetail] = Field(description="All order details")
+
+
+class MissingOrderAnalysisResponse(BaseModel):
+    """Response for missing order analysis"""
+    failure_analysis: List[OrderFailureAnalysis] = Field(description="Detailed failure analysis")
+    recommendations: List[str] = Field(description="Actionable recommendations")
+    failure_patterns: Dict[str, Dict[str, str]] = Field(description="Known failure patterns by symbol")
+
+
+# Currency Exchange Service Schemas (Step 5)
+
+class ExchangeRatesData(BaseModel):
+    """
+    Exchange rates data structure
+    """
+    rates: Dict[str, float] = Field(description="Currency codes mapped to EUR exchange rates")
+    base_currency: str = Field(default="EUR", description="Base currency for rates")
+    fetched_at: datetime = Field(
+        default_factory=datetime.utcnow,
+        description="Timestamp when rates were fetched"
+    )
+    currency_count: int = Field(description="Number of currencies fetched", ge=0)
+
+    @validator('currency_count', always=True)
+    def set_currency_count(cls, v, values):
+        """Auto-calculate currency count from rates"""
+        rates = values.get('rates', {})
+        return len(rates)
+
+
+class ExchangeRatesResponse(BaseModel):
+    """
+    Response model for exchange rate fetching
+    Matches legacy behavior with API-friendly structure
+    """
+    success: bool = Field(description="Whether exchange rates were successfully fetched")
+    exchange_rates: Optional[ExchangeRatesData] = Field(
+        description="Exchange rate data if successful",
+        default=None
+    )
+    error_message: Optional[str] = Field(
+        description="Error message if fetching failed",
+        default=None
+    )
+    api_endpoint: str = Field(
+        default="https://api.exchangerate-api.com/v4/latest/EUR",
+        description="External API endpoint used"
+    )
+    timeout_seconds: int = Field(
+        default=10,
+        description="API request timeout in seconds"
+    )
+
+
+class UniverseCurrenciesResponse(BaseModel):
+    """
+    Response model for currencies found in universe.json
+    """
+    success: bool = Field(description="Whether currencies were successfully extracted")
+    currencies: List[str] = Field(
+        description="List of unique currency codes found",
+        default_factory=list
+    )
+    currency_count: int = Field(description="Number of unique currencies", ge=0)
+    source_file: str = Field(
+        default="data/universe.json",
+        description="Source file path"
+    )
+    extracted_at: datetime = Field(
+        default_factory=datetime.utcnow,
+        description="Timestamp when currencies were extracted"
+    )
+
+    @validator('currency_count', always=True)
+    def set_currency_count(cls, v, values):
+        """Auto-calculate currency count"""
+        currencies = values.get('currencies', [])
+        return len(currencies)
+
+
+class UniverseUpdateStats(BaseModel):
+    """
+    Statistics for universe.json update operation
+    """
+    updated_stocks_screens: int = Field(description="Stocks updated in screens sections", ge=0)
+    updated_stocks_all: int = Field(description="Stocks updated in all_stocks section", ge=0)
+    total_updated: int = Field(description="Total stocks updated", ge=0)
+    missing_rates: List[str] = Field(
+        description="Currencies without exchange rates",
+        default_factory=list
+    )
+
+    @validator('total_updated', always=True)
+    def calculate_total(cls, v, values):
+        """Auto-calculate total updated stocks"""
+        screens = values.get('updated_stocks_screens', 0)
+        all_stocks = values.get('updated_stocks_all', 0)
+        return screens + all_stocks
+
+
+class UniverseUpdateResponse(BaseModel):
+    """
+    Response model for universe.json update with exchange rates
+    """
+    success: bool = Field(description="Whether universe was successfully updated")
+    update_stats: Optional[UniverseUpdateStats] = Field(
+        description="Update statistics if successful",
+        default=None
+    )
+    error_message: Optional[str] = Field(
+        description="Error message if update failed",
+        default=None
+    )
+    file_path: str = Field(
+        default="data/universe.json",
+        description="Universe file path"
+    )
+    updated_at: datetime = Field(
+        default_factory=datetime.utcnow,
+        description="Timestamp when update was performed"
+    )
+
+
+class CurrencyUpdateWorkflowResponse(BaseModel):
+    """
+    Response model for complete currency update workflow
+    Matches CLI behavior with structured API response
+    """
+    success: bool = Field(description="Whether entire workflow completed successfully")
+    step1_currencies: Optional[UniverseCurrenciesResponse] = Field(
+        description="Step 1: Currency extraction results",
+        default=None
+    )
+    step2_exchange_rates: Optional[ExchangeRatesResponse] = Field(
+        description="Step 2: Exchange rate fetching results",
+        default=None
+    )
+    step3_universe_update: Optional[UniverseUpdateResponse] = Field(
+        description="Step 3: Universe update results",
+        default=None
+    )
+    workflow_message: str = Field(description="Overall workflow status message")
+    error_step: Optional[str] = Field(
+        description="Step where workflow failed (if applicable)",
+        default=None
+    )
+    completed_at: datetime = Field(
+        default_factory=datetime.utcnow,
+        description="Timestamp when workflow completed"
+    )
