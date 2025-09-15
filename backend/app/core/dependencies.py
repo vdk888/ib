@@ -3,7 +3,7 @@ Dependency injection container
 """
 from functools import lru_cache
 from .config import Settings
-from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer, ITargetAllocationService, IOrderExecutionService, IRebalancingService, IAccountService, IQuantityCalculator, ICurrencyService
+from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer, ITargetAllocationService, IOrderExecutionService, IRebalancingService
 from ..services.implementations.screener_service import ScreenerService
 from ..services.implementations.uncle_stock_provider import UncleStockProvider
 from ..services.implementations.file_manager import FileManager
@@ -12,10 +12,6 @@ from ..services.implementations.portfolio_optimizer_service import PortfolioOpti
 from ..services.implementations.target_allocation_service import TargetAllocationService
 from ..services.implementations.order_execution_service import OrderExecutionService
 from ..services.implementations.rebalancing_service import RebalancingService
-from ..services.implementations.account_service import AccountService
-from ..services.implementations.quantity_service import QuantityService
-from ..services.implementations.quantity_orchestrator_service import QuantityOrchestratorService
-from ..services.implementations.currency_service import CurrencyService
 
 @lru_cache()
 def get_settings() -> Settings:
@@ -102,38 +98,3 @@ def get_rebalancing_service() -> IRebalancingService:
     if _rebalancing_service is None:
         _rebalancing_service = RebalancingService()
     return _rebalancing_service
-
-
-def get_account_service() -> IAccountService:
-    """Get account service instance"""
-    global _account_service
-    if _account_service is None:
-        _account_service = AccountService()
-    return _account_service
-
-
-def get_quantity_service() -> IQuantityCalculator:
-    """Get quantity calculator service instance"""
-    global _quantity_service
-    if _quantity_service is None:
-        _quantity_service = QuantityService()
-    return _quantity_service
-
-
-def get_quantity_orchestrator_service() -> QuantityOrchestratorService:
-    """Get quantity orchestrator service instance"""
-    global _quantity_orchestrator_service
-    if _quantity_orchestrator_service is None:
-        _quantity_orchestrator_service = QuantityOrchestratorService(
-            account_service=get_account_service(),
-            quantity_service=get_quantity_service()
-        )
-    return _quantity_orchestrator_service
-
-
-def get_currency_service() -> ICurrencyService:
-    """Get currency service instance"""
-    global _currency_service
-    if _currency_service is None:
-        _currency_service = CurrencyService()
-    return _currency_service

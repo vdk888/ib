@@ -196,23 +196,44 @@ def step7_calculate_quantities():
         return False
 
 def step8_ibkr_search():
-    """Step 8: Search for all universe stocks on IBKR and update with identification details"""
-    print("\nSTEP 8: Searching for stocks on Interactive Brokers")
+    """Step 8: Search for all universe stocks on IBKR and update with identification details (OPTIMIZED)"""
+    print("\nSTEP 8: Searching for stocks on Interactive Brokers (OPTIMIZED)")
     print("=" * 50)
-    
+
     try:
-        # Import and run IBKR comprehensive search directly
-        from src.comprehensive_enhanced_search import process_all_universe_stocks
-        
-        # Run the function directly
-        process_all_universe_stocks()
-        
-        print("Step 8 complete - IBKR stock search completed")
+        # Import optimized IBKR search implementation
+        import sys
+        import os
+        backend_path = os.path.join(os.path.dirname(__file__), 'backend')
+        if backend_path not in sys.path:
+            sys.path.append(backend_path)
+
+        from backend.app.services.implementations.legacy_ibkr_wrapper import process_all_universe_stocks
+
+        # Run the optimized function (maintains CLI compatibility)
+        stats = process_all_universe_stocks()
+
+        if stats:
+            print(f"Step 8 complete - IBKR stock search completed in {stats.get('execution_time_seconds', 0):.1f} seconds")
+            print(f"Performance: Found {stats.get('total', 0)} stocks with optimized concurrent search")
+        else:
+            print("Step 8 complete - IBKR stock search completed")
+
         return True
-            
+
     except Exception as e:
         print(f"Step 8 failed - {e}")
-        return False
+        print("Falling back to original implementation...")
+
+        try:
+            # Fallback to original implementation if optimized fails
+            from src.comprehensive_enhanced_search import process_all_universe_stocks as original_process
+            original_process()
+            print("Step 8 complete - IBKR stock search completed (fallback)")
+            return True
+        except Exception as fallback_error:
+            print(f"Both optimized and fallback implementations failed - {fallback_error}")
+            return False
 
 def step9_rebalancer():
     """Step 9: Generate rebalancing orders based on target quantities and current positions"""

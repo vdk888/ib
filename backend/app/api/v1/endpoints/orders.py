@@ -606,3 +606,342 @@ async def order_execution_health():
                 "service": "Order Execution Service"
             }
         )
+
+
+# Order Status Checking Endpoints (Step 11)
+
+@router.post(
+    "/status/check",
+    response_model=Dict[str, Any],  # Will be OrderStatusCheckResponse when dependencies are updated
+    summary="Check Order Status",
+    description="Compare orders.json with current IBKR account status",
+    responses={
+        200: {
+            "description": "Order status check completed successfully",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "success": True,
+                        "comparison_summary": {
+                            "found_in_ibkr": 15,
+                            "missing_from_ibkr": 3,
+                            "quantity_mismatches": 1,
+                            "success_rate": 83.33,
+                            "total_orders": 18,
+                            "timestamp": "2024-01-15T14:30:00"
+                        },
+                        "order_matches": [
+                            {
+                                "symbol": "AAPL",
+                                "json_action": "BUY",
+                                "json_quantity": 100,
+                                "ibkr_status": "FILLED",
+                                "ibkr_quantity": 100,
+                                "match_status": "OK"
+                            }
+                        ],
+                        "missing_orders": [
+                            {
+                                "symbol": "DPM",
+                                "action": "BUY",
+                                "quantity": 50,
+                                "currency": "CAD",
+                                "ticker": "DPM",
+                                "exchange": "TSE",
+                                "reason": "Contract Not Supported",
+                                "details": "IBKR does not support this specific DPM contract on TSE",
+                                "note": "Consider alternative Canadian precious metals stocks"
+                            }
+                        ],
+                        "recommendations": [
+                            "AAPL: Enable direct routing in Account Settings > API > Precautionary Settings",
+                            "DPM: Consider alternative Canadian precious metals stocks supported by IBKR"
+                        ]
+                    }
+                }
+            }
+        },
+        400: {"model": ErrorResponse, "description": "Invalid request parameters"},
+        404: {"model": ErrorResponse, "description": "Orders file not found"},
+        500: {"model": ErrorResponse, "description": "IBKR connection error"},
+        503: {"model": ErrorResponse, "description": "Service temporarily unavailable"}
+    }
+)
+async def check_order_status(
+    orders_file: Optional[str] = "orders.json"
+    # order_status_service = Depends(get_order_status_service)  # Will be added when dependencies are updated
+):
+    """
+    Check status of executed orders and compare with orders.json.
+
+    This endpoint:
+    1. Loads orders from JSON file (created by rebalancer)
+    2. Connects to IBKR Gateway to fetch current account data
+    3. Compares orders between JSON file and IBKR account
+    4. Analyzes missing orders with failure patterns
+    5. Provides detailed status breakdown and recommendations
+
+    Args:
+        orders_file: Path to orders JSON file (defaults to data/orders.json)
+
+    Returns:
+        Complete order verification results with analysis and recommendations
+    """
+    try:
+        logger.info("Starting order status check")
+
+        # Import here to avoid circular imports during development
+        from ....services.implementations.order_status_service import OrderStatusService
+
+        # Initialize service
+        order_status_service = OrderStatusService(orders_file)
+
+        # Load orders
+        orders_data = order_status_service.load_orders_json(orders_file)
+
+        # Connect to IBKR
+        if not order_status_service.connect_to_ibkr():
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail="Failed to connect to IBKR Gateway"
+            )
+
+        # Fetch account data
+        order_status_service.fetch_account_data()
+
+        # Get verification results
+        results = order_status_service.get_verification_results()
+
+        # Disconnect
+        order_status_service.disconnect()
+
+        logger.info(f"Order status check completed: {results['comparison_summary']['success_rate']:.1f}% success rate")
+
+        return {
+            "success": True,
+            **results
+        }
+
+    except FileNotFoundError as e:
+        logger.error(f"Orders file not found: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Orders file not found: {str(e)}"
+        )
+    except ConnectionError as e:
+        logger.error(f"IBKR connection failed: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to connect to IBKR: {str(e)}"
+        )
+    except Exception as e:
+        logger.error(f"Error checking order status: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error checking order status: {str(e)}"
+        )
+
+
+@router.get(
+    "/status/current",
+    response_model=Dict[str, Any],  # Will be OrderStatusSummaryResponse when dependencies are updated
+    summary="Get Current IBKR Order Status",
+    description="Get detailed breakdown of current IBKR orders by status",
+    responses={
+        200: {
+            "description": "Order status retrieved successfully",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "success": True,
+                        "orders_by_status": {
+                            "FILLED": [
+                                {
+                                    "order_id": 123,
+                                    "symbol": "AAPL",
+                                    "action": "BUY",
+                                    "quantity": 100,
+                                    "filled": 100,
+                                    "status": "FILLED",
+                                    "avg_fill_price": 150.25,
+                                    "order_type": "MKT"
+                                }
+                            ]
+                        },
+                        "status_counts": {
+                            "FILLED": 15,
+                            "SUBMITTED": 3,
+                            "CANCELLED": 2
+                        },
+                        "total_orders": 20
+                    }
+                }
+            }
+        },
+        500: {"model": ErrorResponse, "description": "IBKR connection error"}
+    }
+)
+async def get_current_order_status():
+    """
+    Get detailed breakdown of all current IBKR orders grouped by status.
+
+    Returns:
+        Orders grouped by status (FILLED, SUBMITTED, CANCELLED, etc.) with detailed information
+    """
+    try:
+        logger.info("Fetching current IBKR order status")
+
+        # Import here to avoid circular imports during development
+        from ....services.implementations.order_status_service import OrderStatusService
+
+        # Initialize service
+        order_status_service = OrderStatusService()
+
+        # Connect to IBKR
+        if not order_status_service.connect_to_ibkr():
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail="Failed to connect to IBKR Gateway"
+            )
+
+        # Fetch account data
+        order_status_service.fetch_account_data()
+
+        # Get order status summary
+        results = order_status_service.get_order_status_summary()
+
+        # Disconnect
+        order_status_service.disconnect()
+
+        logger.info(f"Retrieved {results['total_orders']} orders from IBKR")
+
+        return {
+            "success": True,
+            **results
+        }
+
+    except Exception as e:
+        logger.error(f"Error fetching order status: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error fetching order status: {str(e)}"
+        )
+
+
+@router.get(
+    "/positions/summary",
+    response_model=Dict[str, Any],  # Will be PositionsSummaryResponse when dependencies are updated
+    summary="Get Account Positions Summary",
+    description="Get current account positions with market values",
+    responses={
+        200: {
+            "description": "Positions retrieved successfully",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "success": True,
+                        "positions": {
+                            "AAPL": {
+                                "position": 150,
+                                "avg_cost": 145.50,
+                                "currency": "USD",
+                                "exchange": "NASDAQ",
+                                "market_value": 21825.0
+                            }
+                        },
+                        "total_positions": 25,
+                        "total_market_value": 150000.0
+                    }
+                }
+            }
+        },
+        500: {"model": ErrorResponse, "description": "IBKR connection error"}
+    }
+)
+async def get_positions_summary():
+    """
+    Get detailed summary of current account positions.
+
+    Returns:
+        Current positions with market values and portfolio totals
+    """
+    try:
+        logger.info("Fetching account positions summary")
+
+        # Import here to avoid circular imports during development
+        from ....services.implementations.order_status_service import OrderStatusService
+
+        # Initialize service
+        order_status_service = OrderStatusService()
+
+        # Connect to IBKR
+        if not order_status_service.connect_to_ibkr():
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail="Failed to connect to IBKR Gateway"
+            )
+
+        # Fetch account data
+        order_status_service.fetch_account_data()
+
+        # Get positions summary
+        results = order_status_service.get_positions_summary()
+
+        # Disconnect
+        order_status_service.disconnect()
+
+        logger.info(f"Retrieved {results['total_positions']} positions")
+
+        return {
+            "success": True,
+            **results
+        }
+
+    except Exception as e:
+        logger.error(f"Error fetching positions: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error fetching positions summary: {str(e)}"
+        )
+
+
+@router.get(
+    "/verification/results",
+    response_model=Dict[str, Any],  # Will be OrderStatusCheckResponse when dependencies are updated
+    summary="Get Order Verification Results",
+    description="Get cached order verification results from last status check",
+    responses={
+        200: {
+            "description": "Verification results retrieved successfully"
+        },
+        404: {"model": ErrorResponse, "description": "No cached results found"},
+        500: {"model": ErrorResponse, "description": "Error retrieving results"}
+    }
+)
+async def get_verification_results():
+    """
+    Get cached order verification results from the last status check.
+
+    Note: This endpoint returns cached results. Use POST /orders/status/check
+    to perform a fresh verification against IBKR.
+
+    Returns:
+        Last verification results if available
+    """
+    try:
+        logger.info("Retrieving cached verification results")
+
+        # This could be enhanced to store results in a cache/database
+        # For now, return instruction to use the check endpoint
+        return {
+            "success": False,
+            "message": "No cached results available. Use POST /orders/status/check to perform fresh verification.",
+            "suggestion": "Consider implementing caching layer for verification results"
+        }
+
+    except Exception as e:
+        logger.error(f"Error retrieving verification results: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error retrieving verification results: {str(e)}"
+        )

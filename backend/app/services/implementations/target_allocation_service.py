@@ -12,7 +12,9 @@ from ..interfaces import ITargetAllocationService
 from backend.app.core.config import settings
 
 # Add the root directory to path to access legacy modules
-sys.path.append(str(settings.data_directory.parent))
+from pathlib import Path
+root_dir = Path(settings.data_directory).parent
+sys.path.append(str(root_dir))
 
 # Import legacy functions
 from backend.app.services.implementations.legacy.targetter import (
@@ -42,7 +44,8 @@ class TargetAllocationService(ITargetAllocationService):
         self.config = settings
         # Change to the root directory for file access compatibility
         self._original_cwd = os.getcwd()
-        os.chdir(str(settings.data_directory.parent))
+        root_dir = Path(settings.data_directory).parent
+        os.chdir(str(root_dir))
 
     def __del__(self):
         """Restore original working directory"""
