@@ -25,6 +25,10 @@ app = FastAPI(
 # Add middleware
 app.add_middleware(RequestLoggingMiddleware)
 
+# Include routers
+from .api.v1.endpoints.screeners import router as screeners_router
+app.include_router(screeners_router, prefix="/api/v1")
+
 # Exception handlers
 @app.exception_handler(BaseServiceError)
 async def service_error_handler(request, exc: BaseServiceError):
