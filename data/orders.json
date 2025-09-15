@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "generated_at": "2025-09-15 11:32:53",
+    "generated_at": "2025-09-15 12:04:15",
     "total_orders": 55,
-    "buy_orders": 49,
-    "sell_orders": 6,
-    "total_buy_quantity": 116062,
-    "total_sell_quantity": 63587
+    "buy_orders": 52,
+    "sell_orders": 3,
+    "total_buy_quantity": 125500,
+    "total_sell_quantity": 54149
   },
   "orders": [
     {
@@ -55,77 +55,6 @@
         "primaryExchange": "LSE",
         "conId": 319091809,
         "search_method": "name",
-        "match_score": 1.0
-      }
-    },
-    {
-      "symbol": "RUG",
-      "action": "SELL",
-      "quantity": 5077,
-      "current_quantity": 10182,
-      "target_quantity": 5105,
-      "stock_info": {
-        "ticker": "RUG.ST",
-        "name": "Rugvista Group AB",
-        "currency": "SEK",
-        "screens": [
-          "quality bloom"
-        ]
-      },
-      "ibkr_details": {
-        "found": true,
-        "symbol": "RUG",
-        "longName": "RUGVISTA GROUP AB",
-        "exchange": "SMART",
-        "primaryExchange": "SFB",
-        "conId": 477139497,
-        "search_method": "isin",
-        "match_score": 1.0
-      }
-    },
-    {
-      "symbol": "AEP",
-      "action": "SELL",
-      "quantity": 3202,
-      "current_quantity": 8160,
-      "target_quantity": 4958,
-      "stock_info": {
-        "ticker": "AEP.L",
-        "name": "Anglo-Eastern Plantations Plc",
-        "currency": "GBP",
-        "screens": []
-      },
-      "ibkr_details": {
-        "found": true,
-        "symbol": "AEP",
-        "longName": "ANGLO-EASTERN PLANTATIONS",
-        "exchange": "SMART",
-        "primaryExchange": "LSE",
-        "conId": 15224436,
-        "search_method": "isin",
-        "match_score": 0.9259259259259259
-      }
-    },
-    {
-      "symbol": "KNOS",
-      "action": "SELL",
-      "quantity": 1159,
-      "current_quantity": 4448,
-      "target_quantity": 3289,
-      "stock_info": {
-        "ticker": "KNOS.L",
-        "name": "Kainos Group plc",
-        "currency": "GBP",
-        "screens": []
-      },
-      "ibkr_details": {
-        "found": true,
-        "symbol": "KNOS",
-        "longName": "KAINOS GROUP PLC",
-        "exchange": "SMART",
-        "primaryExchange": "LSE",
-        "conId": 199744467,
-        "search_method": "isin",
         "match_score": 1.0
       }
     },
@@ -297,6 +226,31 @@
       }
     },
     {
+      "symbol": "RUG",
+      "action": "BUY",
+      "quantity": 5077,
+      "current_quantity": 28,
+      "target_quantity": 5105,
+      "stock_info": {
+        "ticker": "RUG.ST",
+        "name": "Rugvista Group AB",
+        "currency": "SEK",
+        "screens": [
+          "quality bloom"
+        ]
+      },
+      "ibkr_details": {
+        "found": true,
+        "symbol": "RUG",
+        "longName": "RUGVISTA GROUP AB",
+        "exchange": "SMART",
+        "primaryExchange": "SFB",
+        "conId": 477139497,
+        "search_method": "isin",
+        "match_score": 1.0
+      }
+    },
+    {
       "symbol": "DPM",
       "action": "BUY",
       "quantity": 4113,
@@ -394,6 +348,29 @@
         "conId": 131085405,
         "search_method": "isin",
         "match_score": 1.0
+      }
+    },
+    {
+      "symbol": "AEP",
+      "action": "BUY",
+      "quantity": 3202,
+      "current_quantity": 1756,
+      "target_quantity": 4958,
+      "stock_info": {
+        "ticker": "AEP.L",
+        "name": "Anglo-Eastern Plantations Plc",
+        "currency": "GBP",
+        "screens": []
+      },
+      "ibkr_details": {
+        "found": true,
+        "symbol": "AEP",
+        "longName": "ANGLO-EASTERN PLANTATIONS",
+        "exchange": "SMART",
+        "primaryExchange": "LSE",
+        "conId": 15224436,
+        "search_method": "isin",
+        "match_score": 0.9259259259259259
       }
     },
     {
@@ -932,6 +909,29 @@
         "conId": 47183705,
         "search_method": "isin",
         "match_score": 0.9090909090909091
+      }
+    },
+    {
+      "symbol": "KNOS",
+      "action": "BUY",
+      "quantity": 1159,
+      "current_quantity": 2130,
+      "target_quantity": 3289,
+      "stock_info": {
+        "ticker": "KNOS.L",
+        "name": "Kainos Group plc",
+        "currency": "GBP",
+        "screens": []
+      },
+      "ibkr_details": {
+        "found": true,
+        "symbol": "KNOS",
+        "longName": "KAINOS GROUP PLC",
+        "exchange": "SMART",
+        "primaryExchange": "LSE",
+        "conId": 199744467,
+        "search_method": "isin",
+        "match_score": 1.0
       }
     },
     {
