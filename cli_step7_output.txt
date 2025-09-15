@@ -1,0 +1,149 @@
+
+STEP 7: Calculating stock quantities based on account value
+==================================================
+Step 7 complete - stock quantities calculated
+
+Quantity calculation output:
+Starting quantity calculator...
+Connecting to IBKR to get account value...
+Connected to IB Gateway
+Account ID: DUM963390
+Error 2107: La connexion de données HMDS est inactive mais disponible sur demande.ushmds
+Account Summary - NetLiquidation: 998705.28 EUR
+Account Summary - NetLiquidation: 998705.28 EUR
+
+=== Account Summary Complete ===
+
+=== Account Summary Complete ===
+Account Total Value: $998,705.28 EUR
+Connection closed
+Original account value: €998,705.28
+Rounded account value for calculations: €998,700.00
+Calculating stock quantities...
+Processing screen: quality_bloom
+Japanese stock 6095.T: adjusted quantity from 3123.3 to 3100 (lot size 100)
+Japanese stock 6626.T: adjusted quantity from 1642.8 to 1600 (lot size 100)
+Japanese stock 2325.T: adjusted quantity from 1294.5 to 1200 (lot size 100)
+Japanese stock 2124.T: adjusted quantity from 3130.7 to 3100 (lot size 100)
+Japanese stock 6101.T: adjusted quantity from 1721.2 to 1700 (lot size 100)
+Japanese stock 7818.T: adjusted quantity from 2178.7 to 2100 (lot size 100)
+Japanese stock 3963.T: adjusted quantity from 7804.5 to 7800 (lot size 100)
+Japanese stock 3925.T: adjusted quantity from 774.2 to 700 (lot size 100)
+Japanese stock 1401.T: adjusted quantity from 8492.6 to 8400 (lot size 100)
+Japanese stock 6941.T: adjusted quantity from 396.2 to 300 (lot size 100)
+Japanese stock 6284.T: adjusted quantity from 708.6 to 700 (lot size 100)
+Japanese stock 1723.T: adjusted quantity from 508.4 to 500 (lot size 100)
+Japanese stock 6196.T: adjusted quantity from 1850.8 to 1800 (lot size 100)
+Japanese stock 4368.T: adjusted quantity from 454.9 to 400 (lot size 100)
+Japanese stock 6061.T: adjusted quantity from 1820.9 to 1800 (lot size 100)
+Japanese stock 9564.T: adjusted quantity from 6424.9 to 6400 (lot size 100)
+Japanese stock 6957.T: adjusted quantity from 1785.4 to 1700 (lot size 100)
+Japanese stock 3763.T: adjusted quantity from 3383.0 to 3300 (lot size 100)
+Japanese stock 6454.T: adjusted quantity from 1907.6 to 1900 (lot size 100)
+Japanese stock 4771.T: adjusted quantity from 3357.6 to 3300 (lot size 100)
+Japanese stock 3922.T: adjusted quantity from 1654.3 to 1600 (lot size 100)
+Japanese stock 2150.T: adjusted quantity from 10071.6 to 10000 (lot size 100)
+Japanese stock 6580.T: adjusted quantity from 3392.6 to 3300 (lot size 100)
+Japanese stock 6037.T: adjusted quantity from 6771.8 to 6700 (lot size 100)
+Japanese stock 4377.T: adjusted quantity from 3163.1 to 3100 (lot size 100)
+Processing screen: TOR_Surplus
+Japanese stock 6532.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 3626.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 1401.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 7818.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 7187.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 6061.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 4828.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 6626.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 6284.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 4368.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 3837.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 6368.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 6028.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 6454.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 6327.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 6402.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 1959.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 3663.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 1801.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Processing screen: Moat_Companies
+Japanese stock 6196.T: adjusted quantity from 526.1 to 500 (lot size 100)
+Japanese stock 7818.T: adjusted quantity from 619.3 to 600 (lot size 100)
+Japanese stock 3661.T: adjusted quantity from 1137.1 to 1100 (lot size 100)
+Japanese stock 6086.T: adjusted quantity from 2906.3 to 2900 (lot size 100)
+Japanese stock 7187.T: adjusted quantity from 1556.2 to 1500 (lot size 100)
+Japanese stock 9381.T: adjusted quantity from 978.8 to 900 (lot size 100)
+Japanese stock 3676.T: adjusted quantity from 1755.3 to 1700 (lot size 100)
+Japanese stock 4832.T: adjusted quantity from 1429.4 to 1400 (lot size 100)
+Japanese stock 9790.T: adjusted quantity from 149.3 to 100 (lot size 100)
+Japanese stock 9753.T: adjusted quantity from 2141.0 to 2100 (lot size 100)
+Japanese stock 3678.T: adjusted quantity from 1489.9 to 1400 (lot size 100)
+Japanese stock 3925.T: adjusted quantity from 220.1 to 200 (lot size 100)
+Japanese stock 6199.T: adjusted quantity from 1121.5 to 1100 (lot size 100)
+Japanese stock 6626.T: adjusted quantity from 467.0 to 400 (lot size 100)
+Japanese stock 9769.T: adjusted quantity from 363.5 to 300 (lot size 100)
+Japanese stock 2146.T: adjusted quantity from 823.5 to 800 (lot size 100)
+Japanese stock 6750.T: adjusted quantity from 979.4 to 900 (lot size 100)
+Japanese stock 3088.T: adjusted quantity from 921.1 to 900 (lot size 100)
+Japanese stock 7419.T: adjusted quantity from 996.3 to 900 (lot size 100)
+Japanese stock 4686.T: adjusted quantity from 579.3 to 500 (lot size 100)
+Processing all_stocks category
+Japanese stock 6095.T: adjusted quantity from 3123.3 to 3100 (lot size 100)
+Japanese stock 6626.T: adjusted quantity from 467.0 to 400 (lot size 100)
+Japanese stock 2325.T: adjusted quantity from 1294.5 to 1200 (lot size 100)
+Japanese stock 2124.T: adjusted quantity from 3130.7 to 3100 (lot size 100)
+Japanese stock 6101.T: adjusted quantity from 1721.2 to 1700 (lot size 100)
+Japanese stock 7818.T: adjusted quantity from 619.3 to 600 (lot size 100)
+Japanese stock 3963.T: adjusted quantity from 7804.5 to 7800 (lot size 100)
+Japanese stock 3925.T: adjusted quantity from 220.1 to 200 (lot size 100)
+Japanese stock 1401.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 6941.T: adjusted quantity from 396.2 to 300 (lot size 100)
+Japanese stock 6284.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 1723.T: adjusted quantity from 508.4 to 500 (lot size 100)
+Japanese stock 6196.T: adjusted quantity from 526.1 to 500 (lot size 100)
+Japanese stock 4368.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 6061.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 9564.T: adjusted quantity from 6424.9 to 6400 (lot size 100)
+Japanese stock 6957.T: adjusted quantity from 1785.4 to 1700 (lot size 100)
+Japanese stock 3763.T: adjusted quantity from 3383.0 to 3300 (lot size 100)
+Japanese stock 6454.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 4771.T: adjusted quantity from 3357.6 to 3300 (lot size 100)
+Japanese stock 3922.T: adjusted quantity from 1654.3 to 1600 (lot size 100)
+Japanese stock 2150.T: adjusted quantity from 10071.6 to 10000 (lot size 100)
+Japanese stock 6580.T: adjusted quantity from 3392.6 to 3300 (lot size 100)
+Japanese stock 6037.T: adjusted quantity from 6771.8 to 6700 (lot size 100)
+Japanese stock 4377.T: adjusted quantity from 3163.1 to 3100 (lot size 100)
+Japanese stock 6532.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 3626.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 7187.T: adjusted quantity from 1556.2 to 1500 (lot size 100)
+Japanese stock 4828.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 3837.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 6368.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 6028.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 6327.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 6402.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 1959.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 3663.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 1801.T: adjusted quantity from 0.0 to 0 (lot size 100)
+Japanese stock 3661.T: adjusted quantity from 1137.1 to 1100 (lot size 100)
+Japanese stock 6086.T: adjusted quantity from 2906.3 to 2900 (lot size 100)
+Japanese stock 9381.T: adjusted quantity from 978.8 to 900 (lot size 100)
+Japanese stock 3676.T: adjusted quantity from 1755.3 to 1700 (lot size 100)
+Japanese stock 4832.T: adjusted quantity from 1429.4 to 1400 (lot size 100)
+Japanese stock 9790.T: adjusted quantity from 149.3 to 100 (lot size 100)
+Japanese stock 9753.T: adjusted quantity from 2141.0 to 2100 (lot size 100)
+Japanese stock 3678.T: adjusted quantity from 1489.9 to 1400 (lot size 100)
+Japanese stock 6199.T: adjusted quantity from 1121.5 to 1100 (lot size 100)
+Japanese stock 9769.T: adjusted quantity from 363.5 to 300 (lot size 100)
+Japanese stock 2146.T: adjusted quantity from 823.5 to 800 (lot size 100)
+Japanese stock 6750.T: adjusted quantity from 979.4 to 900 (lot size 100)
+Japanese stock 3088.T: adjusted quantity from 921.1 to 900 (lot size 100)
+Japanese stock 7419.T: adjusted quantity from 996.3 to 900 (lot size 100)
+Japanese stock 4686.T: adjusted quantity from 579.3 to 500 (lot size 100)
+Processed 939 stocks with quantity calculations
+  - 68 stocks with meaningful allocations (>1e-10)
+  - 34 stocks with minimal allocations (<1e-10)
+Updated universe.json with account value: $998,700.00
+Added quantity calculations for 939 stocks
+Successfully updated universe.json with account total value
+

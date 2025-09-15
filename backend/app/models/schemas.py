@@ -1185,3 +1185,317 @@ class CurrencyUpdateWorkflowResponse(BaseModel):
         default_factory=datetime.utcnow,
         description="Timestamp when workflow completed"
     )
+
+
+# ============================================================================
+# Pipeline Orchestration Models (Step 12)
+# ============================================================================
+
+class PipelineExecutionStatus(str, Enum):
+    """Pipeline execution status enumeration"""
+    PENDING = "pending"
+    RUNNING = "running"
+    COMPLETED = "completed"
+    FAILED = "failed"
+    CANCELLED = "cancelled"
+    NOT_FOUND = "not_found"
+
+
+class PipelineStepStatus(str, Enum):
+    """Individual step execution status"""
+    PENDING = "pending"
+    RUNNING = "running"
+    COMPLETED = "completed"
+    FAILED = "failed"
+    SKIPPED = "skipped"
+
+
+class PipelineStepInfo(BaseModel):
+    """Pipeline step information and metadata"""
+    step_number: int = Field(description="Step number (1-11)", ge=1, le=11)
+    step_name: str = Field(description="Human-readable step name")
+    description: str = Field(description="Step description")
+    aliases: List[str] = Field(description="CLI aliases for this step")
+    dependencies: List[int] = Field(description="Step numbers this step depends on")
+    creates_files: List[str] = Field(description="Files this step creates")
+    modifies_files: List[str] = Field(description="Files this step modifies")
+
+
+class AvailableStepsResponse(BaseModel):
+    """Response model for available pipeline steps"""
+    steps: Dict[int, PipelineStepInfo] = Field(description="Step information by step number")
+    total_steps: int = Field(description="Total number of available steps")
+    step_aliases: Dict[str, int] = Field(description="CLI aliases mapped to step numbers")
+
+    @validator('total_steps', always=True)
+    def set_total_steps(cls, v, values):
+        """Auto-calculate total steps"""
+        steps = values.get('steps', {})
+        return len(steps)
+
+
+class PipelineStepResult(BaseModel):
+    """Individual step execution result"""
+    step_number: int = Field(description="Step number executed", ge=1, le=11)
+    step_name: str = Field(description="Human-readable step name")
+    status: PipelineStepStatus = Field(description="Step execution status")
+    success: bool = Field(description="Whether step completed successfully")
+    execution_time: float = Field(description="Step execution time in seconds", ge=0)
+    start_time: datetime = Field(description="Step start timestamp")
+    end_time: Optional[datetime] = Field(description="Step completion timestamp", default=None)
+    created_files: List[str] = Field(description="Files created by this step", default_factory=list)
+    modified_files: List[str] = Field(description="Files modified by this step", default_factory=list)
+    console_output: List[str] = Field(description="Console output lines from step", default_factory=list)
+    error_message: Optional[str] = Field(description="Error message if step failed", default=None)
+    error_traceback: Optional[str] = Field(description="Error traceback if step failed", default=None)
+
+
+class PipelineLogEntry(BaseModel):
+    """Structured pipeline log entry"""
+    timestamp: datetime = Field(description="Log entry timestamp")
+    execution_id: str = Field(description="Pipeline execution identifier")
+    step_number: Optional[int] = Field(description="Step number (None for pipeline-level logs)", ge=1, le=11)
+    level: str = Field(description="Log level (INFO, WARNING, ERROR)")
+    message: str = Field(description="Log message")
+    details: Optional[Dict[str, Any]] = Field(description="Additional log details", default=None)
+
+
+class PipelineExecutionMetadata(BaseModel):
+    """Pipeline execution metadata and configuration"""
+    execution_id: str = Field(description="Unique execution identifier")
+    execution_type: str = Field(description="Execution type (full_pipeline, individual_step, step_range)")
+    started_by: Optional[str] = Field(description="User/system that started execution", default=None)
+    start_time: datetime = Field(description="Execution start timestamp")
+    end_time: Optional[datetime] = Field(description="Execution completion timestamp", default=None)
+    estimated_duration: Optional[float] = Field(description="Estimated execution time in seconds", default=None)
+
+    # Parameters for different execution types
+    target_steps: Optional[List[int]] = Field(description="Target steps to execute", default=None)
+    start_step: Optional[int] = Field(description="Start step for range execution", default=None)
+    end_step: Optional[int] = Field(description="End step for range execution", default=None)
+    single_step: Optional[int] = Field(description="Single step for individual execution", default=None)
+
+    # Resume functionality
+    is_resumed: bool = Field(description="Whether this is a resumed execution", default=False)
+    original_execution_id: Optional[str] = Field(description="Original execution ID if resumed", default=None)
+    resumed_from_step: Optional[int] = Field(description="Step number resumed from", default=None)
+
+
+class PipelineExecutionStatus(BaseModel):
+    """Real-time pipeline execution status"""
+    execution_id: str = Field(description="Unique execution identifier")
+    status: PipelineExecutionStatus = Field(description="Current execution status")
+    current_step: Optional[int] = Field(description="Currently executing step number", ge=1, le=11)
+    current_step_name: Optional[str] = Field(description="Currently executing step name")
+    completed_steps: List[int] = Field(description="Successfully completed step numbers")
+    failed_step: Optional[int] = Field(description="Step number that failed (None if no failure)")
+    progress_percentage: float = Field(description="Execution progress (0-100)", ge=0, le=100)
+    execution_time: float = Field(description="Current execution time in seconds", ge=0)
+    estimated_remaining_time: Optional[float] = Field(description="Estimated remaining time in seconds")
+    metadata: PipelineExecutionMetadata = Field(description="Execution metadata")
+
+
+class PipelineExecutionResult(BaseModel):
+    """Complete pipeline execution results"""
+    execution_id: str = Field(description="Unique execution identifier")
+    success: bool = Field(description="Overall pipeline success")
+    status: PipelineExecutionStatus = Field(description="Final execution status")
+    execution_time: float = Field(description="Total execution time in seconds", ge=0)
+    completed_steps: List[int] = Field(description="Successfully completed step numbers")
+    failed_step: Optional[int] = Field(description="Step number that failed (None if all successful)")
+    step_results: Dict[int, PipelineStepResult] = Field(description="Detailed results for each step")
+    created_files: Dict[int, List[str]] = Field(description="Files created by each step")
+    metadata: PipelineExecutionMetadata = Field(description="Execution metadata")
+    error_message: Optional[str] = Field(description="Error message if pipeline failed")
+
+
+class PipelineFileInfo(BaseModel):
+    """Information about files created/modified by pipeline"""
+    file_path: str = Field(description="Absolute path to the file")
+    file_size: int = Field(description="File size in bytes", ge=0)
+    created_at: datetime = Field(description="File creation timestamp")
+    modified_at: datetime = Field(description="File modification timestamp")
+    created_by_step: int = Field(description="Step that created this file", ge=1, le=11)
+    file_type: str = Field(description="File type (json, csv, etc.)")
+
+
+class PipelineExecutionFiles(BaseModel):
+    """File results from pipeline execution"""
+    execution_id: str = Field(description="Execution identifier")
+    created_files: Dict[int, List[str]] = Field(description="File paths created by each step")
+    file_info: Dict[str, PipelineFileInfo] = Field(description="Detailed file information")
+    total_files_created: int = Field(description="Total number of files created", ge=0)
+    total_file_size: int = Field(description="Total size of all files in bytes", ge=0)
+
+    @validator('total_files_created', always=True)
+    def calculate_total_files(cls, v, values):
+        """Auto-calculate total files created"""
+        created_files = values.get('created_files', {})
+        return sum(len(files) for files in created_files.values())
+
+    @validator('total_file_size', always=True)
+    def calculate_total_size(cls, v, values):
+        """Auto-calculate total file size"""
+        file_info = values.get('file_info', {})
+        return sum(info.file_size for info in file_info.values())
+
+
+class PipelineExecutionLogs(BaseModel):
+    """Structured execution logs"""
+    execution_id: str = Field(description="Execution identifier")
+    logs: List[PipelineLogEntry] = Field(description="List of log entries in chronological order")
+    step_logs: Optional[Dict[int, List[PipelineLogEntry]]] = Field(description="Logs grouped by step")
+    total_log_entries: int = Field(description="Total number of log entries", ge=0)
+
+    @validator('total_log_entries', always=True)
+    def calculate_total_logs(cls, v, values):
+        """Auto-calculate total log entries"""
+        logs = values.get('logs', [])
+        return len(logs)
+
+
+class PipelineHistoryEntry(BaseModel):
+    """Pipeline execution history entry"""
+    execution_id: str = Field(description="Unique execution identifier")
+    execution_type: str = Field(description="Type of execution")
+    status: PipelineExecutionStatus = Field(description="Final execution status")
+    success: bool = Field(description="Whether execution was successful")
+    start_time: datetime = Field(description="Execution start timestamp")
+    end_time: Optional[datetime] = Field(description="Execution end timestamp")
+    execution_time: Optional[float] = Field(description="Total execution time in seconds")
+    completed_steps: List[int] = Field(description="Successfully completed steps")
+    failed_step: Optional[int] = Field(description="Failed step number")
+    total_files_created: int = Field(description="Number of files created", ge=0)
+    is_resumed: bool = Field(description="Whether this was a resumed execution")
+
+
+class PipelineHistoryResponse(BaseModel):
+    """Pipeline execution history response"""
+    executions: List[PipelineHistoryEntry] = Field(description="List of execution history entries")
+    total_executions: int = Field(description="Total executions in history", ge=0)
+    filtered_count: int = Field(description="Number of executions matching filter", ge=0)
+    status_filter: Optional[str] = Field(description="Status filter applied")
+
+    @validator('total_executions', always=True)
+    def calculate_total(cls, v, values):
+        """Auto-calculate total executions"""
+        executions = values.get('executions', [])
+        return len(executions)
+
+
+class PipelineDependencyCheck(BaseModel):
+    """Individual dependency validation result"""
+    name: str = Field(description="Dependency name")
+    type: str = Field(description="Dependency type (file, service, configuration)")
+    required: bool = Field(description="Whether this dependency is required")
+    valid: bool = Field(description="Whether dependency is satisfied")
+    details: str = Field(description="Dependency validation details")
+    recommendation: Optional[str] = Field(description="Recommendation if invalid")
+
+
+class PipelineDependencyValidation(BaseModel):
+    """Complete pipeline dependency validation"""
+    valid: bool = Field(description="Whether all dependencies are satisfied")
+    checks: Dict[str, PipelineDependencyCheck] = Field(description="Individual dependency checks")
+    missing_dependencies: List[str] = Field(description="List of missing dependency names")
+    recommendations: List[str] = Field(description="List of recommendations to fix issues")
+    checked_at: datetime = Field(
+        default_factory=datetime.utcnow,
+        description="Timestamp when validation was performed"
+    )
+
+
+# Request models for pipeline operations
+
+class PipelineExecutionRequest(BaseModel):
+    """Request model for full pipeline execution"""
+    execution_id: Optional[str] = Field(description="Optional execution ID (generated if not provided)")
+    started_by: Optional[str] = Field(description="User identifier starting the execution")
+
+
+class StepExecutionRequest(BaseModel):
+    """Request model for individual step execution"""
+    step_number: int = Field(description="Step number to execute (1-11)", ge=1, le=11)
+    execution_id: Optional[str] = Field(description="Optional execution ID")
+    started_by: Optional[str] = Field(description="User identifier starting the execution")
+
+
+class StepRangeExecutionRequest(BaseModel):
+    """Request model for step range execution"""
+    start_step: int = Field(description="First step to execute (1-11)", ge=1, le=11)
+    end_step: int = Field(description="Last step to execute (1-11)", ge=1, le=11)
+    execution_id: Optional[str] = Field(description="Optional execution ID")
+    started_by: Optional[str] = Field(description="User identifier starting the execution")
+
+    @validator('end_step')
+    def validate_step_range(cls, v, values):
+        """Validate that end_step >= start_step"""
+        if 'start_step' in values and v < values['start_step']:
+            raise ValueError("end_step must be >= start_step")
+        return v
+
+
+class ResumeExecutionRequest(BaseModel):
+    """Request model for resuming failed execution"""
+    execution_id: str = Field(description="Original execution ID to resume")
+    from_step: Optional[int] = Field(description="Step to resume from (auto-detect if None)", ge=1, le=11)
+    started_by: Optional[str] = Field(description="User identifier resuming the execution")
+
+
+class PipelineHistoryRequest(BaseModel):
+    """Request model for pipeline execution history"""
+    limit: int = Field(default=50, description="Maximum executions to return", ge=1, le=1000)
+    status_filter: Optional[PipelineExecutionStatus] = Field(description="Filter by execution status")
+    execution_type_filter: Optional[str] = Field(description="Filter by execution type")
+
+
+class PipelineLogsRequest(BaseModel):
+    """Request model for execution logs"""
+    execution_id: str = Field(description="Execution identifier")
+    step_number: Optional[int] = Field(description="Filter by step number", ge=1, le=11)
+    level_filter: Optional[str] = Field(description="Filter by log level")
+    limit: Optional[int] = Field(description="Limit number of log entries", ge=1, le=10000)
+
+
+# Response models for pipeline API endpoints
+
+class FullPipelineResponse(BaseModel):
+    """Response for full pipeline execution"""
+    execution_id: str = Field(description="Execution identifier")
+    success: bool = Field(description="Whether pipeline started successfully")
+    message: str = Field(description="Status message")
+    estimated_duration: Optional[float] = Field(description="Estimated execution time")
+    started_at: datetime = Field(default_factory=datetime.utcnow)
+
+
+class IndividualStepResponse(BaseModel):
+    """Response for individual step execution"""
+    execution_id: str = Field(description="Execution identifier")
+    step_number: int = Field(description="Step number executed")
+    step_name: str = Field(description="Step name")
+    success: bool = Field(description="Whether step completed successfully")
+    execution_time: Optional[float] = Field(description="Step execution time")
+    created_files: List[str] = Field(description="Files created by step")
+    console_output: List[str] = Field(description="Console output from step")
+    error_message: Optional[str] = Field(description="Error message if failed")
+
+
+class StepRangeResponse(BaseModel):
+    """Response for step range execution"""
+    execution_id: str = Field(description="Execution identifier")
+    start_step: int = Field(description="First step executed")
+    end_step: int = Field(description="Last step attempted")
+    success: bool = Field(description="Whether range execution completed successfully")
+    completed_steps: List[int] = Field(description="Successfully completed steps")
+    failed_step: Optional[int] = Field(description="Step that failed")
+    execution_time: float = Field(description="Total execution time")
+    step_results: Dict[int, PipelineStepResult] = Field(description="Results for each step")
+
+
+class ResumeExecutionResponse(BaseModel):
+    """Response for resume execution"""
+    execution_id: str = Field(description="New execution identifier")
+    original_execution_id: str = Field(description="Original failed execution ID")
+    resumed_from_step: int = Field(description="Step number resumed from")
+    success: bool = Field(description="Whether resume was successful")
+    message: str = Field(description="Resume status message")

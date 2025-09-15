@@ -81,7 +81,8 @@ class OptimizedIBApi(EWrapper, EClient):
 
     def contractDetailsEnd(self, reqId):
         super().contractDetailsEnd(reqId)
-        self.search_completed = True
+        with self._lock:
+            self.search_completed = True
         self.search_event.set()
 
     def symbolSamples(self, reqId, contractDescriptions):
@@ -102,13 +103,15 @@ class OptimizedIBApi(EWrapper, EClient):
 
     def symbolSamplesEnd(self, reqId):
         super().symbolSamplesEnd(reqId)
-        self.symbol_search_completed = True
+        with self._lock:
+            self.symbol_search_completed = True
         self.symbol_event.set()
 
     def error(self, reqId, errorCode, errorString, advancedOrderRejectJson=""):
         if errorCode in [200, 162]:  # No security definition found
-            self.search_completed = True
-            self.symbol_search_completed = True
+            with self._lock:
+                self.search_completed = True
+                self.symbol_search_completed = True
             self.search_event.set()
             self.symbol_event.set()
         logger.debug(f"IBKR Error {errorCode}: {errorString}")
@@ -122,24 +125,18 @@ class OptimizedIBApi(EWrapper, EClient):
         return await loop.run_in_executor(None, wait_for_event)
 
     async def async_wait_for_search(self, timeout: float = 5.0) -> bool:
-        """Wait for search completion with asyncio support"""
-        def wait_for_event():
-            return self.search_event.wait(timeout)
-
-        loop = asyncio.get_event_loop()
-        result = await loop.run_in_executor(None, wait_for_event)
-        self.search_event.clear()  # Reset for next search
-        return result
+        """Wait for search completion with asyncio support using polling like original"""
+        start_time = time.time()
+        while not self.search_completed and (time.time() - start_time) < timeout:
+            await asyncio.sleep(0.05)  # Async equivalent of time.sleep(0.05)
+        return self.search_completed
 
     async def async_wait_for_symbol_search(self, timeout: float = 5.0) -> bool:
-        """Wait for symbol search completion with asyncio support"""
-        def wait_for_event():
-            return self.symbol_event.wait(timeout)
-
-        loop = asyncio.get_event_loop()
-        result = await loop.run_in_executor(None, wait_for_event)
-        self.symbol_event.clear()  # Reset for next search
-        return result
+        """Wait for symbol search completion with asyncio support using polling like original"""
+        start_time = time.time()
+        while not self.symbol_search_completed and (time.time() - start_time) < timeout:
+            await asyncio.sleep(0.05)  # Async equivalent of time.sleep(0.05)
+        return self.symbol_search_completed
 
 
 class IBKRSearchService(IIBKRSearchService):
@@ -320,15 +317,15 @@ class IBKRSearchService(IIBKRSearchService):
             return False, "Currency mismatch"
 
         # Clean and normalize names
-        universe_clean = re.sub(r"[''`\\-\\.\\,\\(\\)\\[\\]]", "", universe_name)
-        ibkr_clean = re.sub(r"[''`\\-\\.\\,\\(\\)\\[\\]]", "", ibkr_name)
+        universe_clean = re.sub(r"[''`\-\.\,\(\)\[\]]", "", universe_name)
+        ibkr_clean = re.sub(r"[''`\-\.\,\(\)\[\]]", "", ibkr_name)
 
         # Normalize to ASCII
         universe_clean = unicodedata.normalize('NFD', universe_clean).encode('ascii', 'ignore').decode('ascii')
         ibkr_clean = unicodedata.normalize('NFD', ibkr_clean).encode('ascii', 'ignore').decode('ascii')
 
-        universe_words = set(re.findall(r'\\b[a-zA-Z]{3,}\\b', universe_clean))
-        ibkr_words = set(re.findall(r'\\b[a-zA-Z]{3,}\\b', ibkr_clean))
+        universe_words = set(re.findall(r'\b[a-zA-Z]{3,}\b', universe_clean))
+        ibkr_words = set(re.findall(r'\b[a-zA-Z]{3,}\b', ibkr_clean))
 
         # Remove common corporate suffixes
         ignore_words = {
@@ -389,8 +386,11 @@ class IBKRSearchService(IIBKRSearchService):
             contract.currency = currency
             contract.exchange = "SMART"
 
-            app.contract_details = []
-            app.search_completed = False
+            # Reset state before search
+            with app._lock:
+                app.contract_details = []
+                app.search_completed = False
+
             app.reqContractDetails(app.next_req_id, contract)
             app.next_req_id += 1
 
@@ -426,8 +426,11 @@ class IBKRSearchService(IIBKRSearchService):
                 contract.currency = currency
                 contract.exchange = "SMART"
 
-                app.contract_details = []
-                app.search_completed = False
+                # Reset state before search
+                with app._lock:
+                    app.contract_details = []
+                    app.search_completed = False
+
                 app.reqContractDetails(app.next_req_id, contract)
                 app.next_req_id += 1
 
@@ -494,8 +497,10 @@ class IBKRSearchService(IIBKRSearchService):
                     continue
 
                 try:
-                    app.matching_symbols = []
-                    app.symbol_search_completed = False
+                    with app._lock:
+                        app.matching_symbols = []
+                        app.symbol_search_completed = False
+
                     app.reqMatchingSymbols(app.next_req_id, term)
                     app.next_req_id += 1
 
@@ -511,8 +516,10 @@ class IBKRSearchService(IIBKRSearchService):
                             contract.currency = match['currency']
                             contract.exchange = match['exchange']
 
-                            app.contract_details = []
-                            app.search_completed = False
+                            with app._lock:
+                                app.contract_details = []
+                                app.search_completed = False
+
                             app.reqContractDetails(app.next_req_id, contract)
                             app.next_req_id += 1
 
@@ -556,13 +563,13 @@ class IBKRSearchService(IIBKRSearchService):
             isin_results = await self.search_by_isin(stock['isin'], stock['currency'])
             all_contracts.extend(isin_results)
 
-        # Strategy 2: Ticker variations (if ISIN didn't work or no ISIN)
-        if not all_contracts and stock.get('ticker'):
+        # Strategy 2: Ticker variations (always try if we have a ticker)
+        if stock.get('ticker'):
             logger.debug(f"Trying ticker search for {stock['ticker']}")
             ticker_results = await self.search_by_ticker_variations(stock['ticker'], stock['currency'])
             all_contracts.extend(ticker_results)
 
-        # Strategy 3: Name-based search (fallback)
+        # Strategy 3: Name-based search (fallback if no results yet)
         if not all_contracts:
             logger.debug(f"Trying name search for {stock['ticker']}: {stock['name']}")
             name_results = await self.search_by_company_name(stock)

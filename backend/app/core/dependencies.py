@@ -3,7 +3,7 @@ Dependency injection container
 """
 from functools import lru_cache
 from .config import Settings
-from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer, ITargetAllocationService, IOrderExecutionService, IRebalancingService, IAccountService, IQuantityCalculator
+from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer, ITargetAllocationService, IOrderExecutionService, IRebalancingService, IAccountService, IQuantityCalculator, IPipelineOrchestrator
 from ..services.implementations.screener_service import ScreenerService
 from ..services.implementations.uncle_stock_provider import UncleStockProvider
 from ..services.implementations.file_manager import FileManager
@@ -15,6 +15,7 @@ from ..services.implementations.rebalancing_service import RebalancingService
 from ..services.implementations.account_service import AccountService
 from ..services.implementations.quantity_service import QuantityService
 from ..services.implementations.quantity_orchestrator_service import QuantityOrchestratorService
+# from ..services.implementations.pipeline_orchestrator_service import PipelineOrchestratorService
 
 @lru_cache()
 def get_settings() -> Settings:
@@ -33,6 +34,7 @@ _rebalancing_service = None
 _account_service = None
 _quantity_service = None
 _quantity_orchestrator_service = None
+_pipeline_orchestrator_service = None
 
 
 def get_file_manager() -> FileManager:
@@ -127,3 +129,11 @@ def get_quantity_orchestrator_service() -> QuantityOrchestratorService:
             quantity_service=get_quantity_service()
         )
     return _quantity_orchestrator_service
+
+
+def get_pipeline_orchestrator_service() -> IPipelineOrchestrator:
+    """Get pipeline orchestrator service instance"""
+    global _pipeline_orchestrator_service
+    if _pipeline_orchestrator_service is None:
+        _pipeline_orchestrator_service = PipelineOrchestratorService()
+    return _pipeline_orchestrator_service

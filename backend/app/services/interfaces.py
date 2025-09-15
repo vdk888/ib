@@ -1442,6 +1442,253 @@ class IOrderStatusService(ABC):
         pass
 
 
+class IPipelineOrchestrator(ABC):
+    """
+    Interface for pipeline orchestration service
+    Handles complete 11-step fintech pipeline execution with CLI compatibility
+    Following Interface-First Design for trading system orchestration
+    """
+
+    @abstractmethod
+    async def run_full_pipeline(self, execution_id: Optional[str] = None) -> Dict[str, Any]:
+        """
+        Execute complete 11-step pipeline with fail-fast error handling (equivalent to CLI run_all_steps())
+
+        Args:
+            execution_id: Optional execution ID for tracking (generated if not provided)
+
+        Returns:
+            Dict containing:
+            - execution_id: Unique execution identifier
+            - success: Boolean indicating overall pipeline success
+            - completed_steps: List of successfully completed step numbers
+            - failed_step: Step number that failed (None if all successful)
+            - execution_time: Total execution time in seconds
+            - created_files: Dict mapping step numbers to created files
+            - step_results: Dict mapping step numbers to detailed results
+            - error_message: Error description if pipeline failed
+
+        Side Effects:
+            - Creates complete file ecosystem matching CLI behavior exactly
+            - Structured logging of all console output from original CLI
+            - Background task execution with real-time status tracking
+        """
+        pass
+
+    @abstractmethod
+    async def run_individual_step(
+        self,
+        step_number: int,
+        execution_id: Optional[str] = None
+    ) -> Dict[str, Any]:
+        """
+        Execute single pipeline step (equivalent to CLI python main.py [step_number])
+
+        Args:
+            step_number: Step number to execute (1-11)
+            execution_id: Optional execution ID for tracking
+
+        Returns:
+            Dict containing:
+            - execution_id: Unique execution identifier
+            - step_number: Step number executed
+            - step_name: Human-readable step name
+            - success: Boolean indicating step success
+            - execution_time: Step execution time in seconds
+            - created_files: List of files created by this step
+            - console_output: Captured console output from step
+            - error_message: Error description if step failed
+
+        Side Effects:
+            - Executes specific step function (step1_fetch_data through step11_check_order_status)
+            - File creation/modification matching CLI behavior
+            - Console output capture and structured logging
+        """
+        pass
+
+    @abstractmethod
+    async def run_step_range(
+        self,
+        start_step: int,
+        end_step: int,
+        execution_id: Optional[str] = None
+    ) -> Dict[str, Any]:
+        """
+        Execute range of pipeline steps with fail-fast behavior
+
+        Args:
+            start_step: First step number to execute (1-11)
+            end_step: Last step number to execute (1-11)
+            execution_id: Optional execution ID for tracking
+
+        Returns:
+            Dict containing:
+            - execution_id: Unique execution identifier
+            - success: Boolean indicating range success
+            - start_step: First step number
+            - end_step: Last step number
+            - completed_steps: List of successfully completed step numbers
+            - failed_step: Step number that failed (None if all successful)
+            - execution_time: Total execution time in seconds
+            - step_results: Dict mapping step numbers to detailed results
+
+        Side Effects:
+            - Sequential execution of steps in range with fail-fast stopping
+            - File creation/modification for each step
+            - Structured logging and status tracking
+        """
+        pass
+
+    @abstractmethod
+    async def get_execution_status(self, execution_id: str) -> Dict[str, Any]:
+        """
+        Get real-time status of running or completed pipeline execution
+
+        Args:
+            execution_id: Execution identifier from run_full_pipeline or run_individual_step
+
+        Returns:
+            Dict containing:
+            - execution_id: Execution identifier
+            - status: Execution status (running, completed, failed, not_found)
+            - current_step: Currently executing step (None if not running)
+            - completed_steps: List of completed step numbers
+            - failed_step: Step number that failed (None if no failure)
+            - start_time: Execution start timestamp
+            - execution_time: Current or total execution time in seconds
+            - progress_percentage: Execution progress (0-100)
+            - estimated_remaining_time: Estimated remaining time in seconds (None if not calculable)
+        """
+        pass
+
+    @abstractmethod
+    async def get_execution_logs(
+        self,
+        execution_id: str,
+        step_number: Optional[int] = None
+    ) -> Dict[str, Any]:
+        """
+        Get structured execution logs for pipeline run
+
+        Args:
+            execution_id: Execution identifier
+            step_number: Optional step number to filter logs (None for all steps)
+
+        Returns:
+            Dict containing:
+            - execution_id: Execution identifier
+            - logs: List of structured log entries with timestamp, step, level, message
+            - step_logs: Dict mapping step numbers to their specific logs (if step_number is None)
+            - total_log_entries: Total number of log entries
+        """
+        pass
+
+    @abstractmethod
+    async def get_execution_results(self, execution_id: str) -> Dict[str, Any]:
+        """
+        Get detailed execution results and created files
+
+        Args:
+            execution_id: Execution identifier
+
+        Returns:
+            Dict containing:
+            - execution_id: Execution identifier
+            - success: Overall execution success
+            - created_files: Dict mapping step numbers to created file paths
+            - file_summaries: Dict with file metadata (size, creation time, etc.)
+            - step_summaries: Dict with step execution summaries
+            - performance_metrics: Execution performance data
+        """
+        pass
+
+    @abstractmethod
+    async def resume_failed_pipeline(
+        self,
+        execution_id: str,
+        from_step: Optional[int] = None
+    ) -> Dict[str, Any]:
+        """
+        Resume failed pipeline execution from specified step
+
+        Args:
+            execution_id: Original execution identifier that failed
+            from_step: Step number to resume from (None to auto-detect from failure point)
+
+        Returns:
+            Dict containing:
+            - execution_id: New execution identifier for resumed run
+            - original_execution_id: Original failed execution identifier
+            - resumed_from_step: Step number resumed from
+            - success: Boolean indicating resume success
+            - completed_steps: List of completed steps in resumed run
+            - execution_time: Total time for resumed portion
+        """
+        pass
+
+    @abstractmethod
+    async def get_pipeline_history(
+        self,
+        limit: int = 50,
+        status_filter: Optional[str] = None
+    ) -> Dict[str, Any]:
+        """
+        Get history of pipeline executions
+
+        Args:
+            limit: Maximum number of executions to return
+            status_filter: Optional status filter (completed, failed, running)
+
+        Returns:
+            Dict containing:
+            - executions: List of execution summaries
+            - total_executions: Total number of executions in history
+            - filtered_count: Number of executions matching filter
+        """
+        pass
+
+    @abstractmethod
+    def get_available_steps(self) -> Dict[str, Any]:
+        """
+        Get list of all available pipeline steps with descriptions
+
+        Returns:
+            Dict containing:
+            - steps: Dict mapping step numbers to step information
+            - total_steps: Total number of available steps
+            - step_aliases: Dict mapping CLI aliases to step numbers
+        """
+        pass
+
+    @abstractmethod
+    async def validate_pipeline_dependencies(self) -> Dict[str, Any]:
+        """
+        Validate that all pipeline dependencies and prerequisites are met
+
+        Returns:
+            Dict containing:
+            - valid: Boolean indicating if all dependencies are met
+            - checks: Dict mapping dependency names to validation results
+            - missing_dependencies: List of missing dependencies
+            - recommendations: List of recommendations to fix issues
+        """
+        pass
+
+    @abstractmethod
+    def get_step_function_mapping(self) -> Dict[int, callable]:
+        """
+        Get mapping of step numbers to their corresponding functions
+
+        Returns:
+            Dict mapping step numbers (1-11) to callable step functions
+
+        Note:
+            This method provides access to the original CLI step functions
+            for direct wrapping and execution preservation
+        """
+        pass
+
+
 class IAccountService(ABC):
     """
     Interface for IBKR account data management
