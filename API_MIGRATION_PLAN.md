@@ -9,6 +9,9 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 - ✅ **Gradual Migration**: One step at a time with full testing
 - ✅ **Dual Operation**: CLI and API work simultaneously during transition
 - ✅ **Implementation-First Analysis**: Study current code deeply before any changes
+- ✅ **Test-Driven Service Design**: Behavior-driven testing for all services
+- ✅ **Production-Ready Error Handling**: Structured error responses with proper HTTP codes
+- ✅ **Configuration Management**: Environment-based settings and secrets management
 
 ---
 
@@ -25,22 +28,35 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
    │   ├── core/
    │   │   ├── __init__.py
    │   │   ├── config.py           # Centralized configuration
-   │   │   └── dependencies.py     # DI container
+   │   │   ├── dependencies.py     # DI container
+   │   │   ├── exceptions.py       # Custom exception classes
+   │   │   └── middleware.py       # Error handling middleware
    │   ├── services/
    │   │   ├── __init__.py
    │   │   ├── interfaces.py       # Abstract interfaces
    │   │   └── implementations/
-   │   │       └── __init__.py
+   │   │       ├── __init__.py
+   │   │       └── legacy/         # Wrapped legacy functions
    │   ├── api/
    │   │   ├── __init__.py
    │   │   └── v1/
    │   │       ├── __init__.py
    │   │       └── endpoints/
    │   │           └── __init__.py
-   │   └── models/
+   │   ├── models/
+   │   │   ├── __init__.py
+   │   │   ├── schemas.py          # Pydantic models
+   │   │   └── errors.py           # Error response models
+   │   └── tests/
    │       ├── __init__.py
-   │       └── schemas.py          # Pydantic models
+   │       ├── conftest.py         # Test configuration
+   │       ├── unit/               # Unit tests
+   │       ├── integration/        # Integration tests
+   │       └── behavior/           # CLI vs API behavior tests
    ├── requirements.txt
+   ├── requirements-dev.txt        # Development dependencies
+   ├── pytest.ini                 # Test configuration
+   ├── .env.example               # Environment template
    └── Dockerfile
    ```
 
@@ -79,17 +95,117 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
    - **UPDATE THIS PLAN** with exact implementation details
 
 #### Phase 2: Implementation (ONLY AFTER ANALYSIS)
-2. **Create interface**: `IDataProvider` in `services/interfaces.py`
-3. **Create implementation**: `UncleStockService` wrapping existing functions
-4. **Create API endpoints**:
+2. **Create configuration models**:
+   ```python
+   class UncleStockSettings(BaseSettings):
+       uncle_stock_user_id: str
+       uncle_stock_timeout: int = 60
+       retry_attempts: int = 3
+       max_results_per_screener: int = 200
+
+       class Config:
+           env_prefix = "UNCLE_STOCK_"
+   ```
+
+3. **Create custom exceptions**:
+   ```python
+   class UncleStockAPIError(Exception):
+       """Base exception for Uncle Stock API errors"""
+
+   class UncleStockTimeoutError(UncleStockAPIError):
+       """Raised when Uncle Stock API times out"""
+
+   class UncleStockRateLimitError(UncleStockAPIError):
+       """Raised when Uncle Stock API rate limit exceeded"""
+   ```
+
+4. **Create interface**: `IDataProvider` in `services/interfaces.py`
+5. **Create implementation**: `UncleStockService` wrapping existing functions
+6. **Create Pydantic models** for request/response:
+   ```python
+   class ScreenerDataResponse(BaseModel):
+       screener_id: str
+       symbols: List[str]
+       csv_file_path: Optional[str]
+       total_count: int
+       fetched_at: datetime
+
+   class ErrorResponse(BaseModel):
+       error_code: str
+       message: str
+       details: Optional[Dict[str, Any]] = None
+       retry_after: Optional[int] = None
+   ```
+
+7. **Create API endpoints with proper error handling**:
    - `GET /api/v1/screeners/data` → `get_all_screeners()`
    - `GET /api/v1/screeners/data/{screener_id}` → `get_current_stocks()`
    - `GET /api/v1/screeners/history` → `get_all_screener_histories()`
    - `GET /api/v1/screeners/history/{screener_id}` → `get_screener_history()`
-5. **Create Pydantic models** for request/response
-6. **Add error handling** and logging
-7. **Test CLI**: `python main.py 1` produces identical results
-8. **Test API**: Endpoints return same data as CLI functions
+
+#### Phase 3: Testing (MANDATORY)
+8. **Create unit tests**:
+   ```python
+   class TestUncleStockService:
+       def test_fetch_screener_data_success(self):
+           # Test successful data fetching behavior
+
+       def test_fetch_screener_data_timeout(self):
+           # Test timeout handling behavior
+
+       def test_fetch_screener_data_invalid_screener(self):
+           # Test error handling for invalid screener
+   ```
+
+9. **Create integration tests**:
+   ```python
+   class TestScreenerAPIEndpoints:
+       def test_get_screener_data_endpoint(self):
+           # Test full endpoint behavior
+
+       def test_error_response_format(self):
+           # Test error response structure
+   ```
+
+10. **Create behavior verification tests**:
+    ```python
+    class TestCLIVsAPIBehavior:
+        def test_identical_output_screener_data(self):
+            # Verify CLI and API produce identical results
+
+        def test_identical_file_creation(self):
+            # Verify same CSV files are created
+    ```
+
+#### Phase 4: Error Handling & Monitoring
+11. **Add structured error handlers**:
+    ```python
+    @app.exception_handler(UncleStockTimeoutError)
+    async def timeout_handler(request, exc):
+        return JSONResponse(
+            status_code=503,
+            content=ErrorResponse(
+                error_code="UNCLE_STOCK_TIMEOUT",
+                message="Uncle Stock API temporarily unavailable",
+                retry_after=60
+            ).dict()
+        )
+    ```
+
+12. **Add logging and monitoring**:
+    ```python
+    logger.info("Fetching screener data", extra={
+        "screener_id": screener_id,
+        "user_id": user_id,
+        "request_id": request.headers.get("X-Request-ID")
+    })
+    ```
+
+#### Phase 5: Final Verification
+13. **Test CLI**: `python main.py 1` produces identical results
+14. **Test API**: Endpoints return same data with proper error handling
+15. **Performance test**: Verify no significant latency increase
+16. **Documentation**: Update API docs with new endpoints
 
 **Acceptance Criteria**:
 - CLI `step1_fetch_data()` behavior unchanged
@@ -516,7 +632,216 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 
 ---
 
+## Enhanced Architecture Components
+
+### Configuration Management
+
+Each service will have dedicated configuration following the pattern:
+
+```python
+# backend/app/core/config.py
+from pydantic import BaseSettings
+from typing import Optional
+
+class BaseServiceSettings(BaseSettings):
+    """Base configuration for all services"""
+    log_level: str = "INFO"
+    environment: str = "development"
+    debug: bool = False
+
+class UncleStockSettings(BaseServiceSettings):
+    uncle_stock_user_id: str
+    uncle_stock_timeout: int = 60
+    retry_attempts: int = 3
+    max_results_per_screener: int = 200
+
+    class Config:
+        env_prefix = "UNCLE_STOCK_"
+
+class IBKRSettings(BaseServiceSettings):
+    ibkr_host: str = "127.0.0.1"
+    ibkr_port: int = 4002
+    ibkr_client_id: int = 1
+    connection_timeout: int = 10
+
+    class Config:
+        env_prefix = "IBKR_"
+
+class PortfolioSettings(BaseServiceSettings):
+    max_ranked_stocks: int = 30
+    max_allocation: float = 0.10
+    min_allocation: float = 0.01
+    risk_free_rate: float = 0.02
+
+    class Config:
+        env_prefix = "PORTFOLIO_"
+```
+
+### Error Handling Framework
+
+Structured error handling across all services:
+
+```python
+# backend/app/core/exceptions.py
+from typing import Optional, Dict, Any
+from fastapi import HTTPException
+
+class BaseServiceError(Exception):
+    """Base exception for all service errors"""
+    def __init__(self, message: str, error_code: str, details: Optional[Dict[str, Any]] = None):
+        self.message = message
+        self.error_code = error_code
+        self.details = details or {}
+        super().__init__(self.message)
+
+class ExternalAPIError(BaseServiceError):
+    """Base for external API errors"""
+    pass
+
+class UncleStockAPIError(ExternalAPIError):
+    """Uncle Stock API specific errors"""
+    pass
+
+class IBKRError(ExternalAPIError):
+    """IBKR API specific errors"""
+    pass
+
+class ValidationError(BaseServiceError):
+    """Data validation errors"""
+    pass
+
+class ConfigurationError(BaseServiceError):
+    """Configuration and setup errors"""
+    pass
+
+# backend/app/models/errors.py
+from pydantic import BaseModel
+from typing import Optional, Dict, Any
+
+class ErrorResponse(BaseModel):
+    error_code: str
+    message: str
+    details: Optional[Dict[str, Any]] = None
+    retry_after: Optional[int] = None
+    timestamp: str
+    request_id: Optional[str] = None
+
+class ValidationErrorDetail(BaseModel):
+    field: str
+    message: str
+    invalid_value: Any
+
+class ValidationErrorResponse(ErrorResponse):
+    validation_errors: List[ValidationErrorDetail]
+```
+
+### Middleware Setup
+
+```python
+# backend/app/core/middleware.py
+import uuid
+import time
+import logging
+from fastapi import Request, Response
+from fastapi.middleware.base import BaseHTTPMiddleware
+
+logger = logging.getLogger(__name__)
+
+class RequestLoggingMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        request_id = str(uuid.uuid4())
+        request.state.request_id = request_id
+
+        start_time = time.time()
+
+        logger.info("Request started", extra={
+            "request_id": request_id,
+            "method": request.method,
+            "url": str(request.url),
+            "user_agent": request.headers.get("user-agent")
+        })
+
+        response = await call_next(request)
+
+        process_time = time.time() - start_time
+
+        logger.info("Request completed", extra={
+            "request_id": request_id,
+            "status_code": response.status_code,
+            "process_time": process_time
+        })
+
+        response.headers["X-Request-ID"] = request_id
+        response.headers["X-Process-Time"] = str(process_time)
+
+        return response
+```
+
 ## Testing Strategy
+
+### Test Structure
+
+```
+backend/app/tests/
+├── conftest.py                 # Shared test configuration
+├── unit/                       # Unit tests (isolated)
+│   ├── services/
+│   │   ├── test_uncle_stock_service.py
+│   │   ├── test_portfolio_service.py
+│   │   └── test_ibkr_service.py
+│   └── utils/
+├── integration/                # Integration tests (with dependencies)
+│   ├── test_api_endpoints.py
+│   ├── test_service_integration.py
+│   └── test_database_operations.py
+├── behavior/                   # CLI vs API behavior verification
+│   ├── test_cli_api_equivalence.py
+│   └── test_file_output_comparison.py
+└── performance/                # Performance tests
+    ├── test_api_latency.py
+    └── test_memory_usage.py
+```
+
+### Test Configuration
+
+```python
+# backend/app/tests/conftest.py
+import pytest
+import asyncio
+from fastapi.testclient import TestClient
+from unittest.mock import Mock, AsyncMock
+from backend.app.main import app
+from backend.app.core.config import Settings
+
+@pytest.fixture
+def test_client():
+    return TestClient(app)
+
+@pytest.fixture
+def mock_uncle_stock_api():
+    mock = AsyncMock()
+    mock.fetch_screener_data.return_value = {
+        "success": True,
+        "data": ["AAPL", "GOOGL", "MSFT"],
+        "csv_file": "test_screener.csv"
+    }
+    return mock
+
+@pytest.fixture
+def test_settings():
+    return Settings(
+        uncle_stock_user_id="test_user",
+        uncle_stock_timeout=30,
+        environment="test"
+    )
+
+@pytest.fixture(scope="session")
+def event_loop():
+    """Create an instance of the default event loop for the test session."""
+    loop = asyncio.get_event_loop_policy().new_event_loop()
+    yield loop
+    loop.close()
+```
 
 ### For Each Step:
 
@@ -606,6 +931,150 @@ Current Code → Deep Analysis → Plan Update → Implementation → Testing
 ```
 
 **Never skip the analysis phase. Ever.**
+
+---
+
+## Dependencies & Requirements
+
+### Core Dependencies
+```txt
+# backend/requirements.txt
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+httpx==0.25.2
+python-multipart==0.0.6
+
+# Data & Scientific Computing
+numpy==1.25.2
+pandas==2.1.3
+scipy==1.11.4
+
+# External APIs
+requests==2.31.0
+python-dotenv==1.0.0
+
+# File Processing
+openpyxl==3.1.2
+```
+
+### Development Dependencies
+```txt
+# backend/requirements-dev.txt
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+httpx==0.25.2  # For testing async clients
+factory-boy==3.3.0  # Test data factories
+
+# Code Quality
+black==23.11.0
+isort==5.12.0
+flake8==6.1.0
+mypy==1.7.1
+
+# Documentation
+mkdocs==1.5.3
+mkdocs-material==9.4.8
+```
+
+### Test Configuration
+```ini
+# backend/pytest.ini
+[tool:pytest]
+testpaths = backend/app/tests
+python_files = test_*.py
+python_classes = Test*
+python_functions = test_*
+addopts =
+    -v
+    --tb=short
+    --strict-markers
+    --disable-warnings
+    --cov=backend/app
+    --cov-report=term-missing
+    --cov-report=html
+    --cov-fail-under=80
+asyncio_mode = auto
+markers =
+    unit: Unit tests
+    integration: Integration tests
+    behavior: CLI vs API behavior tests
+    slow: Slow tests
+    external_api: Tests that call external APIs
+```
+
+### Environment Template
+```bash
+# .env.example
+# Uncle Stock API Configuration
+UNCLE_STOCK_USER_ID=your_user_id_here
+UNCLE_STOCK_TIMEOUT=60
+UNCLE_STOCK_RETRY_ATTEMPTS=3
+UNCLE_STOCK_MAX_RESULTS_PER_SCREENER=200
+
+# IBKR Configuration
+IBKR_HOST=127.0.0.1
+IBKR_PORT=4002
+IBKR_CLIENT_ID=1
+IBKR_CONNECTION_TIMEOUT=10
+
+# Portfolio Configuration
+PORTFOLIO_MAX_RANKED_STOCKS=30
+PORTFOLIO_MAX_ALLOCATION=0.10
+PORTFOLIO_MIN_ALLOCATION=0.01
+PORTFOLIO_RISK_FREE_RATE=0.02
+
+# Application Configuration
+LOG_LEVEL=INFO
+ENVIRONMENT=development
+DEBUG=false
+
+# File Paths
+DATA_DIRECTORY=./data
+EXPORTS_DIRECTORY=./data/files_exports
+```
+
+## Documentation Requirements
+
+### API Documentation
+Each endpoint must include:
+- **OpenAPI/Swagger documentation**
+- **Request/Response examples**
+- **Error response examples**
+- **Rate limiting information**
+- **Authentication requirements**
+
+### Service Documentation
+Each service must include:
+- **Interface documentation**
+- **Configuration options**
+- **Error handling guide**
+- **Testing examples**
+- **Performance characteristics**
+
+### Migration Documentation
+- **CLI to API mapping guide**
+- **Breaking changes log**
+- **Migration timeline**
+- **Rollback procedures**
+
+## Performance Standards
+
+### Response Time Targets
+- **API endpoints**: < 2 seconds (95th percentile)
+- **CLI compatibility**: No more than 10% slower than original
+- **Memory usage**: No more than 50MB increase per request
+- **File operations**: Identical to current implementation
+
+### Monitoring Requirements
+- **Request/response logging**
+- **Error rate tracking**
+- **Performance metrics**
+- **External API status monitoring**
+- **Resource usage monitoring**
 
 ---
 
