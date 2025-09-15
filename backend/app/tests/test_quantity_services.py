@@ -60,7 +60,7 @@ class TestAccountService:
     @pytest.mark.asyncio
     async def test_get_account_value_success(self, account_service, mock_ibapi_success):
         """Test successful account value fetching"""
-        with patch('..services.implementations.account_service.IBApi', return_value=mock_ibapi_success):
+        with patch('app.services.implementations.account_service.IBApi', return_value=mock_ibapi_success):
             with patch('time.sleep'):  # Skip sleep delays in tests
                 total_value, currency = await account_service.get_account_total_value()
 
@@ -72,7 +72,7 @@ class TestAccountService:
     @pytest.mark.asyncio
     async def test_get_account_value_connection_failure(self, account_service, mock_ibapi_failure):
         """Test connection failure handling"""
-        with patch('..services.implementations.account_service.IBApi', return_value=mock_ibapi_failure):
+        with patch('app.services.implementations.account_service.IBApi', return_value=mock_ibapi_failure):
             with patch('time.sleep'):
                 total_value, currency = await account_service.get_account_total_value()
 
@@ -117,7 +117,7 @@ class TestAccountService:
     @pytest.mark.asyncio
     async def test_test_connection_success(self, account_service, mock_ibapi_success):
         """Test connection testing functionality"""
-        with patch('..services.implementations.account_service.IBApi', return_value=mock_ibapi_success):
+        with patch('app.services.implementations.account_service.IBApi', return_value=mock_ibapi_success):
             with patch('time.sleep'):
                 result = await account_service.test_connection()
 
@@ -129,7 +129,7 @@ class TestAccountService:
     @pytest.mark.asyncio
     async def test_test_connection_failure(self, account_service, mock_ibapi_failure):
         """Test connection testing with failure"""
-        with patch('..services.implementations.account_service.IBApi', return_value=mock_ibapi_failure):
+        with patch('app.services.implementations.account_service.IBApi', return_value=mock_ibapi_failure):
             with patch('time.sleep'):
                 result = await account_service.test_connection()
 

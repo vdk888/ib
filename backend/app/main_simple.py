@@ -1,5 +1,5 @@
 """
-FastAPI application entry point
+Simplified FastAPI application for testing Target Allocation Service
 """
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
@@ -25,25 +25,10 @@ app = FastAPI(
 # Add middleware
 app.add_middleware(RequestLoggingMiddleware)
 
-# Include routers
-from .api.v1.endpoints.screeners import router as screeners_router
-from .api.v1.endpoints.historical import router as historical_router
-from .api.v1.endpoints.universe import router as universe_router
-# Temporarily comment out to avoid missing dependencies
-# from .api.v1.endpoints.portfolio import router as portfolio_router
+# Include only target allocation router for testing
 from .api.v1.endpoints.target_allocation import router as target_allocation_router
-from .api.v1.endpoints.orders import router as orders_router
-# from .api.v1.endpoints.ibkr_search import router as ibkr_search_router
-# from .api.v1.endpoints.currency import router as currency_router
 
-app.include_router(screeners_router, prefix="/api/v1")
-app.include_router(historical_router, prefix="/api/v1")
-app.include_router(universe_router, prefix="/api/v1")
-# app.include_router(portfolio_router, prefix="/api/v1")  # has missing dependencies
 app.include_router(target_allocation_router, prefix="/api/v1/portfolio/targets", tags=["Target Allocation"])
-app.include_router(orders_router, prefix="/api/v1")
-# app.include_router(ibkr_search_router, prefix="/api/v1")  # missing dependencies
-# app.include_router(currency_router, prefix="/api/v1")  # missing dependencies
 
 # Exception handlers
 @app.exception_handler(BaseServiceError)
@@ -79,7 +64,7 @@ async def health_check():
 async def root():
     """Root endpoint"""
     return {
-        "message": "Uncle Stock Portfolio API",
+        "message": "Uncle Stock Portfolio API - Target Allocation Testing",
         "version": "1.0.0",
         "docs_url": "/docs",
         "health_url": "/health"

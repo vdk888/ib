@@ -17,8 +17,10 @@ import asyncio
 # Import the legacy rebalancer classes directly
 import sys
 import os
-# Add src to path for imports
-src_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))), 'src')
+# Add src to path for imports - navigate from current file to project root, then to src
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(current_dir)))))
+src_path = os.path.join(project_root, 'src')
 sys.path.insert(0, src_path)
 
 from rebalancer import IBRebalancerApi, PortfolioRebalancer

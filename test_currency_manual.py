@@ -17,7 +17,7 @@ def test_currency_cli():
     try:
         # Test legacy currency import
         from src.currency import main as currency_main, fetch_exchange_rates, get_currencies_from_universe
-        print("✅ Successfully imported legacy currency functions")
+        print("[OK] Successfully imported legacy currency functions")
 
         # Test fetching exchange rates (this will make real API call)
         print("📡 Testing exchange rate fetching...")

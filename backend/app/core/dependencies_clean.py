@@ -1,16 +1,15 @@
 """
-Dependency injection container
+Clean dependency injection container for Target Allocation testing
 """
 from functools import lru_cache
 from .config import Settings
-from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer, ITargetAllocationService, IOrderExecutionService
+from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer, ITargetAllocationService
 from ..services.implementations.screener_service import ScreenerService
 from ..services.implementations.uncle_stock_provider import UncleStockProvider
 from ..services.implementations.file_manager import FileManager
 from ..services.implementations.universe_service import create_universe_service
 from ..services.implementations.portfolio_optimizer_service import PortfolioOptimizerService
 from ..services.implementations.target_allocation_service import TargetAllocationService
-from ..services.implementations.order_execution_service import OrderExecutionService
 
 @lru_cache()
 def get_settings() -> Settings:
@@ -24,7 +23,6 @@ _screener_service = None
 _universe_service = None
 _portfolio_optimizer_service = None
 _target_allocation_service = None
-_order_execution_service = None
 
 
 def get_file_manager() -> FileManager:
@@ -76,11 +74,3 @@ def get_target_allocation_service() -> ITargetAllocationService:
     if _target_allocation_service is None:
         _target_allocation_service = TargetAllocationService()
     return _target_allocation_service
-
-
-def get_order_execution_service() -> IOrderExecutionService:
-    """Get order execution service instance"""
-    global _order_execution_service
-    if _order_execution_service is None:
-        _order_execution_service = OrderExecutionService()
-    return _order_execution_service
