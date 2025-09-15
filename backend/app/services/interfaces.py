@@ -174,3 +174,233 @@ class IScreenerService(ABC):
         Get list of available screeners
         """
         pass
+
+
+class IDataParser(ABC):
+    """
+    Interface for parsing CSV data files
+    Handles financial data parsing with precision and validation
+    """
+
+    @abstractmethod
+    def parse_screener_csv(self, csv_path: str) -> List[Dict[str, Any]]:
+        """
+        Parse a single screener CSV file and extract standard fields
+
+        Args:
+            csv_path: Path to the CSV file
+
+        Returns:
+            List of stock dictionaries with standard fields:
+            ticker, isin, name, currency, sector, country, price
+        """
+        pass
+
+    @abstractmethod
+    def parse_screener_csv_flexible(
+        self,
+        csv_path: str,
+        additional_fields: Optional[List[tuple]] = None
+    ) -> List[Dict[str, Any]]:
+        """
+        Parse CSV file with both standard and additional custom fields
+
+        Args:
+            csv_path: Path to the CSV file
+            additional_fields: List of tuples (header_name, subtitle_pattern, field_alias)
+
+        Returns:
+            List of stock dictionaries with configured fields
+        """
+        pass
+
+    @abstractmethod
+    def extract_field_data(
+        self,
+        csv_path: str,
+        header_name: str,
+        subtitle_pattern: str,
+        ticker: Optional[str] = None
+    ) -> Optional[Dict[str, Any]]:
+        """
+        Extract specific field data from CSV using header/subtitle pattern
+
+        Args:
+            csv_path: Path to the CSV file
+            header_name: Header name to match (e.g., 'Price')
+            subtitle_pattern: Pattern to match in description (e.g., '180d change')
+            ticker: Optional ticker to filter for specific stock
+
+        Returns:
+            Dict with field data or None if not found
+        """
+        pass
+
+    @abstractmethod
+    def find_available_fields(
+        self,
+        csv_path: Optional[str] = None
+    ) -> List[tuple]:
+        """
+        Find all available header/subtitle combinations in a CSV file
+
+        Args:
+            csv_path: Path to CSV file, if None uses first available screen
+
+        Returns:
+            List of tuples (header, subtitle, column_index)
+        """
+        pass
+
+
+class IUniverseRepository(ABC):
+    """
+    Interface for universe data management
+    Handles creation, storage, and retrieval of universe data
+    """
+
+    @abstractmethod
+    def create_universe(self) -> Dict[str, Any]:
+        """
+        Parse all screener CSV files and create universe structure
+
+        Returns:
+            Universe dictionary with metadata, screens, and all_stocks sections
+        """
+        pass
+
+    @abstractmethod
+    def save_universe(
+        self,
+        universe: Dict[str, Any],
+        output_path: str = 'data/universe.json'
+    ) -> None:
+        """
+        Save universe data to JSON file with summary statistics
+
+        Args:
+            universe: Universe dictionary
+            output_path: Path to save the JSON file
+        """
+        pass
+
+    @abstractmethod
+    def load_universe(
+        self,
+        file_path: str = 'data/universe.json'
+    ) -> Optional[Dict[str, Any]]:
+        """
+        Load universe data from JSON file
+
+        Args:
+            file_path: Path to the universe JSON file
+
+        Returns:
+            Universe dictionary or None if file not found
+        """
+        pass
+
+    @abstractmethod
+    def get_stock_field(
+        self,
+        ticker: str,
+        header_name: str,
+        subtitle_pattern: str,
+        screen_name: Optional[str] = None
+    ) -> Optional[Dict[str, Any]]:
+        """
+        Get specific field value for a stock from screener data
+
+        Args:
+            ticker: Stock ticker (e.g., 'GRR.AX')
+            header_name: Header name (e.g., 'Price')
+            subtitle_pattern: Subtitle pattern (e.g., '180d change')
+            screen_name: Optional screen name to search in
+
+        Returns:
+            Dict with ticker, field, value, screen or None if not found
+        """
+        pass
+
+
+class IHistoricalDataService(ABC):
+    """
+    Interface for historical performance data processing
+    Handles backtest CSV parsing and universe.json updates with historical metrics
+    """
+
+    @abstractmethod
+    async def parse_backtest_csv(
+        self,
+        csv_path: str,
+        debug: bool = False
+    ) -> Dict[str, Any]:
+        """
+        Parse a single backtest results CSV file to extract historical performance metrics
+
+        Args:
+            csv_path: Path to the backtest results CSV file
+            debug: Enable debug console output
+
+        Returns:
+            Dict containing:
+            - metadata: Backtest configuration and period info
+            - quarterly_performance: Array of quarterly performance data
+            - statistics: Key performance statistics (returns, std dev, Sharpe ratio)
+            - error: Error message if parsing failed
+        """
+        pass
+
+    @abstractmethod
+    async def get_all_backtest_data(self) -> Dict[str, Dict[str, Any]]:
+        """
+        Parse all backtest CSV files for configured screeners
+
+        Returns:
+            Dict mapping screener IDs to their parsed performance data
+            Each screener entry contains metadata, quarterly_performance, and statistics
+        """
+        pass
+
+    @abstractmethod
+    async def update_universe_with_history(self) -> bool:
+        """
+        Update universe.json with historical performance data in metadata section
+
+        Side Effects:
+            - Reads data/universe.json
+            - Adds metadata.historical_performance section with:
+              * screen_name, backtest_metadata, key_statistics
+              * quarterly_summary (total_quarters, avg_quarterly_return, quarterly_std)
+              * quarterly_data (complete quarterly performance arrays)
+            - Writes updated universe.json back to disk
+            - Console output for success/error status
+
+        Returns:
+            True if successful, False if failed
+        """
+        pass
+
+    @abstractmethod
+    async def get_performance_summary(self) -> Dict[str, Any]:
+        """
+        Get formatted performance summary for all screeners
+
+        Returns:
+            Dict containing structured performance data suitable for API responses
+            Equivalent to display_performance_summary() but returns JSON instead of console output
+        """
+        pass
+
+    @abstractmethod
+    async def get_screener_backtest_data(self, screener_id: str) -> Dict[str, Any]:
+        """
+        Get backtest data for a specific screener
+
+        Args:
+            screener_id: Screener identifier from UNCLE_STOCK_SCREENS config
+
+        Returns:
+            Dict containing parsed backtest data or error information
+        """
+        pass

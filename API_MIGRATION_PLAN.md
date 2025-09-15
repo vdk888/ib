@@ -220,33 +220,99 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 ## Step 2: Data Parsing Service
 **Goal**: Wrap `src/parser.py` functions with API endpoints
 
-### Current Functions:
-- `parse_screener_csv()` - Parse single CSV file
-- `parse_screener_csv_flexible()` - Parse with additional fields
-- `create_universe()` - Create universe from all CSVs
-- `save_universe()` - Save universe.json
-- `get_stock_field()` - Extract specific field from CSV
+### ✅ ANALYSIS COMPLETE - Current Implementation Details:
+
+#### Core Functions Identified:
+1. **`find_column_index(headers, description_row, header_name, subtitle_pattern)`**
+   - Purpose: Find column index based on header name and subtitle pattern matching
+   - Returns: int (column index) or None if not found
+   - Used internally by other parsing functions
+
+2. **`extract_field_data(csv_path, header_name, subtitle_pattern, ticker=None)`**
+   - Purpose: Extract specific field data from CSV file using header/subtitle pattern
+   - Parameters: CSV path, header name, subtitle pattern, optional ticker filter
+   - Returns: dict (single stock) or list (all stocks) or None if not found
+   - Side effects: File I/O, console error printing
+
+3. **`parse_screener_csv_flexible(csv_path, additional_fields=None)`**
+   - Purpose: Parse CSV with both standard and custom additional fields
+   - Parameters: CSV path, optional additional fields list as tuples (header, subtitle, alias)
+   - Returns: list of stock dictionaries with all configured fields
+   - Standard fields: ticker, isin, name, currency, sector, country, price
+   - Side effects: File I/O, console error printing
+
+4. **`parse_screener_csv(csv_path)`**
+   - Purpose: Parse CSV with only standard fields (no additional fields)
+   - Parameters: CSV path
+   - Returns: list of stock dictionaries with standard fields only
+   - Side effects: File I/O, console error printing
+
+5. **`create_universe()`**
+   - Purpose: Parse ALL screener CSV files and aggregate into universe structure
+   - Parameters: None (uses global config)
+   - Returns: dict with metadata, screens, and all_stocks sections
+   - Dependencies: UNCLE_STOCK_SCREENS, ADDITIONAL_FIELDS, EXTRACT_ADDITIONAL_FIELDS from config
+   - Side effects: Multiple file I/O operations, console progress printing
+   - File paths: `data/files_exports/{safe_name}_current_screen.csv`
+
+6. **`save_universe(universe, output_path='data/universe.json')`**
+   - Purpose: Save universe data to JSON file with summary statistics
+   - Parameters: universe dict, optional output path (defaults to 'data/universe.json')
+   - Returns: None
+   - Side effects: JSON file creation, detailed console output with statistics
+
+7. **`get_stock_field(ticker, header_name, subtitle_pattern, screen_name=None)`**
+   - Purpose: Search for specific field value for a ticker across screens
+   - Parameters: ticker symbol, header name, subtitle pattern, optional screen filter
+   - Returns: dict with ticker, field, value, screen or None if not found
+   - Side effects: Multiple file I/O operations if searching all screens
+
+8. **`find_available_fields(csv_path=None)`**
+   - Purpose: Discover all available header/subtitle combinations in a CSV
+   - Parameters: optional CSV path (uses first available screen if None)
+   - Returns: list of tuples (header, subtitle, column_index)
+   - Side effects: File I/O
+
+#### Dependencies Mapped:
+- **Standard library**: csv, json, os, glob, sys
+- **External config**: config.py with UNCLE_STOCK_SCREENS, ADDITIONAL_FIELDS, EXTRACT_ADDITIONAL_FIELDS
+- **File system**: data/files_exports/ directory for CSV inputs, data/ for JSON output
+
+#### CSV File Structure Understanding:
+- Line 1: Optional sep= separator line (skipped if present)
+- Line 2: Headers (symbol, ISIN, name, Price, etc.)
+- Line 3: Subheaders
+- Line 4: Description row (used for pattern matching like 'per share in stock price currency')
+- Line 5+: Data rows
+
+#### Error Handling Patterns:
+- Try-catch blocks around all file operations
+- Console error printing with file path context
+- Graceful handling of missing files, invalid data, parsing errors
+- Return None or empty lists on errors
+
+#### Side Effects Documented:
+1. **File I/O**: Reads from data/files_exports/*.csv, writes to data/universe.json
+2. **Console Output**: Progress messages, error messages, statistics summaries
+3. **Global Config Dependencies**: Uses UNCLE_STOCK_SCREENS mapping and field configurations
+
+#### CLI Integration:
+- Called via `step2_parse_data()` in main.py lines 62-74
+- Simple wrapper: calls `create_universe()` then `save_universe(universe)`
+- Returns boolean True on success
 
 ### Actions:
 
-#### Phase 1: Deep Analysis (MANDATORY FIRST)
-1. **📖 STUDY `src/parser.py` COMPLETELY**:
-   - Read every line, understand every function and class
-   - Document exact function signatures, parameters, and return types
-   - Map all dependencies: csv, json, glob, config imports
-   - Note all side effects: JSON file creation, console output
-   - Identify error handling patterns and file operations
-   - **UPDATE THIS PLAN** with exact implementation details
-
-#### Phase 2: Implementation (ONLY AFTER ANALYSIS)
-2. **Create interface**: `IUniverseRepository` and `IDataParser`
-3. **Create implementation**: `UniverseService` wrapping existing functions
-4. **Create API endpoints**:
+#### Phase 2: Implementation (ANALYSIS COMPLETE ✅)
+1. **Create interfaces**: `IUniverseRepository` and `IDataParser` in `services/interfaces.py`
+2. **Create implementation**: `UniverseService` wrapping existing functions in legacy parser
+3. **Create API endpoints**:
    - `POST /api/v1/universe/parse` → `create_universe()` + `save_universe()`
    - `GET /api/v1/universe` → Load and return universe.json
    - `GET /api/v1/universe/stock/{ticker}/field` → `get_stock_field()`
-5. **Test CLI**: `python main.py 2` produces identical universe.json
-6. **Test API**: Universe data matches CLI output exactly
+   - `GET /api/v1/universe/fields/available` → `find_available_fields()`
+4. **Test CLI**: `python main.py 2` produces identical universe.json
+5. **Test API**: Universe data matches CLI output exactly
 
 **Acceptance Criteria**:
 - CLI `step2_parse_data()` behavior unchanged
@@ -254,46 +320,82 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 - Same metadata structure and stock counts
 - Same console output for parsing results
 
-**Status**: ⏸️ Not Started
+**Status**: 🔄 Analysis Complete - Ready for Implementation
 
 ---
 
 ## Step 3: Historical Data Service
 **Goal**: Wrap `src/history_parser.py` functions with API endpoints
 
-### Current Functions:
-- `parse_backtest_csv()` - Parse backtest results CSV
-- `get_all_backtest_data()` - Parse all backtest CSVs
-- `update_universe_with_history()` - Add historical data to universe.json
+### Current Functions Analysis (COMPLETED):
+
+#### `parse_backtest_csv(csv_path: str, debug: bool = False) -> Dict[str, Any]`
+- **Purpose**: Parse single backtest CSV file for performance metrics
+- **Dependencies**: `csv`, `os`, file I/O operations
+- **Returns**: Dict with `metadata`, `quarterly_performance`, `statistics` sections
+- **Side Effects**: File reading, optional debug console prints
+- **Error Handling**: Returns `{"error": "message"}` on file not found or parsing errors
+- **CSV Parsing Logic**:
+  - Metadata: First 13 lines contain key-value pairs
+  - Statistics: Found by "Return" and "Period SD" headers, extracts total/yearly data
+  - Quarterly Data: "Quarter return" lines matched with quarter headers from previous lines
+
+#### `get_all_backtest_data() -> Dict[str, Dict[str, Any]]`
+- **Purpose**: Parse all backtest CSV files for configured screeners
+- **Dependencies**: `UNCLE_STOCK_SCREENS` from config, calls `parse_backtest_csv()`
+- **Returns**: Dict mapping screener keys to their parsed performance data
+- **Side Effects**: Console prints for each screener processed (`+` success, `X` error)
+- **CSV Path Pattern**: `data/files_exports/{safe_name}_backtest_results.csv`
+- **Name Sanitization**: Replaces spaces and slashes with underscores
+
+#### `update_universe_with_history() -> bool`
+- **Purpose**: Update universe.json with historical performance data in metadata section
+- **Dependencies**: `json`, file I/O, calls `get_all_backtest_data()`
+- **File Operations**: Reads `data/universe.json`, writes updated version back
+- **Side Effects**: Console prints (`+` success, `X` error), modifies universe.json
+- **Data Structure Added**: `metadata.historical_performance` with:
+  - `screen_name`, `backtest_metadata`, `key_statistics`
+  - `quarterly_summary` (total_quarters, avg_quarterly_return, quarterly_std)
+  - `quarterly_data` (complete quarterly performance arrays)
+- **Statistics Calculation**: Averages quarterly returns and standard deviations
+- **Error Handling**: Graceful handling of missing files and parsing errors
+
+#### `display_performance_summary()`
+- **Purpose**: Display formatted console summary of performance data
+- **Dependencies**: Calls `get_all_backtest_data()`
+- **Side Effects**: Console output with headers, metadata, statistics, quarterly summary
+- **Output Format**: Structured with headers, key metrics (return, std dev, Sharpe ratio)
 
 ### Actions:
 
-#### Phase 1: Deep Analysis (MANDATORY FIRST)
-1. **📖 STUDY `src/history_parser.py` COMPLETELY**:
-   - Read every line, understand every function and type hints
-   - Document exact function signatures, parameters, and return types
-   - Map all dependencies: csv, json, typing imports
-   - Note all side effects: universe.json updates, console output
-   - Identify error handling patterns and CSV parsing logic
-   - **UPDATE THIS PLAN** with exact implementation details
+#### Phase 1: Deep Analysis (COMPLETED ✅)
+1. **✅ STUDIED `src/history_parser.py` COMPLETELY**:
+   - ✅ Analyzed all 4 functions with exact signatures and return types
+   - ✅ Mapped dependencies: csv, json, os, config.UNCLE_STOCK_SCREENS
+   - ✅ Documented side effects: universe.json updates, console output patterns
+   - ✅ Identified CSV parsing logic: metadata (lines 1-13), statistics headers, quarterly data extraction
+   - ✅ Documented error handling: file not found, parsing exceptions, graceful error objects
 
-#### Phase 2: Implementation (ONLY AFTER ANALYSIS)
-2. **Create interface**: `IHistoricalDataService`
+#### Phase 2: Implementation (READY TO START)
+2. **Create interface**: `IHistoricalDataService` in `services/interfaces.py`
 3. **Create implementation**: `HistoricalDataService` wrapping existing functions
 4. **Create API endpoints**:
    - `POST /api/v1/universe/history/update` → `update_universe_with_history()`
    - `GET /api/v1/screeners/backtest` → `get_all_backtest_data()`
    - `GET /api/v1/screeners/backtest/{screener_id}` → `parse_backtest_csv()`
+   - `GET /api/v1/universe/history/summary` → `display_performance_summary()` (formatted JSON)
 5. **Test CLI**: `python main.py 3` produces identical universe.json with history
 6. **Test API**: Historical data matches CLI processing exactly
 
 **Acceptance Criteria**:
 - CLI `step3_parse_history()` behavior unchanged
-- Identical historical_performance section in universe.json
-- Same quarterly data parsing and statistics calculation
-- Same console output for performance summary
+- Identical `historical_performance` section structure in universe.json
+- Same quarterly data parsing and statistics calculation (avg returns, std dev)
+- Same console output patterns (`+` success, `X` error messages)
+- Same CSV path resolution and name sanitization logic
+- Same error handling for missing files and parsing failures
 
-**Status**: ⏸️ Not Started
+**Status**: 🔄 Analysis Complete - Ready for Implementation
 
 ---
 
