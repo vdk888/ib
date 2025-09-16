@@ -123,7 +123,7 @@ class UniverseService(IUniverseRepository):
 
         # Calculate project root (go up from backend/app/services/implementations to project root)
         project_root = os.path.abspath(os.path.join(
-            os.path.dirname(__file__), '..', '..', '..', '..'
+            os.path.dirname(__file__), '..', '..', '..'
         ))
 
         try:
@@ -151,7 +151,7 @@ class UniverseService(IUniverseRepository):
 
         # Calculate project root for proper path resolution
         project_root = os.path.abspath(os.path.join(
-            os.path.dirname(__file__), '..', '..', '..', '..'
+            os.path.dirname(__file__), '..', '..', '..'
         ))
 
         try:
@@ -180,7 +180,7 @@ class UniverseService(IUniverseRepository):
 
         # Calculate project root for proper path resolution
         project_root = os.path.abspath(os.path.join(
-            os.path.dirname(__file__), '..', '..', '..', '..'
+            os.path.dirname(__file__), '..', '..', '..'
         ))
 
         try:

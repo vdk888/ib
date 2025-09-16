@@ -7,7 +7,7 @@ import os
 from pathlib import Path
 
 # Get the root directory (where main.py and config.py are located)
-ROOT_DIR = Path(__file__).parent.parent.parent.parent
+ROOT_DIR = Path(__file__).parent.parent.parent
 
 class BaseServiceSettings(BaseSettings):
     """Base configuration for all services"""
