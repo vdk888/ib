@@ -621,7 +621,7 @@ def process_all_universe_stocks():
     app.disconnect()
     
     # Save updated universe.json
-    output_path = script_dir.parent / 'data' / 'universe_with_ibkr_filtered.json'
+    output_path = script_dir.parent / 'data' / 'universe_with_ibkr.json'
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(universe_data, f, indent=2, ensure_ascii=False)
     

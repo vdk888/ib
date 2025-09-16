@@ -19,7 +19,7 @@ class IIBKRSearchService(ABC):
     """
 
     @abstractmethod
-    async def search_single_stock(
+    def search_single_stock(
         self,
         stock: Dict[str, Any],
         use_cache: bool = True
@@ -39,7 +39,7 @@ class IIBKRSearchService(ABC):
         pass
 
     @abstractmethod
-    async def search_multiple_stocks(
+    def search_multiple_stocks(
         self,
         stocks: List[Dict[str, Any]],
         max_concurrent: int = 5,
@@ -61,12 +61,13 @@ class IIBKRSearchService(ABC):
         pass
 
     @abstractmethod
-    async def process_universe_stocks(
+    def process_universe_stocks(
         self,
         universe_path: str = 'data/universe.json',
         output_path: str = 'data/universe_with_ibkr.json',
         max_concurrent: int = 5,
-        use_cache: bool = True
+        use_cache: bool = True,
+        quantity_filter: bool = False
     ) -> Dict[str, Any]:
         """
         Process all unique stocks from universe.json with optimized concurrent search
@@ -90,7 +91,7 @@ class IIBKRSearchService(ABC):
         pass
 
     @abstractmethod
-    async def search_by_isin(
+    def search_by_isin(
         self,
         isin: str,
         currency: str,
@@ -110,7 +111,7 @@ class IIBKRSearchService(ABC):
         pass
 
     @abstractmethod
-    async def search_by_ticker_variations(
+    def search_by_ticker_variations(
         self,
         ticker: str,
         currency: str,
@@ -130,7 +131,7 @@ class IIBKRSearchService(ABC):
         pass
 
     @abstractmethod
-    async def search_by_company_name(
+    def search_by_company_name(
         self,
         stock: Dict[str, Any],
         connection_id: int = 1
@@ -158,7 +159,7 @@ class IIBKRSearchService(ABC):
         pass
 
     @abstractmethod
-    async def clear_cache(self) -> bool:
+    def clear_cache(self) -> bool:
         """
         Clear all cached search results
 
@@ -201,7 +202,7 @@ class IIBKRSearchService(ABC):
         pass
 
     @abstractmethod
-    async def get_connection_pool_status(self) -> Dict[str, Any]:
+    def get_connection_pool_status(self) -> Dict[str, Any]:
         """
         Get status of IBKR connection pool
 

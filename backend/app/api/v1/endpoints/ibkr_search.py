@@ -46,7 +46,7 @@ router = APIRouter(prefix="/ibkr/search", tags=["IBKR Search"])
         503: {"description": "IBKR Gateway not available"}
     }
 )
-async def search_universe_stocks(
+def search_universe_stocks(
     max_concurrent: int = 5,
     use_cache: bool = True,
     ibkr_service: IIBKRSearchService = Depends(get_ibkr_search_service)
@@ -66,8 +66,8 @@ async def search_universe_stocks(
     """
     try:
         # Process universe stocks with filtering for quantities > 0
-        universe_path = 'data/universe.json'
-        output_path = 'data/universe_with_ibkr_filtered.json'
+        universe_path = 'backend/data/universe.json'
+        output_path = 'backend/data/universe_with_ibkr_filtered.json'
 
         stats = ibkr_service.process_universe_stocks(
             universe_path=universe_path,
@@ -121,7 +121,7 @@ async def search_universe_stocks(
         503: {"description": "IBKR Gateway not available"}
     }
 )
-async def search_stock(
+def search_stock(
     stock_request: StockSearchRequest,
     use_cache: bool = True,
     ibkr_service: IIBKRSearchService = Depends(get_ibkr_search_service)
@@ -205,7 +205,7 @@ async def search_stock(
     summary="Get cache performance statistics",
     description="Returns cache hit rates and performance metrics for IBKR search operations"
 )
-async def get_cache_stats(
+def get_cache_stats(
     ibkr_service: IIBKRSearchService = Depends(get_ibkr_search_service)
 ) -> Dict[str, Any]:
     """Get cache performance statistics"""
@@ -224,7 +224,7 @@ async def get_cache_stats(
     summary="Clear search cache",
     description="Clears all cached IBKR search results"
 )
-async def clear_cache(
+def clear_cache(
     ibkr_service: IIBKRSearchService = Depends(get_ibkr_search_service)
 ) -> Dict[str, bool]:
     """Clear all cached search results"""
@@ -244,7 +244,7 @@ async def clear_cache(
     summary="Get IBKR connection pool status",
     description="Returns status and health information for IBKR Gateway connections"
 )
-async def get_connection_status(
+def get_connection_status(
     ibkr_service: IIBKRSearchService = Depends(get_ibkr_search_service)
 ) -> Dict[str, Any]:
     """Get IBKR connection pool status and health"""

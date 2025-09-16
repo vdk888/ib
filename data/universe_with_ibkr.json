@@ -1749,8 +1749,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.012619739668068458,
           "eur_price": 4.03271,
-          "target_value_eur": 126.2,
-          "quantity": 0
+          "target_value_eur": 13033.67,
+          "quantity": 3200,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6095",
+            "longName": "MEDPEER INC",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 152849577,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "7921.T",
@@ -1899,8 +1909,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.02228592324361025,
           "eur_price": 13.539864,
-          "target_value_eur": 222.86,
-          "quantity": 0
+          "target_value_eur": 23016.9,
+          "quantity": 1600,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6626",
+            "longName": "SEMITEC CORP",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131087537,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "AEP.L",
@@ -1921,11 +1941,17 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07303338701520469,
           "eur_price": 14.289017,
-          "target_value_eur": 730.33,
-          "quantity": 51,
+          "target_value_eur": 75428.88,
+          "quantity": 5279,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "AEP",
+            "longName": "ANGLO-EASTERN PLANTATIONS",
+            "exchange": "SMART",
+            "primaryExchange": "LSE",
+            "conId": 15224436,
+            "search_method": "isin",
+            "match_score": 0.9259259259259259
           }
         },
         {
@@ -2220,8 +2246,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.04645138218246475,
           "eur_price": 35.814007,
-          "target_value_eur": 464.51,
-          "quantity": 0
+          "target_value_eur": 47974.99,
+          "quantity": 1300,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "2325",
+            "longName": "NJS CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 47183705,
+            "search_method": "isin",
+            "match_score": 0.9090909090909091
+          }
         },
         {
           "ticker": "6965.T",
@@ -2349,11 +2385,17 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07786647880297559,
           "eur_price": 69.8,
-          "target_value_eur": 778.66,
-          "quantity": 11,
+          "target_value_eur": 80420.5,
+          "quantity": 1152,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "VH2",
+            "longName": "FRIEDRICH VORWERK GROUP SE",
+            "exchange": "SMART",
+            "primaryExchange": "IBIS",
+            "conId": 478811088,
+            "search_method": "isin",
+            "match_score": 1.0
           }
         },
         {
@@ -2396,8 +2438,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.017452831455839358,
           "eur_price": 6.334372,
-          "target_value_eur": 174.53,
-          "quantity": 0
+          "target_value_eur": 18025.28,
+          "quantity": 2800,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "2124",
+            "longName": "JAC RECRUITMENT CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131084677,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "8117.T",
@@ -2459,11 +2511,17 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.0343686527130375,
           "eur_price": 6.739927,
-          "target_value_eur": 343.69,
-          "quantity": 51,
+          "target_value_eur": 35495.94,
+          "quantity": 5267,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "RUG",
+            "longName": "RUGVISTA GROUP AB",
+            "exchange": "SMART",
+            "primaryExchange": "SFB",
+            "conId": 477139497,
+            "search_method": "isin",
+            "match_score": 1.0
           }
         },
         {
@@ -2484,8 +2542,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.019869377349724805,
           "eur_price": 12.92258,
-          "target_value_eur": 198.69,
-          "quantity": 0
+          "target_value_eur": 20521.09,
+          "quantity": 1500,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6101",
+            "longName": "TSUGAMI CORP",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 14016336,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "7734.T",
@@ -2529,8 +2597,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.015036285561953903,
           "eur_price": 6.888197,
-          "target_value_eur": 150.36,
-          "quantity": 0
+          "target_value_eur": 15529.48,
+          "quantity": 2200,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "7818",
+            "longName": "TRANSACTION CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131085175,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "BETS-B.ST",
@@ -2634,8 +2712,8 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.058534111651892,
           "eur_price": 8.737288,
-          "target_value_eur": 585.34,
-          "quantity": 67,
+          "target_value_eur": 60454.03,
+          "quantity": 6919,
           "ibkr_details": {
             "found": true,
             "symbol": "HDSN",
@@ -2728,8 +2806,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.02711901503138115,
           "eur_price": 3.159052,
-          "target_value_eur": 271.19,
-          "quantity": 0
+          "target_value_eur": 28008.52,
+          "quantity": 8800,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "3963",
+            "longName": "SYNCHRO FOOD CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 245375405,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "4477.T",
@@ -3176,8 +3264,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07544993290909015,
           "eur_price": 8.866967,
-          "target_value_eur": 754.5,
-          "quantity": 0
+          "target_value_eur": 77924.69,
+          "quantity": 8700,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "1401",
+            "longName": "MBS INC",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 211595875,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "6908.T",
@@ -3451,8 +3549,8 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.0392017445008084,
           "eur_price": 36.4,
-          "target_value_eur": 392.02,
-          "quantity": 11,
+          "target_value_eur": 40487.56,
+          "quantity": 1112,
           "ibkr_details": {
             "found": true,
             "symbol": "03P",
@@ -3460,7 +3558,7 @@
             "exchange": "FWB2",
             "primaryExchange": "ATH",
             "conId": 592404996,
-            "search_method": "name",
+            "search_method": "ticker",
             "match_score": 0.9473684210526315
           }
         },
@@ -3589,8 +3687,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.007786647880297555,
           "eur_price": 19.61463,
-          "target_value_eur": 77.87,
-          "quantity": 0
+          "target_value_eur": 8042.05,
+          "quantity": 400,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6941",
+            "longName": "YAMAICHI ELECTRONICS CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 112131224,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "3844.T",
@@ -3675,8 +3783,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.02711901503138115,
           "eur_price": 41.600323,
-          "target_value_eur": 271.19,
-          "quantity": 0
+          "target_value_eur": 28008.52,
+          "quantity": 600,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6284",
+            "longName": "NISSEI ASB MACHINE CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 122259466,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "1723.T",
@@ -3696,8 +3814,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.015036285561953903,
           "eur_price": 29.520018,
-          "target_value_eur": 150.36,
-          "quantity": 0
+          "target_value_eur": 15529.48,
+          "quantity": 500,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "1723",
+            "longName": "NIHON DENGI CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131086802,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "6196.T",
@@ -3718,8 +3846,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.04645138218246475,
           "eur_price": 26.352833,
-          "target_value_eur": 464.51,
-          "quantity": 0
+          "target_value_eur": 47974.99,
+          "quantity": 1800,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6196",
+            "longName": "STRIKE CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 233883860,
+            "search_method": "isin",
+            "match_score": 0.8387096774193549
+          }
         },
         {
           "ticker": "7729.T",
@@ -3908,8 +4046,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.007786647880297555,
           "eur_price": 27.685474,
-          "target_value_eur": 77.87,
-          "quantity": 0
+          "target_value_eur": 8042.05,
+          "quantity": 200,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "4368",
+            "longName": "FUSO CHEMICAL CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131082890,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "CMB.MI",
@@ -3930,8 +4078,8 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.02228592324361025,
           "eur_price": 56.8,
-          "target_value_eur": 222.86,
-          "quantity": 4,
+          "target_value_eur": 23016.9,
+          "quantity": 405,
           "ibkr_details": {
             "found": true,
             "symbol": "CMB",
@@ -4282,8 +4430,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.058534111651892,
           "eur_price": 33.40833,
-          "target_value_eur": 585.34,
-          "quantity": 0
+          "target_value_eur": 60454.03,
+          "quantity": 1800,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6061",
+            "longName": "UNIVERSAL ENGEISHA CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131086854,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "3964.T",
@@ -4409,8 +4567,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.02228592324361025,
           "eur_price": 4.442137,
-          "target_value_eur": 222.86,
-          "quantity": 0
+          "target_value_eur": 23016.9,
+          "quantity": 5100,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "9564",
+            "longName": "FCE INC/JAPAN",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 587799345,
+            "search_method": "ticker",
+            "match_score": 0.4666666666666667
+          }
         },
         {
           "ticker": "RVRC.ST",
@@ -4686,8 +4854,8 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07544993290909015,
           "eur_price": 18.401235,
-          "target_value_eur": 754.5,
-          "quantity": 41,
+          "target_value_eur": 77924.69,
+          "quantity": 4235,
           "ibkr_details": {
             "found": true,
             "symbol": "DPM",
@@ -4738,8 +4906,8 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.010203193774183002,
           "eur_price": 4.32716,
-          "target_value_eur": 102.03,
-          "quantity": 24,
+          "target_value_eur": 10537.86,
+          "quantity": 2435,
           "ibkr_details": {
             "found": true,
             "symbol": "SVM",
@@ -4769,8 +4937,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07061684112131925,
           "eur_price": 40.827276,
-          "target_value_eur": 706.17,
-          "quantity": 0
+          "target_value_eur": 72933.07,
+          "quantity": 1700,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6957",
+            "longName": "SHIBAURA ELECTRONICS CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131086807,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "7730.T",
@@ -4833,8 +5011,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06095065754577744,
           "eur_price": 17.982001,
-          "target_value_eur": 609.51,
-          "quantity": 0
+          "target_value_eur": 62949.84,
+          "quantity": 3500,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "3763",
+            "longName": "PRO-SHIP INC",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131087827,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "CMPO",
@@ -4876,8 +5064,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06095065754577744,
           "eur_price": 33.154494,
-          "target_value_eur": 609.51,
-          "quantity": 0
+          "target_value_eur": 62949.84,
+          "quantity": 1800,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6454",
+            "longName": "MAX CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 14016675,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "3983.T",
@@ -5024,8 +5222,8 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.0633672034396629,
           "eur_price": 25.432203,
-          "target_value_eur": 633.67,
-          "quantity": 25,
+          "target_value_eur": 65445.65,
+          "quantity": 2573,
           "ibkr_details": {
             "found": true,
             "symbol": "ACMR",
@@ -5055,8 +5253,8 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.024702469137495707,
           "eur_price": 20.8,
-          "target_value_eur": 247.02,
-          "quantity": 12,
+          "target_value_eur": 25512.71,
+          "quantity": 1227,
           "ibkr_details": {
             "found": true,
             "symbol": "PWS",
@@ -5086,8 +5284,8 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.07303338701520469,
           "eur_price": 3.295455,
-          "target_value_eur": 730.33,
-          "quantity": 222,
+          "target_value_eur": 75428.88,
+          "quantity": 22889,
           "ibkr_details": {
             "found": true,
             "symbol": "RRL",
@@ -5140,8 +5338,8 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.024702469137495707,
           "eur_price": 10.624277,
-          "target_value_eur": 247.02,
-          "quantity": 23,
+          "target_value_eur": 25512.71,
+          "quantity": 2401,
           "ibkr_details": {
             "found": true,
             "symbol": "KNOS",
@@ -5299,8 +5497,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.0537010198641211,
           "eur_price": 15.962848,
-          "target_value_eur": 537.01,
-          "quantity": 0
+          "target_value_eur": 55462.41,
+          "quantity": 3400,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "4771",
+            "longName": "F&M CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131085405,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "BAHN-B.ST",
@@ -5616,8 +5824,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.0295355609252666,
           "eur_price": 16.360909,
-          "target_value_eur": 295.36,
-          "quantity": 0
+          "target_value_eur": 30504.33,
+          "quantity": 1800,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "3922",
+            "longName": "PR TIMES CORP",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 224110875,
+            "search_method": "isin",
+            "match_score": 0.8
+          }
         },
         {
           "ticker": "2150.T",
@@ -5637,8 +5855,8 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.06578374933354834,
           "eur_price": 6.51898,
-          "target_value_eur": 657.84,
-          "quantity": 100,
+          "target_value_eur": 67941.46,
+          "quantity": 10400,
           "ibkr_details": {
             "found": true,
             "symbol": "2150",
@@ -5753,8 +5971,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.04886792807635021,
           "eur_price": 14.37637,
-          "target_value_eur": 488.68,
-          "quantity": 0
+          "target_value_eur": 50470.8,
+          "quantity": 3500,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6580",
+            "longName": "WRITEUP CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 318184086,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "6037.T",
@@ -5774,8 +6002,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.0440348362885793,
           "eur_price": 6.490135,
-          "target_value_eur": 440.35,
-          "quantity": 0
+          "target_value_eur": 45479.18,
+          "quantity": 7000,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6037",
+            "longName": "RAKUMACHI INC",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 180235469,
+            "search_method": "isin",
+            "match_score": 0.37037037037037035
+          }
         },
         {
           "ticker": "FNX.L",
@@ -5816,8 +6054,8 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.04161829039469385,
           "eur_price": 4.404624,
-          "target_value_eur": 416.18,
-          "quantity": 94,
+          "target_value_eur": 42983.37,
+          "quantity": 9759,
           "ibkr_details": {
             "found": true,
             "symbol": "TM17",
@@ -6082,8 +6320,18 @@
           "screen_target": 0.7786647880297559,
           "final_target": 0.05128447397023565,
           "eur_price": 16.18207,
-          "target_value_eur": 512.84,
-          "quantity": 0
+          "target_value_eur": 52966.6,
+          "quantity": 3200,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "4377",
+            "longName": "ONE CAREER INC",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 512457825,
+            "search_method": "isin",
+            "match_score": 0.9655172413793104
+          }
         },
         {
           "ticker": "4816.T",
@@ -6674,7 +6922,17 @@
           "eur_price": 8.866967,
           "target_value_eur": 0.0,
           "quantity": 0,
-          "allocation_note": "minimal_allocation"
+          "allocation_note": "minimal_allocation",
+          "ibkr_details": {
+            "found": true,
+            "symbol": "1401",
+            "longName": "MBS INC",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 211595875,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "NEWA-B.ST",
@@ -6841,7 +7099,17 @@
           "eur_price": 6.888197,
           "target_value_eur": 0.0,
           "quantity": 0,
-          "allocation_note": "minimal_allocation"
+          "allocation_note": "minimal_allocation",
+          "ibkr_details": {
+            "found": true,
+            "symbol": "7818",
+            "longName": "TRANSACTION CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131085175,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "SIQ.AX",
@@ -7095,7 +7363,17 @@
           "eur_price": 149.737288,
           "target_value_eur": 0.0,
           "quantity": 0,
-          "allocation_note": "minimal_allocation"
+          "allocation_note": "minimal_allocation",
+          "ibkr_details": {
+            "found": true,
+            "symbol": "DHI",
+            "longName": "DR HORTON INC",
+            "exchange": "SMART",
+            "primaryExchange": "NYSE",
+            "conId": 268627,
+            "search_method": "isin",
+            "match_score": 0.896551724137931
+          }
         },
         {
           "ticker": "CW",
@@ -7508,7 +7786,17 @@
           "eur_price": 9.790008,
           "target_value_eur": 0.0,
           "quantity": 0,
-          "allocation_note": "minimal_allocation"
+          "allocation_note": "minimal_allocation",
+          "ibkr_details": {
+            "found": true,
+            "symbol": "7187",
+            "longName": "J-LEASE CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 233768688,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "6061.T",
@@ -7527,7 +7815,17 @@
           "eur_price": 33.40833,
           "target_value_eur": 0.0,
           "quantity": 0,
-          "allocation_note": "minimal_allocation"
+          "allocation_note": "minimal_allocation",
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6061",
+            "longName": "UNIVERSAL ENGEISHA CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131086854,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "4828.T",
@@ -7836,7 +8134,17 @@
           "eur_price": 13.539864,
           "target_value_eur": 0.0,
           "quantity": 0,
-          "allocation_note": "minimal_allocation"
+          "allocation_note": "minimal_allocation",
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6626",
+            "longName": "SEMITEC CORP",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131087537,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "3445.T",
@@ -7976,7 +8284,17 @@
           "eur_price": 41.600323,
           "target_value_eur": 0.0,
           "quantity": 0,
-          "allocation_note": "minimal_allocation"
+          "allocation_note": "minimal_allocation",
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6284",
+            "longName": "NISSEI ASB MACHINE CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 122259466,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "RBT.PA",
@@ -8294,8 +8612,14 @@
           "quantity": 0,
           "allocation_note": "minimal_allocation",
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "AEP",
+            "longName": "ANGLO-EASTERN PLANTATIONS",
+            "exchange": "SMART",
+            "primaryExchange": "LSE",
+            "conId": 15224436,
+            "search_method": "isin",
+            "match_score": 0.9259259259259259
           }
         },
         {
@@ -8379,7 +8703,17 @@
           "eur_price": 27.685474,
           "target_value_eur": 0.0,
           "quantity": 0,
-          "allocation_note": "minimal_allocation"
+          "allocation_note": "minimal_allocation",
+          "ibkr_details": {
+            "found": true,
+            "symbol": "4368",
+            "longName": "FUSO CHEMICAL CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131082890,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "ALG",
@@ -9507,7 +9841,17 @@
           "eur_price": 33.154494,
           "target_value_eur": 0.0,
           "quantity": 0,
-          "allocation_note": "minimal_allocation"
+          "allocation_note": "minimal_allocation",
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6454",
+            "longName": "MAX CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 14016675,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "6327.T",
@@ -9966,7 +10310,17 @@
           "eur_price": 46.77,
           "target_value_eur": 0.0,
           "quantity": 0,
-          "allocation_note": "minimal_allocation"
+          "allocation_note": "minimal_allocation",
+          "ibkr_details": {
+            "found": true,
+            "symbol": "WAVE",
+            "longName": "WAVESTONE",
+            "exchange": "SMART",
+            "primaryExchange": "SBF",
+            "conId": 331862803,
+            "search_method": "isin",
+            "match_score": 0.8571428571428571
+          }
         },
         {
           "ticker": "ILYDA.AT",
@@ -10525,8 +10879,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.013203790231328352,
           "eur_price": 26.352833,
-          "target_value_eur": 132.04,
-          "quantity": 0
+          "target_value_eur": 13636.87,
+          "quantity": 500,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6196",
+            "longName": "STRIKE CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 233883860,
+            "search_method": "isin",
+            "match_score": 0.8387096774193549
+          }
         },
         {
           "ticker": "MGPI",
@@ -10621,8 +10985,8 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.022133521197024407,
           "eur_price": 13.791209,
-          "target_value_eur": 221.34,
-          "quantity": 16,
+          "target_value_eur": 22859.5,
+          "quantity": 1658,
           "ibkr_details": {
             "found": true,
             "symbol": "ZZ.B",
@@ -10754,8 +11118,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.004274059265632298,
           "eur_price": 6.888197,
-          "target_value_eur": 42.74,
-          "quantity": 0
+          "target_value_eur": 4414.25,
+          "quantity": 600,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "7818",
+            "longName": "TRANSACTION CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131085175,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "3661.T",
@@ -10775,8 +11149,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.014577594995281593,
           "eur_price": 12.795662,
-          "target_value_eur": 145.78,
-          "quantity": 0
+          "target_value_eur": 15055.74,
+          "quantity": 1100,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "3661",
+            "longName": "M-UP HOLDINGS INC",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 104084486,
+            "search_method": "isin",
+            "match_score": 0.64
+          }
         },
         {
           "ticker": "GAMA.L",
@@ -10811,8 +11195,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.007708571175515396,
           "eur_price": 149.737288,
-          "target_value_eur": 77.09,
-          "quantity": 1
+          "target_value_eur": 7961.41,
+          "quantity": 53,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "DHI",
+            "longName": "DR HORTON INC",
+            "exchange": "SMART",
+            "primaryExchange": "NYSE",
+            "conId": 268627,
+            "search_method": "isin",
+            "match_score": 0.896551724137931
+          }
         },
         {
           "ticker": "6086.T",
@@ -10832,8 +11226,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.019385911669117926,
           "eur_price": 6.657436,
-          "target_value_eur": 193.86,
-          "quantity": 0
+          "target_value_eur": 20021.77,
+          "quantity": 3000,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6086",
+            "longName": "SHIN MAINT HOLDINGS CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 138276215,
+            "search_method": "isin",
+            "match_score": 0.6363636363636364
+          }
         },
         {
           "ticker": "8111.T",
@@ -10868,8 +11272,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.015264497377258211,
           "eur_price": 9.790008,
-          "target_value_eur": 152.64,
-          "quantity": 0
+          "target_value_eur": 15765.17,
+          "quantity": 1600,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "7187",
+            "longName": "J-LEASE CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 233768688,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "FRAN.L",
@@ -10910,8 +11324,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.011143083085398494,
           "eur_price": 12.062998,
-          "target_value_eur": 111.43,
-          "quantity": 0
+          "target_value_eur": 11508.58,
+          "quantity": 900,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "9381",
+            "longName": "AIT CORP",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 47383921,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "MOUR.BR",
@@ -10931,8 +11355,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.003587156883655679,
           "eur_price": 570.0,
-          "target_value_eur": 35.87,
-          "quantity": 0
+          "target_value_eur": 3704.82,
+          "quantity": 6,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "MOUR",
+            "longName": "MOURY CONSTRUCT S.A.",
+            "exchange": "SMART",
+            "primaryExchange": "ENEXT.BE",
+            "conId": 36790656,
+            "search_method": "isin",
+            "match_score": 0.9473684210526315
+          }
         },
         {
           "ticker": "3676.T",
@@ -10952,8 +11386,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.009082375939468635,
           "eur_price": 5.554806,
-          "target_value_eur": 90.82,
-          "quantity": 0
+          "target_value_eur": 9380.28,
+          "quantity": 1600,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "3676",
+            "longName": "DIGITAL HEARTS HOLDINGS CO L",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 134127984,
+            "search_method": "isin",
+            "match_score": 0.5185185185185185
+          }
         },
         {
           "ticker": "3762.T",
@@ -11009,11 +11453,17 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.013890692613304974,
           "eur_price": 5.064103,
-          "target_value_eur": 138.91,
-          "quantity": 27,
+          "target_value_eur": 14346.31,
+          "quantity": 2833,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "SVED.B",
+            "longName": "SVEDBERGS I DALSTORP AB",
+            "exchange": "SMART",
+            "primaryExchange": "SFB",
+            "conId": 3203184,
+            "search_method": "isin",
+            "match_score": 0.8679245283018868
           }
         },
         {
@@ -11034,8 +11484,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.01801210690516469,
           "eur_price": 12.576439,
-          "target_value_eur": 180.12,
-          "quantity": 0
+          "target_value_eur": 18602.9,
+          "quantity": 1400,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "4832",
+            "longName": "JFE SYSTEMS INC",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 14031167,
+            "search_method": "isin",
+            "match_score": 0.967741935483871
+          }
         },
         {
           "ticker": "THEP.PA",
@@ -11112,8 +11572,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.0022133521197024394,
           "eur_price": 19.38387,
-          "target_value_eur": 22.13,
-          "quantity": 0
+          "target_value_eur": 2285.95,
+          "quantity": 100,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "9790",
+            "longName": "FUKUI COMPUTER HOLDINGS INC",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 37926693,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "SINT.ST",
@@ -11214,8 +11684,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.01869900928714131,
           "eur_price": 8.716972,
-          "target_value_eur": 186.99,
-          "quantity": 0
+          "target_value_eur": 19312.34,
+          "quantity": 2200,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "9753",
+            "longName": "IX KNOWLEDGE INC",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131086184,
+            "search_method": "isin",
+            "match_score": 0.9696969696969697
+          }
         },
         {
           "ticker": "3678.T",
@@ -11235,8 +11715,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.01663830214121145,
           "eur_price": 11.145725,
-          "target_value_eur": 166.38,
-          "quantity": 0
+          "target_value_eur": 17184.04,
+          "quantity": 1500,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "3678",
+            "longName": "MEDIA DO CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 136480995,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "2379.T",
@@ -11313,8 +11803,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.008395473557492015,
           "eur_price": 46.77,
-          "target_value_eur": 83.95,
-          "quantity": 2
+          "target_value_eur": 8670.85,
+          "quantity": 185,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "WAVE",
+            "longName": "WAVESTONE",
+            "exchange": "SMART",
+            "primaryExchange": "SBF",
+            "conId": 331862803,
+            "search_method": "isin",
+            "match_score": 0.8571428571428571
+          }
         },
         {
           "ticker": "3969.T",
@@ -11355,8 +11855,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.010456180703421875,
           "eur_price": 9.916926,
-          "target_value_eur": 104.56,
-          "quantity": 0
+          "target_value_eur": 10799.14,
+          "quantity": 1000,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6199",
+            "longName": "SERAKU CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 235161210,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "2163.T",
@@ -11394,8 +11904,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.002900254501679058,
           "eur_price": 89.614973,
-          "target_value_eur": 29.0,
-          "quantity": 0
+          "target_value_eur": 2995.38,
+          "quantity": 33,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "LOGN",
+            "longName": "LOGITECH INTERNATIONAL-REG",
+            "exchange": "SMART",
+            "primaryExchange": "EBS",
+            "conId": 39999891,
+            "search_method": "isin",
+            "match_score": 0.8301886792452831
+          }
         },
         {
           "ticker": "ONTO",
@@ -11433,8 +11953,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.006334766411562156,
           "eur_price": 13.539864,
-          "target_value_eur": 63.35,
-          "quantity": 0
+          "target_value_eur": 6542.55,
+          "quantity": 400,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6626",
+            "longName": "SEMITEC CORP",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131087537,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "4763.T",
@@ -11532,11 +12062,17 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.021446618815047787,
           "eur_price": 0.297619,
-          "target_value_eur": 214.47,
-          "quantity": 721,
+          "target_value_eur": 22150.07,
+          "quantity": 74424,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "BRE2",
+            "longName": "BREDBAND2 I SKANDINAVIEN AB",
+            "exchange": "SMART",
+            "primaryExchange": "SFB",
+            "conId": 288231257,
+            "search_method": "isin",
+            "match_score": 1.0
           }
         },
         {
@@ -11557,11 +12093,17 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.011829985467375112,
           "eur_price": 7.812271,
-          "target_value_eur": 118.3,
-          "quantity": 15,
+          "target_value_eur": 12218.01,
+          "quantity": 1564,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "NTEK.B",
+            "longName": "NOVOTEK AB-B SHS",
+            "exchange": "SMART",
+            "primaryExchange": "SFB",
+            "conId": 4828869,
+            "search_method": "isin",
+            "match_score": 0.7692307692307693
           }
         },
         {
@@ -11582,8 +12124,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.0049609616476089195,
           "eur_price": 13.62063,
-          "target_value_eur": 49.61,
-          "quantity": 0
+          "target_value_eur": 5123.68,
+          "quantity": 300,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "9769",
+            "longName": "GAKKYUSHA CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131084495,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "MATX",
@@ -11639,8 +12191,8 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.007021668793538777,
           "eur_price": 10.624277,
-          "target_value_eur": 70.22,
-          "quantity": 7,
+          "target_value_eur": 7251.98,
+          "quantity": 683,
           "ibkr_details": {
             "found": true,
             "symbol": "KNOS",
@@ -11868,8 +12420,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.012516887849351732,
           "eur_price": 16.003231,
-          "target_value_eur": 125.17,
-          "quantity": 0
+          "target_value_eur": 12927.44,
+          "quantity": 800,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "2146",
+            "longName": "UT GROUP CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131081539,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "NWC.TO",
@@ -11910,8 +12472,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.009769278321445253,
           "eur_price": 10.655359,
-          "target_value_eur": 97.69,
-          "quantity": 0
+          "target_value_eur": 10089.71,
+          "quantity": 900,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "6750",
+            "longName": "ELECOM CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 129106747,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "3088.T",
@@ -11931,8 +12503,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.01732520452318807,
           "eur_price": 18.772355,
-          "target_value_eur": 173.25,
-          "quantity": 0
+          "target_value_eur": 17893.47,
+          "quantity": 900,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "3088",
+            "longName": "MATSUKIYOCOCOKARA & CO",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 46537327,
+            "search_method": "isin",
+            "match_score": 0.9777777777777777
+          }
         },
         {
           "ticker": "6055.T",
@@ -11970,11 +12552,17 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.005647864029585538,
           "eur_price": 3.709877,
-          "target_value_eur": 56.48,
-          "quantity": 15,
+          "target_value_eur": 5833.11,
+          "quantity": 1572,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "VCI",
+            "longName": "VITREOUS GLASS INC",
+            "exchange": "SMART",
+            "primaryExchange": "VENTURE",
+            "conId": 42898654,
+            "search_method": "isin",
+            "match_score": 0.972972972972973
           }
         },
         {
@@ -12016,8 +12604,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.020759716433071167,
           "eur_price": 20.797277,
-          "target_value_eur": 207.6,
-          "quantity": 0
+          "target_value_eur": 21440.64,
+          "quantity": 1000,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "7419",
+            "longName": "NOJIMA CORP",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131083812,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "6194.T",
@@ -12055,8 +12653,18 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.01595139975923483,
           "eur_price": 27.483558,
-          "target_value_eur": 159.51,
-          "quantity": 0
+          "target_value_eur": 16474.61,
+          "quantity": 500,
+          "ibkr_details": {
+            "found": true,
+            "symbol": "4686",
+            "longName": "JUSTSYSTEMS CORP",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131086553,
+            "search_method": "isin",
+            "match_score": 1.0
+          }
         },
         {
           "ticker": "7508.T",
@@ -12157,11 +12765,17 @@
           "screen_target": 0.22133521197024406,
           "final_target": 0.02007281405109455,
           "eur_price": 13.02,
-          "target_value_eur": 200.73,
-          "quantity": 15,
+          "target_value_eur": 20731.2,
+          "quantity": 1592,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "AJ91",
+            "longName": "DOCCHECK AG",
+            "exchange": "SMART",
+            "primaryExchange": "IBIS",
+            "conId": 70101035,
+            "search_method": "isin",
+            "match_score": 1.0
           }
         },
         {
@@ -12391,8 +13005,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.012619739668068458,
       "eur_price": 4.03271,
-      "target_value_eur": 126.2,
-      "quantity": 0
+      "target_value_eur": 13033.67,
+      "quantity": 3200
     },
     "7921.T": {
       "ticker": "7921.T",
@@ -12541,8 +13155,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.006334766411562156,
       "eur_price": 13.539864,
-      "target_value_eur": 63.35,
-      "quantity": 0
+      "target_value_eur": 6542.55,
+      "quantity": 400
     },
     "AEP.L": {
       "ticker": "AEP.L",
@@ -12859,8 +13473,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.04645138218246475,
       "eur_price": 35.814007,
-      "target_value_eur": 464.51,
-      "quantity": 0
+      "target_value_eur": 47974.99,
+      "quantity": 1300
     },
     "6965.T": {
       "ticker": "6965.T",
@@ -12988,8 +13602,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07786647880297559,
       "eur_price": 69.8,
-      "target_value_eur": 778.66,
-      "quantity": 11
+      "target_value_eur": 80420.5,
+      "quantity": 1152
     },
     "AIXA.DE": {
       "ticker": "AIXA.DE",
@@ -13031,8 +13645,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.017452831455839358,
       "eur_price": 6.334372,
-      "target_value_eur": 174.53,
-      "quantity": 0
+      "target_value_eur": 18025.28,
+      "quantity": 2800
     },
     "8117.T": {
       "ticker": "8117.T",
@@ -13094,8 +13708,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.0343686527130375,
       "eur_price": 6.739927,
-      "target_value_eur": 343.69,
-      "quantity": 51
+      "target_value_eur": 35495.94,
+      "quantity": 5267
     },
     "6101.T": {
       "ticker": "6101.T",
@@ -13115,8 +13729,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.019869377349724805,
       "eur_price": 12.92258,
-      "target_value_eur": 198.69,
-      "quantity": 0
+      "target_value_eur": 20521.09,
+      "quantity": 1500
     },
     "7734.T": {
       "ticker": "7734.T",
@@ -13160,8 +13774,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.004274059265632298,
       "eur_price": 6.888197,
-      "target_value_eur": 42.74,
-      "quantity": 0
+      "target_value_eur": 4414.25,
+      "quantity": 600
     },
     "BETS-B.ST": {
       "ticker": "BETS-B.ST",
@@ -13265,8 +13879,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.058534111651892,
       "eur_price": 8.737288,
-      "target_value_eur": 585.34,
-      "quantity": 67
+      "target_value_eur": 60454.03,
+      "quantity": 6919
     },
     "ACLS": {
       "ticker": "ACLS",
@@ -13349,8 +13963,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.02711901503138115,
       "eur_price": 3.159052,
-      "target_value_eur": 271.19,
-      "quantity": 0
+      "target_value_eur": 28008.52,
+      "quantity": 8800
     },
     "4477.T": {
       "ticker": "4477.T",
@@ -14073,8 +14687,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.0392017445008084,
       "eur_price": 36.4,
-      "target_value_eur": 392.02,
-      "quantity": 11
+      "target_value_eur": 40487.56,
+      "quantity": 1112
     },
     "7595.T": {
       "ticker": "7595.T",
@@ -14201,8 +14815,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.007786647880297555,
       "eur_price": 19.61463,
-      "target_value_eur": 77.87,
-      "quantity": 0
+      "target_value_eur": 8042.05,
+      "quantity": 400
     },
     "3844.T": {
       "ticker": "3844.T",
@@ -14309,8 +14923,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.015036285561953903,
       "eur_price": 29.520018,
-      "target_value_eur": 150.36,
-      "quantity": 0
+      "target_value_eur": 15529.48,
+      "quantity": 500
     },
     "6196.T": {
       "ticker": "6196.T",
@@ -14331,8 +14945,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.013203790231328352,
       "eur_price": 26.352833,
-      "target_value_eur": 132.04,
-      "quantity": 0
+      "target_value_eur": 13636.87,
+      "quantity": 500
     },
     "7729.T": {
       "ticker": "7729.T",
@@ -15015,8 +15629,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.02228592324361025,
       "eur_price": 4.442137,
-      "target_value_eur": 222.86,
-      "quantity": 0
+      "target_value_eur": 23016.9,
+      "quantity": 5100
     },
     "RVRC.ST": {
       "ticker": "RVRC.ST",
@@ -15292,8 +15906,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07544993290909015,
       "eur_price": 18.401235,
-      "target_value_eur": 754.5,
-      "quantity": 41
+      "target_value_eur": 77924.69,
+      "quantity": 4235
     },
     "NPK": {
       "ticker": "NPK",
@@ -15334,8 +15948,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.010203193774183002,
       "eur_price": 4.32716,
-      "target_value_eur": 102.03,
-      "quantity": 24
+      "target_value_eur": 10537.86,
+      "quantity": 2435
     },
     "6957.T": {
       "ticker": "6957.T",
@@ -15355,8 +15969,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07061684112131925,
       "eur_price": 40.827276,
-      "target_value_eur": 706.17,
-      "quantity": 0
+      "target_value_eur": 72933.07,
+      "quantity": 1700
     },
     "7730.T": {
       "ticker": "7730.T",
@@ -15419,8 +16033,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06095065754577744,
       "eur_price": 17.982001,
-      "target_value_eur": 609.51,
-      "quantity": 0
+      "target_value_eur": 62949.84,
+      "quantity": 3500
     },
     "CMPO": {
       "ticker": "CMPO",
@@ -15611,8 +16225,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.0633672034396629,
       "eur_price": 25.432203,
-      "target_value_eur": 633.67,
-      "quantity": 25
+      "target_value_eur": 65445.65,
+      "quantity": 2573
     },
     "PWS.MI": {
       "ticker": "PWS.MI",
@@ -15632,8 +16246,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.024702469137495707,
       "eur_price": 20.8,
-      "target_value_eur": 247.02,
-      "quantity": 12
+      "target_value_eur": 25512.71,
+      "quantity": 1227
     },
     "RRL.AX": {
       "ticker": "RRL.AX",
@@ -15653,8 +16267,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.07303338701520469,
       "eur_price": 3.295455,
-      "target_value_eur": 730.33,
-      "quantity": 222
+      "target_value_eur": 75428.88,
+      "quantity": 22889
     },
     "6194.T": {
       "ticker": "6194.T",
@@ -15697,8 +16311,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.007021668793538777,
       "eur_price": 10.624277,
-      "target_value_eur": 70.22,
-      "quantity": 7
+      "target_value_eur": 7251.98,
+      "quantity": 683
     },
     "3649.T": {
       "ticker": "3649.T",
@@ -15846,8 +16460,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.0537010198641211,
       "eur_price": 15.962848,
-      "target_value_eur": 537.01,
-      "quantity": 0
+      "target_value_eur": 55462.41,
+      "quantity": 3400
     },
     "BAHN-B.ST": {
       "ticker": "BAHN-B.ST",
@@ -16163,8 +16777,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.0295355609252666,
       "eur_price": 16.360909,
-      "target_value_eur": 295.36,
-      "quantity": 0
+      "target_value_eur": 30504.33,
+      "quantity": 1800
     },
     "2150.T": {
       "ticker": "2150.T",
@@ -16184,8 +16798,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.06578374933354834,
       "eur_price": 6.51898,
-      "target_value_eur": 657.84,
-      "quantity": 100
+      "target_value_eur": 67941.46,
+      "quantity": 10400
     },
     "9272.T": {
       "ticker": "9272.T",
@@ -16290,8 +16904,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.04886792807635021,
       "eur_price": 14.37637,
-      "target_value_eur": 488.68,
-      "quantity": 0
+      "target_value_eur": 50470.8,
+      "quantity": 3500
     },
     "6037.T": {
       "ticker": "6037.T",
@@ -16311,8 +16925,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.0440348362885793,
       "eur_price": 6.490135,
-      "target_value_eur": 440.35,
-      "quantity": 0
+      "target_value_eur": 45479.18,
+      "quantity": 7000
     },
     "FNX.L": {
       "ticker": "FNX.L",
@@ -16353,8 +16967,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.04161829039469385,
       "eur_price": 4.404624,
-      "target_value_eur": 416.18,
-      "quantity": 94
+      "target_value_eur": 42983.37,
+      "quantity": 9759
     },
     "QTCOM.HE": {
       "ticker": "QTCOM.HE",
@@ -16609,8 +17223,8 @@
       "screen_target": 0.7786647880297559,
       "final_target": 0.05128447397023565,
       "eur_price": 16.18207,
-      "target_value_eur": 512.84,
-      "quantity": 0
+      "target_value_eur": 52966.6,
+      "quantity": 3200
     },
     "4816.T": {
       "ticker": "4816.T",
@@ -17540,8 +18154,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.007708571175515396,
       "eur_price": 149.737288,
-      "target_value_eur": 77.09,
-      "quantity": 1
+      "target_value_eur": 7961.41,
+      "quantity": 53
     },
     "CW": {
       "ticker": "CW",
@@ -17898,8 +18512,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.015264497377258211,
       "eur_price": 9.790008,
-      "target_value_eur": 152.64,
-      "quantity": 0
+      "target_value_eur": 15765.17,
+      "quantity": 1600
     },
     "4828.T": {
       "ticker": "4828.T",
@@ -19974,8 +20588,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.008395473557492015,
       "eur_price": 46.77,
-      "target_value_eur": 83.95,
-      "quantity": 2
+      "target_value_eur": 8670.85,
+      "quantity": 185
     },
     "ILYDA.AT": {
       "ticker": "ILYDA.AT",
@@ -20462,8 +21076,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.022133521197024407,
       "eur_price": 13.791209,
-      "target_value_eur": 221.34,
-      "quantity": 16
+      "target_value_eur": 22859.5,
+      "quantity": 1658
     },
     "WATR.L": {
       "ticker": "WATR.L",
@@ -20588,8 +21202,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.014577594995281593,
       "eur_price": 12.795662,
-      "target_value_eur": 145.78,
-      "quantity": 0
+      "target_value_eur": 15055.74,
+      "quantity": 1100
     },
     "6086.T": {
       "ticker": "6086.T",
@@ -20609,8 +21223,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.019385911669117926,
       "eur_price": 6.657436,
-      "target_value_eur": 193.86,
-      "quantity": 0
+      "target_value_eur": 20021.77,
+      "quantity": 3000
     },
     "FRAN.L": {
       "ticker": "FRAN.L",
@@ -20651,8 +21265,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.011143083085398494,
       "eur_price": 12.062998,
-      "target_value_eur": 111.43,
-      "quantity": 0
+      "target_value_eur": 11508.58,
+      "quantity": 900
     },
     "MOUR.BR": {
       "ticker": "MOUR.BR",
@@ -20672,8 +21286,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.003587156883655679,
       "eur_price": 570.0,
-      "target_value_eur": 35.87,
-      "quantity": 0
+      "target_value_eur": 3704.82,
+      "quantity": 6
     },
     "3676.T": {
       "ticker": "3676.T",
@@ -20693,8 +21307,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.009082375939468635,
       "eur_price": 5.554806,
-      "target_value_eur": 90.82,
-      "quantity": 0
+      "target_value_eur": 9380.28,
+      "quantity": 1600
     },
     "SVED-B.ST": {
       "ticker": "SVED-B.ST",
@@ -20714,8 +21328,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.013890692613304974,
       "eur_price": 5.064103,
-      "target_value_eur": 138.91,
-      "quantity": 27
+      "target_value_eur": 14346.31,
+      "quantity": 2833
     },
     "4832.T": {
       "ticker": "4832.T",
@@ -20735,8 +21349,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.01801210690516469,
       "eur_price": 12.576439,
-      "target_value_eur": 180.12,
-      "quantity": 0
+      "target_value_eur": 18602.9,
+      "quantity": 1400
     },
     "MONC.MI": {
       "ticker": "MONC.MI",
@@ -20777,8 +21391,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.0022133521197024394,
       "eur_price": 19.38387,
-      "target_value_eur": 22.13,
-      "quantity": 0
+      "target_value_eur": 2285.95,
+      "quantity": 100
     },
     "SINT.ST": {
       "ticker": "SINT.ST",
@@ -20861,8 +21475,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.01869900928714131,
       "eur_price": 8.716972,
-      "target_value_eur": 186.99,
-      "quantity": 0
+      "target_value_eur": 19312.34,
+      "quantity": 2200
     },
     "3678.T": {
       "ticker": "3678.T",
@@ -20882,8 +21496,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.01663830214121145,
       "eur_price": 11.145725,
-      "target_value_eur": 166.38,
-      "quantity": 0
+      "target_value_eur": 17184.04,
+      "quantity": 1500
     },
     "2379.T": {
       "ticker": "2379.T",
@@ -20966,8 +21580,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.010456180703421875,
       "eur_price": 9.916926,
-      "target_value_eur": 104.56,
-      "quantity": 0
+      "target_value_eur": 10799.14,
+      "quantity": 1000
     },
     "LOGN.SW": {
       "ticker": "LOGN.SW",
@@ -20987,8 +21601,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.002900254501679058,
       "eur_price": 89.614973,
-      "target_value_eur": 29.0,
-      "quantity": 0
+      "target_value_eur": 2995.38,
+      "quantity": 33
     },
     "ONTO": {
       "ticker": "ONTO",
@@ -21071,8 +21685,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.021446618815047787,
       "eur_price": 0.297619,
-      "target_value_eur": 214.47,
-      "quantity": 721
+      "target_value_eur": 22150.07,
+      "quantity": 74424
     },
     "NTEK-B.ST": {
       "ticker": "NTEK-B.ST",
@@ -21092,8 +21706,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.011829985467375112,
       "eur_price": 7.812271,
-      "target_value_eur": 118.3,
-      "quantity": 15
+      "target_value_eur": 12218.01,
+      "quantity": 1564
     },
     "9769.T": {
       "ticker": "9769.T",
@@ -21113,8 +21727,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.0049609616476089195,
       "eur_price": 13.62063,
-      "target_value_eur": 49.61,
-      "quantity": 0
+      "target_value_eur": 5123.68,
+      "quantity": 300
     },
     "2371.T": {
       "ticker": "2371.T",
@@ -21281,8 +21895,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.012516887849351732,
       "eur_price": 16.003231,
-      "target_value_eur": 125.17,
-      "quantity": 0
+      "target_value_eur": 12927.44,
+      "quantity": 800
     },
     "NWC.TO": {
       "ticker": "NWC.TO",
@@ -21323,8 +21937,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.009769278321445253,
       "eur_price": 10.655359,
-      "target_value_eur": 97.69,
-      "quantity": 0
+      "target_value_eur": 10089.71,
+      "quantity": 900
     },
     "3088.T": {
       "ticker": "3088.T",
@@ -21344,8 +21958,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.01732520452318807,
       "eur_price": 18.772355,
-      "target_value_eur": 173.25,
-      "quantity": 0
+      "target_value_eur": 17893.47,
+      "quantity": 900
     },
     "VCI.V": {
       "ticker": "VCI.V",
@@ -21365,8 +21979,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.005647864029585538,
       "eur_price": 3.709877,
-      "target_value_eur": 56.48,
-      "quantity": 15
+      "target_value_eur": 5833.11,
+      "quantity": 1572
     },
     "RNWH.L": {
       "ticker": "RNWH.L",
@@ -21407,8 +22021,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.020759716433071167,
       "eur_price": 20.797277,
-      "target_value_eur": 207.6,
-      "quantity": 0
+      "target_value_eur": 21440.64,
+      "quantity": 1000
     },
     "4686.T": {
       "ticker": "4686.T",
@@ -21428,8 +22042,8 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.01595139975923483,
       "eur_price": 27.483558,
-      "target_value_eur": 159.51,
-      "quantity": 0
+      "target_value_eur": 16474.61,
+      "quantity": 500
     },
     "7508.T": {
       "ticker": "7508.T",
@@ -21512,13 +22126,13 @@
       "screen_target": 0.22133521197024406,
       "final_target": 0.02007281405109455,
       "eur_price": 13.02,
-      "target_value_eur": 200.73,
-      "quantity": 15
+      "target_value_eur": 20731.2,
+      "quantity": 1592
     }
   },
   "account_total_value": {
-    "value": 10000.0,
+    "value": 1032800.0,
     "currency": "EUR",
-    "timestamp": "2025-09-16 17:52:23"
+    "timestamp": "2025-09-16 20:40:00"
   }
 }
