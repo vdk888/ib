@@ -70,7 +70,7 @@ def create_contract_from_ticker(ticker, currency, exchange="SMART"):
 def test_stock_search(app, stock, verbose=True):
     """Test simplified stock search"""
     if verbose:
-        print(f"\n🔍 Searching: {stock['name']} ({stock.get('ticker', 'N/A')})")
+        print(f"\nSearching: {stock['name']} ({stock.get('ticker', 'N/A')})")
 
     # Strategy: Simple ticker search only
     if stock.get('ticker'):
@@ -78,7 +78,7 @@ def test_stock_search(app, stock, verbose=True):
         currency = stock['currency']
 
         if verbose:
-            print(f"  🎯 Trying ticker: {ticker} ({currency})")
+            print(f"  Trying ticker: {ticker} ({currency})")
 
         contract = create_contract_from_ticker(ticker, currency, "SMART")
 
@@ -88,7 +88,7 @@ def test_stock_search(app, stock, verbose=True):
         req_id = app.next_req_id
         app.next_req_id += 1
 
-        print(f"  📡 Requesting contract details (ID: {req_id})...")
+        print(f"  Requesting contract details (ID: {req_id})...")
         app.reqContractDetails(req_id, contract)
 
         # Wait for search with timeout
@@ -102,14 +102,14 @@ def test_stock_search(app, stock, verbose=True):
                 result = app.contract_details[0]
                 result['search_method'] = 'ticker'
                 if verbose:
-                    print(f"  ✅ FOUND: {result['symbol']} on {result['exchange']}")
+                    print(f"  FOUND: {result['symbol']} on {result['exchange']}")
                 return result, 1.0
             else:
                 if verbose:
-                    print(f"  ❌ No contracts returned")
+                    print(f"  No contracts returned")
         else:
             if verbose:
-                print(f"  ⏰ Search timed out after {timeout} seconds")
+                print(f"  Search timed out after {timeout} seconds")
 
         time.sleep(0.2)  # Small delay between searches
 

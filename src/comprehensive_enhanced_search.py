@@ -431,7 +431,7 @@ def comprehensive_stock_search(app, stock, verbose=False):
 def extract_unique_stocks(universe_data):
     """Extract unique stocks from universe.json"""
     unique_stocks = {}
-    
+
     # Process all screens
     for screen_name, screen_data in universe_data.get('screens', {}).items():
         for stock in screen_data.get('stocks', []):
@@ -444,10 +444,16 @@ def extract_unique_stocks(universe_data):
                     'name': stock.get('name'),
                     'currency': stock.get('currency'),
                     'sector': stock.get('sector'),
-                    'country': stock.get('country')
+                    'country': stock.get('country'),
+                    'quantity': stock.get('quantity', 0)  # Include quantity field
                 }
-    
+
     return list(unique_stocks.values())
+
+def filter_stocks_by_quantity(stocks):
+    """Filter stocks to only include those with quantities > 0"""
+    filtered_stocks = [stock for stock in stocks if stock.get('quantity', 0) > 0]
+    return filtered_stocks
 
 def update_universe_with_ibkr_details(universe_data, stock_ticker, ibkr_details):
     """Update universe.json with IBKR identification details"""
@@ -492,8 +498,16 @@ def process_all_universe_stocks():
         universe_data = json.load(f)
     
     # Extract unique stocks
-    unique_stocks = extract_unique_stocks(universe_data)
-    print(f"Found {len(unique_stocks)} unique stocks in universe.json")
+    all_unique_stocks = extract_unique_stocks(universe_data)
+    print(f"Found {len(all_unique_stocks)} unique stocks in universe.json")
+
+    # Filter to only stocks with quantities > 0
+    unique_stocks = filter_stocks_by_quantity(all_unique_stocks)
+    print(f"Filtered to {len(unique_stocks)} stocks with quantities > 0 (from {len(all_unique_stocks)} total)")
+
+    if len(unique_stocks) == 0:
+        print("❌ No stocks with quantities > 0 found. Exiting.")
+        return
     
     # Connect to IBKR
     app = IBApi()
@@ -591,7 +605,7 @@ def process_all_universe_stocks():
     app.disconnect()
     
     # Save updated universe.json
-    output_path = script_dir.parent / 'data' / 'universe_with_ibkr.json'
+    output_path = script_dir.parent / 'data' / 'universe_with_ibkr_filtered.json'
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(universe_data, f, indent=2, ensure_ascii=False)
     
