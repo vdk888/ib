@@ -97,5 +97,5 @@ url parameters
 ,ownerEarnings,The user id of the account that owns the query. To be used when exporting a private saved query from outside Uncle Stock.
 ,history,Export history of the stocks.
 url:,"https://www.unclestock.com/csv?user=5463792491167744&query=Moat+Companies&results=200&owner=5463792491167744"
-API usage counter:,205,today:,2
+API usage counter:,211,today:,8
 API max usage:,300,daily:,300

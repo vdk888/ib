@@ -92,7 +92,15 @@ async def get_all_screener_data(
                 screener_name=result.get("screener_name")
             )
 
-        return AllScreenersResponse(screeners=screener_responses)
+        # Calculate summary statistics
+        total_screeners = len(screener_responses)
+        successful_screeners = sum(1 for r in screener_responses.values() if r.success)
+
+        return AllScreenersResponse(
+            screeners=screener_responses,
+            total_screeners=total_screeners,
+            successful_screeners=successful_screeners
+        )
 
     except UncleStockTimeoutError as e:
         logger.warning(f"Uncle Stock API timeout: {str(e)}")
@@ -215,7 +223,15 @@ async def get_all_screener_histories(
                 screener_name=result.get("screener_name")
             )
 
-        return AllScreenerHistoriesResponse(screeners=screener_responses)
+        # Calculate summary statistics
+        total_screeners = len(screener_responses)
+        successful_screeners = sum(1 for r in screener_responses.values() if r.success)
+
+        return AllScreenerHistoriesResponse(
+            screeners=screener_responses,
+            total_screeners=total_screeners,
+            successful_screeners=successful_screeners
+        )
 
     except UncleStockTimeoutError as e:
         logger.warning(f"Uncle Stock API timeout: {str(e)}")
