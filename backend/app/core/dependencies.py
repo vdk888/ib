@@ -3,7 +3,7 @@ Dependency injection container
 """
 from functools import lru_cache
 from .config import Settings
-from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer, ITargetAllocationService, IOrderExecutionService, IRebalancingService, IAccountService, IQuantityCalculator, IPipelineOrchestrator, ICurrencyService
+from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer, ITargetAllocationService, IOrderExecutionService, IRebalancingService, IAccountService, IQuantityCalculator, IPipelineOrchestrator, ICurrencyService, IIBKRSearchService
 from ..services.implementations.screener_service import ScreenerService
 from ..services.implementations.uncle_stock_provider import UncleStockProvider
 from ..services.implementations.file_manager import FileManager
@@ -17,6 +17,7 @@ from ..services.implementations.quantity_service import QuantityService
 from ..services.implementations.quantity_orchestrator_service import QuantityOrchestratorService
 from ..services.implementations.pipeline_orchestrator_service import PipelineOrchestratorService
 from ..services.implementations.currency_service import CurrencyService
+from ..services.implementations.ibkr_search_service import IBKRSearchService
 
 @lru_cache()
 def get_settings() -> Settings:
@@ -37,6 +38,7 @@ _quantity_service = None
 _quantity_orchestrator_service = None
 _pipeline_orchestrator_service = None
 _currency_service = None
+_ibkr_search_service = None
 
 
 def get_file_manager() -> FileManager:
@@ -148,20 +150,9 @@ def get_currency_service() -> ICurrencyService:
         _currency_service = CurrencyService()
     return _currency_service
 
-# IBKR Search Service Dependencies
-from ..services.ibkr_interface import IIBKRSearchService
-from ..services.implementations.ibkr_search_service import IBKRSearchService
-
-# Global singleton for IBKR search service
-_ibkr_search_service = None
-
 def get_ibkr_search_service() -> IIBKRSearchService:
     """Get IBKR search service instance"""
     global _ibkr_search_service
     if _ibkr_search_service is None:
-        settings = get_settings()
-        _ibkr_search_service = IBKRSearchService(
-            ibkr_host=getattr(settings, 'ibkr_host', '127.0.0.1'),
-            ibkr_port=getattr(settings, 'ibkr_port', 4002)
-        )
+        _ibkr_search_service = IBKRSearchService()
     return _ibkr_search_service

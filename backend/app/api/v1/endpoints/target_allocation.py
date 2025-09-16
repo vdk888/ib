@@ -7,7 +7,7 @@ from typing import Dict, Any
 from fastapi import APIRouter, HTTPException, Depends, status
 from pydantic import ValidationError
 
-from ....core.dependencies_clean import get_target_allocation_service
+from ....core.dependencies import get_target_allocation_service
 from ....services.interfaces import ITargetAllocationService
 from ....models.schemas import (
     TargetAllocationResponse,

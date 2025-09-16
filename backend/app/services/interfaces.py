@@ -1887,3 +1887,239 @@ class IQuantityCalculator(ABC):
             €10,099.99 → €10,000.00
         """
         pass
+
+
+class IIBKRSearchService(ABC):
+    """
+    Interface for IBKR stock identification and symbol search service
+    Handles comprehensive stock search using multiple strategies with IBKR Gateway API
+    Following Interface-First Design for trading system integration
+    """
+
+    @abstractmethod
+    def extract_unique_stocks(self, universe_data: Dict[str, Any]) -> List[Dict[str, Any]]:
+        """
+        Extract unique stocks from universe.json using ticker as key
+        Only includes stocks with quantities > 0
+
+        Args:
+            universe_data: Complete universe data structure from universe.json
+
+        Returns:
+            List of unique stock dictionaries with fields:
+            - ticker, isin, name, currency, sector, country, quantity, final_target
+
+        Logic:
+            - Processes all screens in universe data
+            - Uses ticker as unique identifier
+            - For duplicates: picks stock with highest quantity
+            - If quantities equal: picks stock with highest final_target
+        """
+        pass
+
+    @abstractmethod
+    def get_all_ticker_variations(self, ticker: str) -> List[str]:
+        """
+        Generate comprehensive ticker format variations for different exchanges
+        Handles exchange suffixes, share classes, and regional variations
+
+        Args:
+            ticker: Original ticker string (e.g., "OR.PA", "ROCK-A.CO")
+
+        Returns:
+            List of ticker variations for search:
+            - OR.PA → ["OR.PA", "OR"]
+            - ROCK-A.CO → ["ROCK-A.CO", "ROCKA", "ROCK.A", "ROCKA", "ROCK.A"]
+
+        Special Handling:
+            - Japanese stocks (.T suffix): removes .T
+            - Share classes (-A, -B): converts to .A/.B and removes dashes
+            - Greek stocks (.AT): removes .AT, adds A suffix variants
+            - European exchanges (.PA, .L, .HE): removes suffixes
+        """
+        pass
+
+    @abstractmethod
+    def is_valid_match(
+        self,
+        universe_stock: Dict[str, Any],
+        ibkr_contract: Dict[str, Any],
+        search_method: str = "unknown"
+    ) -> Tuple[bool, str]:
+        """
+        Validate if IBKR contract matches universe stock using method-specific criteria
+
+        Args:
+            universe_stock: Stock dict with name, currency from universe
+            ibkr_contract: IBKR contract details with longName, currency
+            search_method: Search method used ("isin", "ticker", "name")
+
+        Returns:
+            Tuple of (is_valid: bool, reason: str)
+
+        Validation Rules by Method:
+            - isin: Requires 60% name similarity OR 2+ word overlap
+            - ticker: Very lenient (30% similarity OR any word overlap)
+            - name: Strict (80% similarity OR exact words + 50% similarity)
+
+        Required Validations:
+            - Currency match (mandatory for all methods)
+            - Name similarity with punctuation/accent normalization
+            - Word overlap analysis (excludes corporate suffixes)
+        """
+        pass
+
+    @abstractmethod
+    def search_by_name_matching(
+        self,
+        app: Any,
+        stock: Dict[str, Any]
+    ) -> List[Dict[str, Any]]:
+        """
+        Use reqMatchingSymbols to search by company name parts
+        Fallback method when ISIN and ticker searches fail
+
+        Args:
+            app: IBApi instance for IBKR communication
+            stock: Stock dictionary with name, currency fields
+
+        Returns:
+            List of matching contract details from IBKR
+
+        Search Logic:
+            - Extracts meaningful words from company name (3+ letters)
+            - Tries individual words and combinations
+            - Uses special mappings for known problematic stocks
+            - Filters by currency match before detailed contract lookup
+            - 5-second timeout per search term, 3-second timeout for contract details
+        """
+        pass
+
+    @abstractmethod
+    def comprehensive_stock_search(
+        self,
+        app: Any,
+        stock: Dict[str, Any],
+        verbose: bool = False
+    ) -> Tuple[Optional[Dict[str, Any]], float]:
+        """
+        Comprehensive search using multiple strategies with validation
+
+        Args:
+            app: IBApi instance for IBKR communication
+            stock: Stock dictionary with ticker, isin, name, currency
+            verbose: Enable debug console output
+
+        Returns:
+            Tuple of (best_match_contract: Dict, similarity_score: float)
+            Returns (None, 0.0) if no valid matches found
+
+        Search Strategy (Sequential):
+            1. ISIN search (if available) - highest confidence
+            2. Ticker variations on SMART exchange
+            3. Name-based symbol matching (fallback)
+
+        Each strategy marks results with '_search_method' for validation
+        Best match selection based on name similarity score
+        """
+        pass
+
+    @abstractmethod
+    def update_universe_with_ibkr_details(
+        self,
+        universe_data: Dict[str, Any],
+        stock_ticker: str,
+        ibkr_details: Dict[str, Any]
+    ) -> None:
+        """
+        Update universe.json with IBKR identification details for all instances of stock
+
+        Args:
+            universe_data: Universe data dictionary (modified in-place)
+            stock_ticker: Ticker to search for and update
+            ibkr_details: IBKR contract details to add
+
+        Side Effects:
+            Modifies universe_data in-place by adding 'ibkr_details' section:
+            {
+                'found': True,
+                'symbol': str,
+                'longName': str,
+                'exchange': str,
+                'primaryExchange': str,
+                'conId': int,
+                'search_method': str,
+                'match_score': float
+            }
+
+        Updates all instances of the stock across all screens where ticker matches
+        """
+        pass
+
+    @abstractmethod
+    def mark_stock_not_found(
+        self,
+        universe_data: Dict[str, Any],
+        stock_ticker: str
+    ) -> None:
+        """
+        Mark stock as not found in IBKR across all instances
+
+        Args:
+            universe_data: Universe data dictionary (modified in-place)
+            stock_ticker: Ticker to mark as not found
+
+        Side Effects:
+            Modifies universe_data in-place by adding 'ibkr_details' section:
+            {
+                'found': False,
+                'search_attempted': True
+            }
+        """
+        pass
+
+    @abstractmethod
+    def process_all_universe_stocks(self) -> Dict[str, Any]:
+        """
+        Main orchestration function - process all stocks from universe.json sequentially
+        Maintains exact behavior compatibility with legacy implementation
+
+        File Operations:
+            - Reads from: data/universe.json
+            - Writes to: data/universe_with_ibkr.json
+
+        IBKR Connection:
+            - Host: 127.0.0.1:4002
+            - Client ID: 20
+            - Connection timeout: 10 seconds
+
+        Processing Logic:
+            - Extracts unique stocks (ticker-based deduplication)
+            - Filters to stocks with quantity > 0
+            - Sequential processing with 0.5s delays between stocks
+            - Three-strategy search per stock
+            - Statistics tracking by search method
+
+        Returns:
+            Dict containing:
+            - total: Total unique stocks processed
+            - found_isin: Count found via ISIN search
+            - found_ticker: Count found via ticker search
+            - found_name: Count found via name search
+            - not_found: Count not found in IBKR
+            - not_found_stocks: List of stocks not found with details
+
+        Side Effects:
+            - Creates universe_with_ibkr.json file
+            - Extensive console output matching legacy exactly
+            - IBKR API connection establishment and cleanup
+            - Progress reporting for each stock processed
+
+        Console Output:
+            - Connection status
+            - Per-stock progress: [N/total] Processing: name (ticker)
+            - Search results: FOUND/NOT FOUND with method and score
+            - Final statistics table with percentages
+            - Coverage summary and missing stock details
+        """
+        pass
