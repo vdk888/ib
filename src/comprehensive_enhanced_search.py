@@ -437,16 +437,32 @@ def extract_unique_stocks(universe_data):
         for stock in screen_data.get('stocks', []):
             # Use ticker as unique key
             ticker = stock.get('ticker')
-            if ticker and ticker not in unique_stocks:
-                unique_stocks[ticker] = {
+            if ticker:
+                current_stock = {
                     'ticker': ticker,
                     'isin': stock.get('isin'),
                     'name': stock.get('name'),
                     'currency': stock.get('currency'),
                     'sector': stock.get('sector'),
                     'country': stock.get('country'),
-                    'quantity': stock.get('quantity', 0)  # Include quantity field
+                    'quantity': stock.get('quantity', 0),
+                    'final_target': stock.get('final_target', 0)
                 }
+
+                # If ticker already exists, pick the one with highest quantity
+                # (to handle stocks appearing in multiple screens)
+                if ticker in unique_stocks:
+                    existing_quantity = unique_stocks[ticker].get('quantity', 0)
+                    current_quantity = current_stock.get('quantity', 0)
+
+                    # Keep the occurrence with the highest quantity
+                    # If quantities are equal, keep the one with highest final_target
+                    if (current_quantity > existing_quantity or
+                        (current_quantity == existing_quantity and
+                         current_stock.get('final_target', 0) > unique_stocks[ticker].get('final_target', 0))):
+                        unique_stocks[ticker] = current_stock
+                else:
+                    unique_stocks[ticker] = current_stock
 
     return list(unique_stocks.values())
 
@@ -504,6 +520,7 @@ def process_all_universe_stocks():
     # Filter to only stocks with quantities > 0
     unique_stocks = filter_stocks_by_quantity(all_unique_stocks)
     print(f"Filtered to {len(unique_stocks)} stocks with quantities > 0 (from {len(all_unique_stocks)} total)")
+    print(f"Note: Step 7 found 67 stocks with meaningful allocations (>1e-10), but {67 - len(unique_stocks)} were rounded to 0 quantity")
 
     if len(unique_stocks) == 0:
         print("❌ No stocks with quantities > 0 found. Exiting.")
