@@ -19,7 +19,7 @@ sys.path.append(os.path.dirname(__file__))
 # Import both legacy and new implementations
 from main import step1_fetch_data as legacy_step1
 from backend.app.services.implementations.screener_service import ScreenerService
-from backend.app.core.config import settings
+from ..core.config import settings
 
 class CompatibilityTester:
     """Test compatibility between CLI and API implementations"""

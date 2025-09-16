@@ -9,7 +9,7 @@ import sys
 import logging
 
 from ..interfaces import ITargetAllocationService
-from backend.app.core.config import settings
+from ...core.config import settings
 
 # Add the root directory to path to access legacy modules
 from pathlib import Path
@@ -17,7 +17,7 @@ root_dir = Path(settings.data_directory).parent
 sys.path.append(str(root_dir))
 
 # Import legacy functions
-from backend.app.services.implementations.legacy.targetter import (
+from .legacy.targetter import (
     load_universe_data as legacy_load_universe_data,
     extract_screener_allocations as legacy_extract_screener_allocations,
     parse_180d_change as legacy_parse_180d_change,

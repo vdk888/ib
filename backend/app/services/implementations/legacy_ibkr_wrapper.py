@@ -6,7 +6,7 @@ Maintains 100% compatibility with CLI step8_ibkr_search() while using optimized 
 import asyncio
 import logging
 from pathlib import Path
-from backend.app.services.implementations.ibkr_search_service import IBKRSearchService
+from .ibkr_search_service import IBKRSearchService
 
 logger = logging.getLogger(__name__)
 

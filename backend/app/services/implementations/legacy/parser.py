@@ -8,9 +8,7 @@ import csv
 import json
 import os
 from glob import glob
-import sys
-sys.path.append('..')
-from config import UNCLE_STOCK_SCREENS, ADDITIONAL_FIELDS, EXTRACT_ADDITIONAL_FIELDS
+from ....core.config import settings
 
 def find_column_index(headers, description_row, header_name, subtitle_pattern):
     """
@@ -291,18 +289,18 @@ def create_universe():
     """
     universe = {
         'metadata': {
-            'screens': list(UNCLE_STOCK_SCREENS.values()),
+            'screens': list(settings.uncle_stock.uncle_stock_screens.values()),
             'total_stocks': 0,
             'unique_stocks': 0,
-            'additional_fields_enabled': EXTRACT_ADDITIONAL_FIELDS,
+            'additional_fields_enabled': settings.uncle_stock.extract_additional_fields,
             'additional_fields': [
                 {
                     'field_alias': alias,
                     'header': header,
                     'subtitle': subtitle,
                     'description': desc
-                } for header, subtitle, alias, desc in ADDITIONAL_FIELDS
-            ] if EXTRACT_ADDITIONAL_FIELDS else []
+                } for header, subtitle, alias, desc in settings.uncle_stock.additional_fields
+            ] if settings.uncle_stock.extract_additional_fields else []
         },
         'screens': {},
         'all_stocks': {}
@@ -312,7 +310,7 @@ def create_universe():
     unique_stocks = {}
     
     # Process each screener
-    for screen_key, screen_name in UNCLE_STOCK_SCREENS.items():
+    for screen_key, screen_name in settings.uncle_stock.uncle_stock_screens.items():
         # Find the corresponding CSV file
         safe_name = screen_name.replace(' ', '_').replace('/', '_')
         csv_path = f"data/files_exports/{safe_name}_current_screen.csv"
@@ -321,9 +319,9 @@ def create_universe():
             print(f"Parsing {screen_name} from {csv_path}...")
             
             # Use flexible parser if additional fields are configured
-            if EXTRACT_ADDITIONAL_FIELDS and ADDITIONAL_FIELDS:
+            if settings.uncle_stock.extract_additional_fields and settings.uncle_stock.additional_fields:
                 # Convert config format to flexible parser format
-                additional_fields_config = [(header, subtitle, alias) for header, subtitle, alias, desc in ADDITIONAL_FIELDS]
+                additional_fields_config = [(header, subtitle, alias) for header, subtitle, alias, desc in settings.uncle_stock.additional_fields]
                 stocks = parse_screener_csv_flexible(csv_path, additional_fields_config)
                 print(f"  Extracting {len(additional_fields_config)} additional fields per stock")
             else:
@@ -418,7 +416,7 @@ def get_stock_field(ticker, header_name, subtitle_pattern, screen_name=None):
     
     if screen_name:
         # Search specific screen
-        for key, name in UNCLE_STOCK_SCREENS.items():
+        for key, name in settings.uncle_stock.uncle_stock_screens.items():
             if name == screen_name or key == screen_name:
                 safe_name = name.replace(' ', '_').replace('/', '_')
                 csv_path = f"data/files_exports/{safe_name}_current_screen.csv"
@@ -427,7 +425,7 @@ def get_stock_field(ticker, header_name, subtitle_pattern, screen_name=None):
                 break
     else:
         # Search all screens
-        for key, name in UNCLE_STOCK_SCREENS.items():
+        for key, name in settings.uncle_stock.uncle_stock_screens.items():
             safe_name = name.replace(' ', '_').replace('/', '_')
             csv_path = f"data/files_exports/{safe_name}_current_screen.csv"
             if os.path.exists(csv_path):
@@ -454,7 +452,7 @@ def find_available_fields(csv_path=None):
     """
     if csv_path is None:
         # Use first available screen
-        for key, name in UNCLE_STOCK_SCREENS.items():
+        for key, name in settings.uncle_stock.uncle_stock_screens.items():
             safe_name = name.replace(' ', '_').replace('/', '_')
             test_path = f"data/files_exports/{safe_name}_current_screen.csv"
             if os.path.exists(test_path):

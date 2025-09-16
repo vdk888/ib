@@ -10,9 +10,14 @@ Calculates final stock allocations based on:
 import json
 import os
 from typing import Dict, List, Any, Tuple
-import sys
-sys.path.append('..')
-from config import MAX_RANKED_STOCKS, MAX_ALLOCATION, MIN_ALLOCATION
+
+# Import settings from the new configuration system
+from ....core.config import settings
+
+# Extract constants from settings for backward compatibility
+MAX_RANKED_STOCKS = settings.portfolio.max_ranked_stocks
+MAX_ALLOCATION = settings.portfolio.max_allocation
+MIN_ALLOCATION = settings.portfolio.min_allocation
 
 def load_universe_data() -> Dict[str, Any]:
     """Load universe.json data"""

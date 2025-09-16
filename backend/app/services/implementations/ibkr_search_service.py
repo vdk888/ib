@@ -29,7 +29,7 @@ from ibapi.wrapper import EWrapper
 from ibapi.contract import Contract
 
 # Import the interface
-from backend.app.services.ibkr_interface import IIBKRSearchService
+from ..ibkr_interface import IIBKRSearchService
 
 # Set up logging
 logger = logging.getLogger(__name__)

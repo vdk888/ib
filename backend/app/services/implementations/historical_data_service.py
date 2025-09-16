@@ -8,13 +8,11 @@ import os
 from typing import Dict, Any
 from pathlib import Path
 
-# Add the project root to the path to import config
-project_root = Path(__file__).parent.parent.parent.parent.parent
-sys.path.insert(0, str(project_root))
+# Configuration imported from proper module path
 
-from config import UNCLE_STOCK_SCREENS
-from backend.app.services.interfaces import IHistoricalDataService
-from backend.app.services.implementations.legacy import history_parser
+from ...core.config import settings
+from ..interfaces import IHistoricalDataService
+from .legacy import history_parser
 
 
 class HistoricalDataService(IHistoricalDataService):
@@ -122,7 +120,7 @@ class HistoricalDataService(IHistoricalDataService):
         }
 
         for key, data in backtest_data.items():
-            screen_name = UNCLE_STOCK_SCREENS[key]
+            screen_name = settings.uncle_stock.uncle_stock_screens[key]
             screener_summary = {
                 "screen_name": screen_name,
                 "status": "success" if "error" not in data else "error"
@@ -185,13 +183,13 @@ class HistoricalDataService(IHistoricalDataService):
         Returns:
             Dict containing parsed backtest data or error information
         """
-        if screener_id not in UNCLE_STOCK_SCREENS:
+        if screener_id not in settings.uncle_stock.uncle_stock_screens:
             return {
                 "error": f"Screener ID '{screener_id}' not found in configuration",
-                "available_screeners": list(UNCLE_STOCK_SCREENS.keys())
+                "available_screeners": list(settings.uncle_stock.uncle_stock_screens.keys())
             }
 
-        screen_name = UNCLE_STOCK_SCREENS[screener_id]
+        screen_name = settings.uncle_stock.uncle_stock_screens[screener_id]
         # Convert screen name to filename format (same logic as in get_all_backtest_data)
         safe_name = screen_name.replace(' ', '_').replace('/', '_')
         csv_path = f"data/files_exports/{safe_name}_backtest_results.csv"
@@ -205,4 +203,4 @@ class HistoricalDataService(IHistoricalDataService):
         Returns:
             Dict mapping screener IDs to their display names
         """
-        return UNCLE_STOCK_SCREENS.copy()
+        return settings.uncle_stock.uncle_stock_screens.copy()

@@ -9,8 +9,8 @@ import tempfile
 from unittest.mock import Mock, patch, MagicMock
 from typing import Dict, Any
 
-from backend.app.services.implementations.target_allocation_service import TargetAllocationService
-from backend.app.core.config import settings
+from ..services.implementations.target_allocation_service import TargetAllocationService
+from ..core.config import settings
 
 
 class TestTargetAllocationService:

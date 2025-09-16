@@ -28,6 +28,16 @@ class UncleStockSettings(BaseServiceSettings):
         "Moat_Companies": "Moat Companies"
     }
 
+    # Additional fields configuration for universe.json
+    # Format: List of tuples (header_name, subtitle_pattern, field_alias, description)
+    additional_fields: list = [
+        # Price-related fields
+        ('Price', '180d change', 'price_180d_change', 'Price change over 180 days'),
+    ]
+
+    # Enable/disable additional fields extraction
+    extract_additional_fields: bool = True
+
     # Data directory paths
     data_exports_dir: str = "data/files_exports"
 

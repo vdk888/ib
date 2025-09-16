@@ -7,9 +7,9 @@ from typing import Dict, Any
 from fastapi import APIRouter, HTTPException, Depends, status
 from pydantic import ValidationError
 
-from backend.app.core.dependencies_clean import get_target_allocation_service
-from backend.app.services.interfaces import ITargetAllocationService
-from backend.app.models.schemas import (
+from ....core.dependencies_clean import get_target_allocation_service
+from ....services.interfaces import ITargetAllocationService
+from ....models.schemas import (
     TargetAllocationResponse,
     AllocationSummaryResponse,
     ScreenerAllocationsResponse,
@@ -24,8 +24,8 @@ from backend.app.models.schemas import (
     StockRanking,
     UniverseAllocationUpdate
 )
-from backend.app.models.errors import ErrorResponse
-from backend.app.core.exceptions import (
+from ....models.errors import ErrorResponse
+from ....core.exceptions import (
     BaseServiceError,
     ValidationError as ServiceValidationError,
     ConfigurationError

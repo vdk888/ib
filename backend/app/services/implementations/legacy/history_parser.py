@@ -8,9 +8,7 @@ import csv
 import json
 import os
 from typing import Dict, List, Any
-import sys
-sys.path.append('..')
-from config import UNCLE_STOCK_SCREENS
+from ....core.config import settings
 
 def parse_backtest_csv(csv_path: str, debug: bool = False) -> Dict[str, Any]:
     """
@@ -129,7 +127,7 @@ def get_all_backtest_data() -> Dict[str, Dict[str, Any]]:
     """
     all_data = {}
     
-    for key, screen_name in UNCLE_STOCK_SCREENS.items():
+    for key, screen_name in settings.uncle_stock.uncle_stock_screens.items():
         # Convert screen name to filename format
         safe_name = screen_name.replace(' ', '_').replace('/', '_')
         csv_path = f"data/files_exports/{safe_name}_backtest_results.csv"
@@ -174,7 +172,7 @@ def update_universe_with_history() -> bool:
         universe_data["metadata"]["historical_performance"] = {}
         
         for key, performance_data in backtest_data.items():
-            screen_name = UNCLE_STOCK_SCREENS[key]
+            screen_name = settings.uncle_stock.uncle_stock_screens[key]
             
             if "error" not in performance_data:
                 # Add comprehensive performance metrics to metadata
@@ -249,7 +247,7 @@ def display_performance_summary():
     print("="*60)
     
     for key, data in backtest_data.items():
-        screen_name = UNCLE_STOCK_SCREENS[key]
+        screen_name = settings.uncle_stock.uncle_stock_screens[key]
         print(f"\n{screen_name}:")
         
         if "error" in data:
