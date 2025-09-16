@@ -1076,13 +1076,7 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 #### **🔧 OPTIMIZATION STRATEGY RESEARCHED:**
 
 **IBKR API Capabilities Analysis:**
-1. **No Native Batch Support**: IBKR API doesn't support batch contract lookups
-2. **Concurrent Connections Possible**: Multiple client connections with different IDs
-3. **Rate Limiting**: No explicit limits documented, but conservative delays recommended
-4. **Connection Pooling**: Can maintain multiple persistent connections
-
-**Optimization Approach:**
-1. **Concurrent Processing**: Use asyncio + multiple IBKR client connections
+1.** only search for stocks with quantities > 0 in universe.json
 2. **Smart Caching**: Cache successful lookups by ticker/ISIN to avoid repeats
 3. **Progressive Fallback**: Try ISIN first (fastest/most reliable), then ticker, then name
 4. **Batch Processing**: Group stocks by currency/exchange for optimized search order
@@ -1091,7 +1085,7 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 #### **🎯 PERFORMANCE TARGET:**
 - **Current**: 30+ minutes for 400 stocks
 - **Target**: <5 minutes (6x improvement minimum)
-- **Method**: Concurrent search + caching + optimized fallback strategy
+- **Method**:  caching + optimized fallback strategy
 
 ### Actions:
 
@@ -1101,13 +1095,12 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
    - ✅ Mapped dependencies: ibapi.client, ibapi.wrapper, threading, time, json, re, difflib
    - ✅ Documented side effects: universe_with_ibkr.json creation, console output, IBKR connections
    - ✅ Identified performance bottlenecks: sequential processing, multiple API calls per stock, blocking delays
-   - ✅ Researched IBKR API capabilities: no batch support, but concurrent connections possible
+   - ✅ Researched IBKR API capabilities: no batch support, but no concurrent connections possible
    - ✅ **UPDATED PLAN** with exact implementation details and optimization strategy
 
 #### Phase 2: Implementation (READY TO START)
 2. **Create interface**: `IIBKRSearchService` in `services/interfaces.py` with performance considerations
 3. **Create optimized implementation**: `IBKRSearchService` wrapping existing functions with:
-   - **Concurrent processing**: Multiple IBKR client connections (different clientIds)
    - **Smart caching**: Redis-backed symbol cache to avoid repeated searches
    - **Progressive fallback**: ISIN → Ticker variations → Name matching (fastest first)
    - **Batch grouping**: Group stocks by currency/exchange for optimization
@@ -1115,7 +1108,6 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
    - **Async endpoints**: Non-blocking operations with task queue
 4. **Create API endpoints**:
    - `POST /api/v1/ibkr/search/all` → Optimized async `process_all_universe_stocks()`
-   - `POST /api/v1/ibkr/search/batch` → Search multiple specific stocks concurrently
    - `POST /api/v1/ibkr/search/stock/{ticker}` → Search single stock with all strategies
    - `GET /api/v1/ibkr/search/results/{task_id}` → Get search results for async task
    - `GET /api/v1/ibkr/search/progress/{task_id}` → Get real-time search progress
@@ -1130,7 +1122,6 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
    - Verify search accuracy remains 100% identical
 7. **Test CLI**: `python main.py 8` produces identical IBKR search results
 8. **Test API**: Search results match CLI processing exactly
-9. **Load testing**: Validate API can handle multiple concurrent search requests
 
 **⚠️ TESTING REQUIREMENTS:**
 - **Activate virtual environment FIRST**: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Unix)
@@ -1152,7 +1143,6 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 
 **🚀 IMPLEMENTATION COMPLETE:**
 - ✅ **Deep Analysis**: Analyzed all 8 core functions, identified performance bottlenecks
-- ✅ **Performance Optimization**: Implemented concurrent search with connection pooling
 - ✅ **Caching**: Added intelligent symbol caching to avoid repeated searches
 - ✅ **Interface**: Created `IIBKRSearchService` interface in `backend/app/services/ibkr_interface.py`
 - ✅ **Implementation**: Created optimized `IBKRSearchService` in `backend/app/services/implementations/ibkr_search_service.py`
@@ -1163,19 +1153,16 @@ Transform the current 11-step monolithic pipeline into a scalable API-first arch
 
 **📊 PERFORMANCE IMPROVEMENTS ACHIEVED:**
 - **Target**: Reduce 30+ minute runtime to under 5 minutes ⏱️
-- **Method**: Concurrent processing (5 connections) + caching + progressive fallback
-- **Features**: Real-time progress tracking, connection pool management, cache statistics
+- **Features**: Real-time progress tracking, cache statistics
 - **Compatibility**: 100% behavioral compatibility with CLI `step8_ibkr_search()`
 
 **🔗 API ENDPOINTS CREATED:**
 - `POST /api/v1/ibkr/search/stock` - Search single stock
-- `POST /api/v1/ibkr/search/batch` - Search multiple stocks concurrently
 - `POST /api/v1/ibkr/search/universe` - Async universe search with progress tracking
 - `GET /api/v1/ibkr/search/progress/{task_id}` - Get search progress
 - `GET /api/v1/ibkr/search/results/{task_id}` - Get search results
 - `GET /api/v1/ibkr/cache/stats` - Cache performance statistics
 - `DELETE /api/v1/ibkr/cache` - Clear symbol cache
-- `GET /api/v1/ibkr/connections/status` - Connection pool status
 - `GET /api/v1/ibkr/universe/with-ibkr` - Get universe with IBKR details
 - `GET /api/v1/ibkr/tasks` - List all tasks
 
@@ -1787,7 +1774,6 @@ Step 11 (Order Status) → IBKR verification + status report
    - Returns: bool (success/failure)
 
 8. **step8_ibkr_search() (lines 198-236)**: IBKR stock identification (OPTIMIZED)
-   - Optimized concurrent IBKR search implementation
    - Fallback to original implementation on failure
    - Creates: universe_with_ibkr.json with contract details
    - Returns: bool (success/failure)
@@ -1879,7 +1865,6 @@ else:                                      → Error + show_help()
    - **Task Queue**: Background execution with Redis/in-memory queue
    - **Status Tracking**: Real-time progress updates via WebSocket or polling
    - **Error Recovery**: Resume from failed step with state preservation
-   - **Parallel Execution**: Run independent steps concurrently where possible
    - **Resource Management**: Monitor memory/CPU usage during execution
 
 #### Phase 6: Testing & Validation
