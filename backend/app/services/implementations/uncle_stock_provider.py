@@ -39,7 +39,7 @@ class UncleStockProvider(IDataProvider):
         self.file_manager = file_manager or FileManager()
         self.base_url = "https://www.unclestock.com"
         self.timeout = settings.uncle_stock.uncle_stock_timeout
-        self.user_id = settings.uncle_stock.uncle_stock_user_id
+        self.user_id = settings.uncle_stock.user_id
         self.screener_configs = settings.uncle_stock.uncle_stock_screens
 
         if not self.user_id:

@@ -16,7 +16,7 @@ class BaseServiceSettings(BaseSettings):
     debug: bool = False
 
 class UncleStockSettings(BaseServiceSettings):
-    uncle_stock_user_id: Optional[str] = None
+    user_id: Optional[str] = None
     uncle_stock_timeout: int = 60
     retry_attempts: int = 3
     max_results_per_screener: int = 200
@@ -43,6 +43,7 @@ class UncleStockSettings(BaseServiceSettings):
 
     class Config:
         env_prefix = "UNCLE_STOCK_"
+        env_file = str(ROOT_DIR / ".env")
 
 class IBKRSettings(BaseServiceSettings):
     ibkr_host: str = "host.docker.internal"
