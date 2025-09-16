@@ -1499,3 +1499,83 @@ class ResumeExecutionResponse(BaseModel):
     resumed_from_step: int = Field(description="Step number resumed from")
     success: bool = Field(description="Whether resume was successful")
     message: str = Field(description="Resume status message")
+
+# IBKR Search API Models
+# Exact replication of comprehensive_enhanced_search.py behavior
+
+class StockSearchRequest(BaseModel):
+    """Request model for individual stock search"""
+    ticker: str = Field(description="Stock ticker symbol", min_length=1)
+    isin: Optional[str] = Field(description="International Securities Identification Number")
+    name: str = Field(description="Company name", min_length=1)
+    currency: str = Field(description="Stock currency (EUR, USD, JPY, etc.)", min_length=3, max_length=3)
+    sector: Optional[str] = Field(description="Business sector")
+    country: Optional[str] = Field(description="Country of incorporation")
+
+    @validator('currency')
+    def validate_currency(cls, v):
+        """Ensure currency is uppercase"""
+        if v:
+            return v.upper()
+        return v
+
+
+class IBKRContractDetails(BaseModel):
+    """IBKR contract details response"""
+    symbol: str = Field(description="IBKR symbol")
+    longName: str = Field(description="Full company name from IBKR")
+    currency: str = Field(description="Contract currency")
+    exchange: str = Field(description="Exchange where contract is traded")
+    primaryExchange: str = Field(description="Primary exchange", default="")
+    conId: int = Field(description="IBKR contract ID", default=0)
+    search_method: str = Field(description="Method used to find stock (isin, ticker, name)")
+    match_score: float = Field(description="Name similarity score", ge=0.0, le=1.0)
+
+
+class StockSearchResponse(BaseModel):
+    """Response model for individual stock search"""
+    success: bool = Field(description="Whether the search operation was successful")
+    found: bool = Field(description="Whether the stock was found in IBKR")
+    message: str = Field(description="Search result message")
+    stock: StockSearchRequest = Field(description="Original stock search request")
+    ibkr_details: Optional[IBKRContractDetails] = Field(
+        description="IBKR contract details if found",
+        default=None
+    )
+
+
+class IBKRSearchStats(BaseModel):
+    """Statistics for IBKR search operations"""
+    total: int = Field(description="Total stocks processed")
+    found_isin: int = Field(description="Stocks found via ISIN search")
+    found_ticker: int = Field(description="Stocks found via ticker search")
+    found_name: int = Field(description="Stocks found via name search")
+    not_found: int = Field(description="Stocks not found in IBKR")
+    execution_time_seconds: float = Field(description="Total execution time")
+    filtered_stocks: int = Field(description="Stocks filtered by quantity > 0", default=0)
+    not_found_stocks: List[Dict[str, Any]] = Field(
+        description="List of stocks not found with details",
+        default=[]
+    )
+
+    @validator('execution_time_seconds')
+    def validate_execution_time(cls, v):
+        """Ensure execution time is positive"""
+        if v < 0:
+            raise ValueError('Execution time must be positive')
+        return v
+
+
+class UniverseSearchResponse(BaseModel):
+    """Response model for universe search operation"""
+    success: bool = Field(description="Whether the universe search was successful")
+    message: str = Field(description="Search operation message")
+    statistics: IBKRSearchStats = Field(description="Detailed search statistics")
+    output_file: str = Field(description="Path to output file with results")
+
+    @validator('output_file')
+    def validate_output_file(cls, v):
+        """Ensure output file path is provided"""
+        if not v:
+            raise ValueError('Output file path is required')
+        return v
