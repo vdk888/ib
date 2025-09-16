@@ -520,7 +520,6 @@ def process_all_universe_stocks():
     # Filter to only stocks with quantities > 0
     unique_stocks = filter_stocks_by_quantity(all_unique_stocks)
     print(f"Filtered to {len(unique_stocks)} stocks with quantities > 0 (from {len(all_unique_stocks)} total)")
-    print(f"Note: Step 7 found 67 stocks with meaningful allocations (>1e-10), but {67 - len(unique_stocks)} were rounded to 0 quantity")
 
     if len(unique_stocks) == 0:
         print("❌ No stocks with quantities > 0 found. Exiting.")
