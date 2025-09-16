@@ -16,6 +16,7 @@ sys.path.append(str(legacy_path))
 
 from ib_utils.ib_fetch import IBApi
 from ..interfaces import IAccountService
+from ...core.config import IBKRSettings
 
 
 class AccountService(IAccountService):
@@ -26,10 +27,11 @@ class AccountService(IAccountService):
 
     def __init__(self):
         """Initialize AccountService with IBKR configuration"""
-        self.host = "127.0.0.1"
-        self.port = 4002  # Paper trading port
+        settings = IBKRSettings()
+        self.host = settings.ibkr_host
+        self.port = settings.ibkr_port
         self.client_id = 3  # Same as legacy implementation
-        self.connection_timeout = 10
+        self.connection_timeout = settings.connection_timeout
         self.account_id_timeout = 2
         self.data_timeout = 3
 
@@ -53,7 +55,7 @@ class AccountService(IAccountService):
         app = IBApi()
 
         try:
-            # Connect to IB Gateway (paper trading port 4002)
+            # Connect to IB Gateway (host machine via Docker networking)
             app.connect(self.host, self.port, clientId=self.client_id)
 
             # Start message processing in separate thread

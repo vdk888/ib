@@ -45,7 +45,7 @@ class UncleStockSettings(BaseServiceSettings):
         env_prefix = "UNCLE_STOCK_"
 
 class IBKRSettings(BaseServiceSettings):
-    ibkr_host: str = "127.0.0.1"
+    ibkr_host: str = "host.docker.internal"
     ibkr_port: int = 4002
     ibkr_client_id: int = 1
     connection_timeout: int = 10

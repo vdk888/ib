@@ -19,7 +19,7 @@ class QuantityService(IQuantityCalculator):
 
     def __init__(self):
         """Initialize QuantityService with path configuration"""
-        self.universe_path = Path(__file__).parent.parent.parent.parent.parent / "data" / "universe.json"
+        self.universe_path = Path("data/universe.json")
 
     def calculate_stock_quantities(
         self,
