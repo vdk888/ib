@@ -548,9 +548,9 @@ class IBKRSearchService(IIBKRSearchService):
     def process_all_universe_stocks(self) -> Dict[str, Any]:
         """Process all stocks from universe.json and update with IBKR details - identical to legacy"""
 
-        # Load universe.json
+        # Load universe.json from backend data directory
         script_dir = Path(__file__).parent
-        universe_path = script_dir.parent.parent.parent.parent / 'data' / 'universe.json'
+        universe_path = script_dir.parent.parent.parent / 'data' / 'universe.json'
 
         if not universe_path.exists():
             print(f"Error: universe.json not found at {universe_path}")
@@ -569,7 +569,7 @@ class IBKRSearchService(IIBKRSearchService):
 
         # Connect to IBKR
         app = IBApi()
-        app.connect("127.0.0.1", 4002, clientId=20)
+        app.connect("127.0.0.1", 4002, clientId=30)
 
         api_thread = threading.Thread(target=app.run, daemon=True)
         api_thread.start()
@@ -662,8 +662,17 @@ class IBKRSearchService(IIBKRSearchService):
         # Disconnect from IBKR
         app.disconnect()
 
-        # Save updated universe.json
-        output_path = script_dir.parent.parent.parent.parent / 'data' / 'universe_with_ibkr.json'
+        # Add timestamp metadata
+        from datetime import datetime
+        universe_data['ibkr_search_metadata'] = {
+            'timestamp': datetime.now().isoformat(),
+            'implementation': 'api',
+            'search_completed': True,
+            'timeout_seconds': 20
+        }
+
+        # Save updated universe.json to backend data directory
+        output_path = script_dir.parent.parent.parent / 'data' / 'universe_with_ibkr.json'
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(universe_data, f, indent=2, ensure_ascii=False)
 

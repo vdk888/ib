@@ -5,7 +5,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 import logging
 
-from .core.config import settings
+from .core.simple_config import settings
 from .core.middleware import RequestLoggingMiddleware
 from .core.exceptions import BaseServiceError
 from .models.errors import ErrorResponse

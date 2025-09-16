@@ -284,7 +284,7 @@ def search_by_name_matching(app, stock):
             app.next_req_id += 1
             
             timeout_start = time.time()
-            while not app.symbol_search_completed and (time.time() - timeout_start) < 5:
+            while not app.symbol_search_completed and (time.time() - timeout_start) < 20:
                 time.sleep(0.05)
             
             # Convert matching symbols to contract details
@@ -299,7 +299,7 @@ def search_by_name_matching(app, stock):
                     app.next_req_id += 1
                     
                     timeout_start = time.time()
-                    while not app.search_completed and (time.time() - timeout_start) < 3:
+                    while not app.search_completed and (time.time() - timeout_start) < 20:
                         time.sleep(0.05)
                     
                     all_matches.extend(app.contract_details)
@@ -332,7 +332,7 @@ def comprehensive_stock_search(app, stock, verbose=False):
         app.next_req_id += 1
         
         timeout_start = time.time()
-        while not app.search_completed and (time.time() - timeout_start) < 5:
+        while not app.search_completed and (time.time() - timeout_start) < 20:
             time.sleep(0.05)
         
         if app.contract_details:
@@ -366,7 +366,7 @@ def comprehensive_stock_search(app, stock, verbose=False):
             app.next_req_id += 1
             
             timeout_start = time.time()
-            while not app.search_completed and (time.time() - timeout_start) < 3:
+            while not app.search_completed and (time.time() - timeout_start) < 20:
                 time.sleep(0.05)
             
             if app.contract_details:
@@ -576,7 +576,7 @@ def process_all_universe_stocks():
                 app.next_req_id += 1
                 
                 timeout_start = time.time()
-                while not app.search_completed and (time.time() - timeout_start) < 3:
+                while not app.search_completed and (time.time() - timeout_start) < 20:
                     time.sleep(0.05)
                 
                 if app.contract_details:
@@ -620,6 +620,15 @@ def process_all_universe_stocks():
     # Disconnect from IBKR
     app.disconnect()
     
+    # Add timestamp metadata
+    from datetime import datetime
+    universe_data['ibkr_search_metadata'] = {
+        'timestamp': datetime.now().isoformat(),
+        'implementation': 'legacy',
+        'search_completed': True,
+        'timeout_seconds': 20
+    }
+
     # Save updated universe.json
     output_path = script_dir.parent / 'data' / 'universe_with_ibkr.json'
     with open(output_path, 'w', encoding='utf-8') as f:
