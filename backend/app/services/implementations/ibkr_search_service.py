@@ -22,6 +22,7 @@ from typing import Dict, Any, List, Optional, Tuple
 import unicodedata
 
 from ..interfaces import IIBKRSearchService
+from ..database_service import get_database_service
 
 
 class IBApi(EWrapper, EClient):
@@ -546,7 +547,7 @@ class IBKRSearchService(IIBKRSearchService):
                     }
 
     def process_all_universe_stocks(self) -> Dict[str, Any]:
-        """Process all stocks from universe.json and update with IBKR details - identical to legacy"""
+        """Process all stocks from universe.json and update with IBKR details with caching"""
 
         # Load universe.json from backend data directory
         script_dir = Path(__file__).parent
@@ -567,7 +568,79 @@ class IBKRSearchService(IIBKRSearchService):
             print("❌ No stocks with quantities > 0 found. Exiting.")
             return {}
 
-        # Connect to IBKR
+        # Get database service for caching
+        db_service = get_database_service()
+
+        # Separate cached and uncached stocks
+        print("Checking cache for IBKR details...")
+        cached_stocks, uncached_stocks = db_service.get_cached_stocks(unique_stocks)
+
+        print(f"Cache results: {len(cached_stocks)} hits, {len(uncached_stocks)} misses")
+
+        # Update universe with cached results
+        for stock in cached_stocks:
+            self.update_universe_with_ibkr_details(universe_data, stock['ticker'], stock['ibkr_details'])
+
+        # If all stocks were cached, no need to connect to IBKR
+        if len(uncached_stocks) == 0:
+            print("All stocks found in cache! No IBKR API calls needed.")
+
+            # Add timestamp metadata
+            from datetime import datetime
+            universe_data['ibkr_search_metadata'] = {
+                'timestamp': datetime.now().isoformat(),
+                'implementation': 'api',
+                'search_completed': True,
+                'timeout_seconds': 20,
+                'cache_hits': len(cached_stocks),
+                'cache_misses': 0,
+                'api_calls_made': 0
+            }
+
+            # Save updated universe.json to backend data directory
+            output_path = script_dir.parent.parent.parent / 'data' / 'universe_with_ibkr.json'
+            with open(output_path, 'w', encoding='utf-8') as f:
+                json.dump(universe_data, f, indent=2, ensure_ascii=False)
+
+            print(f"Universe updated with cached data saved to: {output_path}")
+
+            # Generate stats from cached data
+            stats = {
+                'total': len(unique_stocks),
+                'found_isin': 0,
+                'found_ticker': 0,
+                'found_name': 0,
+                'not_found': 0,
+                'not_found_stocks': [],
+                'cache_hits': len(cached_stocks),
+                'cache_misses': 0
+            }
+
+            # Count methods from cached results
+            for stock in cached_stocks:
+                ibkr_details = stock.get('ibkr_details', {})
+                if ibkr_details.get('found'):
+                    method = ibkr_details.get('search_method', 'unknown')
+                    if method == 'isin':
+                        stats['found_isin'] += 1
+                    elif method == 'ticker':
+                        stats['found_ticker'] += 1
+                    elif method == 'name':
+                        stats['found_name'] += 1
+                else:
+                    stats['not_found'] += 1
+                    stats['not_found_stocks'].append({
+                        'ticker': stock['ticker'],
+                        'name': stock['name'],
+                        'currency': stock['currency'],
+                        'country': stock.get('country', 'Unknown')
+                    })
+
+            return stats
+
+        # Connect to IBKR only if we have uncached stocks
+        print(f"Processing {len(uncached_stocks)} uncached stocks via IBKR API...")
+
         app = IBApi()
         app.connect("127.0.0.1", 4002, clientId=30)
 
@@ -586,20 +659,43 @@ class IBKRSearchService(IIBKRSearchService):
         print("Connected to IB Gateway")
         print("="*80)
 
-        # Statistics
+        # Statistics (start with cached results)
         stats = {
             'total': len(unique_stocks),
             'found_isin': 0,
             'found_ticker': 0,
             'found_name': 0,
             'not_found': 0,
-            'not_found_stocks': []
+            'not_found_stocks': [],
+            'cache_hits': len(cached_stocks),
+            'cache_misses': len(uncached_stocks)
         }
 
-        # Process each stock
-        for i, stock in enumerate(unique_stocks, 1):
+        # Count cached results in stats
+        for stock in cached_stocks:
+            ibkr_details = stock.get('ibkr_details', {})
+            if ibkr_details.get('found'):
+                method = ibkr_details.get('search_method', 'unknown')
+                if method == 'isin':
+                    stats['found_isin'] += 1
+                elif method == 'ticker':
+                    stats['found_ticker'] += 1
+                elif method == 'name':
+                    stats['found_name'] += 1
+            else:
+                stats['not_found'] += 1
+                stats['not_found_stocks'].append({
+                    'ticker': stock['ticker'],
+                    'name': stock['name'],
+                    'currency': stock['currency'],
+                    'country': stock.get('country', 'Unknown')
+                })
+
+        # Process each uncached stock
+        for i, stock in enumerate(uncached_stocks, 1):
             ticker = stock['ticker']
-            print(f"\n[{i}/{len(unique_stocks)}] Processing: {stock['name']} ({ticker})")
+            cached_offset = len(cached_stocks)
+            print(f"\n[{cached_offset + i}/{len(unique_stocks)}] Processing: {stock['name']} ({ticker}) [API call]")
 
             # Search for the stock
             # Debug for L'Oréal specifically
@@ -644,6 +740,25 @@ class IBKRSearchService(IIBKRSearchService):
                 self.update_universe_with_ibkr_details(universe_data, ticker, match)
 
                 print(f"  FOUND: {match['symbol']} on {match['exchange']} (method: {search_method}, score: {score:.1%})")
+
+                # Store successful result in cache
+                db_service.store_result(
+                    isin=stock.get('isin', ''),
+                    ticker=ticker,
+                    name=stock['name'],
+                    currency=stock['currency'],
+                    found=True,
+                    ibkr_details={
+                        'found': True,
+                        'symbol': match['symbol'],
+                        'longName': match['longName'],
+                        'exchange': match['exchange'],
+                        'primaryExchange': match.get('primaryExchange', ''),
+                        'contract_id': match.get('conId', 0),
+                        'search_method': search_method,
+                        'match_score': score
+                    }
+                )
             else:
                 # Mark as not found
                 self.mark_stock_not_found(universe_data, ticker)
@@ -655,6 +770,19 @@ class IBKRSearchService(IIBKRSearchService):
                     'country': stock.get('country', 'Unknown')
                 })
                 print(f"  NOT FOUND")
+
+                # Store failed result in cache
+                db_service.store_result(
+                    isin=stock.get('isin', ''),
+                    ticker=ticker,
+                    name=stock['name'],
+                    currency=stock['currency'],
+                    found=False,
+                    ibkr_details={
+                        'found': False,
+                        'search_attempted': True
+                    }
+                )
 
             # Small delay between searches
             time.sleep(0.5)
@@ -668,7 +796,10 @@ class IBKRSearchService(IIBKRSearchService):
             'timestamp': datetime.now().isoformat(),
             'implementation': 'api',
             'search_completed': True,
-            'timeout_seconds': 20
+            'timeout_seconds': 20,
+            'cache_hits': len(cached_stocks),
+            'cache_misses': len(uncached_stocks),
+            'api_calls_made': len(uncached_stocks)
         }
 
         # Save updated universe.json to backend data directory
