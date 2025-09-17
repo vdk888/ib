@@ -568,8 +568,10 @@ class IBKRSearchService(IIBKRSearchService):
             print("❌ No stocks with quantities > 0 found. Exiting.")
             return {}
 
-        # Get database service for caching
-        db_service = get_database_service()
+        # Get database service for caching (API uses backend/data path)
+        script_dir = Path(__file__).parent
+        backend_db_path = script_dir.parent.parent / 'data' / 'ibkr_cache.db'
+        db_service = get_database_service(str(backend_db_path))
 
         # Separate cached and uncached stocks
         print("Checking cache for IBKR details...")

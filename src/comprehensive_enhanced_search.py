@@ -530,8 +530,9 @@ def process_all_universe_stocks():
         print("❌ No stocks with quantities > 0 found. Exiting.")
         return
 
-    # Get database service for caching
-    db_service = get_database_service()
+    # Get database service for caching (legacy uses main data path)
+    legacy_db_path = script_dir.parent / 'data' / 'ibkr_cache.db'
+    db_service = get_database_service(str(legacy_db_path))
 
     # Separate cached and uncached stocks
     print("Checking cache for IBKR details...")

@@ -269,12 +269,12 @@ class IBKRDatabaseService:
         logger.info(f"Cache stats: {len(cached_stocks)} hits, {len(uncached_stocks)} misses")
         return cached_stocks, uncached_stocks
 
-# Singleton instance
-_db_service_instance = None
+# Singleton instances for different contexts
+_db_service_instances = {}
 
-def get_database_service() -> IBKRDatabaseService:
-    """Get singleton database service instance"""
-    global _db_service_instance
-    if _db_service_instance is None:
-        _db_service_instance = IBKRDatabaseService()
-    return _db_service_instance
+def get_database_service(db_path: str = "data/ibkr_cache.db") -> IBKRDatabaseService:
+    """Get database service instance for specific path"""
+    global _db_service_instances
+    if db_path not in _db_service_instances:
+        _db_service_instances[db_path] = IBKRDatabaseService(db_path)
+    return _db_service_instances[db_path]

@@ -6,7 +6,8 @@
       "Bash(venvScripts:*)",
       "Bash(pip install:*)",
       "Bash(.venvScriptsactivate)",
-      "Bash(source:*)"
+      "Bash(source:*)",
+      "Bash(powershell:*)"
     ],
     "deny": [],
     "ask": []
