@@ -556,7 +556,11 @@ def process_all_universe_stocks():
 
     # Update universe with cached results
     for stock in cached_stocks:
-        update_universe_with_ibkr_details(universe_data, stock['ticker'], stock['ibkr_details'])
+        ibkr_details = stock.get('ibkr_details', {})
+        if ibkr_details.get('found'):
+            update_universe_with_ibkr_details(universe_data, stock['ticker'], ibkr_details)
+        else:
+            mark_stock_not_found(universe_data, stock['ticker'])
 
     # If all stocks were cached, no need to connect to IBKR
     if len(uncached_stocks) == 0:
@@ -620,10 +624,9 @@ def process_all_universe_stocks():
         ticker = stock['ticker']
         ibkr_details = stock.get('ibkr_details', {})
 
-        # Update universe data with cached IBKR details
-        update_universe_with_ibkr_details(universe_data, ticker, ibkr_details)
-
         if ibkr_details.get('found'):
+            # Update universe data with cached IBKR details for found stocks
+            update_universe_with_ibkr_details(universe_data, ticker, ibkr_details)
             method = ibkr_details.get('search_method', 'unknown')
             if method == 'isin':
                 stats['found_isin'] += 1
@@ -632,6 +635,8 @@ def process_all_universe_stocks():
             elif method == 'name':
                 stats['found_name'] += 1
         else:
+            # Mark stock as not found in universe data
+            mark_stock_not_found(universe_data, ticker)
             stats['not_found'] += 1
             stats['not_found_stocks'].append({
                 'ticker': stock['ticker'],

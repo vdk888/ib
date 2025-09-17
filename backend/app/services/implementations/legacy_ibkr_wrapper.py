@@ -2,18 +2,18 @@
 """
 Legacy IBKR wrapper for CLI compatibility
 Provides the process_all_universe_stocks function expected by main.py
-Wraps the new IBKRSearchService to maintain 100% behavioral compatibility
+Calls the original legacy comprehensive_enhanced_search.py to maintain 100% behavioral compatibility
 """
 
 import time
-from ..interfaces import IIBKRSearchService
-from .ibkr_search_service import IBKRSearchService
+import sys
+import os
 
 
 def process_all_universe_stocks():
     """
     Legacy wrapper function for CLI compatibility
-    Maintains exact same behavior as original comprehensive_enhanced_search.py
+    Calls the original comprehensive_enhanced_search.py implementation directly
 
     This function is called by main.py step8_ibkr_search() and must return
     statistics in the same format as the original implementation.
@@ -32,11 +32,19 @@ def process_all_universe_stocks():
     start_time = time.time()
 
     try:
-        # Create service instance
-        ibkr_service = IBKRSearchService()
+        # Add the project root to Python path to import legacy modules
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        project_root = os.path.join(current_dir, '..', '..', '..', '..')
+        project_root = os.path.abspath(project_root)
 
-        # Execute the search (this calls the exact same logic as legacy)
-        stats = ibkr_service.process_all_universe_stocks()
+        if project_root not in sys.path:
+            sys.path.insert(0, project_root)
+
+        # Import and call the legacy implementation
+        from src.comprehensive_enhanced_search import process_all_universe_stocks as legacy_process
+
+        # Execute the legacy search
+        stats = legacy_process()
 
         # Calculate execution time
         execution_time = time.time() - start_time
