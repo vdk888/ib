@@ -60,15 +60,19 @@ class IBApi(EWrapper, EClient):
             "conId": contract.conId,
             "contract": contract
         }
+        print(f"        IBKR API RESPONSE - contractDetails: {contract.symbol} ({contractDetails.longName}) on {contract.exchange}, conId={contract.conId}")
         self.contract_details.append(details)
 
     def contractDetailsEnd(self, reqId):
         super().contractDetailsEnd(reqId)
+        if not self.contract_details:
+            print(f"        IBKR API RESPONSE - contractDetailsEnd: No contract details found for reqId={reqId}")
         self.search_completed = True
 
     def symbolSamples(self, reqId, contractDescriptions):
         super().symbolSamples(reqId, contractDescriptions)
         self.matching_symbols = []
+        print(f"        IBKR API RESPONSE - symbolSamples: Found {len(contractDescriptions)} symbols")
         for desc in contractDescriptions:
             contract = desc.contract
             details = {
@@ -78,14 +82,19 @@ class IBApi(EWrapper, EClient):
                 "exchange": contract.exchange,
                 "description": desc.derivativeSecTypes if hasattr(desc, 'derivativeSecTypes') else ''
             }
+            print(f"          Symbol: {contract.symbol} ({contract.secType}) on {contract.exchange} - {contract.currency}")
             if contract.secType == "STK":  # Only stocks
                 self.matching_symbols.append(details)
 
     def symbolSamplesEnd(self, reqId):
         super().symbolSamplesEnd(reqId)
+        if not self.matching_symbols:
+            print(f"        IBKR API RESPONSE - symbolSamplesEnd: No matching symbols found for reqId={reqId}")
         self.symbol_search_completed = True
 
     def error(self, reqId, errorCode, errorString, advancedOrderRejectJson=""):
+        if errorCode != 2104 and errorCode != 2106:  # Skip common harmless messages
+            print(f"        IBKR API ERROR - reqId={reqId}, code={errorCode}: {errorString}")
         pass
 
 
@@ -321,6 +330,7 @@ class IBKRSearchService(IIBKRSearchService):
     ) -> List[Dict[str, Any]]:
         """Use reqMatchingSymbols to search by company name parts - identical to legacy"""
         name = stock['name'].lower()
+        print(f"    Starting name search for: {stock['name']} (lowercase: {name})")
         search_terms = []
 
         # Extract meaningful words from company name
@@ -337,6 +347,7 @@ class IBKRSearchService(IIBKRSearchService):
 
         # Special cases based on known mappings
         if 'everplay' in name:
+            print(f"      SPECIAL CASE: Everplay detected, adding ['everplay', 'EVPL']")
             search_terms.extend(['everplay', 'EVPL'])
         if 'sarantis' in name:
             search_terms.extend(['sarantis', 'SAR'])
@@ -347,6 +358,7 @@ class IBKRSearchService(IIBKRSearchService):
         if 'thessaloniki' in name or 'port' in name:
             search_terms.extend(['thessaloniki', 'port', 'OLTH'])
 
+        print(f"      Final search terms: {search_terms}")
         all_matches = []
 
         for term in search_terms:
@@ -399,6 +411,11 @@ class IBKRSearchService(IIBKRSearchService):
         verbose: bool = False
     ) -> Tuple[Optional[Dict[str, Any]], float]:
         """Comprehensive search using multiple strategies - identical to legacy"""
+        ticker = stock.get('ticker', 'N/A')
+        name = stock.get('name', 'N/A')
+
+        print(f"STARTING SEARCH: {name} ({ticker})")
+
         if verbose:
             print(f"Searching: {stock['name']} ({stock.get('ticker', 'N/A')})")
 
@@ -407,8 +424,7 @@ class IBKRSearchService(IIBKRSearchService):
 
         # Strategy 1: ISIN search
         if stock.get('isin') and stock.get('isin') not in ['null', '', None]:
-            if verbose:
-                print(f"  Strategy 1 - ISIN: {stock['isin']}")
+            print(f"  Strategy 1 - ISIN: {stock['isin']}")
             contract = create_contract_from_isin(stock['isin'], stock['currency'])
 
             app.contract_details = []
@@ -421,28 +437,28 @@ class IBKRSearchService(IIBKRSearchService):
                 time.sleep(0.05)
 
             if app.contract_details:
+                print(f"    ISIN found: {len(app.contract_details)} results")
                 # Mark these as ISIN results
                 for contract in app.contract_details:
                     contract['_search_method'] = 'isin'
                 all_contracts.extend(app.contract_details)
                 if verbose:
                     print(f"    ISIN found: {len(app.contract_details)} results")
+            else:
+                print(f"    ISIN search failed - no results")
 
         # Strategy 2: Ticker variations on SMART exchange
         # Always try ticker search if we have a ticker, regardless of ISIN results
         # (ISIN results might get rejected during validation)
         if stock.get('ticker'):
-            if verbose:
-                print(f"  Strategy 2 - Ticker variations")
+            print(f"  Strategy 2 - Ticker variations")
             ticker = stock['ticker']
             currency = stock['currency']
             variations = self.get_all_ticker_variations(ticker)
-            if verbose:
-                print(f"    Variations: {variations}")
+            print(f"    Variations to try: {variations}")
 
             for variant in variations:
-                if verbose:
-                    print(f"    Trying: {variant} ({currency})")
+                print(f"    Trying ticker: {variant} ({currency})")
                 contract = create_contract_from_ticker(variant, currency, "SMART")
 
                 app.contract_details = []
@@ -455,28 +471,33 @@ class IBKRSearchService(IIBKRSearchService):
                     time.sleep(0.05)
 
                 if app.contract_details:
+                    print(f"      FOUND with {variant}! ({len(app.contract_details)} results)")
                     # Mark these as ticker results
                     for contract in app.contract_details:
                         contract['_search_method'] = 'ticker'
                     all_contracts.extend(app.contract_details)
-                    if verbose:
-                        print(f"      FOUND with {variant}!")
                     break  # Found it, move on
+                else:
+                    print(f"      No results for {variant}")
 
                 time.sleep(0.1)
+        else:
+            print(f"  Skipping ticker search - no ticker available")
 
         # Strategy 3: Name-based symbol matching
         if not all_contracts:
-            if verbose:
-                print(f"  Strategy 3 - Name-based search")
+            print(f"  Strategy 3 - Name-based search (no contracts found yet)")
             name_matches = self.search_by_name_matching(app, stock)
             if name_matches:
+                print(f"    Name search found: {len(name_matches)} results")
                 # Mark these as name results
                 for contract in name_matches:
                     contract['_search_method'] = 'name'
                 all_contracts.extend(name_matches)
-                if verbose:
-                    print(f"    Name search found: {len(name_matches)} results")
+            else:
+                print(f"    Name search found no results")
+        else:
+            print(f"  Skipping Strategy 3 - already have {len(all_contracts)} contracts from previous strategies")
 
         # Match and score results with validation based on search method
         if all_contracts:

@@ -244,6 +244,7 @@ class IBKRDatabaseService:
             for stock in stocks:
                 isin = stock.get('isin', '')
                 ticker = stock.get('ticker', '')
+                name = stock.get('name', 'Unknown')
 
                 if not isin or not ticker:
                     uncached_stocks.append(stock)
@@ -262,7 +263,8 @@ class IBKRDatabaseService:
                     # Normalize conId field
                     if 'contract_id' in raw_details and 'conId' not in raw_details:
                         raw_details['conId'] = raw_details['contract_id']
-                        logger.info(f"Fixed conId for {ticker}: contract_id={raw_details['contract_id']} -> conId={raw_details['conId']}")
+                        cached_name = cached_entry.name
+                        logger.info(f"Fixed conId for {ticker} (searched: {name}, cached: {cached_name}): contract_id={raw_details['contract_id']} -> conId={raw_details['conId']}")
 
                     # Check if entry is actually usable (has valid conId)
                     is_valid_cache = True
