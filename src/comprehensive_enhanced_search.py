@@ -18,7 +18,21 @@ import sys
 
 # Add backend path for database service import
 sys.path.append(str(Path(__file__).parent.parent / 'backend' / 'app'))
-from services.database_service import get_database_service
+sys.path.append(str(Path(__file__).parent.parent / 'backend'))
+
+# Import database service with error handling
+try:
+    from backend.app.services.database_service import get_database_service
+except ImportError as e:
+    print(f"❌ Warning: Could not import database service. Cache will be disabled. Error: {e}")
+    def get_database_service(path):
+        """Fallback when database service is not available"""
+        class DummyDB:
+            def get_cached_stocks(self, stocks):
+                return [], stocks  # No cache hits, all uncached
+            def store_result(self, *args, **kwargs):
+                return False
+        return DummyDB()
 
 class IBApi(EWrapper, EClient):
     def __init__(self):
@@ -601,9 +615,14 @@ def process_all_universe_stocks():
         'cache_misses': len(uncached_stocks)
     }
 
-    # Count cached results in stats
+    # Count cached results in stats and update universe data
     for stock in cached_stocks:
+        ticker = stock['ticker']
         ibkr_details = stock.get('ibkr_details', {})
+
+        # Update universe data with cached IBKR details
+        update_universe_with_ibkr_details(universe_data, ticker, ibkr_details)
+
         if ibkr_details.get('found'):
             method = ibkr_details.get('search_method', 'unknown')
             if method == 'isin':
@@ -655,12 +674,18 @@ def process_all_universe_stocks():
                     stats['found_ticker'] += 1
             else:
                 # If no ISIN, check if found by ticker or name
-                if match['symbol'].upper() in [v.upper() for v in get_all_ticker_variations(ticker)]:
-                    search_method = "ticker"
-                    stats['found_ticker'] += 1
-                else:
-                    search_method = "name"
-                    stats['found_name'] += 1
+                try:
+                    if match['symbol'].upper() in [v.upper() for v in get_all_ticker_variations(ticker)]:
+                        search_method = "ticker"
+                        stats['found_ticker'] += 1
+                    else:
+                        search_method = "name"
+                        stats['found_name'] += 1
+                except KeyError as e:
+                    print(f"❌ Error accessing {e} in match object for {ticker}")
+                    print(f"   Match keys: {list(match.keys()) if match else 'None'}")
+                    print(f"   Match type: {type(match)}")
+                    search_method = "unknown"
             
             # Add search method and score to match details
             match['search_method'] = search_method

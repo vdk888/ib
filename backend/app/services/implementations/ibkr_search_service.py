@@ -365,20 +365,24 @@ class IBKRSearchService(IIBKRSearchService):
 
                 # Convert matching symbols to contract details
                 for match in app.matching_symbols:
-                    if match['currency'] == stock['currency']:  # Currency filter
-                        # Get full contract details
-                        contract = create_contract_from_ticker(match['symbol'], match['currency'], match['exchange'])
+                    if match.get('currency') == stock['currency']:  # Currency filter
+                        # Get full contract details - use .get() for safe access
+                        symbol = match.get('symbol', '')
+                        currency = match.get('currency', '')
+                        exchange = match.get('exchange', '')
+                        if symbol and currency and exchange:
+                            contract = create_contract_from_ticker(symbol, currency, exchange)
 
-                        app.contract_details = []
-                        app.search_completed = False
-                        app.reqContractDetails(app.next_req_id, contract)
-                        app.next_req_id += 1
+                            app.contract_details = []
+                            app.search_completed = False
+                            app.reqContractDetails(app.next_req_id, contract)
+                            app.next_req_id += 1
 
-                        timeout_start = time.time()
-                        while not app.search_completed and (time.time() - timeout_start) < 20:
-                            time.sleep(0.05)
+                            timeout_start = time.time()
+                            while not app.search_completed and (time.time() - timeout_start) < 20:
+                                time.sleep(0.05)
 
-                        all_matches.extend(app.contract_details)
+                            all_matches.extend(app.contract_details)
                         time.sleep(0.1)
 
                 time.sleep(0.2)
@@ -488,11 +492,15 @@ class IBKRSearchService(IIBKRSearchService):
                 if is_valid:
                     name_sim = similarity_score(stock['name'].lower(), contract['longName'].lower())
                     if verbose:
-                        print(f"    VALID: {contract['symbol']}: {contract['longName'][:40]} -> {reason}")
+                        symbol = contract.get('symbol', 'N/A')
+                        longName = contract.get('longName', 'N/A')
+                        print(f"    VALID: {symbol}: {longName[:40]} -> {reason}")
                     valid_matches.append((contract, name_sim))
                 else:
                     if verbose:
-                        print(f"    REJECTED: {contract['symbol']}: {contract['longName'][:40]} -> {reason}")
+                        symbol = contract.get('symbol', 'N/A')
+                        longName = contract.get('longName', 'N/A')
+                        print(f"    REJECTED: {symbol}: {longName[:40]} -> {reason}")
 
             if valid_matches:
                 # Sort by name similarity and pick the best
@@ -523,9 +531,9 @@ class IBKRSearchService(IIBKRSearchService):
                     # Add IBKR details
                     stock['ibkr_details'] = {
                         'found': True,
-                        'symbol': ibkr_details['symbol'],
-                        'longName': ibkr_details['longName'],
-                        'exchange': ibkr_details['exchange'],
+                        'symbol': ibkr_details.get('symbol', ''),
+                        'longName': ibkr_details.get('longName', ''),
+                        'exchange': ibkr_details.get('exchange', ''),
                         'primaryExchange': ibkr_details.get('primaryExchange', ''),
                         'conId': ibkr_details.get('conId', 0),
                         'search_method': ibkr_details.get('search_method', 'unknown'),
@@ -570,7 +578,7 @@ class IBKRSearchService(IIBKRSearchService):
 
         # Get database service for caching (API uses backend/data path)
         script_dir = Path(__file__).parent
-        backend_db_path = script_dir.parent.parent / 'data' / 'ibkr_cache.db'
+        backend_db_path = script_dir.parent.parent.parent / 'data' / 'ibkr_cache.db'
         db_service = get_database_service(str(backend_db_path))
 
         # Separate cached and uncached stocks
@@ -673,9 +681,14 @@ class IBKRSearchService(IIBKRSearchService):
             'cache_misses': len(uncached_stocks)
         }
 
-        # Count cached results in stats
+        # Count cached results in stats and update universe data
         for stock in cached_stocks:
+            ticker = stock['ticker']
             ibkr_details = stock.get('ibkr_details', {})
+
+            # Update universe data with cached IBKR details
+            self.update_universe_with_ibkr_details(universe_data, ticker, ibkr_details)
+
             if ibkr_details.get('found'):
                 method = ibkr_details.get('search_method', 'unknown')
                 if method == 'isin':
@@ -727,11 +740,16 @@ class IBKRSearchService(IIBKRSearchService):
                         stats['found_ticker'] += 1
                 else:
                     # If no ISIN, check if found by ticker or name
-                    if match['symbol'].upper() in [v.upper() for v in self.get_all_ticker_variations(ticker)]:
-                        search_method = "ticker"
-                        stats['found_ticker'] += 1
-                    else:
-                        search_method = "name"
+                    try:
+                        if match['symbol'].upper() in [v.upper() for v in self.get_all_ticker_variations(ticker)]:
+                            search_method = "ticker"
+                            stats['found_ticker'] += 1
+                        else:
+                            search_method = "name"
+                            stats['found_name'] += 1
+                    except KeyError as e:
+                        print(f"❌ Error accessing {e} in match object for {ticker}")
+                        search_method = "unknown"
                         stats['found_name'] += 1
 
                 # Add search method and score to match details
@@ -741,7 +759,9 @@ class IBKRSearchService(IIBKRSearchService):
                 # Update universe data
                 self.update_universe_with_ibkr_details(universe_data, ticker, match)
 
-                print(f"  FOUND: {match['symbol']} on {match['exchange']} (method: {search_method}, score: {score:.1%})")
+                symbol = match.get('symbol', 'N/A')
+                exchange = match.get('exchange', 'N/A')
+                print(f"  FOUND: {symbol} on {exchange} (method: {search_method}, score: {score:.1%})")
 
                 # Store successful result in cache
                 db_service.store_result(
@@ -752,9 +772,9 @@ class IBKRSearchService(IIBKRSearchService):
                     found=True,
                     ibkr_details={
                         'found': True,
-                        'symbol': match['symbol'],
-                        'longName': match['longName'],
-                        'exchange': match['exchange'],
+                        'symbol': match.get('symbol', ''),
+                        'longName': match.get('longName', ''),
+                        'exchange': match.get('exchange', ''),
                         'primaryExchange': match.get('primaryExchange', ''),
                         'contract_id': match.get('conId', 0),
                         'search_method': search_method,

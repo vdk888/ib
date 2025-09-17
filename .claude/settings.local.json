@@ -7,7 +7,10 @@
       "Bash(pip install:*)",
       "Bash(.venvScriptsactivate)",
       "Bash(source:*)",
-      "Bash(powershell:*)"
+      "Bash(powershell:*)",
+      "Bash(sqlite3:*)",
+      "Bash(timeout:*)",
+      "Bash(./venv/Scripts/python:*)"
     ],
     "deny": [],
     "ask": []
