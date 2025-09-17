@@ -44,6 +44,7 @@ class UncleStockSettings(BaseServiceSettings):
     class Config:
         env_prefix = "UNCLE_STOCK_"
         env_file = str(ROOT_DIR / ".env")
+        extra = "ignore"
 
 class IBKRSettings(BaseServiceSettings):
     ibkr_host: str = "host.docker.internal"
@@ -63,6 +64,16 @@ class PortfolioSettings(BaseServiceSettings):
     class Config:
         env_prefix = "PORTFOLIO_"
 
+class TelegramSettings(BaseServiceSettings):
+    bot_token: Optional[str] = None
+    chat_id: Optional[str] = None
+    enabled: bool = True
+    timeout: int = 10
+
+    class Config:
+        env_prefix = "TELEGRAM_"
+        env_file = str(Path(__file__).parent.parent / ".env")
+
 class Settings(BaseServiceSettings):
     """Main application settings"""
     # File paths
@@ -73,6 +84,7 @@ class Settings(BaseServiceSettings):
     uncle_stock: UncleStockSettings = UncleStockSettings()
     ibkr: IBKRSettings = IBKRSettings()
     portfolio: PortfolioSettings = PortfolioSettings()
+    telegram: TelegramSettings = TelegramSettings()
 
     class Config:
         env_file = str(ROOT_DIR / ".env")

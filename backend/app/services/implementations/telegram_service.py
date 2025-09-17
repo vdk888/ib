@@ -63,14 +63,14 @@ class TelegramService(ITelegramService):
             return
 
         if not self.bot_token:
-            raise TelegramServiceError("TELEGRAM_BOT_TOKEN environment variable not set")
+            raise TelegramServiceError("TELEGRAM_BOT_TOKEN environment variable not set", "TELEGRAM_CONFIG_ERROR")
 
         if not self.chat_id:
-            raise TelegramServiceError("TELEGRAM_CHAT_ID environment variable not set")
+            raise TelegramServiceError("TELEGRAM_CHAT_ID environment variable not set", "TELEGRAM_CONFIG_ERROR")
 
         # Validate bot token format (basic check)
         if not re.match(r'^\d+:[A-Za-z0-9_-]{35}$', self.bot_token):
-            raise TelegramServiceError("TELEGRAM_BOT_TOKEN format appears invalid")
+            raise TelegramServiceError("TELEGRAM_BOT_TOKEN format appears invalid", "TELEGRAM_CONFIG_ERROR")
 
         self.logger.info(f"Telegram service configured for chat ID: {self.chat_id}")
 

@@ -1,6 +1,14 @@
 """
 Dependency injection container
 """
+# Load environment variables first
+from dotenv import load_dotenv
+from pathlib import Path
+
+# Load .env file from the backend directory
+env_path = Path(__file__).parent.parent.parent / ".env"
+load_dotenv(env_path)
+
 from functools import lru_cache
 from .config import Settings
 from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer, ITargetAllocationService, IOrderExecutionService, IRebalancingService, IAccountService, IQuantityCalculator, IPipelineOrchestrator, ICurrencyService, IIBKRSearchService, IOrderStatusService, IHistoricalDataService, ITelegramService
