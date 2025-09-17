@@ -33,7 +33,7 @@ from ..interfaces import (
 
 from ..interfaces import IPipelineOrchestrator
 from ...models.schemas import (
-    PipelineExecutionStatus,
+    PipelineExecutionStatus as PipelineExecutionStatusEnum,
     PipelineStepStatus,
     PipelineStepInfo,
     PipelineStepResult,
@@ -63,7 +63,7 @@ class PipelineExecutionManager:
         """Create new execution tracking"""
         self._executions[execution_id] = {
             "execution_id": execution_id,
-            "status": PipelineExecutionStatus.PENDING,
+            "status": "pending",
             "current_step": None,
             "completed_steps": [],
             "failed_step": None,
@@ -80,7 +80,7 @@ class PipelineExecutionManager:
     def update_execution_status(
         self,
         execution_id: str,
-        status: PipelineExecutionStatus,
+        status: PipelineExecutionStatusEnum,
         current_step: Optional[int] = None
     ) -> None:
         """Update execution status"""
@@ -336,7 +336,7 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
         # Update execution status
         self.execution_manager.update_execution_status(
             execution_id,
-            PipelineExecutionStatus.RUNNING,
+            "running",
             step_number
         )
 
@@ -507,7 +507,7 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
             success = failed_step is None
 
             # Update execution status
-            final_status = PipelineExecutionStatus.COMPLETED if success else PipelineExecutionStatus.FAILED
+            final_status = PipelineExecutionStatusEnum.COMPLETED if success else PipelineExecutionStatusEnum.FAILED
             self.execution_manager.update_execution_status(execution_id, final_status)
 
             # Send Telegram notification for pipeline completion
@@ -550,7 +550,7 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
             overall_execution_time = time.time() - overall_start_time
             error_message = f"Pipeline execution failed with unexpected error: {str(e)}"
 
-            self.execution_manager.update_execution_status(execution_id, PipelineExecutionStatus.FAILED)
+            self.execution_manager.update_execution_status(execution_id, PipelineExecutionStatusEnum.FAILED)
 
             # Send Telegram notification for pipeline failure due to exception
             await self.telegram_service.notify_pipeline_complete(
@@ -616,7 +616,7 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
         step_result = await self._execute_step(step_number, execution_id)
 
         # Update final execution status
-        final_status = PipelineExecutionStatus.COMPLETED if step_result.success else PipelineExecutionStatus.FAILED
+        final_status = "completed" if step_result.success else "failed"
         self.execution_manager.update_execution_status(execution_id, final_status)
 
         return {
@@ -707,7 +707,7 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
             success = failed_step is None
 
             # Update execution status
-            final_status = PipelineExecutionStatus.COMPLETED if success else PipelineExecutionStatus.FAILED
+            final_status = PipelineExecutionStatusEnum.COMPLETED if success else PipelineExecutionStatusEnum.FAILED
             self.execution_manager.update_execution_status(execution_id, final_status)
 
             return {
@@ -726,7 +726,7 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
             overall_execution_time = time.time() - overall_start_time
             error_message = f"Step range execution failed with unexpected error: {str(e)}"
 
-            self.execution_manager.update_execution_status(execution_id, PipelineExecutionStatus.FAILED)
+            self.execution_manager.update_execution_status(execution_id, PipelineExecutionStatusEnum.FAILED)
             self.execution_manager.add_log_entry(
                 execution_id,
                 "ERROR",
@@ -751,7 +751,7 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
         if not execution:
             return {
                 "execution_id": execution_id,
-                "status": PipelineExecutionStatus.NOT_FOUND,
+                "status": PipelineExecutionStatusEnum.NOT_FOUND,
                 "current_step": None,
                 "completed_steps": [],
                 "failed_step": None,
@@ -763,7 +763,7 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
 
         # Calculate estimated remaining time for running executions
         estimated_remaining = None
-        if execution["status"] == PipelineExecutionStatus.RUNNING and execution["current_step"]:
+        if execution["status"] == PipelineExecutionStatusEnum.RUNNING and execution["current_step"]:
             # Simple estimation based on average step time (rough estimate)
             avg_step_time = execution["execution_time"] / len(execution["completed_steps"]) if execution["completed_steps"] else 30
             remaining_steps = 11 - len(execution["completed_steps"])
@@ -850,7 +850,7 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
 
         return {
             "execution_id": execution_id,
-            "success": execution.get("status") == PipelineExecutionStatus.COMPLETED,
+            "success": execution.get("status") == PipelineExecutionStatusEnum.COMPLETED,
             "created_files": execution.get("created_files", {}),
             "file_summaries": file_summaries,
             "step_summaries": step_summaries,
@@ -935,7 +935,7 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
                     "execution_id": exec_id,
                     "execution_type": execution.get("metadata", {}).get("execution_type", "unknown"),
                     "status": execution.get("status"),
-                    "success": execution.get("status") == PipelineExecutionStatus.COMPLETED,
+                    "success": execution.get("status") == PipelineExecutionStatusEnum.COMPLETED,
                     "start_time": execution.get("start_time"),
                     "end_time": execution.get("end_time"),
                     "execution_time": execution.get("execution_time"),
