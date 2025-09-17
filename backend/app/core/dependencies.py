@@ -3,7 +3,7 @@ Dependency injection container
 """
 from functools import lru_cache
 from .config import Settings
-from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer, ITargetAllocationService, IOrderExecutionService, IRebalancingService, IAccountService, IQuantityCalculator, IPipelineOrchestrator, ICurrencyService, IIBKRSearchService, IOrderStatusService, IHistoricalDataService
+from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer, ITargetAllocationService, IOrderExecutionService, IRebalancingService, IAccountService, IQuantityCalculator, IPipelineOrchestrator, ICurrencyService, IIBKRSearchService, IOrderStatusService, IHistoricalDataService, ITelegramService
 from ..services.implementations.screener_service import ScreenerService
 from ..services.implementations.uncle_stock_provider import UncleStockProvider
 from ..services.implementations.file_manager import FileManager
@@ -20,6 +20,7 @@ from ..services.implementations.pipeline_orchestrator_service import PipelineOrc
 from ..services.implementations.currency_service import CurrencyService
 from ..services.implementations.ibkr_search_service import IBKRSearchService
 from ..services.implementations.historical_data_service import HistoricalDataService
+from ..services.implementations.telegram_service import TelegramService
 
 @lru_cache()
 def get_settings() -> Settings:
@@ -43,6 +44,7 @@ _quantity_orchestrator_service = None
 _pipeline_orchestrator_service = None
 _currency_service = None
 _ibkr_search_service = None
+_telegram_service = None
 
 
 def get_file_manager() -> FileManager:
@@ -170,7 +172,8 @@ def get_pipeline_orchestrator_service() -> IPipelineOrchestrator:
             ibkr_search_service=get_ibkr_search_service(),
             rebalancing_service=get_rebalancing_service(),
             order_execution_service=get_order_execution_service(),
-            order_status_service=get_order_status_service()
+            order_status_service=get_order_status_service(),
+            telegram_service=get_telegram_service()
         )
     return _pipeline_orchestrator_service
 
@@ -188,3 +191,11 @@ def get_ibkr_search_service() -> IIBKRSearchService:
     if _ibkr_search_service is None:
         _ibkr_search_service = IBKRSearchService()
     return _ibkr_search_service
+
+
+def get_telegram_service() -> ITelegramService:
+    """Get Telegram notification service instance"""
+    global _telegram_service
+    if _telegram_service is None:
+        _telegram_service = TelegramService()
+    return _telegram_service

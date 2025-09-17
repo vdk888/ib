@@ -27,7 +27,8 @@ from ..interfaces import (
     IIBKRSearchService,
     IRebalancingService,
     IOrderExecutionService,
-    IOrderStatusService
+    IOrderStatusService,
+    ITelegramService
 )
 
 from ..interfaces import IPipelineOrchestrator
@@ -159,7 +160,8 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
         ibkr_search_service: IIBKRSearchService,
         rebalancing_service: IRebalancingService,
         order_execution_service: IOrderExecutionService,
-        order_status_service: IOrderStatusService
+        order_status_service: IOrderStatusService,
+        telegram_service: ITelegramService
     ):
         self.execution_manager = PipelineExecutionManager()
 
@@ -175,6 +177,7 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
         self.rebalancing_service = rebalancing_service
         self.order_execution_service = order_execution_service
         self.order_status_service = order_status_service
+        self.telegram_service = telegram_service
 
         # Step function mapping using service layer methods
         self._step_functions: Dict[int, Callable[[], bool]] = {
@@ -315,6 +318,13 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
         step_info = self._step_info[step_number]
         start_time = datetime.utcnow()
 
+        # Send Telegram notification for step start
+        await self.telegram_service.notify_step_start(
+            step_number=step_number,
+            step_name=step_info.step_name,
+            execution_id=execution_id
+        )
+
         # Log step start
         self.execution_manager.add_log_entry(
             execution_id,
@@ -359,6 +369,22 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
                 error_message=None if success else f"Step {step_number} failed - stopping pipeline"
             )
 
+            # Send Telegram notification for step completion
+            details = {}
+            if success and len(step_info.creates_files) > 0:
+                details["created_files"] = step_info.creates_files
+            elif not success:
+                details["error_message"] = step_result.error_message
+
+            await self.telegram_service.notify_step_complete(
+                step_number=step_number,
+                step_name=step_info.step_name,
+                execution_id=execution_id,
+                success=success,
+                execution_time=execution_time,
+                details=details
+            )
+
             # Log step completion
             self.execution_manager.add_log_entry(
                 execution_id,
@@ -374,6 +400,16 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
             end_time = datetime.utcnow()
             execution_time = (end_time - start_time).total_seconds()
             error_traceback = traceback.format_exc()
+
+            # Send Telegram notification for step failure due to exception
+            await self.telegram_service.notify_step_complete(
+                step_number=step_number,
+                step_name=step_info.step_name,
+                execution_id=execution_id,
+                success=False,
+                execution_time=execution_time,
+                details={"error_message": str(e)}
+            )
 
             # Log step error
             self.execution_manager.add_log_entry(
@@ -415,6 +451,13 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
         )
 
         self.execution_manager.create_execution(execution_id, "full_pipeline", metadata.dict())
+
+        # Send Telegram notification for pipeline start
+        await self.telegram_service.notify_pipeline_start(
+            pipeline_type="monthly",
+            target_steps=list(range(1, 12)),
+            execution_id=execution_id
+        )
 
         # Log pipeline start
         self.execution_manager.add_log_entry(
@@ -467,6 +510,17 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
             final_status = PipelineExecutionStatus.COMPLETED if success else PipelineExecutionStatus.FAILED
             self.execution_manager.update_execution_status(execution_id, final_status)
 
+            # Send Telegram notification for pipeline completion
+            await self.telegram_service.notify_pipeline_complete(
+                pipeline_type="monthly",
+                execution_id=execution_id,
+                success=success,
+                completed_steps=completed_steps,
+                failed_step=failed_step,
+                execution_time=overall_execution_time,
+                summary_stats=None  # Could add portfolio stats here if available
+            )
+
             # Final logging
             self.execution_manager.add_log_entry(
                 execution_id,
@@ -497,6 +551,18 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
             error_message = f"Pipeline execution failed with unexpected error: {str(e)}"
 
             self.execution_manager.update_execution_status(execution_id, PipelineExecutionStatus.FAILED)
+
+            # Send Telegram notification for pipeline failure due to exception
+            await self.telegram_service.notify_pipeline_complete(
+                pipeline_type="monthly",
+                execution_id=execution_id,
+                success=False,
+                completed_steps=completed_steps,
+                failed_step=None,  # Pipeline-level failure
+                execution_time=overall_execution_time,
+                summary_stats=None
+            )
+
             self.execution_manager.add_log_entry(
                 execution_id,
                 "ERROR",

@@ -2123,3 +2123,215 @@ class IIBKRSearchService(ABC):
             - Coverage summary and missing stock details
         """
         pass
+
+
+class ITelegramService(ABC):
+    """
+    Interface for Telegram notification service
+    Provides real-time notifications for pipeline execution and system events
+    Following Interface-First Design for external messaging service integration
+    """
+
+    @abstractmethod
+    async def send_message(
+        self,
+        message: str,
+        parse_mode: str = "Markdown",
+        disable_notification: bool = False
+    ) -> bool:
+        """
+        Send a message to the configured Telegram chat
+
+        Args:
+            message: Text message to send (supports Markdown formatting)
+            parse_mode: Message formatting mode (Markdown, HTML, or None)
+            disable_notification: Send message silently without notification
+
+        Returns:
+            bool: True if message sent successfully, False otherwise
+
+        Side Effects:
+            - Sends HTTP request to Telegram Bot API
+            - May trigger notification to user's device
+        """
+        pass
+
+    @abstractmethod
+    async def notify_step_start(
+        self,
+        step_number: int,
+        step_name: str,
+        execution_id: str
+    ) -> bool:
+        """
+        Send notification when pipeline step starts execution
+
+        Args:
+            step_number: Pipeline step number (1-11)
+            step_name: Human-readable step name
+            execution_id: Unique execution identifier
+
+        Returns:
+            bool: True if notification sent successfully
+
+        Side Effects:
+            - Formats and sends step start notification
+            - Includes execution timestamp and step details
+        """
+        pass
+
+    @abstractmethod
+    async def notify_step_complete(
+        self,
+        step_number: int,
+        step_name: str,
+        execution_id: str,
+        success: bool,
+        execution_time: float,
+        details: Optional[Dict[str, Any]] = None
+    ) -> bool:
+        """
+        Send notification when pipeline step completes
+
+        Args:
+            step_number: Pipeline step number (1-11)
+            step_name: Human-readable step name
+            execution_id: Unique execution identifier
+            success: Whether step completed successfully
+            execution_time: Step execution duration in seconds
+            details: Optional additional details (files created, errors, etc.)
+
+        Returns:
+            bool: True if notification sent successfully
+
+        Side Effects:
+            - Formats success/failure notification with timing
+            - Includes error details if step failed
+            - Shows created files and processing statistics
+        """
+        pass
+
+    @abstractmethod
+    async def notify_pipeline_start(
+        self,
+        pipeline_type: str,
+        target_steps: List[int],
+        execution_id: str
+    ) -> bool:
+        """
+        Send notification when pipeline execution begins
+
+        Args:
+            pipeline_type: Type of pipeline (daily, monthly, manual)
+            target_steps: List of steps to be executed
+            execution_id: Unique execution identifier
+
+        Returns:
+            bool: True if notification sent successfully
+
+        Side Effects:
+            - Sends pipeline start notification with step overview
+            - Includes execution type and expected duration
+        """
+        pass
+
+    @abstractmethod
+    async def notify_pipeline_complete(
+        self,
+        pipeline_type: str,
+        execution_id: str,
+        success: bool,
+        completed_steps: List[int],
+        failed_step: Optional[int],
+        execution_time: float,
+        summary_stats: Optional[Dict[str, Any]] = None
+    ) -> bool:
+        """
+        Send notification when pipeline execution completes
+
+        Args:
+            pipeline_type: Type of pipeline (daily, monthly, manual)
+            execution_id: Unique execution identifier
+            success: Whether entire pipeline succeeded
+            completed_steps: List of successfully completed steps
+            failed_step: Step number where pipeline failed (if any)
+            execution_time: Total pipeline execution time in seconds
+            summary_stats: Optional execution summary statistics
+
+        Returns:
+            bool: True if notification sent successfully
+
+        Side Effects:
+            - Sends comprehensive pipeline completion report
+            - Includes success/failure status, timing, and statistics
+            - Provides failure details if pipeline failed
+        """
+        pass
+
+    @abstractmethod
+    async def send_daily_summary(
+        self,
+        portfolio_value: float,
+        active_positions: int,
+        orders_executed: int,
+        performance_change: Optional[float] = None
+    ) -> bool:
+        """
+        Send daily portfolio performance summary
+
+        Args:
+            portfolio_value: Current total portfolio value in EUR
+            active_positions: Number of active stock positions
+            orders_executed: Number of orders executed today
+            performance_change: Daily performance change percentage
+
+        Returns:
+            bool: True if summary sent successfully
+
+        Side Effects:
+            - Sends formatted daily portfolio summary
+            - Includes key performance metrics and statistics
+        """
+        pass
+
+    @abstractmethod
+    async def send_error_alert(
+        self,
+        error_type: str,
+        error_message: str,
+        context: Optional[Dict[str, Any]] = None
+    ) -> bool:
+        """
+        Send critical error alert notification
+
+        Args:
+            error_type: Type of error (SERVICE_FAILURE, API_ERROR, etc.)
+            error_message: Detailed error message
+            context: Optional context information (step, service, etc.)
+
+        Returns:
+            bool: True if alert sent successfully
+
+        Side Effects:
+            - Sends high-priority error notification
+            - Includes error details and troubleshooting context
+        """
+        pass
+
+    @abstractmethod
+    def get_service_status(self) -> Dict[str, Any]:
+        """
+        Get current Telegram service configuration and status
+
+        Returns:
+            Dict containing:
+            - configured: Whether service is properly configured
+            - bot_token_valid: Whether bot token is valid format
+            - chat_id_configured: Whether chat ID is set
+            - last_message_sent: Timestamp of last successful message
+            - message_count: Total messages sent in current session
+
+        Side Effects:
+            - None (read-only status check)
+        """
+        pass
