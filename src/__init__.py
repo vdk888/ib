@@ -1,1 +1,0 @@
-# Uncle Stock Screener Package

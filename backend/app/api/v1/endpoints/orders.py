@@ -45,7 +45,7 @@ async def generate_orders(
 
         # Use default universe file if not specified
         if universe_file is None:
-            universe_file = "data/universe_with_ibkr.json"
+            universe_file = "backend/data/universe_with_ibkr.json"
 
         # Run rebalancing process
         results = rebalancing_service.run_rebalancing(universe_file)
@@ -173,7 +173,7 @@ async def get_target_quantities(
 
         # Use default universe file if not specified
         if universe_file is None:
-            universe_file = "data/universe_with_ibkr.json"
+            universe_file = "backend/data/universe_with_ibkr.json"
 
         # Load universe data
         universe_data = rebalancing_service.load_universe_data(universe_file)

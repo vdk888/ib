@@ -98,16 +98,40 @@ class RebalancingService(IRebalancingService):
         symbol_details = {}  # Store IBKR details for each symbol
 
         # Process each screen
+        stocks_processed = 0
+        stocks_skipped = 0
         for screen_name, screen_data in universe_data['screens'].items():
             screen_count = len(screen_data['stocks'])
             print(f"  Processing {screen_name}: {screen_count} stocks")
 
+            screen_processed = 0
+            screen_skipped = 0
             for stock in screen_data['stocks']:
                 target_quantity = stock.get('quantity', 0)
+                ticker = stock.get('ticker', 'Unknown')
+
+                # Enhanced debug logging for EVPL.L specifically
+                if ticker == 'EVPL.L':
+                    print(f"    DEBUG EVPL.L: quantity={target_quantity}")
+                    print(f"    DEBUG EVPL.L: has ibkr_details={('ibkr_details' in stock)}")
+                    if 'ibkr_details' in stock:
+                        ibkr_details = stock['ibkr_details']
+                        print(f"    DEBUG EVPL.L: ibkr_details keys={list(ibkr_details.keys())}")
+                        print(f"    DEBUG EVPL.L: conId={ibkr_details.get('conId')}")
+                        print(f"    DEBUG EVPL.L: found={ibkr_details.get('found')}")
+                        print(f"    DEBUG EVPL.L: symbol={ibkr_details.get('symbol')}")
 
                 # Skip stocks without IBKR details
                 if not stock.get('ibkr_details', {}).get('conId'):
+                    if target_quantity > 0:
+                        print(f"    SKIPPED: {ticker} (qty={target_quantity}) - no conId")
+                        screen_skipped += 1
+                        stocks_skipped += 1
                     continue
+
+                if target_quantity > 0:
+                    screen_processed += 1
+                    stocks_processed += 1
 
                 ibkr_symbol = stock['ibkr_details']['symbol']
 
@@ -125,9 +149,12 @@ class RebalancingService(IRebalancingService):
                     'ibkr_details': stock['ibkr_details']
                 }
 
+            print(f"    {screen_name}: {screen_processed} processed, {screen_skipped} skipped")
+
         target_quantities = dict(symbol_quantities)
 
         print(f"[OK] Calculated targets for {len(target_quantities)} unique symbols")
+        print(f"[DEBUG] Total stocks processed: {stocks_processed}, skipped: {stocks_skipped}")
 
         # Show top 10 targets
         sorted_targets = sorted(target_quantities.items(),
@@ -212,6 +239,9 @@ class RebalancingService(IRebalancingService):
             for symbol, qty in sorted(current_positions.items()):
                 print(f"    {symbol}: {qty:,} shares")
 
+        print(f"[DEBUG] Current positions summary: {len(current_positions)} symbols")
+        print(f"[DEBUG] Contract details retrieved: {len(current_contract_details)} symbols")
+
         return current_positions, current_contract_details
 
     def generate_orders(
@@ -244,6 +274,11 @@ class RebalancingService(IRebalancingService):
 
         # Get all symbols that need action (target > 0 or current > 0)
         all_symbols = set(list(target_quantities.keys()) + list(current_positions.keys()))
+
+        print(f"[DEBUG] Order generation inputs:")
+        print(f"  Target quantities: {len(target_quantities)} symbols")
+        print(f"  Current positions: {len(current_positions)} symbols")
+        print(f"  Combined symbols for processing: {len(all_symbols)} symbols")
 
         for symbol in sorted(all_symbols):
             target_qty = target_quantities.get(symbol, 0)

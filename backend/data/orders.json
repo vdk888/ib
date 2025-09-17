@@ -1,32 +1,13 @@
 {
   "metadata": {
-    "generated_at": "2025-09-17 16:23:01",
-    "total_orders": 57,
-    "buy_orders": 12,
-    "sell_orders": 45,
-    "total_buy_quantity": 60353,
-    "total_sell_quantity": 230157
+    "generated_at": "2025-09-17 16:49:08",
+    "total_orders": 49,
+    "buy_orders": 25,
+    "sell_orders": 24,
+    "total_buy_quantity": 77017,
+    "total_sell_quantity": 127125
   },
   "orders": [
-    {
-      "symbol": "BRE2",
-      "action": "SELL",
-      "quantity": 72490,
-      "current_quantity": 72490,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "BRE2",
-        "name": "BRE2 (Current Holding)",
-        "currency": "SEK",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "BRE2",
-        "exchange": "SFB",
-        "primaryExchange": "",
-        "conId": 288231257
-      }
-    },
     {
       "symbol": "2150",
       "action": "SELL",
@@ -251,310 +232,6 @@
       }
     },
     {
-      "symbol": "4377",
-      "action": "SELL",
-      "quantity": 3100,
-      "current_quantity": 3100,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "4377",
-        "name": "4377 (Current Holding)",
-        "currency": "JPY",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "4377",
-        "exchange": "TSEJ",
-        "primaryExchange": "",
-        "conId": 512457825
-      }
-    },
-    {
-      "symbol": "6086",
-      "action": "SELL",
-      "quantity": 2900,
-      "current_quantity": 2900,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "6086",
-        "name": "6086 (Current Holding)",
-        "currency": "JPY",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "6086",
-        "exchange": "TSEJ",
-        "primaryExchange": "",
-        "conId": 138276215
-      }
-    },
-    {
-      "symbol": "6196",
-      "action": "SELL",
-      "quantity": 2300,
-      "current_quantity": 2300,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "6196",
-        "name": "6196 (Current Holding)",
-        "currency": "JPY",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "6196",
-        "exchange": "TSEJ",
-        "primaryExchange": "",
-        "conId": 233883860
-      }
-    },
-    {
-      "symbol": "9753",
-      "action": "SELL",
-      "quantity": 2100,
-      "current_quantity": 2100,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "9753",
-        "name": "9753 (Current Holding)",
-        "currency": "JPY",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "9753",
-        "exchange": "TSEJ",
-        "primaryExchange": "",
-        "conId": 131086184
-      }
-    },
-    {
-      "symbol": "3676",
-      "action": "SELL",
-      "quantity": 1700,
-      "current_quantity": 1700,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "3676",
-        "name": "3676 (Current Holding)",
-        "currency": "JPY",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "3676",
-        "exchange": "TSEJ",
-        "primaryExchange": "",
-        "conId": 134127984
-      }
-    },
-    {
-      "symbol": "NTEK.B",
-      "action": "SELL",
-      "quantity": 1612,
-      "current_quantity": 1612,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "NTEK.B",
-        "name": "NTEK.B (Current Holding)",
-        "currency": "SEK",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "NTEK.B",
-        "exchange": "SFB",
-        "primaryExchange": "",
-        "conId": 4828869
-      }
-    },
-    {
-      "symbol": "VCI",
-      "action": "SELL",
-      "quantity": 1527,
-      "current_quantity": 1527,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "VCI",
-        "name": "VCI (Current Holding)",
-        "currency": "CAD",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "VCI",
-        "exchange": "VENTURE",
-        "primaryExchange": "",
-        "conId": 42898654
-      }
-    },
-    {
-      "symbol": "7187",
-      "action": "SELL",
-      "quantity": 1500,
-      "current_quantity": 1500,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "7187",
-        "name": "7187 (Current Holding)",
-        "currency": "JPY",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "7187",
-        "exchange": "TSEJ",
-        "primaryExchange": "",
-        "conId": 233768688
-      }
-    },
-    {
-      "symbol": "ZZ.B",
-      "action": "SELL",
-      "quantity": 1402,
-      "current_quantity": 1402,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "ZZ.B",
-        "name": "ZZ.B (Current Holding)",
-        "currency": "SEK",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "ZZ.B",
-        "exchange": "SFB",
-        "primaryExchange": "",
-        "conId": 391017972
-      }
-    },
-    {
-      "symbol": "3678",
-      "action": "SELL",
-      "quantity": 1400,
-      "current_quantity": 1400,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "3678",
-        "name": "3678 (Current Holding)",
-        "currency": "JPY",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "3678",
-        "exchange": "TSEJ",
-        "primaryExchange": "",
-        "conId": 136480995
-      }
-    },
-    {
-      "symbol": "4832",
-      "action": "SELL",
-      "quantity": 1400,
-      "current_quantity": 1400,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "4832",
-        "name": "4832 (Current Holding)",
-        "currency": "JPY",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "4832",
-        "exchange": "TSEJ",
-        "primaryExchange": "",
-        "conId": 14031167
-      }
-    },
-    {
-      "symbol": "3661",
-      "action": "SELL",
-      "quantity": 1100,
-      "current_quantity": 1100,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "3661",
-        "name": "3661 (Current Holding)",
-        "currency": "JPY",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "3661",
-        "exchange": "TSEJ",
-        "primaryExchange": "",
-        "conId": 104084486
-      }
-    },
-    {
-      "symbol": "6199",
-      "action": "SELL",
-      "quantity": 1100,
-      "current_quantity": 1100,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "6199",
-        "name": "6199 (Current Holding)",
-        "currency": "JPY",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "6199",
-        "exchange": "TSEJ",
-        "primaryExchange": "",
-        "conId": 235161210
-      }
-    },
-    {
-      "symbol": "03P",
-      "action": "SELL",
-      "quantity": 1026,
-      "current_quantity": 1026,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "03P",
-        "name": "03P (Current Holding)",
-        "currency": "EUR",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "03P",
-        "exchange": "ATH",
-        "primaryExchange": "",
-        "conId": 592404996
-      }
-    },
-    {
-      "symbol": "7419",
-      "action": "SELL",
-      "quantity": 1000,
-      "current_quantity": 1000,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "7419",
-        "name": "7419 (Current Holding)",
-        "currency": "JPY",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "7419",
-        "exchange": "TSEJ",
-        "primaryExchange": "",
-        "conId": 131083812
-      }
-    },
-    {
-      "symbol": "3088",
-      "action": "SELL",
-      "quantity": 900,
-      "current_quantity": 900,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "3088",
-        "name": "3088 (Current Holding)",
-        "currency": "JPY",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "3088",
-        "exchange": "TSEJ",
-        "primaryExchange": "",
-        "conId": 46537327
-      }
-    },
-    {
       "symbol": "3925",
       "action": "SELL",
       "quantity": 900,
@@ -571,139 +248,6 @@
         "exchange": "TSEJ",
         "primaryExchange": "",
         "conId": 212179728
-      }
-    },
-    {
-      "symbol": "6750",
-      "action": "SELL",
-      "quantity": 900,
-      "current_quantity": 900,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "6750",
-        "name": "6750 (Current Holding)",
-        "currency": "JPY",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "6750",
-        "exchange": "TSEJ",
-        "primaryExchange": "",
-        "conId": 129106747
-      }
-    },
-    {
-      "symbol": "9381",
-      "action": "SELL",
-      "quantity": 900,
-      "current_quantity": 900,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "9381",
-        "name": "9381 (Current Holding)",
-        "currency": "JPY",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "9381",
-        "exchange": "TSEJ",
-        "primaryExchange": "",
-        "conId": 47383921
-      }
-    },
-    {
-      "symbol": "2146",
-      "action": "SELL",
-      "quantity": 800,
-      "current_quantity": 800,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "2146",
-        "name": "2146 (Current Holding)",
-        "currency": "JPY",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "2146",
-        "exchange": "TSEJ",
-        "primaryExchange": "",
-        "conId": 131081539
-      }
-    },
-    {
-      "symbol": "CMB",
-      "action": "SELL",
-      "quantity": 547,
-      "current_quantity": 547,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "CMB",
-        "name": "CMB (Current Holding)",
-        "currency": "EUR",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "CMB",
-        "exchange": "BVME",
-        "primaryExchange": "",
-        "conId": 26319078
-      }
-    },
-    {
-      "symbol": "4686",
-      "action": "SELL",
-      "quantity": 500,
-      "current_quantity": 500,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "4686",
-        "name": "4686 (Current Holding)",
-        "currency": "JPY",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "4686",
-        "exchange": "TSEJ",
-        "primaryExchange": "",
-        "conId": 131086553
-      }
-    },
-    {
-      "symbol": "4368",
-      "action": "SELL",
-      "quantity": 400,
-      "current_quantity": 400,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "4368",
-        "name": "4368 (Current Holding)",
-        "currency": "JPY",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "4368",
-        "exchange": "TSEJ",
-        "primaryExchange": "",
-        "conId": 131082890
-      }
-    },
-    {
-      "symbol": "TM17",
-      "action": "SELL",
-      "quantity": 347,
-      "current_quantity": 347,
-      "target_quantity": 0,
-      "stock_info": {
-        "ticker": "TM17",
-        "name": "TM17 (Current Holding)",
-        "currency": "GBP",
-        "screens": []
-      },
-      "ibkr_details": {
-        "symbol": "TM17",
-        "exchange": "LSE",
-        "primaryExchange": "",
-        "conId": 319091809
       }
     },
     {
@@ -732,22 +276,26 @@
       }
     },
     {
-      "symbol": "9769",
+      "symbol": "4368",
       "action": "SELL",
-      "quantity": 300,
-      "current_quantity": 300,
-      "target_quantity": 0,
+      "quantity": 200,
+      "current_quantity": 400,
+      "target_quantity": 200,
       "stock_info": {
-        "ticker": "9769",
-        "name": "9769 (Current Holding)",
+        "ticker": "4368.T",
+        "name": "Fuso Chemical Co Ltd",
         "currency": "JPY",
         "screens": []
       },
       "ibkr_details": {
-        "symbol": "9769",
-        "exchange": "TSEJ",
-        "primaryExchange": "",
-        "conId": 131084495
+        "found": true,
+        "symbol": "4368",
+        "longName": "FUSO CHEMICAL CO LTD",
+        "exchange": "SMART",
+        "primaryExchange": "TSEJ",
+        "conId": 131082890,
+        "search_method": "isin",
+        "match_score": 1.0
       }
     },
     {
@@ -776,22 +324,76 @@
       }
     },
     {
-      "symbol": "WAVE",
+      "symbol": "CMB",
       "action": "SELL",
-      "quantity": 195,
-      "current_quantity": 195,
-      "target_quantity": 0,
+      "quantity": 142,
+      "current_quantity": 547,
+      "target_quantity": 405,
       "stock_info": {
-        "ticker": "WAVE",
-        "name": "WAVE (Current Holding)",
+        "ticker": "CMB.MI",
+        "name": "Cembre S.p.A.",
         "currency": "EUR",
         "screens": []
       },
       "ibkr_details": {
-        "symbol": "WAVE",
-        "exchange": "SBF",
-        "primaryExchange": "",
-        "conId": 331862803
+        "found": true,
+        "symbol": "CMB",
+        "longName": "CEMBRE SPA",
+        "exchange": "SMART",
+        "primaryExchange": "BVME",
+        "conId": 26319078,
+        "search_method": "isin",
+        "match_score": 0.8695652173913043
+      }
+    },
+    {
+      "symbol": "3676",
+      "action": "SELL",
+      "quantity": 100,
+      "current_quantity": 1700,
+      "target_quantity": 1600,
+      "stock_info": {
+        "ticker": "3676.T",
+        "name": "Hearts United Group Co Ltd",
+        "currency": "JPY",
+        "screens": [
+          "Moat Companies"
+        ]
+      },
+      "ibkr_details": {
+        "found": true,
+        "symbol": "3676",
+        "longName": "DIGITAL HEARTS HOLDINGS CO L",
+        "exchange": "SMART",
+        "primaryExchange": "TSEJ",
+        "conId": 134127984,
+        "search_method": "isin",
+        "match_score": 0.5185185185185185
+      }
+    },
+    {
+      "symbol": "6199",
+      "action": "SELL",
+      "quantity": 100,
+      "current_quantity": 1100,
+      "target_quantity": 1000,
+      "stock_info": {
+        "ticker": "6199.T",
+        "name": "Seraku Co Ltd",
+        "currency": "JPY",
+        "screens": [
+          "Moat Companies"
+        ]
+      },
+      "ibkr_details": {
+        "found": true,
+        "symbol": "6199",
+        "longName": "SERAKU CO LTD",
+        "exchange": "SMART",
+        "primaryExchange": "TSEJ",
+        "conId": 235161210,
+        "search_method": "isin",
+        "match_score": 1.0
       }
     },
     {
@@ -841,60 +443,76 @@
       }
     },
     {
-      "symbol": "9790",
+      "symbol": "NTEK.B",
       "action": "SELL",
-      "quantity": 100,
-      "current_quantity": 100,
-      "target_quantity": 0,
+      "quantity": 48,
+      "current_quantity": 1612,
+      "target_quantity": 1564,
       "stock_info": {
-        "ticker": "9790",
-        "name": "9790 (Current Holding)",
-        "currency": "JPY",
-        "screens": []
+        "ticker": "NTEK-B.ST",
+        "name": "Novotek AB",
+        "currency": "SEK",
+        "screens": [
+          "Moat Companies"
+        ]
       },
       "ibkr_details": {
-        "symbol": "9790",
-        "exchange": "TSEJ",
-        "primaryExchange": "",
-        "conId": 37926693
+        "found": true,
+        "symbol": "NTEK.B",
+        "longName": "NOVOTEK AB-B SHS",
+        "exchange": "SMART",
+        "primaryExchange": "SFB",
+        "conId": 4828869,
+        "search_method": "isin",
+        "match_score": 0.7692307692307693
       }
     },
     {
-      "symbol": "DHI",
+      "symbol": "WAVE",
       "action": "SELL",
-      "quantity": 56,
-      "current_quantity": 56,
-      "target_quantity": 0,
+      "quantity": 10,
+      "current_quantity": 195,
+      "target_quantity": 185,
       "stock_info": {
-        "ticker": "DHI",
-        "name": "DHI (Current Holding)",
-        "currency": "USD",
+        "ticker": "WAVE.PA",
+        "name": "Wavestone SA",
+        "currency": "EUR",
         "screens": []
       },
       "ibkr_details": {
-        "symbol": "DHI",
-        "exchange": "NYSE",
-        "primaryExchange": "",
-        "conId": 268627
+        "found": true,
+        "symbol": "WAVE",
+        "longName": "WAVESTONE",
+        "exchange": "SMART",
+        "primaryExchange": "SBF",
+        "conId": 331862803,
+        "search_method": "isin",
+        "match_score": 0.8571428571428571
       }
     },
     {
       "symbol": "LOGN",
       "action": "SELL",
-      "quantity": 40,
+      "quantity": 7,
       "current_quantity": 40,
-      "target_quantity": 0,
+      "target_quantity": 33,
       "stock_info": {
-        "ticker": "LOGN",
-        "name": "LOGN (Current Holding)",
+        "ticker": "LOGN.SW",
+        "name": "Logitech International S.A.",
         "currency": "CHF",
-        "screens": []
+        "screens": [
+          "Moat Companies"
+        ]
       },
       "ibkr_details": {
+        "found": true,
         "symbol": "LOGN",
-        "exchange": "EBS",
-        "primaryExchange": "",
-        "conId": 39999891
+        "longName": "LOGITECH INTERNATIONAL-REG",
+        "exchange": "SMART",
+        "primaryExchange": "EBS",
+        "conId": 39999891,
+        "search_method": "isin",
+        "match_score": 0.8301886792452831
       }
     },
     {
@@ -920,6 +538,29 @@
         "conId": 478811088,
         "search_method": "isin",
         "match_score": 1.0
+      }
+    },
+    {
+      "symbol": "DHI",
+      "action": "SELL",
+      "quantity": 3,
+      "current_quantity": 56,
+      "target_quantity": 53,
+      "stock_info": {
+        "ticker": "DHI",
+        "name": "D.R. Horton Inc.",
+        "currency": "USD",
+        "screens": []
+      },
+      "ibkr_details": {
+        "found": true,
+        "symbol": "DHI",
+        "longName": "DR HORTON INC",
+        "exchange": "SMART",
+        "primaryExchange": "NYSE",
+        "conId": 268627,
+        "search_method": "isin",
+        "match_score": 0.896551724137931
       }
     },
     {
@@ -963,6 +604,31 @@
         "primaryExchange": "ASX",
         "conId": 47519420,
         "search_method": "isin",
+        "match_score": 1.0
+      }
+    },
+    {
+      "symbol": "TM17",
+      "action": "BUY",
+      "quantity": 9412,
+      "current_quantity": 347,
+      "target_quantity": 9759,
+      "stock_info": {
+        "ticker": "EVPL.L",
+        "name": "Everplay Group PLC",
+        "currency": "GBP",
+        "screens": [
+          "quality bloom"
+        ]
+      },
+      "ibkr_details": {
+        "found": true,
+        "symbol": "TM17",
+        "longName": "EVERPLAY GROUP PLC",
+        "exchange": "SMART",
+        "primaryExchange": "LSE",
+        "conId": 319091809,
+        "search_method": "name",
         "match_score": 1.0
       }
     },
@@ -1040,6 +706,81 @@
       }
     },
     {
+      "symbol": "SVED.B",
+      "action": "BUY",
+      "quantity": 2833,
+      "current_quantity": 0,
+      "target_quantity": 2833,
+      "stock_info": {
+        "ticker": "SVED-B.ST",
+        "name": "Svedbergs i Dalstorp AB (publ)",
+        "currency": "SEK",
+        "screens": [
+          "Moat Companies"
+        ]
+      },
+      "ibkr_details": {
+        "found": true,
+        "symbol": "SVED.B",
+        "longName": "SVEDBERGS I DALSTORP AB",
+        "exchange": "SMART",
+        "primaryExchange": "SFB",
+        "conId": 3203184,
+        "search_method": "isin",
+        "match_score": 0.8679245283018868
+      }
+    },
+    {
+      "symbol": "BRE2",
+      "action": "BUY",
+      "quantity": 1934,
+      "current_quantity": 72490,
+      "target_quantity": 74424,
+      "stock_info": {
+        "ticker": "BRE2.ST",
+        "name": "Bredband2 i Skandinavien AB",
+        "currency": "SEK",
+        "screens": [
+          "Moat Companies"
+        ]
+      },
+      "ibkr_details": {
+        "found": true,
+        "symbol": "BRE2",
+        "longName": "BREDBAND2 I SKANDINAVIEN AB",
+        "exchange": "SMART",
+        "primaryExchange": "SFB",
+        "conId": 288231257,
+        "search_method": "isin",
+        "match_score": 1.0
+      }
+    },
+    {
+      "symbol": "AJ91",
+      "action": "BUY",
+      "quantity": 1592,
+      "current_quantity": 0,
+      "target_quantity": 1592,
+      "stock_info": {
+        "ticker": "AJ91.DE",
+        "name": "DocCheck AG",
+        "currency": "EUR",
+        "screens": [
+          "Moat Companies"
+        ]
+      },
+      "ibkr_details": {
+        "found": true,
+        "symbol": "AJ91",
+        "longName": "DOCCHECK AG",
+        "exchange": "SMART",
+        "primaryExchange": "IBIS",
+        "conId": 70101035,
+        "search_method": "isin",
+        "match_score": 1.0
+      }
+    },
+    {
       "symbol": "KNOS",
       "action": "BUY",
       "quantity": 954,
@@ -1088,6 +829,31 @@
       }
     },
     {
+      "symbol": "ZZ.B",
+      "action": "BUY",
+      "quantity": 256,
+      "current_quantity": 1402,
+      "target_quantity": 1658,
+      "stock_info": {
+        "ticker": "ZZ-B.ST",
+        "name": "Zinzino AB Series B",
+        "currency": "SEK",
+        "screens": [
+          "Moat Companies"
+        ]
+      },
+      "ibkr_details": {
+        "found": true,
+        "symbol": "ZZ.B",
+        "longName": "ZINZINO AB-B SHS",
+        "exchange": "SMART",
+        "primaryExchange": "SFB",
+        "conId": 391017972,
+        "search_method": "isin",
+        "match_score": 0.7428571428571429
+      }
+    },
+    {
       "symbol": "3922",
       "action": "BUY",
       "quantity": 200,
@@ -1110,6 +876,81 @@
         "conId": 224110875,
         "search_method": "isin",
         "match_score": 0.8
+      }
+    },
+    {
+      "symbol": "3678",
+      "action": "BUY",
+      "quantity": 100,
+      "current_quantity": 1400,
+      "target_quantity": 1500,
+      "stock_info": {
+        "ticker": "3678.T",
+        "name": "Media Do Co Ltd",
+        "currency": "JPY",
+        "screens": [
+          "Moat Companies"
+        ]
+      },
+      "ibkr_details": {
+        "found": true,
+        "symbol": "3678",
+        "longName": "MEDIA DO CO LTD",
+        "exchange": "SMART",
+        "primaryExchange": "TSEJ",
+        "conId": 136480995,
+        "search_method": "isin",
+        "match_score": 1.0
+      }
+    },
+    {
+      "symbol": "4377",
+      "action": "BUY",
+      "quantity": 100,
+      "current_quantity": 3100,
+      "target_quantity": 3200,
+      "stock_info": {
+        "ticker": "4377.T",
+        "name": "ONE CAREER Inc.",
+        "currency": "JPY",
+        "screens": [
+          "quality bloom"
+        ]
+      },
+      "ibkr_details": {
+        "found": true,
+        "symbol": "4377",
+        "longName": "ONE CAREER INC",
+        "exchange": "SMART",
+        "primaryExchange": "TSEJ",
+        "conId": 512457825,
+        "search_method": "isin",
+        "match_score": 0.9655172413793104
+      }
+    },
+    {
+      "symbol": "6086",
+      "action": "BUY",
+      "quantity": 100,
+      "current_quantity": 2900,
+      "target_quantity": 3000,
+      "stock_info": {
+        "ticker": "6086.T",
+        "name": "Shin Pro Maint Inc",
+        "currency": "JPY",
+        "screens": [
+          "Moat Companies"
+        ]
+      },
+      "ibkr_details": {
+        "found": true,
+        "symbol": "6086",
+        "longName": "SHIN MAINT HOLDINGS CO LTD",
+        "exchange": "SMART",
+        "primaryExchange": "TSEJ",
+        "conId": 138276215,
+        "search_method": "isin",
+        "match_score": 0.6363636363636364
       }
     },
     {
@@ -1163,6 +1004,29 @@
       }
     },
     {
+      "symbol": "7187",
+      "action": "BUY",
+      "quantity": 100,
+      "current_quantity": 1500,
+      "target_quantity": 1600,
+      "stock_info": {
+        "ticker": "7187.T",
+        "name": "J-Lease Co Ltd",
+        "currency": "JPY",
+        "screens": []
+      },
+      "ibkr_details": {
+        "found": true,
+        "symbol": "7187",
+        "longName": "J-LEASE CO LTD",
+        "exchange": "SMART",
+        "primaryExchange": "TSEJ",
+        "conId": 233768688,
+        "search_method": "isin",
+        "match_score": 1.0
+      }
+    },
+    {
       "symbol": "7818",
       "action": "BUY",
       "quantity": 100,
@@ -1183,6 +1047,31 @@
         "conId": 131085175,
         "search_method": "isin",
         "match_score": 1.0
+      }
+    },
+    {
+      "symbol": "9753",
+      "action": "BUY",
+      "quantity": 100,
+      "current_quantity": 2100,
+      "target_quantity": 2200,
+      "stock_info": {
+        "ticker": "9753.T",
+        "name": "I X Knowledge Inc",
+        "currency": "JPY",
+        "screens": [
+          "Moat Companies"
+        ]
+      },
+      "ibkr_details": {
+        "found": true,
+        "symbol": "9753",
+        "longName": "IX KNOWLEDGE INC",
+        "exchange": "SMART",
+        "primaryExchange": "TSEJ",
+        "conId": 131086184,
+        "search_method": "isin",
+        "match_score": 0.9696969696969697
       }
     },
     {
@@ -1211,6 +1100,31 @@
       }
     },
     {
+      "symbol": "03P",
+      "action": "BUY",
+      "quantity": 86,
+      "current_quantity": 1026,
+      "target_quantity": 1112,
+      "stock_info": {
+        "ticker": "OLTH.AT",
+        "name": "Thessaloniki Port Authority SA",
+        "currency": "EUR",
+        "screens": [
+          "quality bloom"
+        ]
+      },
+      "ibkr_details": {
+        "found": true,
+        "symbol": "03P",
+        "longName": "THESSALONIKI PORT AUTHORITY",
+        "exchange": "FWB2",
+        "primaryExchange": "ATH",
+        "conId": 592404996,
+        "search_method": "ticker",
+        "match_score": 0.9473684210526315
+      }
+    },
+    {
       "symbol": "SVM",
       "action": "BUY",
       "quantity": 70,
@@ -1233,6 +1147,56 @@
         "conId": 34466014,
         "search_method": "isin",
         "match_score": 0.8947368421052632
+      }
+    },
+    {
+      "symbol": "VCI",
+      "action": "BUY",
+      "quantity": 45,
+      "current_quantity": 1527,
+      "target_quantity": 1572,
+      "stock_info": {
+        "ticker": "VCI.V",
+        "name": "Vitreous Glass INC.",
+        "currency": "CAD",
+        "screens": [
+          "Moat Companies"
+        ]
+      },
+      "ibkr_details": {
+        "found": true,
+        "symbol": "VCI",
+        "longName": "VITREOUS GLASS INC",
+        "exchange": "SMART",
+        "primaryExchange": "VENTURE",
+        "conId": 42898654,
+        "search_method": "isin",
+        "match_score": 0.972972972972973
+      }
+    },
+    {
+      "symbol": "MOUR",
+      "action": "BUY",
+      "quantity": 6,
+      "current_quantity": 0,
+      "target_quantity": 6,
+      "stock_info": {
+        "ticker": "MOUR.BR",
+        "name": "Moury Construct SA",
+        "currency": "EUR",
+        "screens": [
+          "Moat Companies"
+        ]
+      },
+      "ibkr_details": {
+        "found": true,
+        "symbol": "MOUR",
+        "longName": "MOURY CONSTRUCT S.A.",
+        "exchange": "SMART",
+        "primaryExchange": "ENEXT.BE",
+        "conId": 36790656,
+        "search_method": "isin",
+        "match_score": 0.9473684210526315
       }
     }
   ]

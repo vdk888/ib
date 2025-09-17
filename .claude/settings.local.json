@@ -13,7 +13,8 @@
       "Bash(./venv/Scripts/python:*)",
       "Bash(Invoke-RestMethod -Uri \"http://127.0.0.1:8001/api/v1/ibkr/search-universe\" -Method POST -ContentType \"application/json\")",
       "Bash(taskkill:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(Select-Object -ExpandProperty message)"
     ],
     "deny": [],
     "ask": []
