@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2025-09-17 16:49:08",
+    "generated_at": "2025-09-17 17:04:56",
     "total_orders": 49,
     "buy_orders": 25,
     "sell_orders": 24,
@@ -14,6 +14,9 @@
       "quantity": 40100,
       "current_quantity": 50500,
       "target_quantity": 10400,
+      "screener_breakdown": {
+        "quality_bloom": 10400
+      },
       "stock_info": {
         "ticker": "2150.T",
         "name": "CareNet Inc.",
@@ -39,6 +42,10 @@
       "quantity": 25300,
       "current_quantity": 34000,
       "target_quantity": 8700,
+      "screener_breakdown": {
+        "quality_bloom": 8700,
+        "TOR_Surplus": 0
+      },
       "stock_info": {
         "ticker": "1401.T",
         "name": "Mbs Inc",
@@ -62,6 +69,9 @@
       "quantity": 22400,
       "current_quantity": 31200,
       "target_quantity": 8800,
+      "screener_breakdown": {
+        "quality_bloom": 8800
+      },
       "stock_info": {
         "ticker": "3963.T",
         "name": "Synchro Food Co Ltd",
@@ -87,6 +97,9 @@
       "quantity": 13400,
       "current_quantity": 20400,
       "target_quantity": 7000,
+      "screener_breakdown": {
+        "quality_bloom": 7000
+      },
       "stock_info": {
         "ticker": "6037.T",
         "name": "Firstlogic Inc",
@@ -112,6 +125,9 @@
       "quantity": 7700,
       "current_quantity": 12800,
       "target_quantity": 5100,
+      "screener_breakdown": {
+        "quality_bloom": 5100
+      },
       "stock_info": {
         "ticker": "9564.T",
         "name": "FCE Holdings Inc.",
@@ -137,6 +153,9 @@
       "quantity": 6409,
       "current_quantity": 13328,
       "target_quantity": 6919,
+      "screener_breakdown": {
+        "quality_bloom": 6919
+      },
       "stock_info": {
         "ticker": "HDSN",
         "name": "Hudson Technologies Inc.",
@@ -162,6 +181,9 @@
       "quantity": 3300,
       "current_quantity": 6800,
       "target_quantity": 3500,
+      "screener_breakdown": {
+        "quality_bloom": 3500
+      },
       "stock_info": {
         "ticker": "6580.T",
         "name": "Writeup Co Ltd",
@@ -187,6 +209,9 @@
       "quantity": 3200,
       "current_quantity": 6600,
       "target_quantity": 3400,
+      "screener_breakdown": {
+        "quality_bloom": 3400
+      },
       "stock_info": {
         "ticker": "4771.T",
         "name": "F&M Co Ltd",
@@ -212,6 +237,9 @@
       "quantity": 3100,
       "current_quantity": 6600,
       "target_quantity": 3500,
+      "screener_breakdown": {
+        "quality_bloom": 3500
+      },
       "stock_info": {
         "ticker": "3763.T",
         "name": "Pro-Ship Inc",
@@ -237,6 +265,7 @@
       "quantity": 900,
       "current_quantity": 900,
       "target_quantity": 0,
+      "screener_breakdown": {},
       "stock_info": {
         "ticker": "3925",
         "name": "3925 (Current Holding)",
@@ -256,6 +285,9 @@
       "quantity": 300,
       "current_quantity": 3100,
       "target_quantity": 2800,
+      "screener_breakdown": {
+        "quality_bloom": 2800
+      },
       "stock_info": {
         "ticker": "2124.T",
         "name": "Jac Recruitment Co Ltd",
@@ -281,6 +313,10 @@
       "quantity": 200,
       "current_quantity": 400,
       "target_quantity": 200,
+      "screener_breakdown": {
+        "quality_bloom": 200,
+        "TOR_Surplus": 0
+      },
       "stock_info": {
         "ticker": "4368.T",
         "name": "Fuso Chemical Co Ltd",
@@ -304,6 +340,9 @@
       "quantity": 200,
       "current_quantity": 1700,
       "target_quantity": 1500,
+      "screener_breakdown": {
+        "quality_bloom": 1500
+      },
       "stock_info": {
         "ticker": "6101.T",
         "name": "Tsugami Corp",
@@ -329,6 +368,10 @@
       "quantity": 142,
       "current_quantity": 547,
       "target_quantity": 405,
+      "screener_breakdown": {
+        "quality_bloom": 405,
+        "TOR_Surplus": 0
+      },
       "stock_info": {
         "ticker": "CMB.MI",
         "name": "Cembre S.p.A.",
@@ -352,6 +395,9 @@
       "quantity": 100,
       "current_quantity": 1700,
       "target_quantity": 1600,
+      "screener_breakdown": {
+        "Moat_Companies": 1600
+      },
       "stock_info": {
         "ticker": "3676.T",
         "name": "Hearts United Group Co Ltd",
@@ -377,6 +423,9 @@
       "quantity": 100,
       "current_quantity": 1100,
       "target_quantity": 1000,
+      "screener_breakdown": {
+        "Moat_Companies": 1000
+      },
       "stock_info": {
         "ticker": "6199.T",
         "name": "Seraku Co Ltd",
@@ -402,6 +451,10 @@
       "quantity": 100,
       "current_quantity": 700,
       "target_quantity": 600,
+      "screener_breakdown": {
+        "quality_bloom": 600,
+        "TOR_Surplus": 0
+      },
       "stock_info": {
         "ticker": "6284.T",
         "name": "Nissei ASB Machine Co Ltd",
@@ -425,6 +478,10 @@
       "quantity": 100,
       "current_quantity": 1900,
       "target_quantity": 1800,
+      "screener_breakdown": {
+        "quality_bloom": 1800,
+        "TOR_Surplus": 0
+      },
       "stock_info": {
         "ticker": "6454.T",
         "name": "Max Co Ltd",
@@ -448,6 +505,9 @@
       "quantity": 48,
       "current_quantity": 1612,
       "target_quantity": 1564,
+      "screener_breakdown": {
+        "Moat_Companies": 1564
+      },
       "stock_info": {
         "ticker": "NTEK-B.ST",
         "name": "Novotek AB",
@@ -473,6 +533,10 @@
       "quantity": 10,
       "current_quantity": 195,
       "target_quantity": 185,
+      "screener_breakdown": {
+        "TOR_Surplus": 0,
+        "Moat_Companies": 185
+      },
       "stock_info": {
         "ticker": "WAVE.PA",
         "name": "Wavestone SA",
@@ -496,6 +560,9 @@
       "quantity": 7,
       "current_quantity": 40,
       "target_quantity": 33,
+      "screener_breakdown": {
+        "Moat_Companies": 33
+      },
       "stock_info": {
         "ticker": "LOGN.SW",
         "name": "Logitech International S.A.",
@@ -521,6 +588,9 @@
       "quantity": 5,
       "current_quantity": 1157,
       "target_quantity": 1152,
+      "screener_breakdown": {
+        "quality_bloom": 1152
+      },
       "stock_info": {
         "ticker": "VH2.DE",
         "name": "Friedrich Vorwerk Group SE",
@@ -546,6 +616,10 @@
       "quantity": 3,
       "current_quantity": 56,
       "target_quantity": 53,
+      "screener_breakdown": {
+        "TOR_Surplus": 0,
+        "Moat_Companies": 53
+      },
       "stock_info": {
         "ticker": "DHI",
         "name": "D.R. Horton Inc.",
@@ -569,6 +643,7 @@
       "quantity": 1,
       "current_quantity": 1,
       "target_quantity": 0,
+      "screener_breakdown": {},
       "stock_info": {
         "ticker": "AAPL",
         "name": "AAPL (Current Holding)",
@@ -588,6 +663,9 @@
       "quantity": 45397,
       "current_quantity": -22508,
       "target_quantity": 22889,
+      "screener_breakdown": {
+        "quality_bloom": 22889
+      },
       "stock_info": {
         "ticker": "RRL.AX",
         "name": "Regis Resources Ltd",
@@ -613,6 +691,9 @@
       "quantity": 9412,
       "current_quantity": 347,
       "target_quantity": 9759,
+      "screener_breakdown": {
+        "quality_bloom": 9759
+      },
       "stock_info": {
         "ticker": "EVPL.L",
         "name": "Everplay Group PLC",
@@ -638,6 +719,9 @@
       "quantity": 5239,
       "current_quantity": 28,
       "target_quantity": 5267,
+      "screener_breakdown": {
+        "quality_bloom": 5267
+      },
       "stock_info": {
         "ticker": "RUG.ST",
         "name": "Rugvista Group AB",
@@ -663,6 +747,9 @@
       "quantity": 4235,
       "current_quantity": 0,
       "target_quantity": 4235,
+      "screener_breakdown": {
+        "quality_bloom": 4235
+      },
       "stock_info": {
         "ticker": "DPM.TO",
         "name": "Dundee Precious Metals Inc.",
@@ -688,6 +775,10 @@
       "quantity": 3523,
       "current_quantity": 1756,
       "target_quantity": 5279,
+      "screener_breakdown": {
+        "quality_bloom": 5279,
+        "TOR_Surplus": 0
+      },
       "stock_info": {
         "ticker": "AEP.L",
         "name": "Anglo-Eastern Plantations Plc",
@@ -711,6 +802,9 @@
       "quantity": 2833,
       "current_quantity": 0,
       "target_quantity": 2833,
+      "screener_breakdown": {
+        "Moat_Companies": 2833
+      },
       "stock_info": {
         "ticker": "SVED-B.ST",
         "name": "Svedbergs i Dalstorp AB (publ)",
@@ -736,6 +830,9 @@
       "quantity": 1934,
       "current_quantity": 72490,
       "target_quantity": 74424,
+      "screener_breakdown": {
+        "Moat_Companies": 74424
+      },
       "stock_info": {
         "ticker": "BRE2.ST",
         "name": "Bredband2 i Skandinavien AB",
@@ -761,6 +858,9 @@
       "quantity": 1592,
       "current_quantity": 0,
       "target_quantity": 1592,
+      "screener_breakdown": {
+        "Moat_Companies": 1592
+      },
       "stock_info": {
         "ticker": "AJ91.DE",
         "name": "DocCheck AG",
@@ -786,6 +886,10 @@
       "quantity": 954,
       "current_quantity": 2130,
       "target_quantity": 3084,
+      "screener_breakdown": {
+        "quality_bloom": 2401,
+        "Moat_Companies": 683
+      },
       "stock_info": {
         "ticker": "KNOS.L",
         "name": "Kainos Group plc",
@@ -809,6 +913,9 @@
       "quantity": 340,
       "current_quantity": 887,
       "target_quantity": 1227,
+      "screener_breakdown": {
+        "quality_bloom": 1227
+      },
       "stock_info": {
         "ticker": "PWS.MI",
         "name": "Powersoft S.p.A.",
@@ -834,6 +941,9 @@
       "quantity": 256,
       "current_quantity": 1402,
       "target_quantity": 1658,
+      "screener_breakdown": {
+        "Moat_Companies": 1658
+      },
       "stock_info": {
         "ticker": "ZZ-B.ST",
         "name": "Zinzino AB Series B",
@@ -859,6 +969,9 @@
       "quantity": 200,
       "current_quantity": 1600,
       "target_quantity": 1800,
+      "screener_breakdown": {
+        "quality_bloom": 1800
+      },
       "stock_info": {
         "ticker": "3922.T",
         "name": "PR Times Inc",
@@ -884,6 +997,9 @@
       "quantity": 100,
       "current_quantity": 1400,
       "target_quantity": 1500,
+      "screener_breakdown": {
+        "Moat_Companies": 1500
+      },
       "stock_info": {
         "ticker": "3678.T",
         "name": "Media Do Co Ltd",
@@ -909,6 +1025,9 @@
       "quantity": 100,
       "current_quantity": 3100,
       "target_quantity": 3200,
+      "screener_breakdown": {
+        "quality_bloom": 3200
+      },
       "stock_info": {
         "ticker": "4377.T",
         "name": "ONE CAREER Inc.",
@@ -934,6 +1053,9 @@
       "quantity": 100,
       "current_quantity": 2900,
       "target_quantity": 3000,
+      "screener_breakdown": {
+        "Moat_Companies": 3000
+      },
       "stock_info": {
         "ticker": "6086.T",
         "name": "Shin Pro Maint Inc",
@@ -959,6 +1081,9 @@
       "quantity": 100,
       "current_quantity": 3100,
       "target_quantity": 3200,
+      "screener_breakdown": {
+        "quality_bloom": 3200
+      },
       "stock_info": {
         "ticker": "6095.T",
         "name": "Medpeer Inc",
@@ -984,6 +1109,9 @@
       "quantity": 100,
       "current_quantity": 300,
       "target_quantity": 400,
+      "screener_breakdown": {
+        "quality_bloom": 400
+      },
       "stock_info": {
         "ticker": "6941.T",
         "name": "Yamaichi Electronics Co Ltd",
@@ -1009,6 +1137,10 @@
       "quantity": 100,
       "current_quantity": 1500,
       "target_quantity": 1600,
+      "screener_breakdown": {
+        "TOR_Surplus": 0,
+        "Moat_Companies": 1600
+      },
       "stock_info": {
         "ticker": "7187.T",
         "name": "J-Lease Co Ltd",
@@ -1032,6 +1164,11 @@
       "quantity": 100,
       "current_quantity": 2700,
       "target_quantity": 2800,
+      "screener_breakdown": {
+        "quality_bloom": 2200,
+        "TOR_Surplus": 0,
+        "Moat_Companies": 600
+      },
       "stock_info": {
         "ticker": "7818.T",
         "name": "Transaction Co Ltd",
@@ -1055,6 +1192,9 @@
       "quantity": 100,
       "current_quantity": 2100,
       "target_quantity": 2200,
+      "screener_breakdown": {
+        "Moat_Companies": 2200
+      },
       "stock_info": {
         "ticker": "9753.T",
         "name": "I X Knowledge Inc",
@@ -1080,6 +1220,9 @@
       "quantity": 95,
       "current_quantity": 2478,
       "target_quantity": 2573,
+      "screener_breakdown": {
+        "quality_bloom": 2573
+      },
       "stock_info": {
         "ticker": "ACMR",
         "name": "ACM Research Inc.",
@@ -1105,6 +1248,9 @@
       "quantity": 86,
       "current_quantity": 1026,
       "target_quantity": 1112,
+      "screener_breakdown": {
+        "quality_bloom": 1112
+      },
       "stock_info": {
         "ticker": "OLTH.AT",
         "name": "Thessaloniki Port Authority SA",
@@ -1130,6 +1276,9 @@
       "quantity": 70,
       "current_quantity": 2365,
       "target_quantity": 2435,
+      "screener_breakdown": {
+        "quality_bloom": 2435
+      },
       "stock_info": {
         "ticker": "SVM.TO",
         "name": "Silvercorp Metals",
@@ -1155,6 +1304,9 @@
       "quantity": 45,
       "current_quantity": 1527,
       "target_quantity": 1572,
+      "screener_breakdown": {
+        "Moat_Companies": 1572
+      },
       "stock_info": {
         "ticker": "VCI.V",
         "name": "Vitreous Glass INC.",
@@ -1180,6 +1332,9 @@
       "quantity": 6,
       "current_quantity": 0,
       "target_quantity": 6,
+      "screener_breakdown": {
+        "Moat_Companies": 6
+      },
       "stock_info": {
         "ticker": "MOUR.BR",
         "name": "Moury Construct SA",

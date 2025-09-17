@@ -38,6 +38,7 @@ class RebalancingService(IRebalancingService):
 
     def __init__(self):
         self.rebalancer = None
+        self.symbol_screener_breakdown = {}
 
     def load_universe_data(self, universe_file: str) -> Dict[str, Any]:
         """
@@ -96,6 +97,7 @@ class RebalancingService(IRebalancingService):
         # Dictionary to accumulate quantities by IBKR symbol
         symbol_quantities = defaultdict(int)
         symbol_details = {}  # Store IBKR details for each symbol
+        symbol_screener_breakdown = defaultdict(dict)  # Track quantity by screener for each symbol
 
         # Process each screen
         stocks_processed = 0
@@ -138,6 +140,9 @@ class RebalancingService(IRebalancingService):
                 # Add to total quantity for this symbol
                 symbol_quantities[ibkr_symbol] += target_quantity
 
+                # Track screener breakdown for this symbol
+                symbol_screener_breakdown[ibkr_symbol][screen_name] = target_quantity
+
                 # Store IBKR details (will be overwritten but should be same for same symbol)
                 symbol_details[ibkr_symbol] = {
                     'ticker': stock['ticker'],
@@ -164,8 +169,9 @@ class RebalancingService(IRebalancingService):
             screens = ", ".join(symbol_details[symbol]['screens'])
             print(f"    {symbol}: {qty:,} shares ({screens})")
 
-        # Store symbol details for later use
+        # Store symbol details and screener breakdown for later use
         self.symbol_details = symbol_details
+        self.symbol_screener_breakdown = dict(symbol_screener_breakdown)
 
         return target_quantities
 
@@ -324,12 +330,16 @@ class RebalancingService(IRebalancingService):
                         'screens': []
                     }
 
+            # Get screener breakdown for this symbol
+            screener_breakdown = self.symbol_screener_breakdown.get(symbol, {})
+
             order = {
                 'symbol': symbol,
                 'action': 'BUY' if diff > 0 else 'SELL',
                 'quantity': abs(diff),
                 'current_quantity': current_qty,
                 'target_quantity': target_qty,
+                'screener_breakdown': screener_breakdown,
                 'stock_info': {
                     'ticker': stock_info['ticker'],
                     'name': stock_info['name'],
