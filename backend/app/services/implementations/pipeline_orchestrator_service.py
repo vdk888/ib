@@ -15,40 +15,20 @@ from typing import Dict, Any, List, Optional, Tuple, Callable
 from contextlib import contextmanager, redirect_stdout, redirect_stderr
 from io import StringIO
 
-# Add the main project directory to sys.path to import main.py functions
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../../..'))
-
-# Import the original step functions from main.py for 100% compatibility
-try:
-    from main import (
-        step1_fetch_data,
-        step2_parse_data,
-        step3_parse_history,
-        step4_optimize_portfolio,
-        step5_update_currency,
-        step6_calculate_targets,
-        step7_calculate_quantities,
-        step8_ibkr_search,
-        step9_rebalancer,
-        step10_execute_orders,
-        step11_check_order_status,
-    )
-except ImportError as e:
-    # Fallback error - should not happen in production
-    # Silent fallback during server startup when main.py is not in path
-    pass
-    # Define dummy functions to prevent import errors during development
-    step1_fetch_data = lambda: False
-    step2_parse_data = lambda: False
-    step3_parse_history = lambda: False
-    step4_optimize_portfolio = lambda: False
-    step5_update_currency = lambda: False
-    step6_calculate_targets = lambda: False
-    step7_calculate_quantities = lambda: False
-    step8_ibkr_search = lambda: False
-    step9_rebalancer = lambda: False
-    step10_execute_orders = lambda: False
-    step11_check_order_status = lambda: False
+# Service layer imports for proper dependency injection
+from ..interfaces import (
+    IScreenerService,
+    IUniverseRepository,
+    IHistoricalDataService,
+    IPortfolioOptimizer,
+    ICurrencyService,
+    ITargetAllocationService,
+    IQuantityCalculator,
+    IIBKRSearchService,
+    IRebalancingService,
+    IOrderExecutionService,
+    IOrderStatusService
+)
 
 from ..interfaces import IPipelineOrchestrator
 from ...models.schemas import (
@@ -164,24 +144,51 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
 
     Provides unified API orchestration of the complete 11-step fintech pipeline
     with 100% CLI compatibility and async execution capabilities.
+    Uses service layer dependency injection instead of direct main.py imports.
     """
 
-    def __init__(self):
+    def __init__(
+        self,
+        screener_service: IScreenerService,
+        universe_service: IUniverseRepository,
+        historical_data_service: IHistoricalDataService,
+        portfolio_optimizer_service: IPortfolioOptimizer,
+        currency_service: ICurrencyService,
+        target_allocation_service: ITargetAllocationService,
+        quantity_service: IQuantityCalculator,
+        ibkr_search_service: IIBKRSearchService,
+        rebalancing_service: IRebalancingService,
+        order_execution_service: IOrderExecutionService,
+        order_status_service: IOrderStatusService
+    ):
         self.execution_manager = PipelineExecutionManager()
 
-        # Step function mapping for direct CLI compatibility
+        # Inject service dependencies
+        self.screener_service = screener_service
+        self.universe_service = universe_service
+        self.historical_data_service = historical_data_service
+        self.portfolio_optimizer_service = portfolio_optimizer_service
+        self.currency_service = currency_service
+        self.target_allocation_service = target_allocation_service
+        self.quantity_service = quantity_service
+        self.ibkr_search_service = ibkr_search_service
+        self.rebalancing_service = rebalancing_service
+        self.order_execution_service = order_execution_service
+        self.order_status_service = order_status_service
+
+        # Step function mapping using service layer methods
         self._step_functions: Dict[int, Callable[[], bool]] = {
-            1: step1_fetch_data,
-            2: step2_parse_data,
-            3: step3_parse_history,
-            4: step4_optimize_portfolio,
-            5: step5_update_currency,
-            6: step6_calculate_targets,
-            7: step7_calculate_quantities,
-            8: step8_ibkr_search,
-            9: step9_rebalancer,
-            10: step10_execute_orders,
-            11: step11_check_order_status,
+            1: self._step1_fetch_data,
+            2: self._step2_parse_data,
+            3: self._step3_parse_history,
+            4: self._step4_optimize_portfolio,
+            5: self._step5_update_currency,
+            6: self._step6_calculate_targets,
+            7: self._step7_calculate_quantities,
+            8: self._step8_ibkr_search,
+            9: self._step9_rebalancer,
+            10: self._step10_execute_orders,
+            11: self._step11_check_order_status,
         }
 
         # Step metadata from main.py analysis
@@ -903,29 +910,56 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
         missing_dependencies = []
         recommendations = []
 
-        # Check main.py accessibility
+        # Check service layer accessibility
         try:
-            # Try to import a step function to validate main.py access
-            step1_fetch_data()  # This will fail gracefully if not accessible
-            checks["main_py_functions"] = PipelineDependencyCheck(
-                name="main_py_functions",
-                type="code",
-                required=True,
-                valid=True,
-                details="All step functions from main.py are accessible",
-                recommendation=None
-            )
+            # Validate that all required services are available
+            services_to_check = [
+                ("screener_service", self.screener_service),
+                ("universe_service", self.universe_service),
+                ("historical_data_service", self.historical_data_service),
+                ("portfolio_optimizer_service", self.portfolio_optimizer_service),
+                ("currency_service", self.currency_service),
+                ("target_allocation_service", self.target_allocation_service),
+                ("quantity_service", self.quantity_service),
+                ("ibkr_search_service", self.ibkr_search_service),
+                ("rebalancing_service", self.rebalancing_service),
+                ("order_execution_service", self.order_execution_service),
+                ("order_status_service", self.order_status_service)
+            ]
+
+            for service_name, service_instance in services_to_check:
+                if service_instance is None:
+                    checks[service_name] = PipelineDependencyCheck(
+                        name=service_name,
+                        type="service",
+                        required=True,
+                        valid=False,
+                        details=f"Service {service_name} is not injected or is None",
+                        recommendation=f"Ensure {service_name} is properly injected in dependencies.py"
+                    )
+                    missing_dependencies.append(service_name)
+                    recommendations.append(f"Fix {service_name} dependency injection")
+                else:
+                    checks[service_name] = PipelineDependencyCheck(
+                        name=service_name,
+                        type="service",
+                        required=True,
+                        valid=True,
+                        details=f"Service {service_name} is properly injected",
+                        recommendation=None
+                    )
+
         except Exception as e:
-            checks["main_py_functions"] = PipelineDependencyCheck(
-                name="main_py_functions",
+            checks["service_layer"] = PipelineDependencyCheck(
+                name="service_layer",
                 type="code",
                 required=True,
                 valid=False,
-                details=f"Cannot access main.py functions: {str(e)}",
-                recommendation="Ensure main.py is in the correct path and importable"
+                details=f"Cannot access service layer: {str(e)}",
+                recommendation="Ensure all services are properly configured in dependencies.py"
             )
-            missing_dependencies.append("main_py_functions")
-            recommendations.append("Fix main.py import path or verify file exists")
+            missing_dependencies.append("service_layer")
+            recommendations.append("Fix service layer dependency injection configuration")
 
         # Check data directory structure
         data_dir = "data"
@@ -990,3 +1024,122 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
     def get_step_function_mapping(self) -> Dict[int, Callable]:
         """Get mapping of step numbers to their corresponding functions"""
         return self._step_functions.copy()
+
+    # Service layer step implementations
+    # Each step wraps the corresponding service method to return boolean success status
+
+    def _step1_fetch_data(self) -> bool:
+        """Step 1: Fetch data from screeners"""
+        try:
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            result = loop.run_until_complete(self.screener_service.fetch_all_screener_data())
+            loop.close()
+            # Check if any screeners returned data
+            return any(screen_data.get('success', False) for screen_data in result.values())
+        except Exception as e:
+            print(f"Step 1 failed: {e}")
+            return False
+
+    def _step2_parse_data(self) -> bool:
+        """Step 2: Parse CSV files and create universe.json"""
+        try:
+            result = self.universe_service.create_universe()
+            if result and 'metadata' in result:
+                self.universe_service.save_universe(result)
+                return True
+            return False
+        except Exception as e:
+            print(f"Step 2 failed: {e}")
+            return False
+
+    def _step3_parse_history(self) -> bool:
+        """Step 3: Parse historical performance data"""
+        try:
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            result = loop.run_until_complete(self.historical_data_service.update_universe_with_history())
+            loop.close()
+            return result
+        except Exception as e:
+            print(f"Step 3 failed: {e}")
+            return False
+
+    def _step4_optimize_portfolio(self) -> bool:
+        """Step 4: Optimize portfolio allocations"""
+        try:
+            return self.portfolio_optimizer_service.main()
+        except Exception as e:
+            print(f"Step 4 failed: {e}")
+            return False
+
+    def _step5_update_currency(self) -> bool:
+        """Step 5: Update EUR exchange rates"""
+        try:
+            return self.currency_service.run_currency_update()
+        except Exception as e:
+            print(f"Step 5 failed: {e}")
+            return False
+
+    def _step6_calculate_targets(self) -> bool:
+        """Step 6: Calculate target allocations"""
+        try:
+            return self.target_allocation_service.main()
+        except Exception as e:
+            print(f"Step 6 failed: {e}")
+            return False
+
+    def _step7_calculate_quantities(self) -> bool:
+        """Step 7: Calculate quantities from IBKR account value"""
+        try:
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            # Get account value and calculate quantities
+            from ...core.dependencies import get_quantity_orchestrator_service
+            quantity_orchestrator = get_quantity_orchestrator_service()
+            result = loop.run_until_complete(quantity_orchestrator.calculate_all_quantities())
+            loop.close()
+            return result.get('success', False)
+        except Exception as e:
+            print(f"Step 7 failed: {e}")
+            return False
+
+    def _step8_ibkr_search(self) -> bool:
+        """Step 8: Search stocks on IBKR"""
+        try:
+            result = self.ibkr_search_service.process_all_universe_stocks()
+            # Success if we found any stocks
+            found_count = result.get('found_isin', 0) + result.get('found_ticker', 0) + result.get('found_name', 0)
+            return found_count > 0
+        except Exception as e:
+            print(f"Step 8 failed: {e}")
+            return False
+
+    def _step9_rebalancer(self) -> bool:
+        """Step 9: Generate rebalancing orders"""
+        try:
+            result = self.rebalancing_service.run_rebalancing("data/universe_with_ibkr.json")
+            return len(result.get('orders', [])) > 0
+        except Exception as e:
+            print(f"Step 9 failed: {e}")
+            return False
+
+    def _step10_execute_orders(self) -> bool:
+        """Step 10: Execute orders through IBKR"""
+        try:
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            result = loop.run_until_complete(self.order_execution_service.run_execution())
+            loop.close()
+            return result.get('success', False)
+        except Exception as e:
+            print(f"Step 10 failed: {e}")
+            return False
+
+    def _step11_check_order_status(self) -> bool:
+        """Step 11: Check order status and verification"""
+        try:
+            return self.order_status_service.run_status_check()
+        except Exception as e:
+            print(f"Step 11 failed: {e}")
+            return False

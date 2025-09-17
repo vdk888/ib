@@ -3,7 +3,7 @@ Dependency injection container
 """
 from functools import lru_cache
 from .config import Settings
-from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer, ITargetAllocationService, IOrderExecutionService, IRebalancingService, IAccountService, IQuantityCalculator, IPipelineOrchestrator, ICurrencyService, IIBKRSearchService, IOrderStatusService
+from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer, ITargetAllocationService, IOrderExecutionService, IRebalancingService, IAccountService, IQuantityCalculator, IPipelineOrchestrator, ICurrencyService, IIBKRSearchService, IOrderStatusService, IHistoricalDataService
 from ..services.implementations.screener_service import ScreenerService
 from ..services.implementations.uncle_stock_provider import UncleStockProvider
 from ..services.implementations.file_manager import FileManager
@@ -19,6 +19,7 @@ from ..services.implementations.quantity_orchestrator_service import QuantityOrc
 from ..services.implementations.pipeline_orchestrator_service import PipelineOrchestratorService
 from ..services.implementations.currency_service import CurrencyService
 from ..services.implementations.ibkr_search_service import IBKRSearchService
+from ..services.implementations.historical_data_service import HistoricalDataService
 
 @lru_cache()
 def get_settings() -> Settings:
@@ -30,6 +31,7 @@ _file_manager = None
 _uncle_stock_provider = None
 _screener_service = None
 _universe_service = None
+_historical_data_service = None
 _portfolio_optimizer_service = None
 _target_allocation_service = None
 _order_execution_service = None
@@ -78,11 +80,19 @@ def get_universe_service() -> IUniverseRepository:
     return _universe_service
 
 
+def get_historical_data_service() -> IHistoricalDataService:
+    """Get historical data service instance"""
+    global _historical_data_service
+    if _historical_data_service is None:
+        _historical_data_service = HistoricalDataService()
+    return _historical_data_service
+
+
 def get_portfolio_optimizer_service() -> IPortfolioOptimizer:
     """Get portfolio optimizer service instance"""
     global _portfolio_optimizer_service
     if _portfolio_optimizer_service is None:
-        _portfolio_optimizer_service = PortfolioOptimizerService()
+        _portfolio_optimizer_service = PortfolioOptimizerService("data/universe.json")
     return _portfolio_optimizer_service
 
 
@@ -149,7 +159,19 @@ def get_pipeline_orchestrator_service() -> IPipelineOrchestrator:
     """Get pipeline orchestrator service instance"""
     global _pipeline_orchestrator_service
     if _pipeline_orchestrator_service is None:
-        _pipeline_orchestrator_service = PipelineOrchestratorService()
+        _pipeline_orchestrator_service = PipelineOrchestratorService(
+            screener_service=get_screener_service(),
+            universe_service=get_universe_service(),
+            historical_data_service=get_historical_data_service(),
+            portfolio_optimizer_service=get_portfolio_optimizer_service(),
+            currency_service=get_currency_service(),
+            target_allocation_service=get_target_allocation_service(),
+            quantity_service=get_quantity_service(),
+            ibkr_search_service=get_ibkr_search_service(),
+            rebalancing_service=get_rebalancing_service(),
+            order_execution_service=get_order_execution_service(),
+            order_status_service=get_order_status_service()
+        )
     return _pipeline_orchestrator_service
 
 
