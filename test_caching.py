@@ -8,7 +8,10 @@ from pathlib import Path
 
 # Add backend path for database service import
 sys.path.append(str(Path(__file__).parent / 'backend' / 'app'))
-from services.database_service import get_database_service
+sys.path.append(str(Path(__file__).parent / 'backend'))
+
+# Direct import to avoid dependency issues
+from backend.app.services.database_service import get_database_service
 
 def test_database_separation():
     """Test that legacy and API use separate databases"""
