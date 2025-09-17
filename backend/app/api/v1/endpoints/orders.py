@@ -306,11 +306,11 @@ async def check_order_status(
         order_status_service.orders_file = orders_file
 
         # Run complete status check workflow
-        success = await order_status_service.run_status_check()
+        success = order_status_service.run_status_check()
 
         if success:
             # Get verification results after successful check
-            result = await order_status_service.get_verification_results()
+            result = order_status_service.get_verification_results()
             result['success'] = True
         else:
             result = {
