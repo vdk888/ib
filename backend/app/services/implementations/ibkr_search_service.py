@@ -360,7 +360,7 @@ class IBKRSearchService(IIBKRSearchService):
                 app.next_req_id += 1
 
                 timeout_start = time.time()
-                while not app.symbol_search_completed and (time.time() - timeout_start) < 20:
+                while not app.symbol_search_completed and (time.time() - timeout_start) < 30:
                     time.sleep(0.05)
 
                 # Convert matching symbols to contract details
@@ -379,7 +379,7 @@ class IBKRSearchService(IIBKRSearchService):
                             app.next_req_id += 1
 
                             timeout_start = time.time()
-                            while not app.search_completed and (time.time() - timeout_start) < 20:
+                            while not app.search_completed and (time.time() - timeout_start) < 30:
                                 time.sleep(0.05)
 
                             all_matches.extend(app.contract_details)
@@ -417,7 +417,7 @@ class IBKRSearchService(IIBKRSearchService):
             app.next_req_id += 1
 
             timeout_start = time.time()
-            while not app.search_completed and (time.time() - timeout_start) < 20:
+            while not app.search_completed and (time.time() - timeout_start) < 30:
                 time.sleep(0.05)
 
             if app.contract_details:
@@ -451,7 +451,7 @@ class IBKRSearchService(IIBKRSearchService):
                 app.next_req_id += 1
 
                 timeout_start = time.time()
-                while not app.search_completed and (time.time() - timeout_start) < 20:
+                while not app.search_completed and (time.time() - timeout_start) < 30:
                     time.sleep(0.05)
 
                 if app.contract_details:
@@ -601,7 +601,7 @@ class IBKRSearchService(IIBKRSearchService):
                 'timestamp': datetime.now().isoformat(),
                 'implementation': 'api',
                 'search_completed': True,
-                'timeout_seconds': 20,
+                'timeout_seconds': 30,
                 'cache_hits': len(cached_stocks),
                 'cache_misses': 0,
                 'api_calls_made': 0
@@ -729,7 +729,7 @@ class IBKRSearchService(IIBKRSearchService):
                     app.next_req_id += 1
 
                     timeout_start = time.time()
-                    while not app.search_completed and (time.time() - timeout_start) < 20:
+                    while not app.search_completed and (time.time() - timeout_start) < 30:
                         time.sleep(0.05)
 
                     if app.contract_details:
@@ -818,7 +818,7 @@ class IBKRSearchService(IIBKRSearchService):
             'timestamp': datetime.now().isoformat(),
             'implementation': 'api',
             'search_completed': True,
-            'timeout_seconds': 20,
+            'timeout_seconds': 30,
             'cache_hits': len(cached_stocks),
             'cache_misses': len(uncached_stocks),
             'api_calls_made': len(uncached_stocks)
