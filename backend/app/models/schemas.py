@@ -876,15 +876,15 @@ class OrderExecutionWorkflowResponse(BaseModel):
     Response model for complete order execution workflow
     """
     success: bool = Field(description="Whether the entire workflow was successful")
-    execution_summary: Optional[OrderExecutionSummary] = Field(description="Execution summary if successful")
-    order_statuses: Optional[Dict[str, Dict[str, Any]]] = Field(description="Final order statuses")
-    status_summary: Optional[Dict[str, int]] = Field(description="Status summary counts")
-    total_filled_shares: Optional[int] = Field(description="Total shares filled")
-    pending_orders_count: Optional[int] = Field(description="Pending orders count")
-    orders_loaded: Optional[int] = Field(description="Number of orders loaded from file")
-    error_message: Optional[str] = Field(description="Error message if workflow failed")
-    workflow_completed_at: Optional[str] = Field(description="Workflow completion timestamp")
-    failure_time: Optional[str] = Field(description="Failure timestamp if applicable")
+    execution_summary: Optional[OrderExecutionSummary] = Field(default=None, description="Execution summary if successful")
+    order_statuses: Optional[Dict[str, Dict[str, Any]]] = Field(default=None, description="Final order statuses")
+    status_summary: Optional[Dict[str, int]] = Field(default=None, description="Status summary counts")
+    total_filled_shares: Optional[int] = Field(default=None, description="Total shares filled")
+    pending_orders_count: Optional[int] = Field(default=None, description="Pending orders count")
+    orders_loaded: Optional[int] = Field(default=None, description="Number of orders loaded from file")
+    error_message: Optional[str] = Field(default=None, description="Error message if workflow failed")
+    workflow_completed_at: Optional[str] = Field(default=None, description="Workflow completion timestamp")
+    failure_time: Optional[str] = Field(default=None, description="Failure timestamp if applicable")
 
 
 class LoadOrdersResponse(BaseModel):

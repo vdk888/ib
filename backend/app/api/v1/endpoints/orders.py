@@ -11,13 +11,14 @@ import logging
 import os
 import json
 import time
-from ....core.dependencies import get_rebalancing_service
+from ....core.dependencies import get_rebalancing_service, get_order_execution_service
 from ....core.exceptions import ValidationError
 from ....models.schemas import (
     RebalancingResponse,
     OrdersResponse,
     PositionsResponse,
-    TargetQuantitiesResponse
+    TargetQuantitiesResponse,
+    OrderExecutionWorkflowResponse
 )
 from ....models.errors import ErrorResponse
 
@@ -200,4 +201,65 @@ async def get_target_quantities(
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Error calculating target quantities: {str(e)}"
+        )
+
+
+@router.post(
+    "/execute",
+    response_model=OrderExecutionWorkflowResponse,
+    summary="Execute Orders through IBKR",
+    description="Execute the generated orders through Interactive Brokers API (Step 10)"
+)
+async def execute_orders(
+    orders_file: Optional[str] = None,
+    max_orders: Optional[int] = None,
+    delay_between_orders: float = 1.0,
+    order_type: str = "GTC_MKT",
+    order_execution_service = Depends(get_order_execution_service)
+):
+    """
+    Execute orders through Interactive Brokers API.
+    This is the API equivalent of step 10 in the legacy pipeline.
+    """
+    try:
+        logger.info("Starting order execution workflow (Step 10)")
+
+        # Use default orders file if not specified
+        if orders_file is None:
+            # Get absolute path to backend/data/orders.json
+            import os
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            # From backend/app/api/v1/endpoints -> go up to backend/
+            backend_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(current_dir))))
+            orders_file = os.path.join(backend_root, "data", "orders.json")
+
+        # Run complete execution workflow
+        result = await order_execution_service.run_execution(
+            orders_file=orders_file,
+            max_orders=max_orders,
+            delay_between_orders=delay_between_orders,
+            order_type=order_type
+        )
+
+        logger.info(f"Order execution workflow completed. Success: {result['success']}")
+
+        return OrderExecutionWorkflowResponse(**result)
+
+    except FileNotFoundError as e:
+        logger.error(f"Orders file not found: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Orders file not found: {str(e)}"
+        )
+    except ConnectionError as e:
+        logger.error(f"IBKR connection failed: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to connect to IBKR: {str(e)}"
+        )
+    except Exception as e:
+        logger.error(f"Error executing orders: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error executing orders: {str(e)}"
         )
