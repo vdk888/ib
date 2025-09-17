@@ -80,7 +80,7 @@ class PipelineExecutionManager:
     def update_execution_status(
         self,
         execution_id: str,
-        status: PipelineExecutionStatusEnum,
+        status,
         current_step: Optional[int] = None
     ) -> None:
         """Update execution status"""

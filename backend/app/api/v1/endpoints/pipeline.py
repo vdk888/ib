@@ -280,6 +280,10 @@ async def run_individual_step(
         raise
     except Exception as e:
         logger.error(f"Error executing step {step_number}: {e}")
+        logger.error(f"Error type: {type(e)}")
+        logger.error(f"Error repr: {repr(e)}")
+        import traceback
+        logger.error(f"Full traceback: {traceback.format_exc()}")
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Internal server error executing step {step_number}"
