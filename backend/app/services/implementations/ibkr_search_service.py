@@ -807,7 +807,7 @@ class IBKRSearchService(IIBKRSearchService):
                 )
 
             # Small delay between searches
-            time.sleep(0.5)
+            time.sleep(0.1)
 
         # Disconnect from IBKR
         app.disconnect()

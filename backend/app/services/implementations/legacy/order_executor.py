@@ -222,7 +222,7 @@ class OrderExecutor:
                 self.api.nextorderId += 1
                 
                 # Wait briefly for order acknowledgment
-                time.sleep(0.5)
+                time.sleep(0.1)
                 
                 # Check if order was accepted
                 if order_id in self.api.orders_status:

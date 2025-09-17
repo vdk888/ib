@@ -585,7 +585,7 @@ def process_all_universe_stocks():
             print(f"  NOT FOUND")
         
         # Small delay between searches
-        time.sleep(0.5)
+        time.sleep(0.1)
     
     # Disconnect from IBKR
     app.disconnect()
