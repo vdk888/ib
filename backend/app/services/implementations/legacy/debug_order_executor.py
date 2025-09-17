@@ -88,8 +88,11 @@ class DebugOrderExecutor:
     def __init__(self, orders_file: str = "orders.json"):
         import os
         if not os.path.isabs(orders_file):
-            project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            self.orders_file = os.path.join(project_root, "data", orders_file)
+            # Navigate to backend/data from the script location
+            # Path: backend/app/services/implementations/legacy -> backend/data
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            backend_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(script_dir))))
+            self.orders_file = os.path.join(backend_dir, "data", orders_file)
         else:
             self.orders_file = orders_file
         self.orders_data = None
@@ -324,10 +327,7 @@ def main():
             print(f"[WARNING] Invalid delay argument: {sys.argv[3]}")
 
     # Create and run debug executor
-    import os
-    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    orders_file = os.path.join(project_root, "data", "orders.json")
-    executor = DebugOrderExecutor(orders_file)
+    executor = DebugOrderExecutor()  # Will use default path resolution
 
     try:
         # Load orders

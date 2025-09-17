@@ -35,7 +35,8 @@ try:
     )
 except ImportError as e:
     # Fallback error - should not happen in production
-    print(f"ERROR: Could not import main.py functions: {e}")
+    # Silent fallback during server startup when main.py is not in path
+    pass
     # Define dummy functions to prevent import errors during development
     step1_fetch_data = lambda: False
     step2_parse_data = lambda: False

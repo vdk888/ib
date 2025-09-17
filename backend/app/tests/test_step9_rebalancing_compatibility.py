@@ -16,8 +16,11 @@ from typing import Dict, Any
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
 sys.path.insert(0, project_root)
 
-# Import CLI function
-from main import step9_rebalancer
+# Import CLI function (conditional import to avoid errors during server startup)
+try:
+    from main import step9_rebalancer
+except ImportError:
+    step9_rebalancer = None
 
 # Import API service
 from backend.app.services.implementations.rebalancing_service import RebalancingService

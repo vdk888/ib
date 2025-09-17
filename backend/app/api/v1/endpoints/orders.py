@@ -12,6 +12,7 @@ import os
 import json
 import time
 from ....core.dependencies import get_rebalancing_service, get_order_execution_service, get_order_status_service
+from ....services.interfaces import IOrderStatusService
 from ....core.exceptions import ValidationError
 from ....models.schemas import (
     RebalancingResponse,
@@ -276,15 +277,24 @@ async def execute_orders(
         )
 
 
+@router.get(
+    "/debug",
+    summary="Debug endpoint"
+)
+async def debug_service(
+    order_status_service: IOrderStatusService = Depends(get_order_status_service)
+):
+    """Debug the service dependency injection"""
+    return {"service_type": type(order_status_service).__name__, "methods": dir(order_status_service)[:10]}
+
 @router.post(
     "/status",
-    response_model=OrderStatusCheckResponse,
     summary="Check Order Status (Step 11)",
     description="Validate and check status of executed orders through IBKR API"
 )
 async def check_order_status(
     orders_file: Optional[str] = None,
-    order_status_service = Depends(get_order_status_service)
+    order_status_service: IOrderStatusService = Depends(get_order_status_service)
 ):
     """
     Check order status and validate execution results.
@@ -295,14 +305,12 @@ async def check_order_status(
 
         # Use default orders file if not specified
         if orders_file is None:
-            # Get absolute path to backend/data/orders.json
             import os
             current_dir = os.path.dirname(os.path.abspath(__file__))
-            # From backend/app/api/v1/endpoints -> go up to backend/
             backend_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(current_dir))))
             orders_file = os.path.join(backend_root, "data", "orders.json")
 
-        # First set the orders file path
+        # Set the orders file path
         order_status_service.orders_file = orders_file
 
         # Run complete status check workflow
@@ -311,16 +319,15 @@ async def check_order_status(
         if success:
             # Get verification results after successful check
             result = order_status_service.get_verification_results()
-            result['success'] = True
+            logger.info("Order status check completed successfully")
+            return result
         else:
-            result = {
-                'success': False,
-                'error_message': 'Order status check failed'
+            logger.warning("Order status check failed")
+            return {
+                "error": "Order status check failed",
+                "success": False
             }
 
-        logger.info(f"Order status check completed. Success: {result['success']}")
-
-        return OrderStatusCheckResponse(**result)
 
     except FileNotFoundError as e:
         logger.error(f"Orders file not found: {e}")

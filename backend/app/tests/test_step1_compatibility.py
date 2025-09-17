@@ -16,8 +16,11 @@ from pathlib import Path
 # Add current directory to path for imports
 sys.path.append(os.path.dirname(__file__))
 
-# Import both legacy and new implementations
-from main import step1_fetch_data as legacy_step1
+# Import both legacy and new implementations (conditional import to avoid errors during server startup)
+try:
+    from main import step1_fetch_data as legacy_step1
+except ImportError:
+    legacy_step1 = None
 from backend.app.services.implementations.screener_service import ScreenerService
 from ..core.config import settings
 

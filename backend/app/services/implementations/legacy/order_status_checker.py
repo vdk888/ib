@@ -7,6 +7,7 @@ Fetches current orders from IBKR account and compares with orders.json
 import json
 import time
 import threading
+import logging
 from typing import Dict, List, Optional, Set
 from datetime import datetime, timedelta
 
@@ -15,6 +16,9 @@ from ibapi.wrapper import EWrapper
 from ibapi.contract import Contract
 from ibapi.order import Order
 from ibapi.execution import Execution
+
+# Configure logger
+logger = logging.getLogger(__name__)
 
 
 class IBOrderStatusChecker(EWrapper, EClient):
@@ -40,27 +44,27 @@ class IBOrderStatusChecker(EWrapper, EClient):
 
     def connectAck(self):
         super().connectAck()
-        print("[OK] Connected to IB Gateway")
+        logger.info("[OK] Connected to IB Gateway")
         self.connected = True
 
     def connectionClosed(self):
         super().connectionClosed()
-        print("[CLOSED] Connection closed")
+        logger.info("[CLOSED] Connection closed")
         self.connected = False
 
     def nextValidId(self, orderId: int):
         super().nextValidId(orderId)
-        print(f"[OK] Next valid order ID: {orderId}")
+        logger.info(f"[OK] Next valid order ID: {orderId}")
 
     def managedAccounts(self, accountsList: str):
         super().managedAccounts(accountsList)
         accounts = accountsList.split(",")
         self.account_id = accounts[0]
-        print(f"[OK] Account ID: {self.account_id}")
+        logger.info(f"[OK] Account ID: {self.account_id}")
 
     def openOrder(self, orderId, contract, order, orderState):
         """Receive open order information"""
-        print(f"[OPEN] Order {orderId}: {contract.symbol}, {order.action} {order.totalQuantity}, Status: {orderState.status}")
+        logger.info(f"[OPEN] Order {orderId}: {contract.symbol}, {order.action} {order.totalQuantity}, Status: {orderState.status}")
         self.open_orders[orderId] = {
             'contract': contract,
             'order': order,
@@ -78,9 +82,9 @@ class IBOrderStatusChecker(EWrapper, EClient):
 
     def orderStatus(self, orderId, status, filled, remaining, avgFillPrice, permId, parentId, lastFillPrice, clientId, whyHeld, mktCapPrice):
         """Receive order status updates"""
-        print(f"[STATUS] Order {orderId}: {status}, Filled: {filled}, Remaining: {remaining}, Avg Price: ${avgFillPrice:.2f}")
+        logger.info(f"[STATUS] Order {orderId}: {status}, Filled: {filled}, Remaining: {remaining}, Avg Price: ${avgFillPrice:.2f}")
         if whyHeld:
-            print(f"[STATUS]   Why held: {whyHeld}")
+            logger.info(f"[STATUS]   Why held: {whyHeld}")
         self.order_status[orderId] = {
             'status': status,
             'filled': filled,
@@ -94,7 +98,7 @@ class IBOrderStatusChecker(EWrapper, EClient):
     def openOrderEnd(self):
         """Called when all open orders have been received"""
         self.requests_completed['orders'] = True
-        print(f"[OK] Received {len(self.open_orders)} open orders")
+        logger.info(f"[OK] Received {len(self.open_orders)} open orders")
 
     def position(self, account, contract, position, avgCost):
         """Receive position information"""
@@ -110,7 +114,7 @@ class IBOrderStatusChecker(EWrapper, EClient):
     def positionEnd(self):
         """Called when all positions have been received"""
         self.requests_completed['positions'] = True
-        print(f"[OK] Received {len(self.positions)} positions")
+        logger.info(f"[OK] Received {len(self.positions)} positions")
 
     def execDetails(self, reqId, contract, execution):
         """Receive execution details"""
@@ -130,7 +134,7 @@ class IBOrderStatusChecker(EWrapper, EClient):
     def execDetailsEnd(self, reqId):
         """Called when all execution details have been received"""
         self.requests_completed['executions'] = True
-        print(f"[OK] Received execution details for {len(self.executions)} orders")
+        logger.info(f"[OK] Received execution details for {len(self.executions)} orders")
 
     def completedOrder(self, contract, order, orderState):
         """Receive completed order information"""
@@ -153,11 +157,11 @@ class IBOrderStatusChecker(EWrapper, EClient):
     def completedOrdersEnd(self):
         """Called when all completed orders have been received"""
         self.requests_completed['completed_orders'] = True
-        print(f"[OK] Received {len(self.completed_orders)} completed orders")
+        logger.info(f"[OK] Received {len(self.completed_orders)} completed orders")
 
     def error(self, reqId, errorCode, errorString, advancedOrderRejectJson=""):
         if errorCode not in [2104, 2106, 2158, 2107, 2119]:  # Ignore common info messages
-            print(f"[ERROR] {errorCode}: {errorString}")
+            logger.error(f"[ERROR] {errorCode}: {errorString}")
 
 
 class OrderStatusChecker:
@@ -174,24 +178,24 @@ class OrderStatusChecker:
 
     def load_orders_json(self):
         """Load orders from JSON file"""
-        print(f"[LOAD] Loading orders from {self.orders_file}...")
+        logger.info(f"[LOAD] Loading orders from {self.orders_file}...")
         with open(self.orders_file, 'r') as f:
             self.orders_data = json.load(f)
 
         total_orders = self.orders_data['metadata']['total_orders']
-        print(f"[OK] Loaded {total_orders} orders from JSON file")
+        logger.info(f"[OK] Loaded {total_orders} orders from JSON file")
         return self.orders_data
 
     def connect_to_ibkr(self) -> bool:
         """Connect to IBKR Gateway"""
-        print("[CONNECT] Connecting to IB Gateway...")
+        logger.info("[CONNECT] Connecting to IB Gateway...")
 
         # Initialize API client
         self.api = IBOrderStatusChecker()
 
         # Connect to IB Gateway - use a different client ID to see ALL orders
         client_id = 99  # Use a high client ID to avoid conflicts
-        print(f"[DEBUG] Using client ID: {client_id}")
+        logger.info(f"[DEBUG] Using client ID: {client_id}")
         self.api.connect("127.0.0.1", 4002, clientId=client_id)
 
         # Start message processing thread
@@ -205,30 +209,30 @@ class OrderStatusChecker:
             time.sleep(0.1)
 
         if not self.api.connected:
-            print("[ERROR] Failed to connect to IB Gateway")
+            logger.error("[ERROR] Failed to connect to IB Gateway")
             return False
 
         # Extended wait to capture all immediate order callbacks including high order IDs
-        print("[DEBUG] Waiting for immediate order callbacks (scanning up to order ID 500+)...")
+        logger.info("[DEBUG] Waiting for immediate order callbacks (scanning up to order ID 500+)...")
         time.sleep(10)  # Longer wait to capture orders with higher IDs
         if not self.api.account_id:
-            print("[ERROR] No account ID received")
+            logger.error("[ERROR] No account ID received")
             return False
 
         # Log immediate orders found during connection phase
         if self.api.open_orders:
-            print(f"[DEBUG] Found {len(self.api.open_orders)} orders during connection phase")
+            logger.info(f"[DEBUG] Found {len(self.api.open_orders)} orders during connection phase")
             for order_id, order_info in self.api.open_orders.items():
-                print(f"[DEBUG]   Order {order_id}: {order_info['symbol']} {order_info['action']} {order_info['quantity']} ({order_info['status']})")
+                logger.info(f"[DEBUG]   Order {order_id}: {order_info['symbol']} {order_info['action']} {order_info['quantity']} ({order_info['status']})")
         else:
-            print("[DEBUG] No orders found during connection phase")
+            logger.info("[DEBUG] No orders found during connection phase")
 
         return True
 
     def fetch_account_data(self):
         """Fetch current orders, positions, and executions from IBKR"""
-        print(f"[FETCH] Requesting additional account data from IBKR...")
-        print(f"[DEBUG] Already have {len(self.api.open_orders)} orders from connection phase")
+        logger.info(f"[FETCH] Requesting additional account data from IBKR...")
+        logger.info(f"[DEBUG] Already have {len(self.api.open_orders)} orders from connection phase")
 
         # Reset completion flags
         for key in self.api.requests_completed:
@@ -238,32 +242,32 @@ class OrderStatusChecker:
         initial_order_count = len(self.api.open_orders)
 
         # Request ALL orders using multiple methods to catch everything
-        print("[DEBUG] Requesting all orders with reqAllOpenOrders()...")
+        logger.info("[DEBUG] Requesting all orders with reqAllOpenOrders()...")
         self.api.reqAllOpenOrders()  # This gets ALL open orders, not just from current client
         time.sleep(3)
 
         # Also request open orders from current client
-        print("[DEBUG] Requesting client open orders with reqOpenOrders()...")
+        logger.info("[DEBUG] Requesting client open orders with reqOpenOrders()...")
         self.api.reqOpenOrders()
         time.sleep(3)
 
         # Request auto open orders (sometimes catches more)
-        print("[DEBUG] Requesting auto open orders...")
+        logger.info("[DEBUG] Requesting auto open orders...")
         self.api.reqAutoOpenOrders(True)  # Request automatic order binding
         time.sleep(3)
 
         # Request positions
-        print("[DEBUG] Requesting positions...")
+        logger.info("[DEBUG] Requesting positions...")
         self.api.reqPositions()
         time.sleep(2)
 
         # Request completed orders (recent history)
-        print("[DEBUG] Requesting completed orders...")
+        logger.info("[DEBUG] Requesting completed orders...")
         self.api.reqCompletedOrders(False)  # False = all orders, True = only API orders
         time.sleep(2)
 
         # Request executions for today
-        print("[DEBUG] Requesting executions...")
+        logger.info("[DEBUG] Requesting executions...")
         from ibapi.execution import ExecutionFilter
         exec_filter = ExecutionFilter()
         # Get executions from today - use proper format
@@ -275,7 +279,7 @@ class OrderStatusChecker:
         # Extended timeout to capture orders with higher IDs (up to 500+)
         timeout = 20
         start_time = time.time()
-        print("[DEBUG] Waiting for additional responses (including high order IDs up to 500+)...")
+        logger.info("[DEBUG] Waiting for additional responses (including high order IDs up to 500+)...")
 
         while (time.time() - start_time) < timeout:
             time.sleep(3)
@@ -283,7 +287,7 @@ class OrderStatusChecker:
             if current_time % 6 == 0:
                 additional_orders = len(self.api.open_orders) - initial_order_count
                 max_order_id = max(self.api.open_orders.keys()) if self.api.open_orders else 0
-                print(f"[DEBUG] Current status: Open Orders: {len(self.api.open_orders)} (+{additional_orders} from requests), "
+                logger.info(f"[DEBUG] Current status: Open Orders: {len(self.api.open_orders)} (+{additional_orders} from requests), "
                       f"Completed Orders: {len(self.api.completed_orders)}, "
                       f"Positions: {len(self.api.positions)}, Max Order ID: {max_order_id}")
 
@@ -291,23 +295,23 @@ class OrderStatusChecker:
         additional_orders = len(self.api.open_orders) - initial_order_count
         max_order_id = max(self.api.open_orders.keys()) if self.api.open_orders else 0
         min_order_id = min(self.api.open_orders.keys()) if self.api.open_orders else 0
-        print(f"[DEBUG] Final counts: Open Orders: {len(self.api.open_orders)} (+{additional_orders} from API requests), "
+        logger.info(f"[DEBUG] Final counts: Open Orders: {len(self.api.open_orders)} (+{additional_orders} from API requests), "
               f"Completed Orders: {len(self.api.completed_orders)}, "
               f"Positions: {len(self.api.positions)}")
-        print(f"[DEBUG] Order ID range: {min_order_id} to {max_order_id} (scanning capacity up to 500+)")
+        logger.info(f"[DEBUG] Order ID range: {min_order_id} to {max_order_id} (scanning capacity up to 500+)")
 
         # Check if all requests completed
         completed = list(self.api.requests_completed.values())
         if not all(completed):
-            print(f"[WARNING] Some requests did not complete in time: {self.api.requests_completed}")
+            logger.warning(f"[WARNING] Some requests did not complete in time: {self.api.requests_completed}")
         else:
-            print("[OK] All account data requests completed")
+            logger.info("[OK] All account data requests completed")
 
     def analyze_orders(self):
         """Analyze and compare orders from JSON with current IBKR status"""
-        print("\n" + "=" * 80)
-        print("ORDER STATUS ANALYSIS")
-        print("=" * 80)
+        logger.info("\n" + "=" * 80)
+        logger.info("ORDER STATUS ANALYSIS")
+        logger.info("=" * 80)
 
         # Create lookup dictionaries
         json_orders_by_symbol = {}
@@ -339,10 +343,10 @@ class OrderStatusChecker:
         quantity_mismatches = 0
         missing_orders = []
 
-        print(f"\nJSON ORDERS vs IBKR ORDERS:")
-        print("-" * 80)
-        print(f"{'Symbol':<12} {'JSON Action':<8} {'JSON Qty':<10} {'IBKR Status':<15} {'IBKR Qty':<10} {'Match'}")
-        print("-" * 80)
+        logger.info(f"\nJSON ORDERS vs IBKR ORDERS:")
+        logger.info("-" * 80)
+        logger.info(f"{'Symbol':<12} {'JSON Action':<8} {'JSON Qty':<10} {'IBKR Status':<15} {'IBKR Qty':<10} {'Match'}")
+        logger.info("-" * 80)
 
         for symbol, json_order in json_orders_by_symbol.items():
             json_action = json_order['action']
@@ -370,24 +374,24 @@ class OrderStatusChecker:
                         match_status = "QTY_DIFF"
                         quantity_mismatches += 1
 
-                    print(f"{symbol:<12} {json_action:<8} {json_quantity:<10} {status:<15} {ibkr_qty:<10} {match_status}")
+                    logger.info(f"{symbol:<12} {json_action:<8} {json_quantity:<10} {status:<15} {ibkr_qty:<10} {match_status}")
                 else:
-                    print(f"{symbol:<12} {json_action:<8} {json_quantity:<10} {'NOT FOUND':<15} {'-':<10} {'MISSING'}")
+                    logger.info(f"{symbol:<12} {json_action:<8} {json_quantity:<10} {'NOT FOUND':<15} {'-':<10} {'MISSING'}")
                     missing_from_ibkr += 1
                     found_in_ibkr -= 1
                     missing_orders.append(json_order)
             else:
-                print(f"{symbol:<12} {json_action:<8} {json_quantity:<10} {'NOT FOUND':<15} {'-':<10} {'MISSING'}")
+                logger.info(f"{symbol:<12} {json_action:<8} {json_quantity:<10} {'NOT FOUND':<15} {'-':<10} {'MISSING'}")
                 missing_from_ibkr += 1
                 missing_orders.append(json_order)
 
-        print("-" * 80)
-        print(f"SUMMARY:")
-        print(f"  Total orders in JSON: {len(json_orders_by_symbol)}")
-        print(f"  Found in IBKR: {found_in_ibkr}")
-        print(f"  Missing from IBKR: {missing_from_ibkr}")
-        print(f"  Quantity mismatches: {quantity_mismatches}")
-        print(f"  Success Rate: {found_in_ibkr}/{len(json_orders_by_symbol)} ({100 * found_in_ibkr / len(json_orders_by_symbol):.2f}%)")
+        logger.info("-" * 80)
+        logger.info(f"SUMMARY:")
+        logger.info(f"  Total orders in JSON: {len(json_orders_by_symbol)}")
+        logger.info(f"  Found in IBKR: {found_in_ibkr}")
+        logger.info(f"  Missing from IBKR: {missing_from_ibkr}")
+        logger.info(f"  Quantity mismatches: {quantity_mismatches}")
+        logger.info(f"  Success Rate: {found_in_ibkr}/{len(json_orders_by_symbol)} ({100 * found_in_ibkr / len(json_orders_by_symbol):.2f}%)")
 
         # Show additional IBKR orders not in JSON
         extra_ibkr_orders = []
@@ -396,7 +400,7 @@ class OrderStatusChecker:
                 extra_ibkr_orders.extend(ibkr_orders)
 
         if extra_ibkr_orders:
-            print(f"  Extra orders in IBKR (not in JSON): {len(extra_ibkr_orders)}")
+            logger.info(f"  Extra orders in IBKR (not in JSON): {len(extra_ibkr_orders)}")
 
         # Show detailed analysis of missing orders
         if missing_orders:
@@ -404,9 +408,9 @@ class OrderStatusChecker:
 
     def show_missing_order_analysis(self, missing_orders):
         """Show detailed analysis of why orders are missing from IBKR"""
-        print("\n" + "=" * 80)
-        print("DETAILED ANALYSIS OF MISSING ORDERS")
-        print("=" * 80)
+        logger.info("\n" + "=" * 80)
+        logger.info("DETAILED ANALYSIS OF MISSING ORDERS")
+        logger.info("=" * 80)
 
         # Known failure patterns and reasons
         failure_reasons = {
@@ -432,7 +436,7 @@ class OrderStatusChecker:
             }
         }
 
-        print(f"Found {len(missing_orders)} missing orders with detailed failure analysis:\n")
+        logger.info(f"Found {len(missing_orders)} missing orders with detailed failure analysis:\n")
 
         for i, order in enumerate(missing_orders, 1):
             symbol = order['symbol']
@@ -442,43 +446,43 @@ class OrderStatusChecker:
             ticker = order['stock_info']['ticker']
             exchange = order['ibkr_details'].get('primaryExchange', 'N/A')
 
-            print(f"{i}. {symbol} ({action} {quantity:,} shares)")
-            print(f"   Ticker: {ticker} | Currency: {currency} | Exchange: {exchange}")
+            logger.info(f"{i}. {symbol} ({action} {quantity:,} shares)")
+            logger.info(f"   Ticker: {ticker} | Currency: {currency} | Exchange: {exchange}")
 
             if symbol in failure_reasons:
                 reason_info = failure_reasons[symbol]
-                print(f"   [X] REASON: {reason_info['reason']}")
-                print(f"   [INFO] DETAILS: {reason_info['details']}")
-                print(f"   [NOTE] {reason_info['note']}")
+                logger.info(f"   [X] REASON: {reason_info['reason']}")
+                logger.info(f"   [INFO] DETAILS: {reason_info['details']}")
+                logger.info(f"   [NOTE] {reason_info['note']}")
             else:
                 # Generic analysis based on patterns
                 if action == 'SELL':
-                    print(f"   [X] REASON: Likely Account/Position Issue")
-                    print(f"   [INFO] DETAILS: SELL orders may fail due to account restrictions or position conflicts")
-                    print(f"   [NOTE] Check account settings and current positions")
+                    logger.info(f"   [X] REASON: Likely Account/Position Issue")
+                    logger.info(f"   [INFO] DETAILS: SELL orders may fail due to account restrictions or position conflicts")
+                    logger.info(f"   [NOTE] Check account settings and current positions")
                 elif currency != 'USD':
-                    print(f"   [X] REASON: Likely International Trading Issue")
-                    print(f"   [INFO] DETAILS: Non-USD stocks may have contract resolution or liquidity issues")
-                    print(f"   [NOTE] Verify contract details and market availability")
+                    logger.info(f"   [X] REASON: Likely International Trading Issue")
+                    logger.info(f"   [INFO] DETAILS: Non-USD stocks may have contract resolution or liquidity issues")
+                    logger.info(f"   [NOTE] Verify contract details and market availability")
                 else:
-                    print(f"   [X] REASON: Unknown - Requires Debug Investigation")
-                    print(f"   [INFO] DETAILS: Run debug_order_executor.py to identify specific error codes")
-                    print(f"   [NOTE] Check contract details, account permissions, and market hours")
-            print()
+                    logger.info(f"   [X] REASON: Unknown - Requires Debug Investigation")
+                    logger.info(f"   [INFO] DETAILS: Run debug_order_executor.py to identify specific error codes")
+                    logger.info(f"   [NOTE] Check contract details, account permissions, and market hours")
+            logger.info("")
 
-        print("=" * 80)
-        print("RECOMMENDATIONS:")
-        print("- AAPL: Enable direct routing in Account Settings > API > Precautionary Settings")
-        print("- DPM: Consider alternative Canadian precious metals stocks supported by IBKR")
-        print("- AJ91: Use algorithmic orders (VWAP/TWAP) or reduce position size")
-        print("- MOUR: Consider more liquid Belgian stocks or use smaller order sizes")
-        print("=" * 80)
+        logger.info("=" * 80)
+        logger.info("RECOMMENDATIONS:")
+        logger.info("- AAPL: Enable direct routing in Account Settings > API > Precautionary Settings")
+        logger.info("- DPM: Consider alternative Canadian precious metals stocks supported by IBKR")
+        logger.info("- AJ91: Use algorithmic orders (VWAP/TWAP) or reduce position size")
+        logger.info("- MOUR: Consider more liquid Belgian stocks or use smaller order sizes")
+        logger.info("=" * 80)
 
     def show_order_status_summary(self):
         """Show detailed order status summary"""
-        print("\n" + "=" * 80)
-        print("DETAILED ORDER STATUS")
-        print("=" * 80)
+        logger.info("\n" + "=" * 80)
+        logger.info("DETAILED ORDER STATUS")
+        logger.info("=" * 80)
 
         # Combine open and completed orders
         all_orders = {}
@@ -492,7 +496,7 @@ class OrderStatusChecker:
             all_orders[order_id] = order_info
 
         if not all_orders:
-            print("No orders found in IBKR account.")
+            logger.info("No orders found in IBKR account.")
             return
 
         # Group orders by status
@@ -504,10 +508,10 @@ class OrderStatusChecker:
             status_groups[status].append((order_id, order_info))
 
         for status, orders in status_groups.items():
-            print(f"\n{status.upper()} ORDERS ({len(orders)}):")
-            print("-" * 80)
-            print(f"{'Order ID':<10} {'Symbol':<12} {'Action':<8} {'Quantity':<10} {'Filled':<8} {'Price':<12}")
-            print("-" * 80)
+            logger.info(f"\n{status.upper()} ORDERS ({len(orders)}):")
+            logger.info("-" * 80)
+            logger.info(f"{'Order ID':<10} {'Symbol':<12} {'Action':<8} {'Quantity':<10} {'Filled':<8} {'Price':<12}")
+            logger.info("-" * 80)
 
             for order_id, order_info in orders:
                 price = order_info.get('avgFillPrice', 'N/A')
@@ -521,21 +525,21 @@ class OrderStatusChecker:
 
                 filled = order_info.get('filled', 0)
 
-                print(f"{order_id:<10} {order_info['symbol']:<12} {order_info['action']:<8} "
+                logger.info(f"{order_id:<10} {order_info['symbol']:<12} {order_info['action']:<8} "
                       f"{order_info['quantity']:<10} {filled:<8} {price:<12}")
 
     def show_positions(self):
         """Show current positions"""
-        print("\n" + "=" * 80)
-        print("CURRENT POSITIONS")
-        print("=" * 80)
+        logger.info("\n" + "=" * 80)
+        logger.info("CURRENT POSITIONS")
+        logger.info("=" * 80)
 
         if not self.api.positions:
-            print("No positions found in IBKR account.")
+            logger.info("No positions found in IBKR account.")
             return
 
-        print(f"{'Symbol':<12} {'Position':<12} {'Avg Cost':<12} {'Currency':<8} {'Market Value'}")
-        print("-" * 60)
+        logger.info(f"{'Symbol':<12} {'Position':<12} {'Avg Cost':<12} {'Currency':<8} {'Market Value'}")
+        logger.info("-" * 60)
 
         total_symbols = 0
         for symbol, pos_info in self.api.positions.items():
@@ -545,22 +549,22 @@ class OrderStatusChecker:
             market_value = position * avg_cost
 
             total_symbols += 1
-            print(f"{symbol:<12} {position:<12} {avg_cost:<12.2f} {currency:<8} {market_value:<12.2f}")
+            logger.info(f"{symbol:<12} {position:<12} {avg_cost:<12.2f} {currency:<8} {market_value:<12.2f}")
 
-        print("-" * 60)
-        print(f"Total positions: {total_symbols}")
+        logger.info("-" * 60)
+        logger.info(f"Total positions: {total_symbols}")
 
     def disconnect(self):
         """Disconnect from IBKR"""
         if self.api:
             self.api.disconnect()
-            print("[OK] Disconnected from IB Gateway")
+            logger.info("[OK] Disconnected from IB Gateway")
 
     def run_status_check(self):
         """Run the complete order status check"""
         try:
-            print("Interactive Brokers Order Status Checker")
-            print("=" * 50)
+            logger.info("Interactive Brokers Order Status Checker")
+            logger.info("=" * 50)
 
             # Step 1: Load orders from JSON
             self.load_orders_json()
@@ -587,7 +591,7 @@ class OrderStatusChecker:
             return True
 
         except Exception as e:
-            print(f"[ERROR] Status check failed: {str(e)}")
+            logger.error(f"[ERROR] Status check failed: {str(e)}")
             if self.api:
                 self.disconnect()
             return False
@@ -605,9 +609,9 @@ def main():
     success = checker.run_status_check()
 
     if success:
-        print("\n[SUCCESS] Order status check completed successfully")
+        logger.info("\n[SUCCESS] Order status check completed successfully")
     else:
-        print("\n[FAILED] Order status check failed")
+        logger.error("\n[FAILED] Order status check failed")
         sys.exit(1)
 
 
