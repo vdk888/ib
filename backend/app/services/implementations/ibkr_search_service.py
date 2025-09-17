@@ -376,13 +376,22 @@ class IBKRSearchService(IIBKRSearchService):
                     time.sleep(0.05)
 
                 # Convert matching symbols to contract details
+                print(f"        Processing {len(app.matching_symbols)} matching symbols...")
                 for match in app.matching_symbols:
+                    symbol = match.get('symbol', '')
+                    currency = match.get('currency', '')
+                    exchange = match.get('exchange', '')
+                    print(f"          Checking symbol: {symbol} ({currency}) on {exchange}")
+
                     if match.get('currency') == stock['currency']:  # Currency filter
+                        print(f"            Currency match! Getting contract details for {symbol}")
                         # Get full contract details - use .get() for safe access
-                        symbol = match.get('symbol', '')
-                        currency = match.get('currency', '')
-                        exchange = match.get('exchange', '')
-                        if symbol and currency and exchange:
+                        # Use SMART exchange as default if exchange is empty (common in symbol search results)
+                        if not exchange:
+                            exchange = "SMART"
+                            print(f"            Using default exchange: SMART")
+
+                        if symbol and currency:
                             contract = create_contract_from_ticker(symbol, currency, exchange)
 
                             app.contract_details = []
@@ -394,8 +403,17 @@ class IBKRSearchService(IIBKRSearchService):
                             while not app.search_completed and (time.time() - timeout_start) < 30:
                                 time.sleep(0.05)
 
+                            if app.contract_details:
+                                print(f"            Got {len(app.contract_details)} contract details for {symbol}")
+                            else:
+                                print(f"            No contract details returned for {symbol}")
+
                             all_matches.extend(app.contract_details)
+                        else:
+                            print(f"            Missing required fields: symbol={symbol}, currency={currency}, exchange={exchange}")
                         time.sleep(0.1)
+                    else:
+                        print(f"            Currency mismatch: {match.get('currency')} vs {stock['currency']}")
 
                 time.sleep(0.2)
 
@@ -508,20 +526,27 @@ class IBKRSearchService(IIBKRSearchService):
 
             for contract in all_contracts:
                 contract_search_method = contract.get('_search_method', 'unknown')
+                symbol = contract.get('symbol', 'N/A')
+                longName = contract.get('longName', 'N/A')
+                currency = contract.get('currency', 'N/A')
+
+                print(f"    VALIDATING: {symbol} ({longName}) - {currency} via {contract_search_method}")
+
                 is_valid, reason = self.is_valid_match(stock, contract, contract_search_method)
 
                 if is_valid:
                     name_sim = similarity_score(stock['name'].lower(), contract['longName'].lower())
-                    if verbose:
-                        symbol = contract.get('symbol', 'N/A')
-                        longName = contract.get('longName', 'N/A')
-                        print(f"    VALID: {symbol}: {longName[:40]} -> {reason}")
+                    print(f"      ✓ VALID: {symbol}: {longName[:40]} -> {reason} (score: {name_sim:.3f})")
                     valid_matches.append((contract, name_sim))
                 else:
-                    if verbose:
-                        symbol = contract.get('symbol', 'N/A')
-                        longName = contract.get('longName', 'N/A')
-                        print(f"    REJECTED: {symbol}: {longName[:40]} -> {reason}")
+                    print(f"      ✗ REJECTED: {symbol}: {longName[:40]} -> {reason}")
+
+                    # Add detailed validation breakdown for debugging
+                    universe_name = stock['name'].lower()
+                    ibkr_name = longName.lower()
+                    name_sim = similarity_score(universe_name, ibkr_name)
+                    print(f"        Name similarity: {name_sim:.3f} ({universe_name} vs {ibkr_name})")
+                    print(f"        Currency match: {stock['currency']} vs {currency} = {stock['currency'] == currency}")
 
             if valid_matches:
                 # Sort by name similarity and pick the best
