@@ -912,7 +912,8 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
                 type="code",
                 required=True,
                 valid=True,
-                details="All step functions from main.py are accessible"
+                details="All step functions from main.py are accessible",
+                recommendation=None
             )
         except Exception as e:
             checks["main_py_functions"] = PipelineDependencyCheck(
@@ -934,7 +935,8 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
                 type="file",
                 required=True,
                 valid=True,
-                details="Data directory exists and is accessible"
+                details="Data directory exists and is accessible",
+                recommendation=None
             )
         else:
             checks["data_directory"] = PipelineDependencyCheck(
@@ -959,7 +961,8 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
                 type="system",
                 required=True,
                 valid=True,
-                details="Write permissions available in current directory"
+                details="Write permissions available in current directory",
+                recommendation=None
             )
         except Exception as e:
             checks["write_permissions"] = PipelineDependencyCheck(
