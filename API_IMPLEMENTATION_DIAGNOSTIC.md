@@ -269,3 +269,122 @@ The Uncle Stock Portfolio System has **excellent business logic implementations*
 Once the service layer issues are resolved and the pipeline orchestrator is redesigned to use the service layer, the system will be fully production-ready with comprehensive functionality for automated portfolio management and rebalancing.
 
 **Recommendation**: Prioritize fixing the service layer dependencies first, then redesign the pipeline orchestrator integration. The business logic is already implemented and sophisticated.
+
+## Update: main.py Removal Completed
+
+**Date**: 2025-09-17 (Post-Analysis)
+**Action Taken**: ✅ **main.py stub file deleted**
+
+### Impact of main.py Removal
+- **Pipeline Health**: Still reports healthy (uses built-in fallback dummy functions)
+- **Step Execution**: Now correctly fails (dummy functions return False)
+- **Architecture**: No longer masking integration issues with placeholder functions
+
+### Current State After main.py Deletion
+```python
+# Pipeline orchestrator now uses fallback dummy functions:
+except ImportError as e:
+    step1_fetch_data = lambda: False  # Dummy function
+    step2_parse_data = lambda: False  # Dummy function
+    # ... all steps return False
+```
+
+### Next Immediate Actions (Priority Order)
+
+#### 1. **Fix Service Layer 500 Errors** (CRITICAL)
+Test each service endpoint to identify specific failures:
+```bash
+# Safe tests (no API costs):
+GET /api/v1/universe/parse          # Parse existing data
+GET /api/v1/portfolio/optimize      # Portfolio calculations
+GET /api/v1/currency/rates          # Currency data
+GET /api/v1/orders/status           # Order status (we know this works)
+
+# Expensive tests (avoid for now):
+# POST /api/v1/screeners/fetch      # Costs Uncle Stock API calls
+```
+
+#### 2. **Service Dependencies Analysis**
+Focus on identifying why services fail:
+- Missing environment variables (UNCLE_STOCK_USER_ID, etc.)
+- Database/file dependencies
+- External API connectivity issues
+- Service initialization problems
+
+#### 3. **Pipeline Orchestrator Redesign**
+Once services work individually, replace the main.py import structure:
+```python
+# REMOVE:
+try:
+    from main import step1_fetch_data, step2_parse_data...
+except ImportError:
+    step1_fetch_data = lambda: False...
+
+# REPLACE WITH:
+def __init__(self,
+    screener_service: IScreenerService,
+    universe_service: IUniverseService,
+    # ... all service dependencies
+):
+    self._step_functions = {
+        1: self._execute_step_1,
+        2: self._execute_step_2,
+        # ... service-based implementations
+    }
+
+async def _execute_step_1(self) -> bool:
+    result = await self.screener_service.fetch_all_screener_data()
+    return result.get('success', False)
+```
+
+## Implementation Status
+
+### ✅ Completed
+- [x] Pipeline health validation
+- [x] Dependency analysis
+- [x] Architecture flaw identification
+- [x] main.py stub removal
+- [x] Comprehensive diagnostic documentation
+
+### 🔄 In Progress
+- [ ] Service layer 500 error debugging
+- [ ] Individual service endpoint validation
+- [ ] Environment configuration verification
+
+### ⏳ Pending
+- [ ] Pipeline orchestrator redesign
+- [ ] Service integration implementation
+- [ ] End-to-end testing
+- [ ] Production deployment validation
+
+## Risk Assessment
+
+### Low Risk (Safe to Test)
+- Universe parsing and management endpoints
+- Portfolio optimization calculations
+- Currency rate operations
+- Order status checking (already working)
+
+### High Risk (Avoid Until Ready)
+- Screener data fetching (Uncle Stock API costs)
+- IBKR order execution (real trading impact)
+- Full pipeline execution
+
+## Final Architecture Target
+
+```python
+# Correct service-based pipeline flow:
+Step 1: screener_service.fetch_all_screener_data()
+Step 2: universe_service.parse_universe()
+Step 3: historical_data_service.parse_backtest_data()
+Step 4: portfolio_optimizer_service.optimize_portfolio()
+Step 5: currency_service.update_exchange_rates()
+Step 6: target_allocation_service.calculate_targets()
+Step 7: quantity_service.calculate_quantities()
+Step 8: ibkr_search_service.search_universe()
+Step 9: rebalancing_service.generate_rebalancing_orders()
+Step 10: order_execution_service.execute_workflow()
+Step 11: order_status_service.run_status_check()
+```
+
+**Status**: Ready to proceed with service layer debugging and integration implementation.
