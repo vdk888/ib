@@ -5,16 +5,12 @@ Provides API-compatible methods while maintaining 100% CLI behavioral compatibil
 """
 
 import os
-import sys
 import json
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 
-# Add src directory to path for legacy imports
-project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
-sys.path.insert(0, os.path.join(project_root, "src"))
-
-from src.order_status_checker import OrderStatusChecker, IBOrderStatusChecker
+# Import from local legacy directory
+from .legacy.order_status_checker import OrderStatusChecker, IBOrderStatusChecker
 from ..interfaces import IOrderStatusService
 
 
@@ -33,6 +29,9 @@ class OrderStatusService(IOrderStatusService):
         """
         # Initialize path resolution like legacy code
         if not os.path.isabs(orders_file):
+            # Get project root relative to this service
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(current_dir))))
             self.orders_file = os.path.join(project_root, "data", orders_file)
         else:
             self.orders_file = orders_file

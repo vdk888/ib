@@ -877,7 +877,7 @@ class OrderExecutionWorkflowResponse(BaseModel):
     """
     success: bool = Field(description="Whether the entire workflow was successful")
     execution_summary: Optional[OrderExecutionSummary] = Field(default=None, description="Execution summary if successful")
-    order_statuses: Optional[Dict[str, Dict[str, Any]]] = Field(default=None, description="Final order statuses")
+    order_statuses: Optional[Dict[int, Dict[str, Any]]] = Field(default=None, description="Final order statuses")
     status_summary: Optional[Dict[str, int]] = Field(default=None, description="Status summary counts")
     total_filled_shares: Optional[int] = Field(default=None, description="Total shares filled")
     pending_orders_count: Optional[int] = Field(default=None, description="Pending orders count")

@@ -3,7 +3,7 @@ Dependency injection container
 """
 from functools import lru_cache
 from .config import Settings
-from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer, ITargetAllocationService, IOrderExecutionService, IRebalancingService, IAccountService, IQuantityCalculator, IPipelineOrchestrator, ICurrencyService, IIBKRSearchService
+from ..services.interfaces import IScreenerService, IUniverseRepository, IPortfolioOptimizer, ITargetAllocationService, IOrderExecutionService, IRebalancingService, IAccountService, IQuantityCalculator, IPipelineOrchestrator, ICurrencyService, IIBKRSearchService, IOrderStatusService
 from ..services.implementations.screener_service import ScreenerService
 from ..services.implementations.uncle_stock_provider import UncleStockProvider
 from ..services.implementations.file_manager import FileManager
@@ -11,6 +11,7 @@ from ..services.implementations.universe_service import create_universe_service
 from ..services.implementations.portfolio_optimizer_service import PortfolioOptimizerService
 from ..services.implementations.target_allocation_service import TargetAllocationService
 from ..services.implementations.order_execution_service import OrderExecutionService
+from ..services.implementations.order_status_service import OrderStatusService
 from ..services.implementations.rebalancing_service import RebalancingService
 from ..services.implementations.account_service import AccountService
 from ..services.implementations.quantity_service import QuantityService
@@ -32,6 +33,7 @@ _universe_service = None
 _portfolio_optimizer_service = None
 _target_allocation_service = None
 _order_execution_service = None
+_order_status_service = None
 _rebalancing_service = None
 _account_service = None
 _quantity_service = None
@@ -98,6 +100,14 @@ def get_order_execution_service() -> IOrderExecutionService:
     if _order_execution_service is None:
         _order_execution_service = OrderExecutionService()
     return _order_execution_service
+
+
+def get_order_status_service() -> IOrderStatusService:
+    """Get order status service instance"""
+    global _order_status_service
+    if _order_status_service is None:
+        _order_status_service = OrderStatusService()
+    return _order_status_service
 
 
 def get_rebalancing_service() -> IRebalancingService:

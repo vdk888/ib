@@ -11,14 +11,15 @@ import logging
 import os
 import json
 import time
-from ....core.dependencies import get_rebalancing_service, get_order_execution_service
+from ....core.dependencies import get_rebalancing_service, get_order_execution_service, get_order_status_service
 from ....core.exceptions import ValidationError
 from ....models.schemas import (
     RebalancingResponse,
     OrdersResponse,
     PositionsResponse,
     TargetQuantitiesResponse,
-    OrderExecutionWorkflowResponse
+    OrderExecutionWorkflowResponse,
+    OrderStatusCheckResponse
 )
 from ....models.errors import ErrorResponse
 
@@ -46,7 +47,11 @@ async def generate_orders(
 
         # Use default universe file if not specified
         if universe_file is None:
-            universe_file = "backend/data/universe_with_ibkr.json"
+            # Get absolute path to backend/data/universe_with_ibkr.json
+            import os
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            backend_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(current_dir))))
+            universe_file = os.path.join(backend_root, "data", "universe_with_ibkr.json")
 
         # Run rebalancing process
         results = rebalancing_service.run_rebalancing(universe_file)
@@ -93,9 +98,11 @@ async def get_orders():
     Get the most recently generated orders from the orders.json file.
     """
     try:
-        # Get project root and orders file path
-        project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))))
-        orders_file = os.path.join(project_root, "data", "orders.json")
+        # Get absolute path to backend/data/orders.json
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        # From backend/app/api/v1/endpoints -> go up to backend/
+        backend_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(current_dir))))
+        orders_file = os.path.join(backend_root, "data", "orders.json")
 
         if not os.path.exists(orders_file):
             raise HTTPException(
@@ -174,7 +181,11 @@ async def get_target_quantities(
 
         # Use default universe file if not specified
         if universe_file is None:
-            universe_file = "backend/data/universe_with_ibkr.json"
+            # Get absolute path to backend/data/universe_with_ibkr.json
+            import os
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            backend_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(current_dir))))
+            universe_file = os.path.join(backend_root, "data", "universe_with_ibkr.json")
 
         # Load universe data
         universe_data = rebalancing_service.load_universe_data(universe_file)
@@ -262,4 +273,70 @@ async def execute_orders(
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Error executing orders: {str(e)}"
+        )
+
+
+@router.post(
+    "/status",
+    response_model=OrderStatusCheckResponse,
+    summary="Check Order Status (Step 11)",
+    description="Validate and check status of executed orders through IBKR API"
+)
+async def check_order_status(
+    orders_file: Optional[str] = None,
+    order_status_service = Depends(get_order_status_service)
+):
+    """
+    Check order status and validate execution results.
+    This is the API equivalent of step 11 in the legacy pipeline.
+    """
+    try:
+        logger.info("Starting order status check (Step 11)")
+
+        # Use default orders file if not specified
+        if orders_file is None:
+            # Get absolute path to backend/data/orders.json
+            import os
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            # From backend/app/api/v1/endpoints -> go up to backend/
+            backend_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(current_dir))))
+            orders_file = os.path.join(backend_root, "data", "orders.json")
+
+        # First set the orders file path
+        order_status_service.orders_file = orders_file
+
+        # Run complete status check workflow
+        success = await order_status_service.run_status_check()
+
+        if success:
+            # Get verification results after successful check
+            result = await order_status_service.get_verification_results()
+            result['success'] = True
+        else:
+            result = {
+                'success': False,
+                'error_message': 'Order status check failed'
+            }
+
+        logger.info(f"Order status check completed. Success: {result['success']}")
+
+        return OrderStatusCheckResponse(**result)
+
+    except FileNotFoundError as e:
+        logger.error(f"Orders file not found: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Orders file not found: {str(e)}"
+        )
+    except ConnectionError as e:
+        logger.error(f"IBKR connection failed: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to connect to IBKR: {str(e)}"
+        )
+    except Exception as e:
+        logger.error(f"Error checking order status: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error checking order status: {str(e)}"
         )
