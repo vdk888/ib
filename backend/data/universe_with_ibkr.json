@@ -22130,10 +22130,10 @@
     "timestamp": "2025-09-16 20:40:00"
   },
   "ibkr_search_metadata": {
-    "timestamp": "2025-09-17T11:13:56.085696",
+    "timestamp": "2025-09-17T11:57:58.959270",
     "implementation": "api",
     "search_completed": true,
-    "timeout_seconds": 20,
+    "timeout_seconds": 30,
     "cache_hits": 62,
     "cache_misses": 1,
     "api_calls_made": 1

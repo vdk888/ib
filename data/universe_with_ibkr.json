@@ -3553,7 +3553,13 @@
           "quantity": 1112,
           "ibkr_details": {
             "found": false,
-            "search_attempted": true
+            "symbol": "",
+            "longName": "",
+            "exchange": "",
+            "primaryExchange": "",
+            "conId": 0,
+            "search_method": "unknown",
+            "match_score": 0.0
           }
         },
         {
@@ -3844,7 +3850,13 @@
           "quantity": 1800,
           "ibkr_details": {
             "found": false,
-            "search_attempted": true
+            "symbol": "",
+            "longName": "",
+            "exchange": "",
+            "primaryExchange": "",
+            "conId": 0,
+            "search_method": "unknown",
+            "match_score": 0.0
           }
         },
         {
@@ -4038,7 +4050,13 @@
           "quantity": 200,
           "ibkr_details": {
             "found": false,
-            "search_attempted": true
+            "symbol": "",
+            "longName": "",
+            "exchange": "",
+            "primaryExchange": "",
+            "conId": 0,
+            "search_method": "unknown",
+            "match_score": 0.0
           }
         },
         {
@@ -4064,7 +4082,13 @@
           "quantity": 405,
           "ibkr_details": {
             "found": false,
-            "search_attempted": true
+            "symbol": "",
+            "longName": "",
+            "exchange": "",
+            "primaryExchange": "",
+            "conId": 0,
+            "search_method": "unknown",
+            "match_score": 0.0
           }
         },
         {
@@ -4409,8 +4433,14 @@
           "target_value_eur": 60454.03,
           "quantity": 1800,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "6061",
+            "longName": "UNIVERSAL ENGEISHA CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131086854,
+            "search_method": "isin",
+            "match_score": 1.0
           }
         },
         {
@@ -4540,8 +4570,14 @@
           "target_value_eur": 23016.9,
           "quantity": 5100,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "9564",
+            "longName": "FCE INC/JAPAN",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 587799345,
+            "search_method": "ticker",
+            "match_score": 0.4666666666666667
           }
         },
         {
@@ -4821,8 +4857,14 @@
           "target_value_eur": 77924.69,
           "quantity": 4235,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "DPM",
+            "longName": "DPM METALS INC",
+            "exchange": "SMART",
+            "primaryExchange": "TSE",
+            "conId": 814025540,
+            "search_method": "ticker",
+            "match_score": 0.6341463414634146
           }
         },
         {
@@ -4867,8 +4909,14 @@
           "target_value_eur": 10537.86,
           "quantity": 2435,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "SVM",
+            "longName": "SILVERCORP METALS INC",
+            "exchange": "SMART",
+            "primaryExchange": "TSE",
+            "conId": 34466014,
+            "search_method": "isin",
+            "match_score": 0.8947368421052632
           }
         },
         {
@@ -4892,8 +4940,14 @@
           "target_value_eur": 72933.07,
           "quantity": 1700,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "6957",
+            "longName": "SHIBAURA ELECTRONICS CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131086807,
+            "search_method": "isin",
+            "match_score": 1.0
           }
         },
         {
@@ -4960,8 +5014,14 @@
           "target_value_eur": 62949.84,
           "quantity": 3500,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "3763",
+            "longName": "PRO-SHIP INC",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131087827,
+            "search_method": "isin",
+            "match_score": 1.0
           }
         },
         {
@@ -5007,8 +5067,14 @@
           "target_value_eur": 62949.84,
           "quantity": 1800,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "6454",
+            "longName": "MAX CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 14016675,
+            "search_method": "isin",
+            "match_score": 1.0
           }
         },
         {
@@ -5159,8 +5225,14 @@
           "target_value_eur": 65445.65,
           "quantity": 2573,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "ACMR",
+            "longName": "ACM RESEARCH INC-CLASS A",
+            "exchange": "SMART",
+            "primaryExchange": "NASDAQ",
+            "conId": 295043917,
+            "search_method": "isin",
+            "match_score": 0.7804878048780488
           }
         },
         {
@@ -5184,8 +5256,14 @@
           "target_value_eur": 25512.71,
           "quantity": 1227,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "PWS",
+            "longName": "POWERSOFT SPA",
+            "exchange": "SMART",
+            "primaryExchange": "BVME",
+            "conId": 345962700,
+            "search_method": "isin",
+            "match_score": 0.896551724137931
           }
         },
         {
@@ -5209,8 +5287,14 @@
           "target_value_eur": 75428.88,
           "quantity": 22889,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "RRL",
+            "longName": "REGIS RESOURCES LTD",
+            "exchange": "SMART",
+            "primaryExchange": "ASX",
+            "conId": 47519420,
+            "search_method": "isin",
+            "match_score": 1.0
           }
         },
         {
@@ -5257,8 +5341,14 @@
           "target_value_eur": 25512.71,
           "quantity": 2401,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "KNOS",
+            "longName": "KAINOS GROUP PLC",
+            "exchange": "SMART",
+            "primaryExchange": "LSE",
+            "conId": 199744467,
+            "search_method": "isin",
+            "match_score": 1.0
           }
         },
         {
@@ -5410,8 +5500,14 @@
           "target_value_eur": 55462.41,
           "quantity": 3400,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "4771",
+            "longName": "F&M CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131085405,
+            "search_method": "isin",
+            "match_score": 1.0
           }
         },
         {
@@ -5731,8 +5827,14 @@
           "target_value_eur": 30504.33,
           "quantity": 1800,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "3922",
+            "longName": "PR TIMES CORP",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 224110875,
+            "search_method": "isin",
+            "match_score": 0.8
           }
         },
         {
@@ -5756,8 +5858,14 @@
           "target_value_eur": 67941.46,
           "quantity": 10400,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "2150",
+            "longName": "CARENET, INC.",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 43737577,
+            "search_method": "isin",
+            "match_score": 0.96
           }
         },
         {
@@ -5866,8 +5974,14 @@
           "target_value_eur": 50470.8,
           "quantity": 3500,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "6580",
+            "longName": "WRITEUP CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 318184086,
+            "search_method": "isin",
+            "match_score": 1.0
           }
         },
         {
@@ -5891,8 +6005,14 @@
           "target_value_eur": 45479.18,
           "quantity": 7000,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "6037",
+            "longName": "RAKUMACHI INC",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 180235469,
+            "search_method": "isin",
+            "match_score": 0.37037037037037035
           }
         },
         {
@@ -7673,8 +7793,14 @@
           "quantity": 0,
           "allocation_note": "minimal_allocation",
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "6061",
+            "longName": "UNIVERSAL ENGEISHA CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 131086854,
+            "search_method": "isin",
+            "match_score": 1.0
           }
         },
         {
@@ -8556,7 +8682,13 @@
           "allocation_note": "minimal_allocation",
           "ibkr_details": {
             "found": false,
-            "search_attempted": true
+            "symbol": "",
+            "longName": "",
+            "exchange": "",
+            "primaryExchange": "",
+            "conId": 0,
+            "search_method": "unknown",
+            "match_score": 0.0
           }
         },
         {
@@ -9353,7 +9485,13 @@
           "allocation_note": "minimal_allocation",
           "ibkr_details": {
             "found": false,
-            "search_attempted": true
+            "symbol": "",
+            "longName": "",
+            "exchange": "",
+            "primaryExchange": "",
+            "conId": 0,
+            "search_method": "unknown",
+            "match_score": 0.0
           }
         },
         {
@@ -9681,8 +9819,14 @@
           "quantity": 0,
           "allocation_note": "minimal_allocation",
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "6454",
+            "longName": "MAX CO LTD",
+            "exchange": "SMART",
+            "primaryExchange": "TSEJ",
+            "conId": 14016675,
+            "search_method": "isin",
+            "match_score": 1.0
           }
         },
         {
@@ -10709,7 +10853,13 @@
           "quantity": 500,
           "ibkr_details": {
             "found": false,
-            "search_attempted": true
+            "symbol": "",
+            "longName": "",
+            "exchange": "",
+            "primaryExchange": "",
+            "conId": 0,
+            "search_method": "unknown",
+            "match_score": 0.0
           }
         },
         {
@@ -11335,14 +11485,8 @@
           "target_value_eur": 2285.95,
           "quantity": 100,
           "ibkr_details": {
-            "found": true,
-            "symbol": "9790",
-            "longName": "FUKUI COMPUTER HOLDINGS INC",
-            "exchange": "SMART",
-            "primaryExchange": "TSEJ",
-            "conId": 37926693,
-            "search_method": "isin",
-            "match_score": 1.0
+            "found": false,
+            "search_attempted": true
           }
         },
         {
@@ -11447,14 +11591,8 @@
           "target_value_eur": 19312.34,
           "quantity": 2200,
           "ibkr_details": {
-            "found": true,
-            "symbol": "9753",
-            "longName": "IX KNOWLEDGE INC",
-            "exchange": "SMART",
-            "primaryExchange": "TSEJ",
-            "conId": 131086184,
-            "search_method": "isin",
-            "match_score": 0.9696969696969697
+            "found": false,
+            "search_attempted": true
           }
         },
         {
@@ -11478,14 +11616,8 @@
           "target_value_eur": 17184.04,
           "quantity": 1500,
           "ibkr_details": {
-            "found": true,
-            "symbol": "3678",
-            "longName": "MEDIA DO CO LTD",
-            "exchange": "SMART",
-            "primaryExchange": "TSEJ",
-            "conId": 136480995,
-            "search_method": "isin",
-            "match_score": 1.0
+            "found": false,
+            "search_attempted": true
           }
         },
         {
@@ -11612,14 +11744,8 @@
           "target_value_eur": 10799.14,
           "quantity": 1000,
           "ibkr_details": {
-            "found": true,
-            "symbol": "6199",
-            "longName": "SERAKU CO LTD",
-            "exchange": "SMART",
-            "primaryExchange": "TSEJ",
-            "conId": 235161210,
-            "search_method": "isin",
-            "match_score": 1.0
+            "found": false,
+            "search_attempted": true
           }
         },
         {
@@ -11661,14 +11787,8 @@
           "target_value_eur": 2995.38,
           "quantity": 33,
           "ibkr_details": {
-            "found": true,
-            "symbol": "LOGN",
-            "longName": "LOGITECH INTERNATIONAL-REG",
-            "exchange": "SMART",
-            "primaryExchange": "EBS",
-            "conId": 39999891,
-            "search_method": "isin",
-            "match_score": 0.8301886792452831
+            "found": false,
+            "search_attempted": true
           }
         },
         {
@@ -11819,14 +11939,8 @@
           "target_value_eur": 22150.07,
           "quantity": 74424,
           "ibkr_details": {
-            "found": true,
-            "symbol": "BRE2",
-            "longName": "BREDBAND2 I SKANDINAVIEN AB",
-            "exchange": "SMART",
-            "primaryExchange": "SFB",
-            "conId": 288231257,
-            "search_method": "isin",
-            "match_score": 1.0
+            "found": false,
+            "search_attempted": true
           }
         },
         {
@@ -11850,14 +11964,8 @@
           "target_value_eur": 12218.01,
           "quantity": 1564,
           "ibkr_details": {
-            "found": true,
-            "symbol": "NTEK.B",
-            "longName": "NOVOTEK AB-B SHS",
-            "exchange": "SMART",
-            "primaryExchange": "SFB",
-            "conId": 4828869,
-            "search_method": "isin",
-            "match_score": 0.7692307692307693
+            "found": false,
+            "search_attempted": true
           }
         },
         {
@@ -11881,14 +11989,8 @@
           "target_value_eur": 5123.68,
           "quantity": 300,
           "ibkr_details": {
-            "found": true,
-            "symbol": "9769",
-            "longName": "GAKKYUSHA CO LTD",
-            "exchange": "SMART",
-            "primaryExchange": "TSEJ",
-            "conId": 131084495,
-            "search_method": "isin",
-            "match_score": 1.0
+            "found": false,
+            "search_attempted": true
           }
         },
         {
@@ -11948,8 +12050,14 @@
           "target_value_eur": 7251.98,
           "quantity": 683,
           "ibkr_details": {
-            "found": false,
-            "search_attempted": true
+            "found": true,
+            "symbol": "KNOS",
+            "longName": "KAINOS GROUP PLC",
+            "exchange": "SMART",
+            "primaryExchange": "LSE",
+            "conId": 199744467,
+            "search_method": "isin",
+            "match_score": 1.0
           }
         },
         {
@@ -12171,14 +12279,8 @@
           "target_value_eur": 12927.44,
           "quantity": 800,
           "ibkr_details": {
-            "found": true,
-            "symbol": "2146",
-            "longName": "UT GROUP CO LTD",
-            "exchange": "SMART",
-            "primaryExchange": "TSEJ",
-            "conId": 131081539,
-            "search_method": "isin",
-            "match_score": 1.0
+            "found": false,
+            "search_attempted": true
           }
         },
         {
@@ -12223,14 +12325,8 @@
           "target_value_eur": 10089.71,
           "quantity": 900,
           "ibkr_details": {
-            "found": true,
-            "symbol": "6750",
-            "longName": "ELECOM CO LTD",
-            "exchange": "SMART",
-            "primaryExchange": "TSEJ",
-            "conId": 129106747,
-            "search_method": "isin",
-            "match_score": 1.0
+            "found": false,
+            "search_attempted": true
           }
         },
         {
@@ -12254,14 +12350,8 @@
           "target_value_eur": 17893.47,
           "quantity": 900,
           "ibkr_details": {
-            "found": true,
-            "symbol": "3088",
-            "longName": "MATSUKIYOCOCOKARA & CO",
-            "exchange": "SMART",
-            "primaryExchange": "TSEJ",
-            "conId": 46537327,
-            "search_method": "isin",
-            "match_score": 0.9777777777777777
+            "found": false,
+            "search_attempted": true
           }
         },
         {
@@ -12303,14 +12393,8 @@
           "target_value_eur": 5833.11,
           "quantity": 1572,
           "ibkr_details": {
-            "found": true,
-            "symbol": "VCI",
-            "longName": "VITREOUS GLASS INC",
-            "exchange": "SMART",
-            "primaryExchange": "VENTURE",
-            "conId": 42898654,
-            "search_method": "isin",
-            "match_score": 0.972972972972973
+            "found": false,
+            "search_attempted": true
           }
         },
         {
@@ -12355,14 +12439,8 @@
           "target_value_eur": 21440.64,
           "quantity": 1000,
           "ibkr_details": {
-            "found": true,
-            "symbol": "7419",
-            "longName": "NOJIMA CORP",
-            "exchange": "SMART",
-            "primaryExchange": "TSEJ",
-            "conId": 131083812,
-            "search_method": "isin",
-            "match_score": 1.0
+            "found": false,
+            "search_attempted": true
           }
         },
         {
@@ -12404,14 +12482,8 @@
           "target_value_eur": 16474.61,
           "quantity": 500,
           "ibkr_details": {
-            "found": true,
-            "symbol": "4686",
-            "longName": "JUSTSYSTEMS CORP",
-            "exchange": "SMART",
-            "primaryExchange": "TSEJ",
-            "conId": 131086553,
-            "search_method": "isin",
-            "match_score": 1.0
+            "found": false,
+            "search_attempted": true
           }
         },
         {
@@ -12516,14 +12588,8 @@
           "target_value_eur": 20731.2,
           "quantity": 1592,
           "ibkr_details": {
-            "found": true,
-            "symbol": "AJ91",
-            "longName": "DOCCHECK AG",
-            "exchange": "SMART",
-            "primaryExchange": "IBIS",
-            "conId": 70101035,
-            "search_method": "isin",
-            "match_score": 1.0
+            "found": false,
+            "search_attempted": true
           }
         },
         {
@@ -21884,12 +21950,12 @@
     "timestamp": "2025-09-16 20:40:00"
   },
   "ibkr_search_metadata": {
-    "timestamp": "2025-09-17T11:00:34.222833",
-    "implementation": "legacy",
+    "timestamp": "2025-09-17T11:48:19.237737",
+    "implementation": "api",
     "search_completed": true,
     "timeout_seconds": 20,
-    "cache_hits": 63,
-    "cache_misses": 0,
-    "api_calls_made": 0
+    "cache_hits": 35,
+    "cache_misses": 28,
+    "api_calls_made": 28
   }
 }
