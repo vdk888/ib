@@ -252,11 +252,37 @@ class IBKRDatabaseService:
                 cached_entry = self.get_cached_result(isin, ticker)
 
                 if cached_entry:
-                    # Create stock copy with cached IBKR details
-                    cached_stock = stock.copy()
-                    cached_stock['ibkr_details'] = cached_entry.raw_ibkr_details
-                    cached_stocks.append(cached_stock)
-                    logger.debug(f"Cache hit for {isin}/{ticker}")
+                    # Check if cached entry has valid IBKR details with conId
+                    import copy
+                    raw_details = copy.deepcopy(cached_entry.raw_ibkr_details)
+
+                    # Add the found status from the database to the raw details
+                    raw_details['found'] = cached_entry.found
+
+                    # Normalize conId field
+                    if 'contract_id' in raw_details and 'conId' not in raw_details:
+                        raw_details['conId'] = raw_details['contract_id']
+                        logger.info(f"Fixed conId for {ticker}: contract_id={raw_details['contract_id']} -> conId={raw_details['conId']}")
+
+                    # Check if entry is actually usable (has valid conId for found entries)
+                    is_valid_cache = True
+                    if cached_entry.found:
+                        # For found entries, must have valid conId
+                        con_id = raw_details.get('conId', 0)
+                        if not con_id or con_id == 0:
+                            is_valid_cache = False
+                            logger.info(f"Cache entry for {ticker} found but has no valid conId ({con_id}) - forcing IBKR API search")
+
+                    if is_valid_cache:
+                        # Create stock copy with cached IBKR details
+                        cached_stock = stock.copy()
+                        cached_stock['ibkr_details'] = raw_details
+                        cached_stocks.append(cached_stock)
+                        logger.debug(f"Cache hit for {isin}/{ticker}")
+                    else:
+                        # Treat as uncached to force fresh IBKR search
+                        uncached_stocks.append(stock)
+                        logger.debug(f"Cache invalid for {isin}/{ticker} - treating as uncached")
                 else:
                     uncached_stocks.append(stock)
                     logger.debug(f"Cache miss for {isin}/{ticker}")

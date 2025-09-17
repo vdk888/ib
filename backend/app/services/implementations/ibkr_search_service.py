@@ -528,14 +528,14 @@ class IBKRSearchService(IIBKRSearchService):
         for screen_name, screen_data in universe_data.get('screens', {}).items():
             for stock in screen_data.get('stocks', []):
                 if stock.get('ticker') == stock_ticker:
-                    # Add IBKR details
+                    # Add IBKR details - respect the actual found status from ibkr_details
                     stock['ibkr_details'] = {
-                        'found': True,
+                        'found': ibkr_details.get('found', True),
                         'symbol': ibkr_details.get('symbol', ''),
                         'longName': ibkr_details.get('longName', ''),
                         'exchange': ibkr_details.get('exchange', ''),
                         'primaryExchange': ibkr_details.get('primaryExchange', ''),
-                        'conId': ibkr_details.get('conId', 0),
+                        'conId': ibkr_details.get('conId', ibkr_details.get('contract_id', 0)),
                         'search_method': ibkr_details.get('search_method', 'unknown'),
                         'match_score': ibkr_details.get('match_score', 0.0)
                     }
@@ -557,9 +557,9 @@ class IBKRSearchService(IIBKRSearchService):
     def process_all_universe_stocks(self) -> Dict[str, Any]:
         """Process all stocks from universe.json and update with IBKR details with caching"""
 
-        # Load universe.json from backend data directory
+        # Load universe.json from legacy data directory
         script_dir = Path(__file__).parent
-        universe_path = script_dir.parent.parent.parent / 'data' / 'universe.json'
+        universe_path = script_dir.parent.parent.parent.parent / 'data' / 'universe.json'
 
         if not universe_path.exists():
             print(f"Error: universe.json not found at {universe_path}")
@@ -576,9 +576,9 @@ class IBKRSearchService(IIBKRSearchService):
             print("❌ No stocks with quantities > 0 found. Exiting.")
             return {}
 
-        # Get database service for caching (API uses backend/data path)
+        # Get database service for caching (legacy path for CLI compatibility)
         script_dir = Path(__file__).parent
-        backend_db_path = script_dir.parent.parent.parent / 'data' / 'ibkr_cache.db'
+        backend_db_path = script_dir.parent.parent.parent.parent / 'data' / 'ibkr_cache.db'
         db_service = get_database_service(str(backend_db_path))
 
         # Separate cached and uncached stocks
@@ -607,8 +607,8 @@ class IBKRSearchService(IIBKRSearchService):
                 'api_calls_made': 0
             }
 
-            # Save updated universe.json to backend data directory
-            output_path = script_dir.parent.parent.parent / 'data' / 'universe_with_ibkr.json'
+            # Save updated universe.json to legacy data directory
+            output_path = script_dir.parent.parent.parent.parent / 'data' / 'universe_with_ibkr.json'
             with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump(universe_data, f, indent=2, ensure_ascii=False)
 
@@ -824,8 +824,8 @@ class IBKRSearchService(IIBKRSearchService):
             'api_calls_made': len(uncached_stocks)
         }
 
-        # Save updated universe.json to backend data directory
-        output_path = script_dir.parent.parent.parent / 'data' / 'universe_with_ibkr.json'
+        # Save updated universe.json to legacy data directory
+        output_path = script_dir.parent.parent.parent.parent / 'data' / 'universe_with_ibkr.json'
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(universe_data, f, indent=2, ensure_ascii=False)
 

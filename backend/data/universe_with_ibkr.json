@@ -4082,13 +4082,13 @@
           "quantity": 405,
           "ibkr_details": {
             "found": true,
-            "symbol": "CMB",
-            "longName": "CEMBRE SPA",
-            "exchange": "SMART",
-            "primaryExchange": "BVME",
-            "conId": 26319078,
-            "search_method": "isin",
-            "match_score": 0.8695652173913043
+            "symbol": "",
+            "longName": "",
+            "exchange": "",
+            "primaryExchange": "",
+            "conId": 0,
+            "search_method": "unknown",
+            "match_score": 0.0
           }
         },
         {
@@ -4434,13 +4434,13 @@
           "quantity": 1800,
           "ibkr_details": {
             "found": true,
-            "symbol": "6061",
-            "longName": "UNIVERSAL ENGEISHA CO LTD",
-            "exchange": "SMART",
-            "primaryExchange": "TSEJ",
-            "conId": 131086854,
-            "search_method": "isin",
-            "match_score": 1.0
+            "symbol": "",
+            "longName": "",
+            "exchange": "",
+            "primaryExchange": "",
+            "conId": 0,
+            "search_method": "unknown",
+            "match_score": 0.0
           }
         },
         {
@@ -6058,13 +6058,13 @@
           "quantity": 9759,
           "ibkr_details": {
             "found": true,
-            "symbol": "TM17",
-            "longName": "EVERPLAY GROUP PLC",
-            "exchange": "SMART",
-            "primaryExchange": "LSE",
-            "conId": 319091809,
-            "search_method": "name",
-            "match_score": 1.0
+            "symbol": "",
+            "longName": "",
+            "exchange": "",
+            "primaryExchange": "",
+            "conId": 0,
+            "search_method": "unknown",
+            "match_score": 0.0
           }
         },
         {
@@ -7818,13 +7818,13 @@
           "allocation_note": "minimal_allocation",
           "ibkr_details": {
             "found": true,
-            "symbol": "6061",
-            "longName": "UNIVERSAL ENGEISHA CO LTD",
-            "exchange": "SMART",
-            "primaryExchange": "TSEJ",
-            "conId": 131086854,
-            "search_method": "isin",
-            "match_score": 1.0
+            "symbol": "",
+            "longName": "",
+            "exchange": "",
+            "primaryExchange": "",
+            "conId": 0,
+            "search_method": "unknown",
+            "match_score": 0.0
           }
         },
         {
@@ -9509,13 +9509,13 @@
           "allocation_note": "minimal_allocation",
           "ibkr_details": {
             "found": true,
-            "symbol": "CMB",
-            "longName": "CEMBRE SPA",
-            "exchange": "SMART",
-            "primaryExchange": "BVME",
-            "conId": 26319078,
-            "search_method": "isin",
-            "match_score": 0.8695652173913043
+            "symbol": "",
+            "longName": "",
+            "exchange": "",
+            "primaryExchange": "",
+            "conId": 0,
+            "search_method": "unknown",
+            "match_score": 0.0
           }
         },
         {
@@ -22136,9 +22136,12 @@
     "timestamp": "2025-09-16 20:40:00"
   },
   "ibkr_search_metadata": {
-    "timestamp": "2025-09-17T02:19:22.358935",
+    "timestamp": "2025-09-17T10:17:54.674536",
     "implementation": "api",
     "search_completed": true,
-    "timeout_seconds": 20
+    "timeout_seconds": 20,
+    "cache_hits": 63,
+    "cache_misses": 0,
+    "api_calls_made": 0
   }
 }

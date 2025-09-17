@@ -11,7 +11,8 @@
       "Bash(sqlite3:*)",
       "Bash(timeout:*)",
       "Bash(./venv/Scripts/python:*)",
-      "Bash(Invoke-RestMethod -Uri \"http://127.0.0.1:8001/api/v1/ibkr/search-universe\" -Method POST -ContentType \"application/json\")"
+      "Bash(Invoke-RestMethod -Uri \"http://127.0.0.1:8001/api/v1/ibkr/search-universe\" -Method POST -ContentType \"application/json\")",
+      "Bash(taskkill:*)"
     ],
     "deny": [],
     "ask": []
