@@ -68,6 +68,14 @@ class RebalancingService(IRebalancingService):
         print(f"[OK] Loaded universe with {universe_data['metadata']['total_stocks']} stocks")
         print(f"[OK] Screens: {', '.join(universe_data['metadata']['screens'])}")
 
+        # Debug: Count stocks with quantities in screens
+        total_stocks_with_qty = 0
+        for screen_name, screen_data in universe_data['screens'].items():
+            stocks_with_qty = len([s for s in screen_data['stocks'] if s.get('quantity', 0) > 0])
+            print(f"[DEBUG] {screen_name}: {stocks_with_qty} stocks with quantity > 0")
+            total_stocks_with_qty += stocks_with_qty
+        print(f"[DEBUG] Total stocks with quantity > 0 across all screens: {total_stocks_with_qty}")
+
         return universe_data
 
     def calculate_target_quantities(self, universe_data: Dict[str, Any]) -> Dict[str, int]:
@@ -95,12 +103,13 @@ class RebalancingService(IRebalancingService):
             print(f"  Processing {screen_name}: {screen_count} stocks")
 
             for stock in screen_data['stocks']:
+                target_quantity = stock.get('quantity', 0)
+
                 # Skip stocks without IBKR details
-                if not stock.get('ibkr_details', {}).get('found', False):
+                if not stock.get('ibkr_details', {}).get('conId'):
                     continue
 
                 ibkr_symbol = stock['ibkr_details']['symbol']
-                target_quantity = stock.get('quantity', 0)
 
                 # Add to total quantity for this symbol
                 symbol_quantities[ibkr_symbol] += target_quantity
