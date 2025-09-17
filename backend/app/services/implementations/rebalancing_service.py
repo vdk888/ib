@@ -341,10 +341,13 @@ class RebalancingService(IRebalancingService):
         Side Effects:
             Creates data/orders.json with complete metadata structure
         """
-        # Save to data directory
+        # Save to backend data directory
         if not os.path.isabs(output_file):
-            project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
-            output_file = os.path.join(project_root, "data", output_file)
+            # Navigate from current file to backend/data directory
+            # Current: backend/app/services/implementations/rebalancing_service.py
+            # Target: backend/data/orders.json
+            backend_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+            output_file = os.path.join(backend_root, "data", output_file)
 
         # Ensure the directory exists
         os.makedirs(os.path.dirname(output_file), exist_ok=True)
@@ -419,7 +422,7 @@ class RebalancingService(IRebalancingService):
 
             print("\n" + "=" * 50)
             print("[SUCCESS] Rebalancing analysis complete!")
-            print(f"   Orders saved to 'data/orders.json'")
+            print(f"   Orders saved to 'backend/data/orders.json'")
             print("   Review the orders before executing them.")
 
             # Prepare return data

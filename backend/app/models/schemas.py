@@ -655,7 +655,7 @@ class Order(BaseModel):
     symbol: str = Field(description="IBKR trading symbol")
     action: OrderAction = Field(description="BUY or SELL action")
     quantity: int = Field(description="Number of shares to trade", gt=0)
-    current_quantity: int = Field(description="Current position quantity", ge=0)
+    current_quantity: int = Field(description="Current position quantity (can be negative for short positions)")
     target_quantity: int = Field(description="Target position quantity", ge=0)
     stock_info: StockInfo = Field(description="Stock information")
     ibkr_details: IBKRDetails = Field(description="IBKR contract details")
