@@ -264,14 +264,20 @@ class IBKRDatabaseService:
                         raw_details['conId'] = raw_details['contract_id']
                         logger.info(f"Fixed conId for {ticker}: contract_id={raw_details['contract_id']} -> conId={raw_details['conId']}")
 
-                    # Check if entry is actually usable (has valid conId for found entries)
+                    # Check if entry is actually usable (has valid conId)
                     is_valid_cache = True
+
+                    # For found entries, must have valid conId
                     if cached_entry.found:
-                        # For found entries, must have valid conId
-                        con_id = raw_details.get('conId', 0)
+                        con_id = raw_details.get('conId', raw_details.get('contract_id', 0))
                         if not con_id or con_id == 0:
                             is_valid_cache = False
                             logger.info(f"Cache entry for {ticker} found but has no valid conId ({con_id}) - forcing IBKR API search")
+
+                    # For not found entries, ALWAYS force fresh IBKR search as requested
+                    if not cached_entry.found:
+                        is_valid_cache = False
+                        logger.info(f"Cache entry for {ticker} is not found - forcing fresh IBKR API search as requested")
 
                     if is_valid_cache:
                         # Create stock copy with cached IBKR details

@@ -5866,14 +5866,8 @@
           "target_value_eur": 50470.8,
           "quantity": 3500,
           "ibkr_details": {
-            "found": true,
-            "symbol": "6580",
-            "longName": "WRITEUP CO LTD",
-            "exchange": "SMART",
-            "primaryExchange": "TSEJ",
-            "conId": 318184086,
-            "search_method": "isin",
-            "match_score": 1.0
+            "found": false,
+            "search_attempted": true
           }
         },
         {
@@ -5897,14 +5891,8 @@
           "target_value_eur": 45479.18,
           "quantity": 7000,
           "ibkr_details": {
-            "found": true,
-            "symbol": "6037",
-            "longName": "RAKUMACHI INC",
-            "exchange": "SMART",
-            "primaryExchange": "TSEJ",
-            "conId": 180235469,
-            "search_method": "isin",
-            "match_score": 0.37037037037037035
+            "found": false,
+            "search_attempted": true
           }
         },
         {
@@ -11265,14 +11253,8 @@
           "target_value_eur": 18602.9,
           "quantity": 1400,
           "ibkr_details": {
-            "found": true,
-            "symbol": "4832",
-            "longName": "JFE SYSTEMS INC",
-            "exchange": "SMART",
-            "primaryExchange": "TSEJ",
-            "conId": 14031167,
-            "search_method": "isin",
-            "match_score": 0.967741935483871
+            "found": false,
+            "search_attempted": true
           }
         },
         {
@@ -21902,7 +21884,7 @@
     "timestamp": "2025-09-16 20:40:00"
   },
   "ibkr_search_metadata": {
-    "timestamp": "2025-09-17T10:57:30.004961",
+    "timestamp": "2025-09-17T11:00:34.222833",
     "implementation": "legacy",
     "search_completed": true,
     "timeout_seconds": 20,
