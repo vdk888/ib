@@ -189,39 +189,16 @@ class OrderStatusService(IOrderStatusService):
 
     def get_missing_order_analysis(self, missing_orders: List[Dict[str, Any]]) -> Dict[str, Any]:
         """
-        Detailed failure analysis with known patterns and recommendations
+        Detailed failure analysis with generic patterns and recommendations
         Wraps legacy show_missing_order_analysis() method
         """
-        # Known failure patterns from legacy code
-        failure_reasons = {
-            'AAPL': {
-                'reason': 'IBKR Account Restriction',
-                'details': 'Direct routing to NASDAQ is disabled in precautionary settings (Error 10311)',
-                'note': 'Account already has 1 share position - this SELL order would close the position'
-            },
-            'DPM': {
-                'reason': 'Contract Not Supported',
-                'details': 'IBKR does not support this specific DPM contract on TSE (Error 202)',
-                'note': 'Dundee Precious Metals Inc. (CAD) - contract resolution failed'
-            },
-            'AJ91': {
-                'reason': 'Liquidity Constraints',
-                'details': 'Volume (1,547 shares) too large for available liquidity (Error 202)',
-                'note': 'DocCheck AG (EUR) - requires algorithmic order (VWAP, TWAP, or % volume)'
-            },
-            'MOUR': {
-                'reason': 'Liquidity Constraints',
-                'details': 'Volume (12 shares) too large for available liquidity (Error 202)',
-                'note': 'Moury Construct SA (EUR) - extremely illiquid stock, even small orders rejected'
-            }
-        }
-
         failure_analysis = []
         recommendations = [
-            "AAPL: Enable direct routing in Account Settings > API > Precautionary Settings",
-            "DPM: Consider alternative Canadian precious metals stocks supported by IBKR",
-            "AJ91: Use algorithmic orders (VWAP/TWAP) or reduce position size",
-            "MOUR: Consider more liquid Belgian stocks or use smaller order sizes"
+            "Check IBKR account settings and API permissions",
+            "Verify contract details for international stocks",
+            "Consider using algorithmic orders for large volumes",
+            "Ensure market hours alignment for order execution",
+            "Review account restrictions for specific instruments"
         ]
 
         for order in missing_orders:
@@ -240,34 +217,19 @@ class OrderStatusService(IOrderStatusService):
                 'ticker': ticker,
                 'exchange': exchange
             }
-
-            if symbol in failure_reasons:
-                reason_info = failure_reasons[symbol]
+            # Generic analysis based on patterns
+            if action == 'SELL':
                 failure_info.update({
-                    'reason': reason_info['reason'],
-                    'details': reason_info['details'],
-                    'note': reason_info['note']
+                    'reason': 'Likely Account/Position Issue',
+                    'details': 'SELL orders may fail due to account restrictions or position conflicts',
+                    'note': 'Check account settings and current positions'
                 })
-            else:
-                # Generic analysis based on patterns
-                if action == 'SELL':
-                    failure_info.update({
-                        'reason': 'Likely Account/Position Issue',
-                        'details': 'SELL orders may fail due to account restrictions or position conflicts',
-                        'note': 'Check account settings and current positions'
-                    })
-                elif currency != 'USD':
-                    failure_info.update({
-                        'reason': 'Likely International Trading Issue',
-                        'details': 'Non-USD stocks may have contract resolution or liquidity issues',
-                        'note': 'Verify contract details and market availability'
-                    })
-                else:
-                    failure_info.update({
-                        'reason': 'Unknown - Requires Debug Investigation',
-                        'details': 'Run debug_order_executor.py to identify specific error codes',
-                        'note': 'Check contract details, account permissions, and market hours'
-                    })
+            else :
+                failure_info.update({
+                    'reason': 'Unknown - Requires Debug Investigation',
+                    'details': 'Run debug_order_executor.py to identify specific error codes',
+                    'note': 'Check contract details, account permissions, and market hours'
+                })
 
             failure_analysis.append(failure_info)
 
@@ -277,8 +239,7 @@ class OrderStatusService(IOrderStatusService):
 
         return {
             'failure_analysis': failure_analysis,
-            'recommendations': recommendations,
-            'failure_patterns': failure_reasons
+            'recommendations': recommendations
         }
 
     def get_order_status_summary(self) -> Dict[str, Any]:
