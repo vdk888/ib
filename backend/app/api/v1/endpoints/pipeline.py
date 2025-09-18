@@ -401,9 +401,11 @@ async def run_step_range(
                 "start_step": start_step,
                 "end_step": end_step,
                 "success": True,
-                "message": f"Step range {start_step}-{end_step} execution started in background",
+                "completed_steps": [],
+                "failed_step": None,
                 "execution_time": 0.0,
-                "step_results": {}
+                "step_results": {},
+                "message": f"Step range {start_step}-{end_step} execution started in background"
             }
 
     except HTTPException:
