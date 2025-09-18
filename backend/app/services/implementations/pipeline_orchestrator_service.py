@@ -1158,17 +1158,14 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
             print(f"Step 6 failed: {e}")
             return False
 
-    def _step7_calculate_quantities(self) -> bool:
+    async def _step7_calculate_quantities(self) -> bool:
         """Step 7: Calculate quantities from IBKR account value"""
         try:
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
             # Get account value and calculate quantities
             from ...core.dependencies import get_quantity_orchestrator_service
             quantity_orchestrator = get_quantity_orchestrator_service()
-            result = loop.run_until_complete(quantity_orchestrator.calculate_all_quantities())
-            loop.close()
-            return result.get('success', False)
+            result = await quantity_orchestrator.main()
+            return result
         except Exception as e:
             print(f"Step 7 failed: {e}")
             return False
