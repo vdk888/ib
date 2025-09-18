@@ -48,8 +48,7 @@ class HistoricalDataService(IHistoricalDataService):
             - error: Error message if parsing failed
         """
         # Run in thread pool to avoid blocking
-        loop = asyncio.get_event_loop()
-        result = await loop.run_in_executor(
+        result = await asyncio.get_running_loop().run_in_executor(
             None,
             history_parser.parse_backtest_csv,
             csv_path,
@@ -68,8 +67,7 @@ class HistoricalDataService(IHistoricalDataService):
             Each screener entry contains metadata, quarterly_performance, and statistics
         """
         # Run in thread pool to avoid blocking
-        loop = asyncio.get_event_loop()
-        result = await loop.run_in_executor(
+        result = await asyncio.get_running_loop().run_in_executor(
             None,
             history_parser.get_all_backtest_data
         )
@@ -94,8 +92,7 @@ class HistoricalDataService(IHistoricalDataService):
             True if successful, False if failed
         """
         # Run in thread pool to avoid blocking
-        loop = asyncio.get_event_loop()
-        result = await loop.run_in_executor(
+        result = await asyncio.get_running_loop().run_in_executor(
             None,
             history_parser.update_universe_with_history
         )

@@ -5,3 +5,10 @@
 2025-09-18 10:26:11,677 - __main__ - INFO - Starting daily pipeline execution: daily-20250918-102611
 2025-09-18 10:26:12,553 - __main__ - INFO - Dry run mode - skipping actual execution
 2025-09-18 10:26:12,554 - __main__ - INFO - Pipeline execution completed successfully
+2025-09-18 10:30:58,560 - __main__ - INFO - Scheduler initialized with API base: http://127.0.0.1:8002/api/v1
+2025-09-18 10:30:58,561 - __main__ - INFO - API GET /pipeline/health (attempt 1)
+2025-09-18 10:30:58,570 - __main__ - INFO - API health check passed
+2025-09-18 10:30:58,570 - __main__ - INFO - Monthly check: Today is 2025-09-18, is_monthly=False
+2025-09-18 10:30:58,570 - __main__ - INFO - Starting daily pipeline execution: daily-20250918-103058
+2025-09-18 10:30:59,357 - __main__ - INFO - Dry run mode - skipping actual execution
+2025-09-18 10:30:59,358 - __main__ - INFO - Pipeline execution completed successfully

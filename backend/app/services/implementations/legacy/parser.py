@@ -283,15 +283,19 @@ def parse_screener_csv(csv_path):
 def create_universe():
     """
     Parse all screener CSV files and create universe.json
-    
+
     Returns:
         dict: Universe data with stocks from all screeners
     """
+    from datetime import datetime
+
     universe = {
         'metadata': {
             'screens': list(settings.uncle_stock.uncle_stock_screens.values()),
             'total_stocks': 0,
             'unique_stocks': 0,
+            'created_at': datetime.now().isoformat(),
+            'created_timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
             'additional_fields_enabled': settings.uncle_stock.extract_additional_fields,
             'additional_fields': [
                 {

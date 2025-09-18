@@ -344,7 +344,11 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
             # Capture console output and execute step function
             with self._capture_console_output() as (stdout_buffer, stderr_buffer):
                 step_function = self._step_functions[step_number]
-                success = step_function()
+                # Check if function is async
+                if asyncio.iscoroutinefunction(step_function):
+                    success = await step_function()
+                else:
+                    success = step_function()
 
             end_time = datetime.utcnow()
             execution_time = (end_time - start_time).total_seconds()
@@ -1122,10 +1126,9 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
     def _step3_parse_history(self) -> bool:
         """Step 3: Parse historical performance data"""
         try:
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-            result = loop.run_until_complete(self.historical_data_service.update_universe_with_history())
-            loop.close()
+            # Import the legacy function directly to avoid async issues
+            from .legacy import history_parser
+            result = history_parser.update_universe_with_history()
             return result
         except Exception as e:
             print(f"Step 3 failed: {e}")
