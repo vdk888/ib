@@ -3,3 +3,5 @@ venv_new/
 portfolio_env/
 venv/
 __pycache__
+.env.production
+backend/.env
