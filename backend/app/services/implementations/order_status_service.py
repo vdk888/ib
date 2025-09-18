@@ -32,7 +32,7 @@ class OrderStatusService(IOrderStatusService):
             # Get project root relative to this service
             current_dir = os.path.dirname(os.path.abspath(__file__))
             project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(current_dir))))
-            self.orders_file = os.path.join(project_root, "data", orders_file)
+            self.orders_file = os.path.join(project_root, "backend", "data", orders_file)
         else:
             self.orders_file = orders_file
 
@@ -47,7 +47,7 @@ class OrderStatusService(IOrderStatusService):
         # Update file path if provided
         if orders_file != "orders.json":
             if not os.path.isabs(orders_file):
-                self.orders_file = os.path.join(project_root, "data", orders_file)
+                self.orders_file = os.path.join(project_root, "backend", "data", orders_file)
             else:
                 self.orders_file = orders_file
 

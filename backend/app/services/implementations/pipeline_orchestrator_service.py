@@ -1191,13 +1191,10 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
             print(f"Step 9 failed: {e}")
             return False
 
-    def _step10_execute_orders(self) -> bool:
+    async def _step10_execute_orders(self) -> bool:
         """Step 10: Execute orders through IBKR"""
         try:
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-            result = loop.run_until_complete(self.order_execution_service.run_execution())
-            loop.close()
+            result = await self.order_execution_service.run_execution()
             return result.get('success', False)
         except Exception as e:
             print(f"Step 10 failed: {e}")

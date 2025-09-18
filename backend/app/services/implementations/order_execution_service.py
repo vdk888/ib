@@ -51,9 +51,9 @@ class OrderExecutionService(IOrderExecutionService):
         Maintains exact compatibility with legacy load_orders() method
         """
         try:
-            # Resolve orders file path relative to project root/data
+            # Resolve orders file path relative to backend/data
             if not os.path.isabs(orders_file):
-                orders_path = os.path.join(self._project_root, "data", orders_file)
+                orders_path = os.path.join(self._project_root, "backend", "data", orders_file)
             else:
                 orders_path = orders_file
 
