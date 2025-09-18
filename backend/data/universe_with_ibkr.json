@@ -22023,12 +22023,12 @@
     "timestamp": "2025-09-18 11:06:10"
   },
   "ibkr_search_metadata": {
-    "timestamp": "2025-09-18T11:08:30.156005",
+    "timestamp": "2025-09-18T11:12:57.510284",
     "implementation": "api",
     "search_completed": true,
     "timeout_seconds": 30,
-    "cache_hits": 60,
-    "cache_misses": 2,
-    "api_calls_made": 2
+    "cache_hits": 62,
+    "cache_misses": 0,
+    "api_calls_made": 0
   }
 }

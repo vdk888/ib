@@ -1184,7 +1184,8 @@ class PipelineOrchestratorService(IPipelineOrchestrator):
     def _step9_rebalancer(self) -> bool:
         """Step 9: Generate rebalancing orders"""
         try:
-            result = self.rebalancing_service.run_rebalancing("data/universe_with_ibkr.json")
+            # Use the correct path where Step 8 saves the file
+            result = self.rebalancing_service.run_rebalancing("backend/data/universe_with_ibkr.json")
             return len(result.get('orders', [])) > 0
         except Exception as e:
             print(f"Step 9 failed: {e}")
