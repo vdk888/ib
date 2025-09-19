@@ -47,17 +47,17 @@ The Uncle Stock Portfolio API provides **63 endpoints** across 8 main service ar
 
 | Service Area | Endpoints | Description |
 |-------------|-----------|-------------|
-| **Screeners** | 7 | Fetch stock data from screener services |
+| **Screeners** | 10 | Fetch stock data from screener services |
 | **Historical Data** | 4 | Parse and analyze historical performance |
 | **Universe Management** | 8 | Manage and query the stock universe |
 | **Portfolio Operations** | 8 | Portfolio optimization and calculations |
 | **Target Allocation** | 6 | Calculate and manage target allocations |
-| **Order Management** | 4 | Generate and manage trading orders |
+| **Order Management** | 6 | Generate and manage trading orders |
 | **Pipeline Orchestration** | 13 | Execute and monitor the full pipeline |
-| **IBKR Integration** | 10 | Interactive Brokers search and data |
+| **IBKR Integration** | 3 | Interactive Brokers search and data |
 | **Currency Exchange** | 3 | EUR exchange rate management |
 
-**Total API Endpoints: 63** (plus 2 utility endpoints)
+**Total API Endpoints: 61** (plus 2 utility endpoints)
 
 ---
 
@@ -100,17 +100,17 @@ The original CLI `python main.py` executes 11 steps. Here's how to replicate eac
 
 | CLI Step | Step Name | API Endpoint | Method | Description |
 |----------|-----------|--------------|--------|-------------|
-| **Step 1** | Fetch Data | `/api/v1/screeners/data` | GET | Fetch current stocks from all screeners |
+| **Step 1** | Fetch Data | `/api/v1/screeners/fetch` | POST | Fetch current stocks from all screeners |
 | **Step 2** | Parse Data | `/api/v1/universe/parse` | POST | Parse CSV files and create universe.json |
 | **Step 3** | Parse History | `/api/v1/historical/universe/update` | POST | Update universe with historical data |
 | **Step 4** | Optimize Portfolio | `/api/v1/portfolio/optimize` | POST | Optimize portfolio using Sharpe ratio |
 | **Step 5** | Update Currency | `/api/v1/currency/update-universe` | POST | Update EUR exchange rates |
 | **Step 6** | Calculate Targets | `/api/v1/portfolio/targets/calculate` | POST | Calculate final stock allocations |
-| **Step 7** | Calculate Quantities | `/api/v1/portfolio/quantities/calculate` | POST | Get account value and calculate quantities |
-| **Step 8** | IBKR Search | `/api/v1/ibkr/search/universe` | POST | Search for stocks on IBKR |
+| **Step 7** | Calculate Quantities | `/api/v1/orders/positions/targets` | GET | Get account value and calculate quantities |
+| **Step 8** | IBKR Search | `/api/v1/ibkr/search-universe` | POST | Search for stocks on IBKR |
 | **Step 9** | Rebalance | `/api/v1/orders/generate` | POST | Generate rebalancing orders |
-| **Step 10** | Execute Orders | `/api/v1/orders` | POST | Execute orders through IBKR |
-| **Step 11** | Check Status | `/api/v1/orders` | GET | Check order execution status |
+| **Step 10** | Execute Orders | `/api/v1/orders/execute` | POST | Execute orders through IBKR |
+| **Step 11** | Check Status | `/api/v1/orders/status` | POST | Check order execution status |
 
 ### Complete Pipeline Execution
 Execute the entire pipeline with one API call:
@@ -141,13 +141,22 @@ curl http://127.0.0.1:8000/api/v1/pipeline/steps/available
 
 ### 2. Fetch Fresh Market Data
 ```bash
-# Fetch from all screeners
+# Fetch from all screeners (makes API calls - costs money)
+curl -X POST http://127.0.0.1:8000/api/v1/screeners/fetch
+
+# Read existing data from all screeners (no API calls - free)
 curl http://127.0.0.1:8000/api/v1/screeners/data
 
-# Fetch from specific screener
+# Fetch from specific screener (makes API calls)
+curl -X POST http://127.0.0.1:8000/api/v1/screeners/fetch/quality_bloom
+
+# Read existing data from specific screener (no API calls)
 curl http://127.0.0.1:8000/api/v1/screeners/data/quality_bloom
 
-# Fetch historical data
+# Fetch historical data (makes API calls)
+curl -X POST http://127.0.0.1:8000/api/v1/screeners/fetch-history
+
+# Read existing historical data (no API calls)
 curl http://127.0.0.1:8000/api/v1/screeners/history
 ```
 
@@ -180,30 +189,39 @@ curl http://127.0.0.1:8000/api/v1/portfolio/account/value
 
 ### 5. IBKR Integration
 ```bash
-# Check IBKR connection status
-curl http://127.0.0.1:8000/api/v1/ibkr/connections/status
+# Check IBKR search service status
+curl http://127.0.0.1:8000/api/v1/ibkr/search-status
 
-# Search for a specific stock on IBKR
-curl -X POST http://127.0.0.1:8000/api/v1/ibkr/search/stock \
+# Search for all universe stocks on IBKR (Step 8)
+curl -X POST http://127.0.0.1:8000/api/v1/ibkr/search-universe
+
+# Search for a specific stock on IBKR (not yet implemented - returns 501)
+curl -X POST http://127.0.0.1:8000/api/v1/ibkr/search-stock \
   -H "Content-Type: application/json" \
   -d '{"ticker": "AAPL"}'
 
-# Get universe with IBKR data
-curl http://127.0.0.1:8000/api/v1/ibkr/universe/with-ibkr
-
-# Check IBKR search cache statistics
-curl http://127.0.0.1:8000/api/v1/ibkr/cache/stats
+# Note: universe_with_ibkr.json is created by search-universe endpoint
+# No separate endpoint exists to retrieve it - access file directly
 ```
 
 ### 6. Order Management
 ```bash
-# Generate rebalancing orders
+# Generate rebalancing orders (Step 9)
 curl -X POST http://127.0.0.1:8000/api/v1/orders/generate
 
-# Get current positions
+# Get generated orders from file
+curl http://127.0.0.1:8000/api/v1/orders
+
+# Execute orders through IBKR (Step 10)
+curl -X POST http://127.0.0.1:8000/api/v1/orders/execute
+
+# Check order execution status (Step 11)
+curl -X POST http://127.0.0.1:8000/api/v1/orders/status
+
+# Get current positions from IBKR
 curl http://127.0.0.1:8000/api/v1/orders/positions/current
 
-# Get target positions
+# Get target positions/quantities
 curl http://127.0.0.1:8000/api/v1/orders/positions/targets
 ```
 
@@ -327,8 +345,8 @@ curl http://127.0.0.1:8000/api/v1/portfolio/health
 # Pipeline service health
 curl http://127.0.0.1:8000/api/v1/pipeline/health
 
-# IBKR connection status
-curl http://127.0.0.1:8000/api/v1/ibkr/connections/status
+# IBKR search service status
+curl http://127.0.0.1:8000/api/v1/ibkr/search-status
 ```
 
 ### Monitoring Pipeline Execution

@@ -502,3 +502,69 @@ sudo -u uncle-stock command_here
 tail -f /home/uncle-stock/logs/scheduler.log
 tail -f /var/log/syslog | grep -i cron
 ```
+
+---
+
+## 🔄 **AUTOMATION SOLUTION - September 19, 2025**
+
+### Problem Identified
+- IB Gateway requires manual VNC login daily due to authentication/session expiry
+- Original manual process was not sustainable for production automation
+- Login dialog display timeout issues prevented reliable automation
+
+### Comprehensive Solution Implemented
+
+#### 1. **Automated Startup Script** ✅
+Created `/home/uncle-stock/start_ibgateway.sh` with the following features:
+- **Automatic Xvfb startup** for virtual display
+- **VNC server initialization** for manual intervention if needed
+- **IB Gateway startup** with proper environment
+- **API availability monitoring** (waits up to 10 minutes for port 4002)
+- **Comprehensive logging** for troubleshooting
+
+#### 2. **Cron-Based Automation** ✅
+```bash
+# Added to uncle-stock user crontab:
+@reboot /home/uncle-stock/start_ibgateway.sh              # Start at boot
+30 5 * * * /home/uncle-stock/start_ibgateway.sh           # Daily restart at 5:30 AM
+```
+
+#### 3. **Configuration Improvements** ✅
+- **Increased login timeout**: `LoginDialogDisplayTimeout=600` (10 minutes)
+- **Maintained authentication settings**: Credentials in gatewaystart.sh
+- **VNC accessibility**: Always available on port 5901 for manual intervention
+
+#### 4. **Manual Intervention Protocol** 📋
+When automation fails (API not available after 10 minutes):
+1. **Connect via VNC**: `209.38.99.115:5901` (no password)
+2. **Complete login manually** in IB Gateway
+3. **API becomes available** automatically after login
+4. **Pipeline continues** without further intervention
+
+### Key Benefits
+- ✅ **Automatic restart** on server reboot
+- ✅ **Daily refresh** at 5:30 AM (30 min before 6 AM pipeline)
+- ✅ **VNC fallback** for manual intervention when needed
+- ✅ **Comprehensive monitoring** with detailed logs
+- ✅ **Production ready** with proper error handling
+
+### Monitoring Commands
+```bash
+# Check if IB Gateway is running
+ps aux | grep java | grep ibcalpha
+
+# Check if API port is available
+netstat -tlpn | grep 4002
+
+# Check startup script logs
+tail -f /home/uncle-stock/logs/gateway_$(date +%Y%m%d)*.log
+
+# Check IBC authentication logs
+tail -f /home/uncle-stock/logs/ibc-_GATEWAY-1040_$(date +%A).txt
+
+# Manual restart if needed
+sudo -u uncle-stock /home/uncle-stock/start_ibgateway.sh
+```
+
+### Status: **PRODUCTION READY WITH MANUAL FALLBACK**
+The system now automatically handles IB Gateway startup and restarts, with VNC available for manual intervention when needed. This provides the best balance between automation and reliability for critical trading operations.
