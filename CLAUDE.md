@@ -79,6 +79,9 @@ flake8 .
 The system implements the traditional 11-step process through RESTful API endpoints:
 
 1. **Data Fetching** - `/api/v1/screeners/*` - Retrieve stock data from Uncle Stock API screeners
+   - **IMPORTANT**: Step 1 should ONLY run on the 1st of each month to save on Uncle Stock API costs
+   - **DO NOT test Step 1 manually** unless absolutely necessary - it incurs API charges
+   - The scheduler automatically checks if today.day == 1 before running Step 1
 2. **Data Parsing** - `/api/v1/universe/*` - Process CSV files and create `universe.json`
 3. **Historical Analysis** - `/api/v1/historical/*` - Parse backtest performance data
 4. **Portfolio Optimization** - `/api/v1/portfolio/*` - Apply Sharpe ratio maximization
@@ -238,10 +241,18 @@ The repository includes several additional documentation files for specific aspe
 
 ### Pipeline Failures
 1. Check `.env` file for required credentials (especially `UNCLE_STOCK_USER_ID`)
+   - Backend needs its own `.env` file in `backend/` directory
+   - API will fail with "Uncle Stock User ID not configured" if missing
 2. Verify IBKR Gateway is running and accessible
 3. Ensure `data/` directory has proper write permissions
 4. Check network connectivity for external API calls
 5. Use health check endpoint: `curl http://127.0.0.1:8000/health`
+
+### Scheduler Behavior
+- **Daily execution (2nd-31st)**: Runs steps 2-11 only (portfolio rebalancing)
+- **Monthly execution (1st of month)**: Runs ALL steps 1-11 (fetch new data + rebalancing)
+- **Cost consideration**: Step 1 calls Uncle Stock API which incurs charges - avoid manual testing
+- **Cron schedule**: Runs daily at 6 AM CET via uncle-stock user's crontab
 
 ### Trading Issues
 1. Verify IBKR account permissions for API trading

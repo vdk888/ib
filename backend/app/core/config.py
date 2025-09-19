@@ -87,6 +87,7 @@ class Settings(BaseServiceSettings):
     telegram: TelegramSettings = TelegramSettings()
 
     class Config:
+        extra = "ignore"
         env_file = str(ROOT_DIR / ".env")
 
 # Global settings instance
