@@ -450,3 +450,55 @@ The primary issue was **command-line parameter precedence** in IBController:
 **Date Completed**: September 18, 2025, 16:22 UTC  
 **Total Configuration Time**: ~6 hours  
 **Final Result**: Complete success with full IB Gateway API integration for paper trading
+
+---
+
+## 🔐 SSH Connection Guide - Added September 19, 2025
+
+### Correct SSH Connection Method ✅
+```bash
+# CORRECT - Connect as root with the do_optimizer_key
+ssh -i ~/.ssh/do_optimizer_key root@209.38.99.115
+```
+
+### Failed Connection Attempts ❌
+These methods **DO NOT WORK** and should be avoided:
+
+1. **Wrong user account**:
+   ```bash
+   # FAILS - uncle-stock user doesn't have direct SSH access
+   ssh uncle-stock@209.38.99.115
+   ssh -i ~/.ssh/id_rsa uncle-stock@209.38.99.115
+   ssh -i ~/.ssh/do_optimizer_key uncle-stock@209.38.99.115
+   ```
+   
+2. **Wrong SSH key**:
+   ```bash
+   # FAILS - id_rsa is not authorized for this server
+   ssh -i ~/.ssh/id_rsa root@209.38.99.115
+   ```
+
+3. **No key specified**:
+   ```bash
+   # FAILS - Requires explicit key specification
+   ssh root@209.38.99.115
+   ```
+
+### Key Points to Remember
+- **Always connect as `root`** - The uncle-stock user is for running services, not SSH access
+- **Always use `do_optimizer_key`** - This is the authorized key for the droplet
+- **Specify the key explicitly** with `-i ~/.ssh/do_optimizer_key`
+- Once connected as root, use `sudo -u uncle-stock` to run commands as the uncle-stock user
+
+### Common Operations After Connecting
+```bash
+# Switch to uncle-stock user for operations
+sudo -u uncle-stock bash
+
+# Or run commands directly as uncle-stock
+sudo -u uncle-stock command_here
+
+# Check logs
+tail -f /home/uncle-stock/logs/scheduler.log
+tail -f /var/log/syslog | grep -i cron
+```
