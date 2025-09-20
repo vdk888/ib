@@ -319,6 +319,21 @@ async def check_order_status(
         if success:
             # Get verification results after successful check
             result = order_status_service.get_verification_results()
+
+            # Save the order status response to JSON file
+            try:
+                import os
+                current_dir = os.path.dirname(os.path.abspath(__file__))
+                backend_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(current_dir))))
+                status_file = os.path.join(backend_root, "data", "order_status_response.json")
+
+                with open(status_file, 'w') as f:
+                    json.dump(result, f, indent=2, default=str)
+
+                logger.info(f"Order status response saved to {status_file}")
+            except Exception as save_error:
+                logger.warning(f"Failed to save order status response: {save_error}")
+
             logger.info("Order status check completed successfully")
             return result
         else:

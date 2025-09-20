@@ -420,8 +420,15 @@ class OrderStatusService(IOrderStatusService):
                 # Cache the results before they're lost
                 try:
                     # Cache the data we need before disconnection affects it
+                    # Build json_orders_by_symbol from the orders data
+                    json_orders_by_symbol = {}
+                    if self._legacy_checker.orders_data and 'orders' in self._legacy_checker.orders_data:
+                        for order in self._legacy_checker.orders_data['orders']:
+                            symbol = order['symbol']
+                            json_orders_by_symbol[symbol] = order
+
                     self._cached_results = {
-                        'json_orders': self._legacy_checker.json_orders.copy() if self._legacy_checker.json_orders else {},
+                        'json_orders': json_orders_by_symbol,
                         'open_orders': self._legacy_checker.api.open_orders.copy() if hasattr(self._legacy_checker.api, 'open_orders') else {},
                         'completed_orders': self._legacy_checker.api.completed_orders.copy() if hasattr(self._legacy_checker.api, 'completed_orders') else {},
                         'positions': self._legacy_checker.api.positions.copy() if hasattr(self._legacy_checker.api, 'positions') else {}
@@ -453,48 +460,116 @@ class OrderStatusService(IOrderStatusService):
         if not self._legacy_checker:
             raise ValueError("Must run status check first")
 
-        # If we have cached results, use them for a simplified response
+        # If we have cached results, use them for a detailed response
         if hasattr(self, '_cached_results') and self._cached_results:
-            # Perform basic analysis using cached data
+            # Perform detailed analysis using cached data
             json_orders = self._cached_results.get('json_orders', {})
             open_orders = self._cached_results.get('open_orders', {})
             completed_orders = self._cached_results.get('completed_orders', {})
             positions = self._cached_results.get('positions', {})
-            
+
             # Combine open and completed orders
             all_ibkr_orders = {}
             all_ibkr_orders.update(open_orders)
             all_ibkr_orders.update(completed_orders)
-            
-            # Simple comparison
+
+            # Build IBKR orders by symbol
+            ibkr_orders_by_symbol = {}
+            for order_id, order_info in all_ibkr_orders.items():
+                symbol = order_info.get('symbol', '')
+                if symbol not in ibkr_orders_by_symbol:
+                    ibkr_orders_by_symbol[symbol] = []
+                ibkr_orders_by_symbol[symbol].append(order_info)
+
+            # Build detailed comparison table
             found_count = 0
             missing_count = 0
+            quantity_mismatches = 0
+            analysis_table = []
+            missing_orders = []
+            extra_ibkr_orders = []
             total_json_orders = len(json_orders)
-            
+
+            # Process each JSON order to build comparison table
             for symbol, json_order in json_orders.items():
-                found = False
-                for order_id, ibkr_order in all_ibkr_orders.items():
-                    if ibkr_order.get('symbol') == symbol and ibkr_order.get('action') == json_order.get('action'):
-                        found = True
-                        break
-                if found:
-                    found_count += 1
+                json_action = json_order.get('action', '')
+                json_quantity = json_order.get('quantity', 0)
+
+                analysis_row = {
+                    'symbol': symbol,
+                    'json_action': json_action,
+                    'json_quantity': json_quantity,
+                    'ibkr_status': None,
+                    'ibkr_quantity': None,
+                    'match_status': None
+                }
+
+                if symbol in ibkr_orders_by_symbol:
+                    ibkr_orders = ibkr_orders_by_symbol[symbol]
+
+                    # Find matching order by action
+                    matching_order = None
+                    for ibkr_order in ibkr_orders:
+                        if ibkr_order.get('action') == json_action:
+                            matching_order = ibkr_order
+                            break
+
+                    if matching_order:
+                        found_count += 1
+                        ibkr_qty = matching_order.get('quantity', 0)
+                        status = matching_order.get('status', 'Unknown')
+
+                        analysis_row['ibkr_status'] = status
+                        analysis_row['ibkr_quantity'] = ibkr_qty
+
+                        if ibkr_qty == json_quantity:
+                            analysis_row['match_status'] = "OK"
+                        else:
+                            analysis_row['match_status'] = "QTY_DIFF"
+                            quantity_mismatches += 1
+                    else:
+                        analysis_row['ibkr_status'] = "NOT_FOUND"
+                        analysis_row['match_status'] = "MISSING"
+                        missing_count += 1
+                        missing_orders.append(json_order)
                 else:
+                    analysis_row['ibkr_status'] = "NOT_FOUND"
+                    analysis_row['match_status'] = "MISSING"
                     missing_count += 1
-            
+                    missing_orders.append(json_order)
+
+                analysis_table.append(analysis_row)
+
+            # Find extra IBKR orders not in JSON
+            for symbol, ibkr_orders in ibkr_orders_by_symbol.items():
+                if symbol not in json_orders:
+                    extra_ibkr_orders.extend(ibkr_orders)
+
             success_rate = (found_count / total_json_orders * 100) if total_json_orders > 0 else 0
             
             return {
                 'comparison_summary': {
                     'found_in_ibkr': found_count,
                     'missing_from_ibkr': missing_count,
-                    'quantity_mismatches': 1,  # Known from diagnostic report
+                    'quantity_mismatches': quantity_mismatches,
                     'success_rate': success_rate,
                     'total_orders': total_json_orders,
                     'timestamp': datetime.now().isoformat()
                 },
+                'comparative_analysis_table': analysis_table,
+                'complete_order_lists': {
+                    'searched_orders_from_json': json_orders,
+                    'found_orders_from_ibkr': {
+                        'open_orders': open_orders,
+                        'completed_orders': completed_orders,
+                        'all_orders_combined': all_ibkr_orders
+                    }
+                },
+                'missing_orders': missing_orders,
+                'extra_ibkr_orders': extra_ibkr_orders,
                 'order_count': len(all_ibkr_orders),
                 'position_count': len(positions),
+                'positions': positions,
                 'message': 'Order status check completed successfully. See console output for detailed analysis.',
                 'debug_insights': {
                     'key_finding': 'Debug analysis reveals most "missing" orders are actually submitted but in processing states',
@@ -520,6 +595,11 @@ class OrderStatusService(IOrderStatusService):
             if analysis_results and analysis_results.get('missing_orders'):
                 missing_analysis = self.get_missing_order_analysis(analysis_results['missing_orders'])
 
+            # Get complete order data
+            all_ibkr_orders = {}
+            all_ibkr_orders.update(self._legacy_checker.api.open_orders)
+            all_ibkr_orders.update(self._legacy_checker.api.completed_orders)
+
             return {
                 'comparison_summary': {
                     'found_in_ibkr': analysis_results['found_in_ibkr'],
@@ -529,7 +609,15 @@ class OrderStatusService(IOrderStatusService):
                     'total_orders': analysis_results['total_orders'],
                     'timestamp': datetime.now().isoformat()
                 },
-                'order_matches': analysis_results['analysis_table'],
+                'comparative_analysis_table': analysis_results['analysis_table'],
+                'complete_order_lists': {
+                    'searched_orders_from_json': self.orders_data['orders'] if self.orders_data else [],
+                    'found_orders_from_ibkr': {
+                        'open_orders': self._legacy_checker.api.open_orders,
+                        'completed_orders': self._legacy_checker.api.completed_orders,
+                        'all_orders_combined': all_ibkr_orders
+                    }
+                },
                 'missing_orders': missing_analysis['failure_analysis'] if missing_analysis else [],
                 'recommendations': missing_analysis['recommendations'] if missing_analysis else [],
                 'extra_orders': analysis_results['extra_ibkr_orders'],
