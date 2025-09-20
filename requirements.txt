@@ -9,6 +9,7 @@ python-dotenv>=1.0.0
 ibapi>=9.81.1
 ib-insync>=0.9.85
 yfinance>=0.2.65
+alpaca-py
 
 # Data processing and utilities
 urllib3>=2.0.0
