@@ -12,6 +12,14 @@ from alpaca.trading.client import TradingClient
 from alpaca.trading.enums import AssetClass
 from alpaca.common.exceptions import APIError
 
+# Load environment variables from .env file
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    # dotenv not available, rely on environment variables being set
+    pass
+
 logger = logging.getLogger(__name__)
 
 
@@ -208,8 +216,24 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
 
     try:
-        # Initialize client (paper trading by default)
-        client = AlpacaAccountClient(paper=True)
+        # Try both paper and live trading to see which credentials work
+        print("Testing Paper Trading...")
+        client = None
+        try:
+            client = AlpacaAccountClient(paper=True)
+            summary = client.get_account_summary()
+            print("Paper trading connection successful!")
+        except Exception as e:
+            print(f"Paper trading failed: {e}")
+            print("\nTesting Live Trading...")
+            try:
+                client = AlpacaAccountClient(paper=False)
+                summary = client.get_account_summary()
+                print("Live trading connection successful!")
+            except Exception as live_e:
+                print(f"Live trading also failed: {live_e}")
+                print("Both paper and live trading failed. Check your API credentials.")
+                exit(1)
 
         # Get account summary
         summary = client.get_account_summary()
