@@ -5,7 +5,7 @@
     "quantity_mismatches": 0,
     "success_rate": 1.9230769230769231,
     "total_orders": 52,
-    "timestamp": "2025-09-20T17:54:44.292860"
+    "timestamp": "2025-09-20T18:26:39.618196"
   },
   "comparative_analysis_table": [
     {
@@ -14,7 +14,10 @@
       "json_quantity": 68702,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "TM17",
@@ -22,7 +25,10 @@
       "json_quantity": 9617,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "DPM",
@@ -30,7 +36,10 @@
       "json_quantity": 4313,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "AEP",
@@ -38,7 +47,10 @@
       "json_quantity": 4088,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "SVED.B",
@@ -46,7 +58,10 @@
       "json_quantity": 2887,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "BRE2",
@@ -54,7 +69,10 @@
       "json_quantity": 2085,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "AJ91",
@@ -62,7 +80,10 @@
       "json_quantity": 1631,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "KNOS",
@@ -70,7 +91,10 @@
       "json_quantity": 1019,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "PWS",
@@ -78,7 +102,10 @@
       "json_quantity": 817,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "6095",
@@ -86,7 +113,10 @@
       "json_quantity": 800,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "RUG",
@@ -94,7 +124,10 @@
       "json_quantity": 704,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "SVM",
@@ -102,7 +135,10 @@
       "json_quantity": 681,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "6941",
@@ -110,7 +146,10 @@
       "json_quantity": 500,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "ZZ.B",
@@ -118,7 +157,10 @@
       "json_quantity": 288,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "ACMR",
@@ -126,7 +168,10 @@
       "json_quantity": 253,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "VCI",
@@ -134,7 +179,10 @@
       "json_quantity": 241,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "3922",
@@ -142,7 +190,10 @@
       "json_quantity": 200,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "4377",
@@ -150,7 +201,10 @@
       "json_quantity": 200,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "6061",
@@ -158,7 +212,10 @@
       "json_quantity": 200,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "6086",
@@ -166,7 +223,10 @@
       "json_quantity": 200,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "7187",
@@ -174,7 +234,10 @@
       "json_quantity": 200,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "9753",
@@ -182,7 +245,10 @@
       "json_quantity": 200,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "03P",
@@ -190,7 +256,10 @@
       "json_quantity": 113,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "1723",
@@ -198,7 +267,10 @@
       "json_quantity": 100,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "2146",
@@ -206,7 +278,10 @@
       "json_quantity": 100,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "3678",
@@ -214,7 +289,10 @@
       "json_quantity": 100,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "6196",
@@ -222,7 +300,10 @@
       "json_quantity": 100,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "7818",
@@ -230,7 +311,10 @@
       "json_quantity": 100,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "LOGN",
@@ -238,7 +322,10 @@
       "json_quantity": 26,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "VH2",
@@ -246,7 +333,10 @@
       "json_quantity": 23,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "AAPL",
@@ -254,7 +344,10 @@
       "json_quantity": 1,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "2150",
@@ -262,7 +355,10 @@
       "json_quantity": 56200,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "RMS",
@@ -270,7 +366,10 @@
       "json_quantity": 11791,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "3963",
@@ -278,7 +377,10 @@
       "json_quantity": 9500,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "3763",
@@ -286,7 +388,10 @@
       "json_quantity": 9000,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "1401",
@@ -294,7 +399,10 @@
       "json_quantity": 8200,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "6037",
@@ -302,7 +410,10 @@
       "json_quantity": 7500,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "9564",
@@ -310,7 +421,10 @@
       "json_quantity": 6000,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "HDSN",
@@ -318,7 +432,10 @@
       "json_quantity": 5962,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "6580",
@@ -326,7 +443,10 @@
       "json_quantity": 3600,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "4771",
@@ -334,7 +454,10 @@
       "json_quantity": 3500,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "2124",
@@ -342,7 +465,10 @@
       "json_quantity": 500,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "4368",
@@ -350,7 +476,10 @@
       "json_quantity": 200,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "6101",
@@ -358,7 +487,10 @@
       "json_quantity": 200,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "3676",
@@ -366,7 +498,10 @@
       "json_quantity": 100,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "6199",
@@ -374,7 +509,10 @@
       "json_quantity": 100,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "9769",
@@ -382,7 +520,10 @@
       "json_quantity": 100,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "CMB",
@@ -390,7 +531,10 @@
       "json_quantity": 90,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "NTEK.B",
@@ -398,7 +542,10 @@
       "json_quantity": 18,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "MOUR",
@@ -406,7 +553,10 @@
       "json_quantity": 6,
       "ibkr_status": "PreSubmitted",
       "ibkr_quantity": 6.0,
-      "match_status": "OK"
+      "match_status": "PENDING_OK",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": ""
     },
     {
       "symbol": "WAVE",
@@ -414,7 +564,10 @@
       "json_quantity": 6,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     },
     {
       "symbol": "DHI",
@@ -422,9 +575,48 @@
       "json_quantity": 2,
       "ibkr_status": "NOT_FOUND",
       "ibkr_quantity": null,
-      "match_status": "MISSING"
+      "match_status": "MISSING",
+      "order_id": "N/A",
+      "filled_quantity": 0,
+      "avg_fill_price": "N/A"
     }
   ],
+  "enhanced_status_analysis": {
+    "status_breakdown_by_searched_orders": {
+      "NOT_FOUND": 51,
+      "PreSubmitted": 1
+    },
+    "all_ibkr_orders_status_breakdown": {
+      "PreSubmitted": 5
+    },
+    "categorized_orders": {
+      "filled_orders": [],
+      "pending_orders": [
+        {
+          "symbol": "MOUR",
+          "json_action": "BUY",
+          "json_quantity": 6,
+          "ibkr_status": "PreSubmitted",
+          "ibkr_quantity": 6.0,
+          "match_status": "PENDING_OK",
+          "order_id": "N/A",
+          "filled_quantity": 0,
+          "avg_fill_price": ""
+        }
+      ],
+      "cancelled_orders": [],
+      "error_orders": []
+    },
+    "order_counts": {
+      "total_searched": 52,
+      "total_found_in_ibkr": 5,
+      "filled": 0,
+      "pending": 1,
+      "cancelled": 0,
+      "error": 0,
+      "missing": 51
+    }
+  },
   "complete_order_lists": {
     "searched_orders_from_json": {
       "RRL": {
@@ -1848,7 +2040,7 @@
         "216": {
           "contract": "245375405,3963,STK,,0.0,?,,SMART,,JPY,3963.T,3963,False,,combo:",
           "order": "216,20,264950266: MKT SELL 22400@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000018C0DCAD460>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63A990>",
           "symbol": "3963",
           "action": "SELL",
           "quantity": 22400.0,
@@ -1862,7 +2054,7 @@
         "264": {
           "contract": "211595875,1401,STK,,0.0,?,,SMART,,JPY,1401.T,1401,False,,combo:",
           "order": "264,20,264950314: MKT SELL 25300@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000018C0E28AF90>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63AD80>",
           "symbol": "1401",
           "action": "SELL",
           "quantity": 25300.0,
@@ -1876,7 +2068,7 @@
         "262": {
           "contract": "36790656,MOUR,STK,,0.0,?,,SMART,,EUR,MOUR,MOUR,False,,combo:",
           "order": "262,20,264950312: MKT BUY 6@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000018C0E28B350>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63B1D0>",
           "symbol": "MOUR",
           "action": "BUY",
           "quantity": 6.0,
@@ -1890,7 +2082,7 @@
         "311": {
           "contract": "36790656,MOUR,STK,,0.0,?,,SMART,,EUR,MOUR,MOUR,False,,combo:",
           "order": "311,20,264950361: MKT BUY 6@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000018C0E28B770>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63B4A0>",
           "symbol": "MOUR",
           "action": "BUY",
           "quantity": 6.0,
@@ -1904,7 +2096,7 @@
         "361": {
           "contract": "36790656,MOUR,STK,,0.0,?,,SMART,,EUR,MOUR,MOUR,False,,combo:",
           "order": "361,20,1812214209: MKT BUY 6@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000018C0E28BA70>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63B7A0>",
           "symbol": "MOUR",
           "action": "BUY",
           "quantity": 6.0,
@@ -1921,7 +2113,7 @@
         "216": {
           "contract": "245375405,3963,STK,,0.0,?,,SMART,,JPY,3963.T,3963,False,,combo:",
           "order": "216,20,264950266: MKT SELL 22400@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000018C0DCAD460>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63A990>",
           "symbol": "3963",
           "action": "SELL",
           "quantity": 22400.0,
@@ -1935,7 +2127,7 @@
         "264": {
           "contract": "211595875,1401,STK,,0.0,?,,SMART,,JPY,1401.T,1401,False,,combo:",
           "order": "264,20,264950314: MKT SELL 25300@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000018C0E28AF90>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63AD80>",
           "symbol": "1401",
           "action": "SELL",
           "quantity": 25300.0,
@@ -1949,7 +2141,7 @@
         "262": {
           "contract": "36790656,MOUR,STK,,0.0,?,,SMART,,EUR,MOUR,MOUR,False,,combo:",
           "order": "262,20,264950312: MKT BUY 6@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000018C0E28B350>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63B1D0>",
           "symbol": "MOUR",
           "action": "BUY",
           "quantity": 6.0,
@@ -1963,7 +2155,7 @@
         "311": {
           "contract": "36790656,MOUR,STK,,0.0,?,,SMART,,EUR,MOUR,MOUR,False,,combo:",
           "order": "311,20,264950361: MKT BUY 6@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000018C0E28B770>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63B4A0>",
           "symbol": "MOUR",
           "action": "BUY",
           "quantity": 6.0,
@@ -1977,7 +2169,7 @@
         "361": {
           "contract": "36790656,MOUR,STK,,0.0,?,,SMART,,EUR,MOUR,MOUR,False,,combo:",
           "order": "361,20,1812214209: MKT BUY 6@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000018C0E28BA70>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63B7A0>",
           "symbol": "MOUR",
           "action": "BUY",
           "quantity": 6.0,

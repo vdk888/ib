@@ -521,20 +521,47 @@ class OrderStatusService(IOrderStatusService):
 
                         analysis_row['ibkr_status'] = status
                         analysis_row['ibkr_quantity'] = ibkr_qty
+                        analysis_row['order_id'] = matching_order.get('order_id', 'N/A')
+                        analysis_row['filled_quantity'] = matching_order.get('filled', 0)
+                        analysis_row['avg_fill_price'] = matching_order.get('avgFillPrice', 'N/A')
 
-                        if ibkr_qty == json_quantity:
-                            analysis_row['match_status'] = "OK"
+                        # Enhanced status classification
+                        if status in ['Filled', 'PartFilled']:
+                            if ibkr_qty == json_quantity:
+                                analysis_row['match_status'] = "FILLED_OK"
+                            else:
+                                analysis_row['match_status'] = "FILLED_QTY_DIFF"
+                                quantity_mismatches += 1
+                        elif status in ['PreSubmitted', 'Submitted']:
+                            if ibkr_qty == json_quantity:
+                                analysis_row['match_status'] = "PENDING_OK"
+                            else:
+                                analysis_row['match_status'] = "PENDING_QTY_DIFF"
+                                quantity_mismatches += 1
+                        elif status in ['Cancelled', 'PendingCancel']:
+                            analysis_row['match_status'] = "CANCELLED"
+                        elif status in ['Inactive', 'Error']:
+                            analysis_row['match_status'] = "ERROR_STATE"
                         else:
-                            analysis_row['match_status'] = "QTY_DIFF"
-                            quantity_mismatches += 1
+                            if ibkr_qty == json_quantity:
+                                analysis_row['match_status'] = "OK"
+                            else:
+                                analysis_row['match_status'] = "QTY_DIFF"
+                                quantity_mismatches += 1
                     else:
                         analysis_row['ibkr_status'] = "NOT_FOUND"
                         analysis_row['match_status'] = "MISSING"
+                        analysis_row['order_id'] = 'N/A'
+                        analysis_row['filled_quantity'] = 0
+                        analysis_row['avg_fill_price'] = 'N/A'
                         missing_count += 1
                         missing_orders.append(json_order)
                 else:
                     analysis_row['ibkr_status'] = "NOT_FOUND"
                     analysis_row['match_status'] = "MISSING"
+                    analysis_row['order_id'] = 'N/A'
+                    analysis_row['filled_quantity'] = 0
+                    analysis_row['avg_fill_price'] = 'N/A'
                     missing_count += 1
                     missing_orders.append(json_order)
 
@@ -546,7 +573,40 @@ class OrderStatusService(IOrderStatusService):
                     extra_ibkr_orders.extend(ibkr_orders)
 
             success_rate = (found_count / total_json_orders * 100) if total_json_orders > 0 else 0
-            
+
+            # Enhanced order status breakdown
+            status_breakdown = {}
+            filled_orders = []
+            pending_orders = []
+            cancelled_orders = []
+            error_orders = []
+
+            for row in analysis_table:
+                status = row['ibkr_status']
+                match_status = row['match_status']
+
+                if status not in status_breakdown:
+                    status_breakdown[status] = 0
+                status_breakdown[status] += 1
+
+                # Categorize orders for detailed analysis
+                if match_status in ['FILLED_OK', 'FILLED_QTY_DIFF']:
+                    filled_orders.append(row)
+                elif match_status in ['PENDING_OK', 'PENDING_QTY_DIFF']:
+                    pending_orders.append(row)
+                elif match_status == 'CANCELLED':
+                    cancelled_orders.append(row)
+                elif match_status == 'ERROR_STATE':
+                    error_orders.append(row)
+
+            # All IBKR orders status summary
+            all_ibkr_status_breakdown = {}
+            for order_info in all_ibkr_orders.values():
+                status = order_info.get('status', 'Unknown')
+                if status not in all_ibkr_status_breakdown:
+                    all_ibkr_status_breakdown[status] = 0
+                all_ibkr_status_breakdown[status] += 1
+
             return {
                 'comparison_summary': {
                     'found_in_ibkr': found_count,
@@ -557,6 +617,25 @@ class OrderStatusService(IOrderStatusService):
                     'timestamp': datetime.now().isoformat()
                 },
                 'comparative_analysis_table': analysis_table,
+                'enhanced_status_analysis': {
+                    'status_breakdown_by_searched_orders': status_breakdown,
+                    'all_ibkr_orders_status_breakdown': all_ibkr_status_breakdown,
+                    'categorized_orders': {
+                        'filled_orders': filled_orders,
+                        'pending_orders': pending_orders,
+                        'cancelled_orders': cancelled_orders,
+                        'error_orders': error_orders
+                    },
+                    'order_counts': {
+                        'total_searched': total_json_orders,
+                        'total_found_in_ibkr': len(all_ibkr_orders),
+                        'filled': len(filled_orders),
+                        'pending': len(pending_orders),
+                        'cancelled': len(cancelled_orders),
+                        'error': len(error_orders),
+                        'missing': missing_count
+                    }
+                },
                 'complete_order_lists': {
                     'searched_orders_from_json': json_orders,
                     'found_orders_from_ibkr': {
