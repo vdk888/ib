@@ -266,9 +266,124 @@ def _step9_rebalancer(self) -> bool:
         return len(result.get('orders', [])) > 0
 ```
 
-### Phase 4: Order Generation Adaptation (Week 4)
+### Phase 4: Multi-Broker Account Aggregation (Week 4)
 
-#### Step 4.1: Update Rebalancing Service
+#### Step 4.1: Update Step 7 Account Value Calculation
+**Current Issue**: Step 7 only fetches IBKR account value via `AccountService.get_account_total_value()`
+
+**Required Change**: Aggregate account values from all brokers
+
+**File**: `backend/app/services/implementations/quantity_orchestrator_service.py`
+
+```python
+class QuantityOrchestratorService:
+    async def main(self) -> bool:
+        # OLD: Single broker account value
+        # account_value, currency = await self.account_service.get_account_total_value()
+
+        # NEW: Multi-broker account aggregation
+        total_account_value, primary_currency = await self.get_aggregated_account_value()
+
+        if total_account_value is None:
+            print("Failed to get account values from any broker")
+            return False
+
+        # Continue with existing quantity calculation logic...
+
+    async def get_aggregated_account_value(self) -> Tuple[Optional[float], Optional[str]]:
+        """Aggregate account values from all available brokers"""
+        total_value = 0.0
+        primary_currency = "EUR"
+        successful_brokers = []
+
+        # Get IBKR account value (existing logic)
+        ibkr_value, ibkr_currency = await self.account_service.get_account_total_value()
+        if ibkr_value:
+            total_value += ibkr_value
+            successful_brokers.append(f"IBKR: €{ibkr_value:,.2f}")
+
+        # Get Alpaca account value
+        alpaca_value = await self.get_alpaca_account_value()
+        if alpaca_value:
+            # Convert USD to EUR using current exchange rate
+            alpaca_eur = await self.convert_to_eur(alpaca_value, "USD")
+            total_value += alpaca_eur
+            successful_brokers.append(f"Alpaca: €{alpaca_eur:,.2f} (${alpaca_value:,.2f})")
+
+        if total_value > 0:
+            print(f"Total account value aggregated: €{total_value:,.2f}")
+            print(f"  Breakdown: {', '.join(successful_brokers)}")
+            return total_value, primary_currency
+        else:
+            return None, None
+```
+
+#### Step 4.2: Create Multi-Broker Account Interface
+**File**: `backend/app/services/interfaces.py`
+
+Add new interface for multi-broker account management:
+
+```python
+class IMultiBrokerAccountService(ABC):
+    @abstractmethod
+    async def get_aggregated_account_value(self) -> Tuple[Optional[float], Optional[str]]:
+        """Get total account value across all configured brokers in EUR"""
+        pass
+
+    @abstractmethod
+    async def get_broker_account_values(self) -> Dict[str, Dict[str, Any]]:
+        """Get individual account values from each broker with metadata"""
+        pass
+
+    @abstractmethod
+    async def convert_to_eur(self, amount: float, from_currency: str) -> float:
+        """Convert currency amount to EUR using current exchange rates"""
+        pass
+```
+
+#### Step 4.3: Alpaca Account Value Integration
+**File**: `backend/app/services/implementations/alpaca_account_service.py`
+
+```python
+class AlpacaAccountService:
+    async def get_account_value(self) -> Tuple[Optional[float], Optional[str]]:
+        """Get Alpaca account value using existing alpaca_utils/account_info.py"""
+        try:
+            from .legacy.alpaca_utils.account_info import AlpacaAccountClient
+
+            client = AlpacaAccountClient(paper=True)
+            account_summary = client.get_account_summary()
+
+            # Extract equity (total account value)
+            equity = float(account_summary.get('equity', 0))
+            currency = 'USD'  # Alpaca is USD-based
+
+            return equity, currency
+        except Exception as e:
+            print(f"Failed to get Alpaca account value: {e}")
+            return None, None
+```
+
+#### Step 4.4: Update Pipeline Step 7 Dependencies
+**File**: `backend/app/services/implementations/pipeline_orchestrator_service.py`
+
+Update Step 7 metadata to reflect multi-broker dependency:
+
+```python
+7: PipelineStepInfo(
+    step_number=7,
+    step_name="Calculate Quantities (Multi-Broker)",  # Updated name
+    description="Aggregate account values from all brokers and calculate stock quantities",  # Updated description
+    aliases=["7", "step7", "qty", "quantities"],
+    dependencies=[6],
+    creates_files=[],
+    modifies_files=["data/universe.json"]  # Still updates universe.json with aggregated account_total_value
+),
+```
+
+### Phase 5: Order Generation Adaptation (Week 5)
+
+#### Step 5.1: Update Rebalancing Service
 **File**: `backend/app/services/implementations/rebalancing_service.py`
 
 Modify the `load_universe_data()` method to handle the new broker mapping structure:
@@ -281,7 +396,7 @@ def load_universe_data(self, universe_file: str) -> Dict[str, Any]:
     pass
 ```
 
-#### Step 4.2: Broker Selection Logic
+#### Step 5.2: Broker Selection Logic
 Add broker selection logic to the rebalancing service:
 
 ```python
@@ -386,7 +501,7 @@ During transition, maintain both outputs:
 ## Success Metrics
 
 ### Technical Metrics
-- **Mapping Coverage**: >85% of universe stocks mapped to at least one broker
+- **Mapping Coverage**: >95% of universe stocks mapped to at least one broker
 - **Multi-Broker Coverage**: >60% of stocks mapped to multiple brokers
 - **Performance**: Step 8 completes in <2 minutes for 200 stocks
 
