@@ -160,8 +160,18 @@ class IBOrderStatusChecker(EWrapper, EClient):
         logger.info(f"[OK] Received {len(self.completed_orders)} completed orders")
 
     def error(self, reqId, errorCode, errorString, advancedOrderRejectJson=""):
-        if errorCode not in [2104, 2106, 2158, 2107, 2119]:  # Ignore common info messages
+        # Ignore common info messages and expected warnings
+        ignore_codes = [
+            2104, 2106, 2158, 2107, 2119,  # Common info messages
+            321,   # Auto bind orders restriction (expected with non-zero client ID)
+            2174   # Timezone warning (informational)
+        ]
+        if errorCode not in ignore_codes:
             logger.error(f"[ERROR] {errorCode}: {errorString}")
+        elif errorCode == 321:
+            logger.debug(f"[DEBUG] Auto bind restriction (expected): {errorString}")
+        elif errorCode == 2174:
+            logger.debug(f"[DEBUG] Timezone warning (informational): {errorString}")
 
 
 class OrderStatusChecker:
@@ -251,10 +261,14 @@ class OrderStatusChecker:
         self.api.reqOpenOrders()
         time.sleep(3)
 
-        # Request auto open orders (sometimes catches more)
-        logger.info("[DEBUG] Requesting auto open orders...")
-        self.api.reqAutoOpenOrders(True)  # Request automatic order binding
-        time.sleep(3)
+        # Request auto open orders (sometimes catches more) - only works with client ID 0
+        client_id = getattr(self.api, 'clientId', 99)  # Get current client ID
+        if client_id == 0:
+            logger.info("[DEBUG] Requesting auto open orders...")
+            self.api.reqAutoOpenOrders(True)  # Request automatic order binding
+            time.sleep(3)
+        else:
+            logger.info(f"[DEBUG] Skipping auto open orders (client ID {client_id} != 0)")
 
         # Request positions
         logger.info("[DEBUG] Requesting positions...")
@@ -270,8 +284,8 @@ class OrderStatusChecker:
         logger.info("[DEBUG] Requesting executions...")
         from ibapi.execution import ExecutionFilter
         exec_filter = ExecutionFilter()
-        # Get executions from today - use proper format
-        today = datetime.now().strftime("%Y%m%d 00:00:00")
+        # Get executions from today - use proper format with UTC timezone
+        today = datetime.now().strftime("%Y%m%d 00:00:00 UTC")
         exec_filter.time = today
         self.api.reqExecutions(1, exec_filter)
         time.sleep(2)

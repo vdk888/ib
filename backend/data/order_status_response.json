@@ -5,7 +5,7 @@
     "quantity_mismatches": 0,
     "success_rate": 1.9230769230769231,
     "total_orders": 52,
-    "timestamp": "2025-09-20T18:26:39.618196"
+    "timestamp": "2025-09-20T18:28:50.379587"
   },
   "comparative_analysis_table": [
     {
@@ -2040,7 +2040,7 @@
         "216": {
           "contract": "245375405,3963,STK,,0.0,?,,SMART,,JPY,3963.T,3963,False,,combo:",
           "order": "216,20,264950266: MKT SELL 22400@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63A990>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000021F90BA16A0>",
           "symbol": "3963",
           "action": "SELL",
           "quantity": 22400.0,
@@ -2054,7 +2054,7 @@
         "264": {
           "contract": "211595875,1401,STK,,0.0,?,,SMART,,JPY,1401.T,1401,False,,combo:",
           "order": "264,20,264950314: MKT SELL 25300@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63AD80>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000021F9107EF60>",
           "symbol": "1401",
           "action": "SELL",
           "quantity": 25300.0,
@@ -2068,7 +2068,7 @@
         "262": {
           "contract": "36790656,MOUR,STK,,0.0,?,,SMART,,EUR,MOUR,MOUR,False,,combo:",
           "order": "262,20,264950312: MKT BUY 6@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63B1D0>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000021F9107F3B0>",
           "symbol": "MOUR",
           "action": "BUY",
           "quantity": 6.0,
@@ -2082,7 +2082,7 @@
         "311": {
           "contract": "36790656,MOUR,STK,,0.0,?,,SMART,,EUR,MOUR,MOUR,False,,combo:",
           "order": "311,20,264950361: MKT BUY 6@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63B4A0>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000021F9107F680>",
           "symbol": "MOUR",
           "action": "BUY",
           "quantity": 6.0,
@@ -2096,7 +2096,7 @@
         "361": {
           "contract": "36790656,MOUR,STK,,0.0,?,,SMART,,EUR,MOUR,MOUR,False,,combo:",
           "order": "361,20,1812214209: MKT BUY 6@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63B7A0>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000021F9107F980>",
           "symbol": "MOUR",
           "action": "BUY",
           "quantity": 6.0,
@@ -2113,7 +2113,7 @@
         "216": {
           "contract": "245375405,3963,STK,,0.0,?,,SMART,,JPY,3963.T,3963,False,,combo:",
           "order": "216,20,264950266: MKT SELL 22400@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63A990>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000021F90BA16A0>",
           "symbol": "3963",
           "action": "SELL",
           "quantity": 22400.0,
@@ -2127,7 +2127,7 @@
         "264": {
           "contract": "211595875,1401,STK,,0.0,?,,SMART,,JPY,1401.T,1401,False,,combo:",
           "order": "264,20,264950314: MKT SELL 25300@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63AD80>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000021F9107EF60>",
           "symbol": "1401",
           "action": "SELL",
           "quantity": 25300.0,
@@ -2141,7 +2141,7 @@
         "262": {
           "contract": "36790656,MOUR,STK,,0.0,?,,SMART,,EUR,MOUR,MOUR,False,,combo:",
           "order": "262,20,264950312: MKT BUY 6@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63B1D0>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000021F9107F3B0>",
           "symbol": "MOUR",
           "action": "BUY",
           "quantity": 6.0,
@@ -2155,7 +2155,7 @@
         "311": {
           "contract": "36790656,MOUR,STK,,0.0,?,,SMART,,EUR,MOUR,MOUR,False,,combo:",
           "order": "311,20,264950361: MKT BUY 6@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63B4A0>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000021F9107F680>",
           "symbol": "MOUR",
           "action": "BUY",
           "quantity": 6.0,
@@ -2169,7 +2169,7 @@
         "361": {
           "contract": "36790656,MOUR,STK,,0.0,?,,SMART,,EUR,MOUR,MOUR,False,,combo:",
           "order": "361,20,1812214209: MKT BUY 6@0.000000 GTC",
-          "orderState": "<ibapi.order_state.OrderState object at 0x0000022FEE63B7A0>",
+          "orderState": "<ibapi.order_state.OrderState object at 0x0000021F9107F980>",
           "symbol": "MOUR",
           "action": "BUY",
           "quantity": 6.0,
