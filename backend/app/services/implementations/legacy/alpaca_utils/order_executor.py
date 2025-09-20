@@ -334,6 +334,94 @@ class AlpacaOrderExecutor:
             logger.error(f"Unexpected error getting open orders: {e}")
             raise
 
+    def get_recent_orders(self, limit: int = 10, symbol: Optional[str] = None, status: Optional[str] = None) -> List[Dict[str, Any]]:
+        """
+        Get recent orders (order history), optionally filtered by symbol and status.
+
+        Args:
+            limit: Maximum number of orders to return (default 10)
+            symbol: Optional symbol to filter by
+            status: Optional status to filter by (e.g., "filled", "canceled", "all")
+
+        Returns:
+            List of dictionaries containing recent order details
+        """
+        try:
+            # Create request for recent orders
+            request = GetOrdersRequest(
+                limit=limit,
+                symbols=[symbol] if symbol else None,
+                status=status if status else None
+            )
+
+            orders = self.trading_client.get_orders(request)
+
+            recent_orders = []
+            for order in orders:
+                order_data = {
+                    'order_id': str(order.id),
+                    'client_order_id': order.client_order_id,
+                    'symbol': order.symbol,
+                    'side': order.side.value,
+                    'order_type': order.order_type.value,
+                    'qty': float(order.qty) if order.qty else None,
+                    'notional': float(order.notional) if order.notional else None,
+                    'filled_qty': float(order.filled_qty) if order.filled_qty else 0,
+                    'filled_avg_price': float(order.filled_avg_price) if order.filled_avg_price else None,
+                    'status': order.status.value,
+                    'time_in_force': order.time_in_force.value,
+                    'created_at': order.created_at.isoformat() if order.created_at else None,
+                    'submitted_at': order.submitted_at.isoformat() if order.submitted_at else None,
+                    'filled_at': order.filled_at.isoformat() if order.filled_at else None,
+                    'canceled_at': order.canceled_at.isoformat() if order.canceled_at else None,
+                    'expired_at': order.expired_at.isoformat() if order.expired_at else None,
+                    'is_filled': order.status.value == 'filled',
+                    'is_canceled': order.status.value == 'canceled',
+                    'is_pending': order.status.value in ['new', 'accepted', 'pending_new', 'partially_filled']
+                }
+                recent_orders.append(order_data)
+
+            logger.info(f"Retrieved {len(recent_orders)} recent orders" +
+                       (f" for {symbol}" if symbol else "") +
+                       (f" with status {status}" if status else ""))
+            return recent_orders
+
+        except APIError as e:
+            logger.error(f"Alpaca API error getting recent orders: {e}")
+            raise
+        except Exception as e:
+            logger.error(f"Unexpected error getting recent orders: {e}")
+            raise
+
+    def get_order_history(self, limit: int = 50, symbol: Optional[str] = None) -> List[Dict[str, Any]]:
+        """
+        Get order history (all orders regardless of status).
+
+        Args:
+            limit: Maximum number of orders to return (default 50)
+            symbol: Optional symbol to filter by
+
+        Returns:
+            List of dictionaries containing order history
+        """
+        return self.get_recent_orders(limit=limit, symbol=symbol, status=None)
+
+    def get_filled_orders(self, limit: int = 20, symbol: Optional[str] = None) -> List[Dict[str, Any]]:
+        """
+        Get recent filled orders only.
+
+        Args:
+            limit: Maximum number of orders to return (default 20)
+            symbol: Optional symbol to filter by
+
+        Returns:
+            List of dictionaries containing filled order details
+        """
+        # Get all closed orders and filter for filled ones
+        all_orders = self.get_recent_orders(limit=limit * 2, symbol=symbol, status="closed")
+        filled_orders = [order for order in all_orders if order['is_filled']]
+        return filled_orders[:limit]
+
 
 # Convenience functions for quick order execution
 def alpaca_buy_market_gtc(symbol: str, qty: Union[int, float], paper: bool = True) -> Dict[str, Any]:
